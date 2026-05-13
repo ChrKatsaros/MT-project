@@ -1,34 +1,55 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+
+import ScrollToTop from './components/ScrollToTop';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
 import Home from './components/Home';
 import About from './components/About';
-import Contact from './components/Contact';
-import Collection from './components/Collection';
-import Eyeglasses from './components/Eyeglasses';
-import Sunglasses from './components/Sunglasses';
-import CookieBanner from './components/CookieBanner';
+import Application from './components/Application';
+import Gallery from './components/Gallery';
+import Protocol from './components/Protocol';
+import Experiences from './components/Experiences';
 
-// import του banner
-import ShippingBanner from './components/ShippingBanner';
+import AgeWarning from './components/AgeWarning';
+import Underage from './components/Underage';
+
+function AppContent() {
+  const location = useLocation();
+
+  return (
+    <>
+      <ScrollToTop />
+
+      {/* Hide age warning on underage page */}
+      {location.pathname !== '/underage' && <AgeWarning />}
+
+      {/* Hide navbar/footer on underage page */}
+      {location.pathname !== '/underage' && <Navbar />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/experiences" element={<Experiences />} />
+        <Route path="/protocol" element={<Protocol />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/application" element={<Application />} />
+
+        {/* Underage page */}
+        <Route path="/underage" element={<Underage />} />
+      </Routes>
+
+      {location.pathname !== '/underage' && <Footer />}
+    </>
+  );
+}
 
 function App() {
   return (
     <BrowserRouter>
-      <ShippingBanner /> {/* 🔼 Βάλε το εδώ, πάνω απ’ το Navbar */}
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sunglasses" element={<Sunglasses />} />
-        <Route path="/eyeglasses" element={<Eyeglasses />} />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
-      <CookieBanner />
+      <AppContent />
     </BrowserRouter>
   );
 }

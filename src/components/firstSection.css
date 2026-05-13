@@ -2,10 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  gap: 1rem;
-  font-family: 'Arial', sans-serif;
-  background-color: #fff;
+
+  background: #0a0a0a;
   overflow-x: hidden;
 }
 
@@ -18,46 +16,46 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 0.8s ease-out;
+  transition: transform 1.59s ease-out;
   display: block;
   will-change: transform;
 }
 
 .first-middle-content {
-  width: 35%;
+  width: 32%;
   text-align: center;
   color: #111;
 }
 
 .first-small-title {
-  font-size: 0.875rem; /* 14px */
+  font-size: 1rem; /* 14px */
   font-weight: 600;
   letter-spacing: 0.125rem; /* 2px */
   text-transform: uppercase;
-  color: #555;
+  color: #751c1c;
   margin-bottom: 0.9375rem; /* 15px */
 }
 
 .first-main-title {
-  font-size: 1.75rem; /* 28px */
+  font-size: 1.55rem; /* 28px */
   font-weight: 900;
-  margin-bottom: 1.875rem; /* 30px */
-  color: #222;
+  margin-bottom: 2.875rem; /* 30px */
+  color: #b8b0aa;
 }
 
 .first-shop-button {
-  background-color: #f3f052;
+  background-color: #070707;
   color: white;
   font-weight: 700;
   font-size: 1rem; /* 16px */
   padding: 0.875rem 3.125rem; /* 14px 50px */
-  border: none;
+  border: 0.1px solid #751c1c;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .first-shop-button:hover {
-  background-color: #fff23a;
+  background-color: #161616;
 }
 
 @media (max-width: 768px) {

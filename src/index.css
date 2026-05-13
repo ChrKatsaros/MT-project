@@ -7,3 +7,27 @@ body {
   scroll-behavior: smooth;
   width: 100%;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cinzel', serif;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+}
+button {
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+span {
+  color: #470909;
+}

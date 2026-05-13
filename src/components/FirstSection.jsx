@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firstSectionIMG1 from '../assets/firstSectionIMG1.webp';
 import firstSectionIMG2 from '../assets/firstSectionIMG2.webp';
 import '../components/firstSection.css';
+import { Link } from 'react-router-dom';
 function FirstSection() {
   const [zoom, setZoom] = useState(1);
 
@@ -28,11 +29,14 @@ function FirstSection() {
       </div>
 
       <div className="first-middle-content">
-        <span className="first-small-title">NEW ARRIVALS</span>
+        <span className="first-small-title">Exclusive Experiences</span>
         <h1 className="first-main-title">
-          Get An Extra 15% Off Your First Online Order
+          Every Session is uniquely crafted to create an atmosphere of
+          intensity, elegance and unforgettable connection.
         </h1>
-        <button className="first-shop-button">SHOP NOW</button>
+        <Link to="/about">
+          <button className="first-shop-button">Enter My World</button>
+        </Link>
       </div>
 
       <div className="first-image-wrapper">

@@ -1,139 +1,109 @@
 .second-section {
   text-align: center;
-  padding: 1rem 0rem;
-  background-color: #fffdfd;
-  font-family: 'Arial', sans-serif;
-  color: #111;
+
+  padding: 30px 8%;
+
+  background: #0a0a0a;
+  color: #f1ece8;
+
+  font-family: 'Inter', sans-serif;
 }
 
+/* TITLE */
 .section-title {
-  font-size: 2.25rem; /* 36px */
-  font-weight: 900;
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 0;
-  letter-spacing: 0.0625rem; /* 1px */
+  font-size: 2.6rem;
+  font-family: 'Cinzel', serif;
+
+  font-weight: 300;
+
+  margin-bottom: 50px;
+
+  letter-spacing: 1px;
 }
 
-.card-row {
+.section-title span {
+  color: #9f7a66;
+}
+
+/* EXPERIENCE LIST (COMPACT) */
+.experience-list {
   display: flex;
-  justify-content: center;
-  gap: 3.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 40px;
 }
 
-.eyewear-card {
-  width: 15.625rem; /* 250px */
-  text-align: center;
-}
+.experience-list h3 {
+  font-size: 0.9rem;
 
-.card-title {
-  font-size: 0.875rem; /* 14px */
-  font-weight: 700;
-  letter-spacing: 0.125rem; /* 2px */
+  font-weight: 400;
+
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #a3a3a3;
-  margin-bottom: 0.75rem; /* 12px */
-  font-family: 'Arial', sans-serif;
-  text-align: center;
+
+  color: #b8b0aa;
+
+  margin: 0;
+  line-height: 1.2;
+
+  transition: 0.25s ease;
 }
 
-/* Wrapper για hover effect */
-.image-wrapper {
-  position: relative;
-  width: 16.875rem; /* 270px */
-  height: 16.875rem; /* 270px */
-  overflow: hidden;
+.experience-list h3:hover {
+  color: #f1ece8;
 }
 
-/* Εικόνα */
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); /* 4px 12px */
-  transition: opacity 0.4s ease;
-  display: block;
+/* CTA */
+.section-cta {
+  margin-top: 50px;
 }
 
-/* Overlay κουτί */
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  color: #111;
-  font-weight: 700;
-  font-size: 1.125rem; /* 18px */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  text-transform: uppercase;
-  pointer-events: auto;
+.section-cta h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+
+  color: #c5bcb4;
+
+  margin-bottom: 15px;
+}
+
+.section-cta span {
+  color: #9f7a66;
+}
+
+.cta-button {
+  display: inline-block;
+
+  padding: 10px 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+
+  color: #f1ece8;
   text-decoration: none;
-  cursor: pointer;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  transition: 0.3s ease;
 }
 
-/* Hover Effects */
-.image-wrapper:hover .card-image {
-  opacity: 0.4;
+.cta-button:hover {
+  background: #f1ece8;
+  color: #0a0a0a;
 }
 
-.image-wrapper:hover .image-overlay {
-  opacity: 1;
-}
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .section-title {
-    font-size: 1.75rem; /* 28px */
+    font-size: 2rem;
   }
 
-  .card-row {
-    gap: 2rem;
-  }
-
-  .eyewear-card {
-    width: 12.5rem; /* 200px */
-  }
-
-  .image-wrapper {
-    width: 13.75rem; /* 220px */
-    height: 13.75rem;
-  }
-
-  .card-title {
-    font-size: 0.75rem; /* 12px */
-  }
-
-  .image-overlay {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-title {
-    font-size: 1.5rem; /* 24px */
-  }
-
-  .eyewear-card {
-    width: 100%;
-  }
-
-  .image-wrapper {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1; /* για τετράγωνη εικόνα χωρίς να ορίζουμε fixed ύψος */
-  }
-
-  .card-title {
-    font-size: 0.6875rem; /* 11px */
-  }
-
-  .image-overlay {
-    font-size: 0.875rem;
+  .experience-list h3 {
+    font-size: 0.8rem;
   }
 }

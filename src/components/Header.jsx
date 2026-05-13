@@ -1,18 +1,20 @@
 import React from 'react';
 import headerIMG from '../assets/headerIMG.webp';
 import '../components/header.css';
-
+import { Link } from 'react-router-dom';
 function Header() {
   return (
     <div className="header-container">
       <img src={headerIMG} className="header-img" alt="Header" />
       <div className="header-content">
-        <span className="small-title">NEW COLLECTION SS25</span>
-        <h1 className="main-title">Brands You Love</h1>
-        <p className="description">
-          Discover the latest trends and timeless styles
-        </p>
-        <button className="shop-button">SHOP NOW</button>
+        <span className="small-title">Elite Dominance Experience</span>
+        <h1 className="main-title">
+          <span>T</span>abitha <span>T</span>horn
+        </h1>
+        <p className="description">Enter My World</p>
+        <Link to="/application">
+          <button className="shop-button">Apply</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,94 +1,123 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { FaBars, FaFacebookF, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
+import { useState } from 'react';
+
+import {
+  FaBars,
+  FaInstagram,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from 'react-icons/fa';
+
 import './navbar.css';
 import logo from '../assets/logo.png';
 
 function Navbar() {
   const location = useLocation();
-  const [clickedLogo, setClickedLogo] = useState(false);
-
-  useEffect(() => {
-    if (clickedLogo && location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    setClickedLogo(false); // reset after every route change
-  }, [location, clickedLogo]);
-
-  const handleLogoClick = () => {
-    if (location.pathname === '/') {
-      setClickedLogo(true);
-    }
-    // αλλιώς θα πάει στην αρχική μέσω του Link
-  };
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
+  // helper για active link
+  const isActive = (path) => location.pathname === path;
+
   return (
     <div className="navbar-container">
-      {/* Logo */}
+      {/* LOGO */}
       <div className="navbar-logo">
-        <Link to="/" className="logo" onClick={handleLogoClick}>
-          <img src={logo} alt="Nocté Eyewear Logo" draggable="false" />
+        <Link to="/" className="logo">
+          <img src={logo} alt="Logo" draggable="false" />
         </Link>
       </div>
 
-      {/* Desktop Links */}
+      {/* DESKTOP NAV */}
       <nav className="navbar-links">
         <ul className="nav-links">
-          <li>
-            <Link to="/sunglasses">Sunglasses</Link>
-          </li>
-          <li>
-            <Link to="/eyeglasses">Eyeglasses</Link>
-          </li>
-          <li>
-            <Link to="/collection">Collection</Link>
-          </li>
-          <li>
+          <li className={isActive('/about') ? 'active' : ''}>
             <Link to="/about">About</Link>
           </li>
-          <li>
-            <Link to="/contact">Contact</Link>
+
+          <li className={isActive('/experiences') ? 'active' : ''}>
+            <Link to="/experiences">Experiences</Link>
+          </li>
+
+          <li className={isActive('/protocol') ? 'active' : ''}>
+            <Link to="/protocol">Protocol</Link>
+          </li>
+
+          <li className={isActive('/gallery') ? 'active' : ''}>
+            <Link to="/gallery">Gallery</Link>
+          </li>
+
+          <li className={isActive('/application') ? 'active' : ''}>
+            <Link to="/application">Application</Link>
           </li>
         </ul>
       </nav>
 
-      {/* Hamburger Icon (Mobile only) */}
+      {/* MOBILE HAMBURGER */}
       <div className="mobile-hamburger" onClick={toggleMenu}>
         <FaBars size={28} />
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        <Link to="/sunglasses" onClick={closeMenu}>
-          Sunglasses
-        </Link>
-        <Link to="/eyeglasses" onClick={closeMenu}>
-          Eyeglasses
-        </Link>
-        <Link to="/collection" onClick={closeMenu}>
-          Collection
-        </Link>
-        <Link to="/about" onClick={closeMenu}>
+        <Link
+          to="/about"
+          onClick={closeMenu}
+          className={isActive('/about') ? 'active' : ''}
+        >
           About
         </Link>
-        <Link to="/contact" onClick={closeMenu}>
-          Contact
+        <Link
+          to="/experiences"
+          onClick={closeMenu}
+          className={isActive('/experiences') ? 'active' : ''}
+        >
+          Experiences
+        </Link>
+        <Link
+          to="/protocol"
+          onClick={closeMenu}
+          className={isActive('/protocol') ? 'active' : ''}
+        >
+          Protocol
+        </Link>
+        <Link
+          to="/gallery"
+          onClick={closeMenu}
+          className={isActive('/gallery') ? 'active' : ''}
+        >
+          Gallery
+        </Link>
+        <Link
+          to="/application"
+          onClick={closeMenu}
+          className={isActive('/application') ? 'active' : ''}
+        >
+          Application
         </Link>
 
+        {/* SOCIALS */}
         <div className="mobile-socials">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer">
-            <FaFacebookF size={24} />
+          <a
+            href="https://instagram.com/misstabithathorne"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaInstagram size={22} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
-            <FaInstagram size={24} />
+
+          <a href="tel:07984851771">
+            <FaPhoneAlt size={20} />
           </a>
-          <a href="tel:+123456789">
-            <FaPhoneAlt size={24} />
+
+          <a
+            href="https://maps.google.com/?q=West+Kensington+W14+London"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaMapMarkerAlt size={20} />
           </a>
         </div>
       </div>
