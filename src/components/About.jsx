@@ -2,7 +2,7 @@ import React from 'react';
 import './about.css';
 import { Link } from 'react-router-dom';
 
-import backgroundAbout from '../assets/backgroundAbout.jpg';
+import backgroundAbout from '../assets/backgroundAbout.JPG';
 
 function About() {
   return (
