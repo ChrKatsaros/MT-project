@@ -2,6 +2,8 @@ import React from 'react';
 import './Footer.css';
 import logo from '../assets/logo.png';
 
+import { Link } from 'react-router-dom';
+
 import {
   FaInstagram,
   FaEnvelope,
@@ -23,10 +25,21 @@ const Footer = () => {
           <h4>Navigation</h4>
 
           <ul>
-            <li>About</li>
-            <li>Experiences</li>
-            <li>Gallery</li>
-            <li>Application</li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+
+            <li>
+              <Link to="/experiences">Experiences</Link>
+            </li>
+
+            <li>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+
+            <li>
+              <Link to="/application">Application</Link>
+            </li>
           </ul>
         </div>
 
@@ -35,21 +48,20 @@ const Footer = () => {
           <h4>Contact</h4>
 
           <div className="footer-contact">
-            <a
-              href="https://maps.google.com/?q=West+Kensington+W14+London"
-              target="_blank"
-              rel="noreferrer"
-            >
+            {/* MAP */}
+            <a>
               <FaMapMarkerAlt />
-              West Kensington · W14
+              West Kensington · London W14
             </a>
 
+            {/* PHONE */}
             <a href="tel:07984851771">
               <FaPhoneAlt />
               07984 851771
             </a>
 
-            <a href="mailto:hello@example.com">
+            {/* EMAIL */}
+            <a href="mailto:MissTabithaThorne@proton.me">
               <FaEnvelope />
               Private Enquiries
             </a>

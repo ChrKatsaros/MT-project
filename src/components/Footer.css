@@ -69,17 +69,22 @@
 
 .footer-section li {
   margin-bottom: 0.9rem;
+}
 
+/* ✅ LINKS FIX */
+.footer-section li a {
   font-size: 0.9rem;
 
   color: #b8b0aa;
 
-  cursor: pointer;
+  text-decoration: none;
 
   transition: 0.3s ease;
+
+  display: inline-block;
 }
 
-.footer-section li:hover {
+.footer-section li a:hover {
   color: #f1ece8;
 
   transform: translateX(2px);
@@ -152,6 +157,8 @@
 .footer-bottom {
   text-align: center;
 
+  margin-top: 2rem;
+
   font-size: 0.72rem;
 
   letter-spacing: 1px;
@@ -166,7 +173,7 @@
   }
 }
 
-/* ✅ MOBILE FIX (ONLY CHANGE) */
+/* MOBILE */
 @media (max-width: 768px) {
   .footer {
     padding: 2rem 1rem 1rem;
@@ -179,7 +186,7 @@
 
     text-align: center;
 
-    gap: 1.5rem; /* was 2.5rem */
+    gap: 1.5rem;
   }
 
   .footer-logo {
@@ -189,12 +196,13 @@
   }
 
   .footer-logo img {
-    width: 130px; /* smaller logo */
+    width: 130px;
+
     margin-bottom: 0.8rem;
   }
 
   .footer-section {
-    gap: 1rem;
+    width: 100%;
   }
 
   .footer-section h4 {

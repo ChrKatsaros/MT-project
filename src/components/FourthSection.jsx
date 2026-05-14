@@ -29,11 +29,7 @@ const FourthSection = () => {
             Dungeon Location
           </span>
 
-          <a
-            href="https://maps.google.com/?q=West+Kensington+W14+London"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a target="_blank" rel="noreferrer">
             West Kensington · W14 · London
           </a>
         </div>
