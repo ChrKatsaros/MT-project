@@ -120,3 +120,37 @@
     opacity: 1;
   }
 }
+/* =========================
+   LUXURY FADE OUT
+========================= */
+
+.age-warning-overlay.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+  pointer-events: none;
+}
+
+.age-warning-overlay.fade-out .age-warning-box {
+  animation: scaleOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.03);
+    opacity: 0;
+  }
+}

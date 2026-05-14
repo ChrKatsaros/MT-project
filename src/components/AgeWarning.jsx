@@ -4,10 +4,15 @@ import './ageWarning.css';
 
 function AgeWarning() {
   const [showWarning, setShowWarning] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
   const navigate = useNavigate();
 
   const handleEnter = () => {
-    setShowWarning(false);
+    setFadeOut(true);
+
+    setTimeout(() => {
+      setShowWarning(false);
+    }, 500); // διάρκεια fade
   };
 
   const handleLeave = () => {
@@ -17,7 +22,7 @@ function AgeWarning() {
   if (!showWarning) return null;
 
   return (
-    <div className="age-warning-overlay">
+    <div className={`age-warning-overlay ${fadeOut ? 'fade-out' : ''}`}>
       <div className="age-warning-box">
         <span className="warning-badge">18+</span>
 

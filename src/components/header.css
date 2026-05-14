@@ -101,7 +101,7 @@
 @media (max-width: 480px) {
   .header-content {
     position: absolute;
-    top: 52%;
+    top: 57%;
     left: 5%;
     color: white;
     max-width: 25rem; /* 400px */

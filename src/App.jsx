@@ -15,7 +15,7 @@ import Experiences from './components/Experiences';
 
 import AgeWarning from './components/AgeWarning';
 import Underage from './components/Underage';
-
+import FourthSection from './components/FourthSection';
 function AppContent() {
   const location = useLocation();
 
@@ -41,6 +41,7 @@ function AppContent() {
         <Route path="/underage" element={<Underage />} />
       </Routes>
 
+      {location.pathname !== '/underage' && <FourthSection />}
       {location.pathname !== '/underage' && <Footer />}
     </>
   );

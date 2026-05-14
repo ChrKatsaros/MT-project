@@ -3,7 +3,6 @@ import Header from './Header';
 import FirstSection from './FirstSection';
 import SecondSection from './SecondSection';
 import ThirdSection from './ThirdSection';
-import FourthSection from './FourthSection';
 
 function Home() {
   return (
@@ -12,7 +11,6 @@ function Home() {
       <FirstSection />
       <SecondSection />
       <ThirdSection />
-      <FourthSection />
     </div>
   );
 }

@@ -61,9 +61,31 @@ const FourthSection = () => {
         </div>
       </div>
 
-      <Link to="/application" className="fourth-button">
-        Submit Application
-      </Link>
+      {/* WISHLIST BLOCK */}
+      <div className="wishlist-block">
+        <p className="wishlist-eyebrow">Private Selection</p>
+
+        <p className="wishlist-message">
+          A curated collection of personal preferences, gifts, and indulgences.
+          For those who wish to contribute or explore what inspires her world.
+        </p>
+
+        <a
+          href="https://throne.com/tabithathorne"
+          target="_blank"
+          rel="noreferrer"
+          className="fourth-button wishlist"
+        >
+          Enter Her Wishlist
+        </a>
+      </div>
+
+      {/* APPLICATION CTA */}
+      <div className="fourth-cta-group">
+        <Link to="/application" className="fourth-button primary">
+          Submit Application
+        </Link>
+      </div>
     </section>
   );
 };

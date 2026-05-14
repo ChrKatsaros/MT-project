@@ -20,7 +20,6 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  /* CENTER IMAGE */
   background-position: center 36%;
 }
 
@@ -85,7 +84,6 @@
   margin: 0 auto;
 }
 
-/* 🖤 LUXURY H2 SYSTEM (BURGUNDY GLOW) */
 .about-section h2 {
   font-family: 'Cinzel', serif;
   margin-bottom: 40px;
@@ -97,7 +95,6 @@
   position: relative;
 }
 
-/* subtle burgundy underline glow */
 .about-section h2::after {
   content: '';
   display: block;
@@ -126,13 +123,8 @@
   letter-spacing: 2px;
 }
 
-/* subtle burgundy emphasis text */
-.burgundy {
-  color: #7a1f2f;
-}
-
 /* =======================
-   IMAGE BLOCKS
+   IMAGE BLOCKS (DESKTOP SAFE)
 ======================= */
 
 .about-image-block {
@@ -140,6 +132,7 @@
   max-width: 1000px;
   margin: 80px auto;
   padding: 0 10%;
+  box-sizing: border-box;
 }
 
 .about-image-block img {
@@ -180,7 +173,6 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* burgundy luxury card */
 .burgundy-card {
   border: 1px solid rgba(107, 30, 46, 0.4);
   background: linear-gradient(
@@ -265,7 +257,7 @@
 }
 
 /* =======================
-   MOBILE
+   MOBILE FIX (ONLY PROBLEM FIXED)
 ======================= */
 
 @media (max-width: 768px) {
@@ -277,8 +269,24 @@
     grid-template-columns: 1fr;
   }
 
+  .about-section {
+    padding: 80px 6%;
+  }
+
+  /* 🔥 FIX IMAGE OVERFLOW RIGHT SIDE */
+  .about-image-block {
+    padding: 0;
+    margin: 60px auto;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .about-image-block img,
   .about-image-block.large img {
+    width: 100%;
     height: 300px;
+    object-fit: cover;
+    display: block;
   }
 }

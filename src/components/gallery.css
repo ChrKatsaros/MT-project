@@ -4,17 +4,26 @@
   color: white;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .gallery-hero {
   position: relative;
   height: 100vh;
+
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
+
+  /* DESKTOP IMAGE */
+  background-image: url('../assets/gallery21.webp');
 }
 
 .gallery-overlay {
@@ -34,7 +43,7 @@
 .gallery-hero-content h1 {
   font-family: 'Cinzel', serif;
   font-size: 3.5rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 4px;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -48,7 +57,9 @@
   letter-spacing: 1px;
 }
 
-/* GRID */
+/* =========================
+   GRID
+========================= */
 
 .gallery-grid-section {
   padding: 120px 8%;
@@ -82,7 +93,45 @@
   filter: brightness(1);
 }
 
-/* TABLET */
+/* =========================
+   CTA
+========================= */
+
+.gallery-bottom-cta {
+  margin-top: 120px;
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.gallery-bottom-cta h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #e6e6e6;
+}
+
+.gallery-cta {
+  display: inline-block;
+  padding: 14px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: white;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  transition: all 0.4s ease;
+}
+
+.gallery-cta:hover {
+  background: white;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 992px) {
   .gallery-grid {
@@ -90,15 +139,20 @@
   }
 
   .gallery-hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
   .gallery-hero {
     height: 80vh;
+
+    /* MOBILE IMAGE OVERRIDE */
+    background-image: url('../assets/gallery2.webp');
   }
 
   .gallery-hero-content h1 {
@@ -123,36 +177,9 @@
   .gallery-card img {
     height: 420px;
   }
-}
-.gallery-bottom-cta {
-  margin-top: 120px;
-  text-align: center;
-  padding-bottom: 80px;
-}
 
-.gallery-bottom-cta h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
-  color: #e6e6e6;
-}
-
-/* reuse CTA style */
-.gallery-cta {
-  display: inline-block;
-  padding: 14px 34px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: white;
-  text-decoration: none;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  transition: all 0.4s ease;
-}
-
-.gallery-cta:hover {
-  background: white;
-  color: black;
-  transform: translateY(-2px);
+  .gallery-bottom-cta {
+    margin-top: 80px;
+    padding-bottom: 60px;
+  }
 }
