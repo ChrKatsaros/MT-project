@@ -28,6 +28,12 @@ button {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-span {
+h1 span {
   color: #470909;
+
+  text-shadow:
+    1px 1px 0 rgba(255, 255, 255, 0.9),
+    2px 2px 0 rgba(255, 255, 255, 0.7),
+    3px 3px 0 rgba(255, 255, 255, 0.45),
+    4px 4px 10px rgba(255, 255, 255, 0.15);
 }

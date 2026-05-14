@@ -4,7 +4,20 @@ import './application.css';
 function Application() {
   return (
     <div className="application-page">
-      <form action="https://formspree.io/f/mzdowzyr" method="POST">
+      <form action="https://formspree.io/f/xvzljpqn" method="POST">
+        {/* FORM SETTINGS */}
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Application Submission"
+        />
+
+        <input
+          type="hidden"
+          name="_next"
+          value="https://tabithathorne.co.uk/application"
+        />
+
         {/* HERO */}
         <section className="app-hero">
           <h1>
@@ -29,7 +42,6 @@ function Application() {
           <div className="form-grid">
             <input name="name" type="text" placeholder="Name" required />
 
-            {/* AGE 18+ FIELD */}
             <input
               name="age"
               type="number"
@@ -63,16 +75,19 @@ function Application() {
             placeholder="What draws you here?"
             required
           />
+
           <textarea
             name="emotional_dynamic"
             placeholder="What emotional dynamic interests you most?"
             required
           />
+
           <textarea
             name="control_role"
             placeholder="What role does control or surrender play in your fantasies?"
             required
           />
+
           <textarea
             name="atmosphere"
             placeholder="Describe the atmosphere you are seeking."
@@ -89,11 +104,13 @@ function Application() {
             placeholder="Previous experience with BDSM or Femdom?"
             required
           />
+
           <textarea
             name="limits"
             placeholder="Boundaries or limits?"
             required
           />
+
           <textarea
             name="interests"
             placeholder="Interests you would like explored?"

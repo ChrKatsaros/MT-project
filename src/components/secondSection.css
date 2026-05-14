@@ -22,9 +22,13 @@
 }
 
 .section-title span {
-  color: #9f7a66;
-}
+  color: #9f7a66 !important;
 
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+
+  filter: none !important;
+}
 /* EXPERIENCE LIST (COMPACT) */
 .experience-list {
   display: flex;

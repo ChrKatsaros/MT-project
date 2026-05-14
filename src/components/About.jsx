@@ -45,13 +45,19 @@ function About() {
           </p>
 
           <p>
-            She offers a distinctive fusion of discipline, psychological depth,
-            sensual authority, and emotional intelligence.
+            Convent school educated and counsellor trained, her approach
+            combines discipline, emotional intelligence, sensuality, and
+            structured control within carefully curated luxury environments.
           </p>
 
           <p>
-            Her approach combines structure, atmosphere, ritual, feminine
-            control, and carefully guided psychological immersion.
+            She offers a distinctive fusion of psychological depth, feminine
+            authority, ritual-led control, and immersive power exchange.
+          </p>
+
+          <p>
+            Her approach combines structure, atmosphere, behavioural
+            understanding, and carefully guided psychological immersion.
           </p>
 
           <p className="highlight">Elegant. Observant. Demanding.</p>
@@ -90,9 +96,10 @@ function About() {
 
         <div className="text-block">
           <p>
-            With training in sensual tantric and body-to-body massage, she
-            understands the subtle language of energy, anticipation, touch,
-            pacing, and surrender.
+            With training in sensual tantric and body-to-body massage, alongside
+            a background in counselling and emotional guidance, she understands
+            the subtle language of energy, anticipation, touch, pacing, and
+            surrender.
           </p>
 
           <p>
@@ -113,7 +120,6 @@ function About() {
           </p>
         </div>
       </section>
-
       {/* IMAGE BREAK */}
       <div className="about-image-block large">
         <img src={backgroundAbout} alt="luxury mood" />
