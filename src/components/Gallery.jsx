@@ -2,7 +2,7 @@ import React from 'react';
 import './gallery.css';
 import { Link } from 'react-router-dom';
 
-import gallery0 from '../assets/gallery0.webp';
+import gallery0 from '../assets/gallery20.webp';
 import gallery1 from '../assets/gallery21.webp';
 import gallery2 from '../assets/gallery19.webp';
 import gallery3 from '../assets/gallery3.webp';
@@ -19,7 +19,7 @@ import gallery13 from '../assets/gallery13.webp';
 import gallery14 from '../assets/gallery14.webp';
 import gallery18 from '../assets/gallery18.webp';
 import gallery19 from '../assets/gallery2.webp';
-import gallery20 from '../assets/gallery20.webp';
+import gallery20 from '../assets/gallery0.webp';
 
 function Gallery() {
   const images = [
