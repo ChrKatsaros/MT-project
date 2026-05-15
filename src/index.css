@@ -37,3 +37,8 @@ h1 span {
     3px 3px 0 rgba(255, 255, 255, 0.45),
     4px 4px 10px rgba(255, 255, 255, 0.15);
 }
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}

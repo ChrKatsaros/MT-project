@@ -1,12 +1,44 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Overview
 
-Currently, two official plugins are available:
+This is a Vite-based frontend project built for a client website.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project is already deployed and running in production.
 
-## Expanding the ESLint configuration
+# Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Vite
+- React (if applicable)
+- JavaScript / TypeScript (depending on your setup)
+- CSS / Tailwind (if used)
+
+# Setup Instructions (for developers)
+
+To run the project locally:
+
+1. Install dependencies:
+   npm install
+
+2. Start development server:
+   npm run dev
+
+3. Build for production:
+   npm run build
+
+4. Preview production build:
+   npm run preview
+
+# Notes
+
+- The `node_modules` folder is not included and should be installed using npm install.
+- Environment variables are not included (if any were used, they must be added manually).
+- The project is already deployed and fully functional in production.
+
+# Deployment
+
+The live version of the website is already hosted and connected to the client domain via Render.
+
+---
+
+For any modifications, a developer can work directly with this source code.
