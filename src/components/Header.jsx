@@ -9,7 +9,7 @@ function Header() {
       <div className="header-content">
         <span className="small-title">Elite Dominance Experience</span>
         <h1 className="main-title">
-          <span>T</span>abitha <span>T</span>horn
+          <span>T</span>abitha <span>T</span>horne
         </h1>
         <p className="description">Enter My World</p>
         <Link to="/application">
