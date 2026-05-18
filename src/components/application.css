@@ -124,7 +124,17 @@ textarea:focus {
 .accent {
   color: #7a1f2f;
 }
+.required-note {
+  margin-bottom: 25px;
+  color: #bdbdbd;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
 
+.required-note span {
+  color: #7a1f2f;
+  font-weight: 600;
+}
 /* MOBILE */
 
 @media (max-width: 768px) {

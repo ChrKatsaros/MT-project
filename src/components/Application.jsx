@@ -39,28 +39,32 @@ function Application() {
         <section className="app-section">
           <h2>Basic Information</h2>
 
+          <div className="required-note">
+            <span>*</span> Required fields
+          </div>
+
           <div className="form-grid">
-            <input name="name" type="text" placeholder="Name" required />
+            <input name="name" type="text" placeholder="Name *" required />
 
             <input
               name="age"
               type="number"
               min="18"
-              placeholder="Age (must be 18+)"
+              placeholder="Age (18+) *"
               required
             />
 
             <input
               name="location"
               type="text"
-              placeholder="Location"
+              placeholder="Location *"
               required
             />
 
             <input
               name="contact"
               type="text"
-              placeholder="Preferred method of contact"
+              placeholder="Preferred method of contact *"
               required
             />
           </div>
@@ -72,26 +76,23 @@ function Application() {
 
           <textarea
             name="draws_you_here"
-            placeholder="What draws you here?"
+            placeholder="What draws you here? *"
             required
           />
 
           <textarea
             name="emotional_dynamic"
             placeholder="What emotional dynamic interests you most?"
-            required
           />
 
           <textarea
             name="control_role"
             placeholder="What role does control or surrender play in your fantasies?"
-            required
           />
 
           <textarea
             name="atmosphere"
             placeholder="Describe the atmosphere you are seeking."
-            required
           />
         </section>
 
@@ -101,20 +102,19 @@ function Application() {
 
           <textarea
             name="previous_experience"
-            placeholder="Previous experience with BDSM or Femdom?"
+            placeholder="Previous experience with BDSM or Femdom? *"
             required
           />
 
           <textarea
             name="limits"
-            placeholder="Boundaries or limits?"
+            placeholder="Boundaries or limits? *"
             required
           />
 
           <textarea
             name="interests"
             placeholder="Interests you would like explored?"
-            required
           />
         </section>
 
@@ -125,7 +125,7 @@ function Application() {
           <input
             name="availability"
             type="text"
-            placeholder="Availability"
+            placeholder="Availability *"
             required
           />
 
@@ -133,13 +133,11 @@ function Application() {
             name="session_style"
             type="text"
             placeholder="Preferred session style"
-            required
           />
 
           <textarea
             name="archetypes"
-            placeholder="Which dominant archetypes are you drawn to? (Queen, Authoritarian, Seductress, Mother)"
-            required
+            placeholder="Which dominant archetypes are you drawn to?"
           />
         </section>
 
@@ -173,7 +171,6 @@ function Application() {
             name="final_question"
             className="final-input"
             placeholder="What specifically drew you into Tabitha Thorne’s world?"
-            required
           />
 
           <button type="submit" className="submit-btn">
