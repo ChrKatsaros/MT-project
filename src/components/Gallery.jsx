@@ -23,24 +23,78 @@ import gallery20 from '../assets/gallery0.webp';
 
 function Gallery() {
   const images = [
-    gallery0,
-    gallery1,
-    gallery2,
-    gallery3,
-    gallery4,
-    gallery5,
-    gallery6,
-    gallery7,
-    gallery8,
-    gallery9,
-    gallery10,
-    gallery11,
-    gallery12,
-    gallery13,
-    gallery14,
-    gallery18,
-    gallery19,
-    gallery20,
+    {
+      src: gallery0,
+      alt: 'Mistress Tabitha Thorne luxury portrait in London',
+    },
+    {
+      src: gallery1,
+      alt: 'Tabitha Thorne elegant female authority aesthetic',
+    },
+    {
+      src: gallery2,
+      alt: 'Mistress Tabitha in refined dungeon atmosphere',
+    },
+    {
+      src: gallery3,
+      alt: 'Tabitha Thorne psychological domination portrait',
+    },
+    {
+      src: gallery4,
+      alt: 'Luxury femdom atmosphere with Mistress Tabitha',
+    },
+    {
+      src: gallery5,
+      alt: 'Mistress Tabitha Thorne private session aesthetic',
+    },
+    {
+      src: gallery6,
+      alt: 'Elegant London dominatrix portrait of Tabitha Thorne',
+    },
+    {
+      src: gallery7,
+      alt: 'Tabitha Thorne luxury BDSM setting',
+    },
+    {
+      src: gallery8,
+      alt: 'Mistress Tabitha composed feminine authority',
+    },
+    {
+      src: gallery9,
+      alt: 'Psychological domination aesthetic by Tabitha Thorne',
+    },
+    {
+      src: gallery10,
+      alt: 'Mistress Tabitha luxury ritual atmosphere',
+    },
+    {
+      src: gallery11,
+      alt: 'Elegant female domination portrait in London',
+    },
+    {
+      src: gallery12,
+      alt: 'Tabitha Thorne immersive power exchange aesthetic',
+    },
+    {
+      src: gallery13,
+      alt: 'Mistress Tabitha refined control and elegance',
+    },
+    {
+      src: gallery14,
+      alt: 'Luxury dungeon portrait of Tabitha Thorne',
+    },
+    {
+      src: gallery18,
+      alt: 'Mistress Tabitha sensual authority aesthetic',
+    },
+    {
+      src: gallery19,
+      alt: 'Tabitha Thorne elegant domination atmosphere',
+    },
+    {
+      src: gallery20,
+      alt: 'Mistress Tabitha Thorne luxury London experience',
+    },
   ];
 
   return (
@@ -63,11 +117,12 @@ function Gallery() {
         <div className="gallery-grid">
           {images.map((image, index) => (
             <div className="gallery-card" key={index}>
-              <img src={image} alt={`Gallery ${index + 1}`} />
+              <img src={image.src} alt={image.alt} loading="lazy" />
             </div>
           ))}
         </div>
 
+        {/* CTA */}
         <div className="gallery-bottom-cta">
           <h2>Want Access to More?</h2>
 
