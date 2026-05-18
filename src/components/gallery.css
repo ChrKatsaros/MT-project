@@ -166,38 +166,21 @@
   }
 
   .gallery-grid-section {
-    padding: 70px 14px;
+    padding: 80px 20px;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   .gallery-card {
-    border-radius: 14px;
+    border-radius: 18px;
     overflow: hidden;
   }
 
-  /* SUBTLE EDITORIAL OFFSET */
-
-  .gallery-card:nth-child(even) {
-    margin-top: 18px;
-  }
-
   .gallery-card img {
-    height: 320px;
-  }
-
-  /* LUXURY ASYMMETRY */
-
-  .gallery-card:nth-child(3n) img {
-    height: 390px;
-  }
-
-  .gallery-card:nth-child(4n) img {
-    height: 280px;
+    height: 500px;
   }
 
   .gallery-bottom-cta {
