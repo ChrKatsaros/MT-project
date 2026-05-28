@@ -113,6 +113,8 @@ function Application() {
                 type="email"
                 placeholder="Email address *"
                 required
+                autoComplete="email"
+                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               />
             )}
 
@@ -122,6 +124,9 @@ function Application() {
                 type="tel"
                 placeholder="Phone number *"
                 required
+                autoComplete="tel"
+                inputMode="numeric"
+                pattern="^\+?[0-9\s]{7,15}$"
               />
             )}
 
