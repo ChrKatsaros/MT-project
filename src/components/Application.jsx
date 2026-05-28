@@ -7,6 +7,22 @@ import { FaTelegramPlane } from 'react-icons/fa';
 function Application() {
   const [contactMethod, setContactMethod] = useState('');
 
+  const renderIcon = () => {
+    switch (contactMethod) {
+      case 'email':
+        return <FiMail />;
+
+      case 'phone':
+        return <FiPhone />;
+
+      case 'telegram':
+        return <FaTelegramPlane />;
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="application-page">
       <form action="https://formspree.io/f/xvzljpqn" method="POST">
@@ -84,11 +100,9 @@ function Application() {
                 <option value="telegram">Telegram</option>
               </select>
 
-              <div className="contact-icons">
-                <FiMail />
-                <FiPhone />
-                <FaTelegramPlane />
-              </div>
+              {contactMethod && (
+                <div className="contact-icons">{renderIcon()}</div>
+              )}
             </div>
 
             {/* DYNAMIC CONTACT FIELD */}
