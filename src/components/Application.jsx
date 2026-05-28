@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './application.css';
 
+import { FiMail, FiPhone } from 'react-icons/fi';
+import { FaTelegramPlane } from 'react-icons/fa';
+
 function Application() {
+  const [contactMethod, setContactMethod] = useState('');
+
   return (
     <div className="application-page">
       <form action="https://formspree.io/f/xvzljpqn" method="POST">
@@ -61,11 +66,65 @@ function Application() {
               required
             />
 
-            <input
-              name="contact"
-              type="text"
-              placeholder="Preferred method of contact *"
-              required
+            {/* CONTACT METHOD */}
+
+            <div className="contact-method-wrapper">
+              <select
+                name="contact_method"
+                required
+                value={contactMethod}
+                onChange={(e) => setContactMethod(e.target.value)}
+              >
+                <option value="">Preferred contact method *</option>
+
+                <option value="email">Email</option>
+
+                <option value="phone">Phone</option>
+
+                <option value="telegram">Telegram</option>
+              </select>
+
+              <div className="contact-icons">
+                <FiMail />
+                <FiPhone />
+                <FaTelegramPlane />
+              </div>
+            </div>
+
+            {/* DYNAMIC CONTACT FIELD */}
+
+            {contactMethod === 'email' && (
+              <input
+                name="email"
+                type="email"
+                placeholder="Email address *"
+                required
+              />
+            )}
+
+            {contactMethod === 'phone' && (
+              <input
+                name="phone"
+                type="tel"
+                placeholder="Phone number *"
+                required
+              />
+            )}
+
+            {contactMethod === 'telegram' && (
+              <input
+                name="telegram"
+                type="text"
+                placeholder="Telegram username *"
+                required
+              />
+            )}
+
+            {/* OPTIONAL NOTES */}
+
+            <textarea
+              name="contact_notes"
+              placeholder="Any preferences or notes regarding contact? (optional)"
             />
           </div>
         </section>
@@ -102,8 +161,7 @@ function Application() {
 
           <textarea
             name="previous_experience"
-            placeholder="Previous experience with BDSM or Femdom? *"
-            required
+            placeholder="Previous experience with BDSM or Femdom?"
           />
 
           <textarea
@@ -170,7 +228,8 @@ function Application() {
           <textarea
             name="final_question"
             className="final-input"
-            placeholder="What specifically drew you into Tabitha Thorne’s world?"
+            placeholder="What specifically drew you into Tabitha Thorne’s world? *"
+            required
           />
 
           <button type="submit" className="submit-btn">

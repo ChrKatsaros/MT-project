@@ -10,7 +10,11 @@
   padding: 120px 10%;
   text-align: center;
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-hero h1 {
@@ -23,6 +27,9 @@
   margin-top: 20px;
   color: #bdbdbd;
   font-style: italic;
+
+  width: 100%;
+  text-align: center;
 }
 
 .intro {
@@ -64,7 +71,8 @@
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 14px;
   background: transparent;
@@ -75,8 +83,17 @@ textarea {
   margin-bottom: 15px;
   transition: 0.3s ease;
   font-size: 1rem;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border-radius: 0;
+  box-sizing: border-box;
 }
+
 /* PLACEHOLDERS */
+
 input::placeholder,
 textarea::placeholder {
   font-size: 1rem;
@@ -84,9 +101,74 @@ textarea::placeholder {
   letter-spacing: 0.3px;
 }
 
+/* CONTACT METHOD */
+
+.contact-method-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.contact-method-wrapper select {
+  padding-right: 110px;
+}
+
+/* ICONS */
+
+.contact-icons {
+  position: absolute;
+  right: 42px;
+  top: 46%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  pointer-events: none;
+}
+
+.contact-icons svg {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.45);
+  transition: 0.3s ease;
+}
+
+/* SELECT */
+
+select {
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.5) 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5) 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+
+  background-size:
+    6px 6px,
+    6px 6px;
+
+  background-repeat: no-repeat;
+}
+
+select option {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+/* FOCUS */
+
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: rgba(107, 30, 46, 0.6);
+}
+
+.contact-method-wrapper:hover .contact-icons svg {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* FINAL SECTION */
@@ -124,6 +206,9 @@ textarea:focus {
 .accent {
   color: #7a1f2f;
 }
+
+/* REQUIRED NOTE */
+
 .required-note {
   margin-bottom: 25px;
   color: #bdbdbd;
@@ -135,6 +220,7 @@ textarea:focus {
   color: #7a1f2f;
   font-weight: 600;
 }
+
 /* MOBILE */
 
 @media (max-width: 768px) {
@@ -145,8 +231,10 @@ textarea:focus {
   .app-hero h1 {
     font-size: 2.4rem;
   }
+
   input,
-  textarea {
+  textarea,
+  select {
     font-size: 1rem;
     padding: 16px;
   }
@@ -154,5 +242,18 @@ textarea:focus {
   input::placeholder,
   textarea::placeholder {
     font-size: 1.05rem;
+  }
+
+  .contact-method-wrapper select {
+    padding-right: 120px;
+  }
+
+  .contact-icons {
+    right: 45px;
+    gap: 9px;
+  }
+
+  .contact-icons svg {
+    font-size: 0.85rem;
   }
 }
