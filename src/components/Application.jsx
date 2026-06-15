@@ -91,7 +91,7 @@ function Application() {
                 value={contactMethod}
                 onChange={(e) => setContactMethod(e.target.value)}
               >
-                <option value="">Preferred contact method *</option>
+                <option value="">Contact method *</option>
 
                 <option value="email">Email</option>
 
