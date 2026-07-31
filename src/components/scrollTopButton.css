@@ -1,0 +1,57 @@
+.scroll-top {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .scroll-top {
+    display: flex;
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 25px;
+
+    width: 45px;
+
+    height: 45px;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    border: 1px solid #3d3d3d;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition: all 0.35s ease;
+  }
+
+  .scroll-top.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+  }
+
+  .scroll-top:active {
+    transform: scale(0.9);
+  }
+}
