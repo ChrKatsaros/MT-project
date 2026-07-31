@@ -17,7 +17,7 @@ const Footer = () => {
       <div className="footer-content">
         {/* LOGO */}
         <div className="footer-logo">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Tabitha Thorne Logo" />
         </div>
 
         {/* NAVIGATION */}
@@ -48,16 +48,16 @@ const Footer = () => {
           <h4>Contact</h4>
 
           <div className="footer-contact">
-            {/* MAP */}
+            {/* LOCATION */}
             <a>
               <FaMapMarkerAlt />
-              West Kensington · London W14
+              London · Bournemouth · Southampton · Portsmouth
             </a>
 
             {/* PHONE */}
-            <a href="tel:07984851771">
+            <a href="tel:07462938600">
               <FaPhoneAlt />
-              07984 851771
+              07462 938600
             </a>
 
             {/* EMAIL */}

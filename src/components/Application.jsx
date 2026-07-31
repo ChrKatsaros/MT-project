@@ -218,9 +218,9 @@ function Application() {
           />
         </section>
 
-        {/* DUNGEON INFO */}
+        {/* LOCATION INFO */}
         <section className="app-section">
-          <h2>Private Applications & Dungeon Bookings</h2>
+          <h2>Private Applications & Bookings</h2>
 
           <p>
             Private bookings and tailored experiences are submitted through this
@@ -228,18 +228,17 @@ function Application() {
           </p>
 
           <p>
-            House of Worship Dungeon, West Kensington, London (W14) — 5 minute
-            walk from the tube station.
+            Sessions are available at carefully selected venues across London,
+            as well as Bournemouth, Southampton, and Portsmouth.
           </p>
 
           <p>
-            Tabitha is based in London two days per week. Same-day bookings may
-            occasionally be available.
+            Same-day appointments may occasionally be available, subject to
+            availability.
           </p>
 
-          <p className="accent">Phone: 07984851771</p>
+          <p className="accent">Phone: 07462 938600</p>
         </section>
-
         {/* FINAL */}
         <section className="app-final">
           <h2>Final Question</h2>

@@ -40,9 +40,9 @@ function About() {
 
         <div className="text-block">
           <p>
-            Mistress Tabitha is a London Dominatrix based at House of Worship
-            London in West Kensington, while also touring across the South Coast
-            including Bournemouth, Southampton, and Portsmouth.
+            Mistress Tabitha is a London Dominatrix offering sessions at
+            carefully selected venues across London, while also touring
+            Bournemouth, Southampton, and Portsmouth.
           </p>
 
           <p>

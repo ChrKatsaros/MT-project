@@ -17,8 +17,8 @@ const FourthSection = () => {
         application form prior to consideration.
         <br />
         <br />
-        For direct dungeon bookings, availability inquiries, or private venue
-        arrangements, contact details are provided below.
+        For availability enquiries or private venue arrangements, contact
+        details are provided below.
       </p>
 
       <div className="fourth-info">
@@ -26,12 +26,10 @@ const FourthSection = () => {
         <div className="info-block">
           <span className="info-label">
             <FaMapMarkerAlt className="info-icon" />
-            Dungeon Location
+            Available In
           </span>
 
-          <a target="_blank" rel="noreferrer">
-            West Kensington · W14 · London
-          </a>
+          <a>London · Bournemouth · Southampton · Portsmouth</a>
         </div>
 
         {/* PHONE */}
@@ -41,7 +39,7 @@ const FourthSection = () => {
             Phone
           </span>
 
-          <a href="tel:07984851771">07984 851771</a>
+          <a href="tel:07462938600">07462 938600</a>
         </div>
 
         {/* INSTAGRAM */}

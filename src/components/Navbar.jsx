@@ -1,29 +1,49 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import {
-  FaBars,
-  FaInstagram,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-} from 'react-icons/fa';
+import { FaBars, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
 
 import './navbar.css';
 import logo from '../assets/logo.png';
 
 function Navbar() {
   const location = useLocation();
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-  // helper για active link
-  const isActive = (path) => location.pathname === path;
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
-    <div className="navbar-container">
+    <div className={`navbar-container ${scrolled ? 'scrolled' : ''}`}>
       {/* LOGO */}
+
       <div className="navbar-logo">
         <Link to="/" className="logo">
           <img src={logo} alt="Logo" draggable="false" />
@@ -31,6 +51,7 @@ function Navbar() {
       </div>
 
       {/* DESKTOP NAV */}
+
       <nav className="navbar-links">
         <ul className="nav-links">
           <li className={isActive('/about') ? 'active' : ''}>
@@ -56,11 +77,13 @@ function Navbar() {
       </nav>
 
       {/* MOBILE HAMBURGER */}
+
       <div className="mobile-hamburger" onClick={toggleMenu}>
         <FaBars size={28} />
       </div>
 
       {/* MOBILE MENU */}
+
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <Link
           to="/about"
@@ -69,6 +92,7 @@ function Navbar() {
         >
           About
         </Link>
+
         <Link
           to="/experiences"
           onClick={closeMenu}
@@ -76,6 +100,7 @@ function Navbar() {
         >
           Experiences
         </Link>
+
         <Link
           to="/protocol"
           onClick={closeMenu}
@@ -83,6 +108,7 @@ function Navbar() {
         >
           Protocol
         </Link>
+
         <Link
           to="/gallery"
           onClick={closeMenu}
@@ -90,6 +116,7 @@ function Navbar() {
         >
           Gallery
         </Link>
+
         <Link
           to="/application"
           onClick={closeMenu}
@@ -99,6 +126,7 @@ function Navbar() {
         </Link>
 
         {/* SOCIALS */}
+
         <div className="mobile-socials">
           <a
             href="https://instagram.com/misstabithathorne"
@@ -108,16 +136,8 @@ function Navbar() {
             <FaInstagram size={22} />
           </a>
 
-          <a href="tel:07984851771">
+          <a href="tel:07462938600">
             <FaPhoneAlt size={20} />
-          </a>
-
-          <a
-            href="https://maps.google.com/?q=West+Kensington+W14+London"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaMapMarkerAlt size={20} />
           </a>
         </div>
       </div>
