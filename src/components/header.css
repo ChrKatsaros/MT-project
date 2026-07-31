@@ -68,7 +68,7 @@
 
 @media (max-width: 768px) {
   .header-container {
-    height: 30rem; /* πιο μικρό ύψος */
+    height: 32rem; /* πιο μικρό ύψος */
   }
 
   .header-content {
@@ -101,7 +101,7 @@
 @media (max-width: 480px) {
   .header-content {
     position: absolute;
-    top: 57%;
+    top: 59%;
     left: 5%;
     color: white;
     max-width: 25rem; /* 400px */

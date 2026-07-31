@@ -48,12 +48,6 @@ const Footer = () => {
           <h4>Contact</h4>
 
           <div className="footer-contact">
-            {/* LOCATION */}
-            <a>
-              <FaMapMarkerAlt />
-              London · Bournemouth · Southampton · Portsmouth
-            </a>
-
             {/* PHONE */}
             <a href="tel:07462938600">
               <FaPhoneAlt />
