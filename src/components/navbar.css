@@ -223,4 +223,14 @@
   .navbar-logo img {
     height: 4.5rem;
   }
+
+  /* ONLY WHEN MOBILE MENU OPENS */
+
+  .navbar-container.menu-open {
+    background: rgba(0, 0, 0, 0.92);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  }
 }

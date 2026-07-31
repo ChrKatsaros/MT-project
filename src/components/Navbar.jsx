@@ -10,6 +10,7 @@ function Navbar() {
   const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,7 +42,13 @@ function Navbar() {
   };
 
   return (
-    <div className={`navbar-container ${scrolled ? 'scrolled' : ''}`}>
+    <div
+      className={`
+        navbar-container
+        ${scrolled ? 'scrolled' : ''}
+        ${menuOpen ? 'menu-open' : ''}
+      `}
+    >
       {/* LOGO */}
 
       <div className="navbar-logo">
