@@ -11,20 +11,26 @@ function Guides() {
   const scrollToChapter = (id) => {
     const section = chaptersRef.current[id];
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    if (!section) return;
 
+    const offset = 100;
+
+    const position =
+      section.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top: position,
+      behavior: 'smooth',
+    });
+
+    setTimeout(() => {
       section.classList.add('chapter-active');
 
       setTimeout(() => {
         section.classList.remove('chapter-active');
       }, 1200);
-    }
+    }, 500);
   };
-
   const contents = [
     {
       id: 'chapter-01',
