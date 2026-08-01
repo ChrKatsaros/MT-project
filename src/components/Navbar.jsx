@@ -10,7 +10,6 @@ function Navbar() {
   const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -50,7 +49,6 @@ function Navbar() {
       `}
     >
       {/* LOGO */}
-
       <div className="navbar-logo">
         <Link to="/" className="logo">
           <img src={logo} alt="Logo" draggable="false" />
@@ -58,7 +56,6 @@ function Navbar() {
       </div>
 
       {/* DESKTOP NAV */}
-
       <nav className="navbar-links">
         <ul className="nav-links">
           <li className={isActive('/about') ? 'active' : ''}>
@@ -77,6 +74,10 @@ function Navbar() {
             <Link to="/gallery">Gallery</Link>
           </li>
 
+          <li className={isActive('/guides') ? 'active' : ''}>
+            <Link to="/guides">Guides</Link>
+          </li>
+
           <li className={isActive('/application') ? 'active' : ''}>
             <Link to="/application">Application</Link>
           </li>
@@ -84,13 +85,11 @@ function Navbar() {
       </nav>
 
       {/* MOBILE HAMBURGER */}
-
       <div className="mobile-hamburger" onClick={toggleMenu}>
         <FaBars size={28} />
       </div>
 
       {/* MOBILE MENU */}
-
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <Link
           to="/about"
@@ -125,6 +124,14 @@ function Navbar() {
         </Link>
 
         <Link
+          to="/guides"
+          onClick={closeMenu}
+          className={isActive('/guides') ? 'active' : ''}
+        >
+          Guides
+        </Link>
+
+        <Link
           to="/application"
           onClick={closeMenu}
           className={isActive('/application') ? 'active' : ''}
@@ -133,7 +140,6 @@ function Navbar() {
         </Link>
 
         {/* SOCIALS */}
-
         <div className="mobile-socials">
           <a
             href="https://instagram.com/misstabithathorne"

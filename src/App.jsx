@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-
 import { AnimatePresence } from 'framer-motion';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -12,10 +11,11 @@ import FourthSection from './components/FourthSection';
 
 import Home from './components/Home';
 import About from './components/About';
-import Application from './components/Application';
-import Gallery from './components/Gallery';
-import Protocol from './components/Protocol';
 import Experiences from './components/Experiences';
+import Protocol from './components/Protocol';
+import Gallery from './components/Gallery';
+import Guides from './components/Guides';
+import Application from './components/Application';
 
 import AgeWarning from './components/AgeWarning';
 import Underage from './components/Underage';
@@ -77,6 +77,15 @@ function AppContent() {
             element={
               <PageTransition>
                 <Gallery />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/guides"
+            element={
+              <PageTransition>
+                <Guides />
               </PageTransition>
             }
           />

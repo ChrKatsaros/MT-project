@@ -1,0 +1,840 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.guides-page {
+  background: #050505;
+
+  color: #f5f5f5;
+
+  overflow: hidden;
+}
+
+.guides-page h1,
+.guides-page h2,
+.guides-page h3 {
+  font-family: 'Cinzel', serif;
+
+  font-weight: 500;
+
+  color: #ffffff;
+
+  letter-spacing: 1px;
+}
+
+.guides-page p,
+.guides-page li {
+  font-family: 'Inter', sans-serif;
+}
+
+.guides-page p {
+  color: #bcbcbc;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.guides-hero {
+  height: 100vh;
+
+  position: relative;
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.guides-hero::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+
+    rgba(0, 0, 0, 0.35),
+    #050505
+  );
+}
+
+.guides-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    circle,
+    transparent 15%,
+
+    rgba(0, 0, 0, 0.85)
+  );
+}
+
+.guides-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 90%;
+
+  max-width: 950px;
+
+  text-align: center;
+}
+
+/* small labels */
+
+.guides-eyebrow,
+.section-eyebrow {
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 7px;
+
+  text-transform: uppercase;
+
+  color: #777;
+
+  margin-bottom: 35px;
+}
+
+.guides-hero h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+
+  line-height: 1.15;
+
+  letter-spacing: 6px;
+
+  margin-bottom: 35px;
+}
+
+.guides-tagline {
+  font-family: 'Cinzel', serif;
+
+  color: #ddd;
+
+  font-size: 1.15rem;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 40px;
+}
+
+.guides-description {
+  max-width: 750px;
+
+  margin: auto;
+
+  font-size: 1.1rem;
+
+  line-height: 2.2;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator {
+  margin-top: 80px;
+}
+
+.scroll-indicator span {
+  display: block;
+
+  width: 2px;
+
+  height: 80px;
+
+  margin: auto;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.scroll-indicator span::before {
+  content: '';
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 30px;
+
+  background: #7a1f2f;
+
+  top: -30px;
+
+  animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+  from {
+    top: -30px;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.guides-intro {
+  padding: 180px 10%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+.guides-intro-image {
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(122, 31, 47, 0.35);
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+
+.guides-intro-image img {
+  width: 100%;
+
+  display: block;
+
+  transition: 1s ease;
+}
+
+.guides-intro-image:hover img {
+  transform: scale(1.06);
+}
+
+.guides-intro-content {
+  max-width: 650px;
+}
+
+.guides-intro-content h2 {
+  font-size: clamp(2.3rem, 4vw, 3.5rem);
+
+  line-height: 1.35;
+
+  margin-bottom: 40px;
+}
+
+.guides-intro-content h2::after {
+  content: '';
+
+  display: block;
+
+  margin-top: 25px;
+
+  width: 90px;
+
+  height: 2px;
+
+  background: #7a1f2f;
+
+  box-shadow: 0 0 15px rgba(122, 31, 47, 0.5);
+}
+
+.guides-intro-content p {
+  font-size: 1.08rem;
+
+  line-height: 2.15;
+
+  margin-bottom: 28px;
+}
+
+/* =========================================================
+   CONTENTS
+========================================================= */
+
+.checklist-section {
+  padding: 150px 10%;
+
+  text-align: center;
+}
+
+.checklist-section h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+
+  margin-bottom: 80px;
+}
+
+.checklist {
+  max-width: 950px;
+
+  margin: auto;
+}
+
+.check-item {
+  padding: 30px 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  color: #999;
+
+  font-size: 1.05rem;
+
+  line-height: 1.7;
+
+  transition: 0.4s ease;
+}
+
+.check-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.check-item span {
+  color: #7a1f2f;
+
+  font-family: 'Cinzel', serif;
+
+  letter-spacing: 4px;
+}
+
+.check-item:hover {
+  color: white;
+
+  padding-left: 45px;
+
+  background: linear-gradient(90deg, rgba(122, 31, 47, 0.08), transparent);
+}
+
+/* =========================================================
+   CHAPTER AREA
+========================================================= */
+
+.guide-chapter {
+  max-width: 950px;
+
+  margin: auto;
+
+  padding: 180px 30px;
+
+  scroll-margin-top: 120px;
+
+  position: relative;
+}
+
+.guide-chapter::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 120px;
+
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, #7a1f2f, transparent);
+}
+
+.chapter-number {
+  font-family: 'Cinzel', serif;
+
+  font-size: 6rem;
+
+  letter-spacing: 10px;
+
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.08);
+
+  margin-bottom: 0;
+
+  transition: 0.5s ease;
+}
+
+.guide-chapter h2 {
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+
+  line-height: 1.25;
+
+  margin-bottom: 45px;
+
+  position: relative;
+}
+
+.guide-chapter h2::after {
+  content: '';
+
+  display: block;
+
+  width: 100px;
+
+  height: 2px;
+
+  margin-top: 25px;
+
+  background: #7a1f2f;
+
+  box-shadow: 0 0 15px rgba(122, 31, 47, 0.6);
+}
+
+.guide-chapter h3 {
+  font-size: 1.7rem;
+
+  margin-top: 70px;
+
+  margin-bottom: 25px;
+
+  color: #eee;
+}
+/* =========================================================
+   CHAPTER TEXT
+========================================================= */
+
+.guide-chapter h3::before {
+  content: '';
+
+  display: inline-block;
+
+  width: 35px;
+
+  height: 1px;
+
+  background: #7a1f2f;
+
+  margin-right: 15px;
+
+  vertical-align: middle;
+}
+
+.guide-chapter p {
+  font-size: 1.08rem;
+
+  line-height: 2.2;
+
+  color: #bdbdbd;
+
+  margin-bottom: 30px;
+}
+
+/* =========================================================
+   ACTIVE CHAPTER EFFECT
+========================================================= */
+
+.chapter-active {
+  animation: chapterReveal 1.2s ease;
+}
+
+.chapter-active .chapter-number {
+  color: #7a1f2f;
+
+  text-shadow: 0 0 25px rgba(122, 31, 47, 0.55);
+
+  transform: translateY(-10px);
+}
+
+@keyframes chapterReveal {
+  0% {
+    opacity: 0.25;
+
+    transform: translateY(40px);
+  }
+
+  60% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+  100% {
+    box-shadow: none;
+  }
+}
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.guide-list {
+  margin: 40px 0;
+
+  padding-left: 30px;
+}
+
+.guide-list li {
+  color: #c7c7c7;
+
+  margin-bottom: 18px;
+
+  line-height: 1.9;
+}
+
+.guide-list li::marker {
+  color: #7a1f2f;
+}
+
+/* =========================================================
+   FLOATING GUIDE NAVIGATION
+========================================================= */
+
+.guide-navigator {
+  position: fixed;
+
+  right: 35px;
+
+  bottom: 35px;
+
+  z-index: 9999;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: translateY(40px);
+
+  transition: 0.5s ease;
+}
+
+.guide-navigator.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.navigator-button {
+  width: 150px;
+
+  height: 52px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(122, 31, 47, 0.45);
+
+  color: white;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 3px;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+}
+
+.navigator-button:hover {
+  background: #7a1f2f;
+
+  border-color: #7a1f2f;
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 35px rgba(122, 31, 47, 0.25);
+}
+
+/* =========================================================
+   CHAPTER DRAWER
+========================================================= */
+
+.chapter-drawer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  pointer-events: none;
+}
+
+.chapter-drawer.open {
+  pointer-events: auto;
+}
+
+.chapter-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  opacity: 0;
+
+  transition: 0.5s ease;
+}
+
+.chapter-drawer.open .chapter-overlay {
+  opacity: 1;
+}
+
+.chapter-panel {
+  position: absolute;
+
+  right: 0;
+
+  top: 0;
+
+  height: 100vh;
+
+  width: 450px;
+
+  max-width: 90%;
+
+  background: #080808;
+
+  border-left: 1px solid rgba(122, 31, 47, 0.45);
+
+  padding: 70px 45px;
+
+  overflow-y: auto;
+
+  transform: translateX(100%);
+
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.chapter-drawer.open .chapter-panel {
+  transform: translateX(0);
+}
+
+.chapter-close {
+  position: absolute;
+
+  top: 25px;
+
+  right: 30px;
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  font-size: 2rem;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.chapter-close:hover {
+  color: #7a1f2f;
+
+  transform: rotate(90deg);
+}
+
+.chapter-panel h3 {
+  font-family: 'Cinzel', serif;
+
+  font-size: 2.5rem;
+
+  margin-bottom: 45px;
+}
+
+.drawer-list button {
+  width: 100%;
+
+  background: none;
+
+  border: none;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 23px 0;
+
+  text-align: left;
+
+  color: #aaa;
+
+  cursor: pointer;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.95rem;
+
+  transition: 0.35s ease;
+}
+
+.drawer-list button span {
+  color: #7a1f2f;
+
+  margin-right: 15px;
+
+  letter-spacing: 3px;
+}
+
+.drawer-list button:hover {
+  color: white;
+
+  padding-left: 15px;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.guides-cta {
+  padding: 220px 10%;
+
+  text-align: center;
+}
+
+.guides-cta h2 {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+
+  margin-bottom: 35px;
+}
+
+.guides-cta h2::after {
+  content: '';
+
+  display: block;
+
+  width: 100px;
+
+  height: 2px;
+
+  background: #7a1f2f;
+
+  margin: 30px auto;
+
+  box-shadow: 0 0 15px rgba(122, 31, 47, 0.5);
+}
+
+.guides-cta p {
+  max-width: 700px;
+
+  margin: 0 auto 55px;
+
+  line-height: 2.2;
+}
+
+.guides-button {
+  display: inline-block;
+
+  padding: 18px 55px;
+
+  border: 1px solid #7a1f2f;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-family: 'Cinzel', serif;
+
+  letter-spacing: 3px;
+
+  transition: 0.4s ease;
+}
+
+.guides-button:hover {
+  background: #7a1f2f;
+
+  color: white;
+
+  transform: translateY(-6px);
+
+  box-shadow: 0 20px 45px rgba(122, 31, 47, 0.35);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .guides-intro {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .guides-hero {
+    height: 85vh;
+  }
+
+  .guides-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .guides-intro,
+  .checklist-section,
+  .guides-cta {
+    padding-left: 25px;
+
+    padding-right: 25px;
+  }
+
+  .guide-chapter {
+    padding: 100px 25px;
+  }
+
+  .chapter-number {
+    font-size: 3.8rem;
+  }
+
+  .guide-chapter h2 {
+    font-size: 2.2rem;
+  }
+
+  .guide-chapter p {
+    font-size: 1rem;
+
+    line-height: 2;
+  }
+
+  .guide-navigator {
+    right: 20px;
+
+    bottom: 20px;
+  }
+
+  .navigator-button {
+    width: 120px;
+
+    height: 45px;
+  }
+
+  .chapter-panel {
+    width: 100%;
+
+    padding: 60px 25px;
+  }
+
+  .guides-cta h2 {
+    font-size: 2.8rem;
+  }
+}
