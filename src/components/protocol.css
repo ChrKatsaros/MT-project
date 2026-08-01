@@ -6,7 +6,7 @@
 
 /* HERO */
 .protocol-hero {
-  height: 60vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,7 +64,7 @@
 /* DIVIDER */
 .divider-image {
   position: relative;
-  height: 340px;
+  height: 440px;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -108,8 +108,21 @@
 
 /* MOBILE */
 @media (max-width: 768px) {
+  .protocol-hero {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
   .protocol-hero h1 {
     font-size: 2.4rem;
+    line-height: 1.2;
   }
 
   .chapter {

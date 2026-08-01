@@ -8,8 +8,7 @@
 /* HERO */
 
 .exp-hero {
-  height: 83vh;
-
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,7 +177,7 @@
 }
 .exp-image-section {
   position: relative;
-  height: 50vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,7 +192,7 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.57),
     rgba(0, 0, 0, 0.9)
   );
 }
@@ -227,8 +226,19 @@
 
 /* mobile */
 @media (max-width: 768px) {
-  .exp-image-section {
-    height: auto;
-    padding: 80px 20px;
+  .exp-hero {
+    height: 100dvh; /* καλύτερο από 100vh στα κινητά */
+    min-height: 100dvh;
+    background-size: cover;
+    background-position: center center;
+    padding: 0 20px;
+  }
+
+  .exp-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .exp-grid {
+    grid-template-columns: 1fr;
   }
 }

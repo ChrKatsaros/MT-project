@@ -183,7 +183,7 @@ function About() {
 
           <div className="row">
             <span>Appearance</span>
-            <span>Brunette · Blonde face framing · Green eyes</span>
+            <span>Brunette · Black Hair· Green eyes</span>
           </div>
 
           <div className="row">
