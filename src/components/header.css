@@ -68,53 +68,66 @@
 
 @media (max-width: 768px) {
   .header-container {
-    height: 32rem; /* πιο μικρό ύψος */
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  .header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .header-content {
-    top: 15%;
+    top: 50%;
     left: 5%;
+    transform: translateY(-50%);
     max-width: 90%;
   }
 
   .small-title {
-    font-size: 0.77rem; /* 12px */
+    font-size: 0.77rem;
     letter-spacing: 1px;
   }
 
   .main-title {
-    font-size: 2.1rem; /* 32px */
+    font-size: 2.1rem;
     line-height: 1.2;
   }
 
   .description {
-    font-size: 0.6975rem; /* 11px */
+    font-size: 0.7rem;
     letter-spacing: 1px;
   }
 
   .shop-button {
-    font-size: 0.875rem; /* 14px */
-    padding: 0.625rem 1.5rem; /* 10px 24px */
+    font-size: 0.875rem;
+    padding: 0.625rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .header-content {
-    position: absolute;
-    top: 59%;
-    left: 5%;
-    color: white;
-    max-width: 25rem; /* 400px */
-    font-family: 'Arial', sans-serif;
-    user-select: none;
+  .header-container {
+    height: 100dvh;
+    min-height: 100dvh;
   }
+
+  .header-content {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    max-width: 90%;
+  }
+
   .main-title {
-    font-size: 1.95rem; /* 28px */
+    font-size: 1.95rem;
   }
 
   .description {
-    font-size: 0.79rem; /* 12px */
+    font-size: 0.79rem;
   }
+
   .shop-button {
     width: 100%;
     padding: 0.75rem 0;
