@@ -137,8 +137,6 @@ function Guides() {
         </div>
 
         <div className="guides-intro-content">
-          <p className="section-eyebrow">EDITOR'S NOTE</p>
-
           <h2>Every Exceptional Experience Begins With Understanding</h2>
 
           <p>
