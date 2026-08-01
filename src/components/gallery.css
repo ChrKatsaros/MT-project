@@ -149,10 +149,14 @@
 
 @media (max-width: 768px) {
   .gallery-hero {
-    height: 80vh;
+    height: 100dvh;
+    min-height: 100dvh;
 
-    /* MOBILE IMAGE OVERRIDE */
+    /* MOBILE IMAGE */
     background-image: url('../assets/gallery2.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
   .gallery-hero-content h1 {
