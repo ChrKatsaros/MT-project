@@ -24,8 +24,8 @@ function About() {
           </h1>
 
           <p className="subtext">
-            London-based Dominatrix offering refined psychological domination,
-            ritual-led power exchange, and immersive female authority.
+            Experienced professional Dominatrix available for private BDSM
+            sessions in London, Bournemouth, Southampton and Portsmouth.
           </p>
 
           <Link to="/application" className="cta">
@@ -40,9 +40,11 @@ function About() {
 
         <div className="text-block">
           <p>
-            Mistress Tabitha is a London Dominatrix offering sessions at
-            carefully selected venues across London, while also touring
-            Bournemouth, Southampton, and Portsmouth.
+            Mistress Tabitha Thorne is an experienced professional Dominatrix
+            available for private BDSM sessions in London, Bournemouth,
+            Southampton and Portsmouth. Sessions take place at carefully
+            selected private venues, providing discretion, comfort and an
+            immersive luxury experience.
           </p>
 
           <p>
@@ -104,9 +106,10 @@ function About() {
           </p>
 
           <p>
-            Experiences are tailored carefully to the individual dynamic and may
-            range from highly structured domination to softer immersive
-            encounters where underlying authority remains constant throughout.
+            Experiences are tailored carefully to the individual dynamic and are
+            available across London, Bournemouth, Southampton and Portsmouth,
+            with carefully selected private venues arranged according to the
+            experience required.
           </p>
 
           <p>
@@ -163,7 +166,7 @@ function About() {
         <div className="table">
           <div className="row">
             <span>Origin</span>
-            <span>English-born, London-based</span>
+            <span>English-born</span>
           </div>
 
           <div className="row">
@@ -183,7 +186,7 @@ function About() {
 
           <div className="row">
             <span>Appearance</span>
-            <span>Brunette · Black Hair· Green eyes</span>
+            <span>Black Hair· Green eyes</span>
           </div>
 
           <div className="row">
