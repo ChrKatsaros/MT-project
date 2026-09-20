@@ -2,24 +2,23 @@
   box-sizing: border-box;
 }
 
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar-container {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
+
+  width: 100%;
+  height: 4.5rem;
 
   padding: 0.5rem 2rem;
 
-  width: 100%;
-
   position: fixed;
-
   top: 0;
-
   left: 0;
-
-  height: 4.5rem;
 
   background: transparent;
 
@@ -35,29 +34,42 @@
   background: rgba(0, 0, 0, 0.92);
 
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .navbar-logo {
   flex-shrink: 0;
+
+  position: relative;
+
+  z-index: 1001;
 }
 
 .navbar-logo img {
+  display: block;
+
   height: 6rem;
+
+  max-width: 100%;
 
   object-fit: contain;
 
-  transition: 0.3s ease;
+  transition: height 0.3s ease;
 }
 
 .navbar-container.scrolled .navbar-logo img {
   height: 4.8rem;
 }
 
-/* DESKTOP */
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
 
 .navbar-links {
   flex: 1;
@@ -65,27 +77,34 @@
   display: flex;
 
   justify-content: flex-end;
+
+  min-width: 0;
 }
 
 .nav-links {
   list-style: none;
 
   display: flex;
+  align-items: center;
 
   gap: 1.3rem;
 
   margin: 0;
-
   padding: 0;
 
   font-family: 'Cinzel', serif;
 }
 
+.nav-links li {
+  flex-shrink: 0;
+}
+
 .nav-links li a {
+  position: relative;
+
   color: #f1ece8;
 
   text-decoration: none;
-
   text-transform: uppercase;
 
   letter-spacing: 0.08rem;
@@ -94,9 +113,7 @@
 
   white-space: nowrap;
 
-  position: relative;
-
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
@@ -113,110 +130,30 @@
   position: absolute;
 
   left: 0;
-
   bottom: -6px;
 
   width: 100%;
-
   height: 1px;
 
   background: #9f7a66;
 }
 
-/* HAMBURGER */
-
-.mobile-hamburger {
-  display: none;
-
-  cursor: pointer;
-
-  color: #f1ece8;
-
-  z-index: 1001;
-}
-
-/* MOBILE MENU */
-
-.mobile-menu {
-  position: absolute;
-
-  top: 100%;
-
-  left: 0;
-
-  width: 100%;
-
-  background: #111;
-
-  overflow: hidden;
-
-  max-height: 0;
-
-  padding: 0 1.5rem;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 1.2rem;
-
-  transition:
-    max-height 0.4s ease,
-    padding 0.3s ease;
-}
-
-.mobile-menu.open {
-  max-height: 900px;
-
-  padding: 2rem 1.5rem;
-}
-
-.mobile-menu a {
-  color: #f1ece8;
-
-  text-decoration: none;
-
-  font-family: 'Cinzel', serif;
-
-  text-transform: uppercase;
-}
-
-.mobile-menu a.active {
-  color: #9f7a66;
-}
-
-/* SOCIALS */
-
-.mobile-socials {
-  margin-top: 1rem;
-
-  padding-top: 1.5rem;
-
-  display: flex;
-
-  justify-content: center;
-
-  gap: 1.5rem;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.mobile-socials a {
-  color: #b8b0aa;
-}
 /* =========================
-   LOCATIONS DROPDOWN
-========================= */
-
-/* =========================
-   LOCATIONS DROPDOWN
+   LOCATIONS DESKTOP
 ========================= */
 
 .locations-nav-item {
   position: relative;
+
+  flex-shrink: 0;
 }
 
 .locations-nav-trigger {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
   padding: 0;
 
   border: 0;
@@ -235,11 +172,7 @@
 
   cursor: pointer;
 
-  display: flex;
-
-  align-items: center;
-
-  gap: 7px;
+  white-space: nowrap;
 
   transition: color 0.3s ease;
 }
@@ -250,21 +183,24 @@
   transition: transform 0.3s ease;
 }
 
-.locations-nav-item:hover .locations-nav-trigger {
+.locations-nav-item:hover .locations-nav-trigger,
+.locations-nav-item:focus-within .locations-nav-trigger {
   color: #9f7a66;
 }
 
-.locations-nav-item:hover .locations-nav-trigger svg {
+.locations-nav-item:hover .locations-nav-trigger svg,
+.locations-nav-item:focus-within .locations-nav-trigger svg {
   transform: rotate(180deg);
 }
 
-/* DROPDOWN CONTAINER */
+/* =========================
+   LOCATIONS DROPDOWN
+========================= */
 
 .locations-dropdown {
   position: absolute;
 
   top: calc(100% + 12px);
-
   left: 50%;
 
   transform: translateX(-50%) translateY(8px);
@@ -284,6 +220,7 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
 
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   opacity: 0;
 
@@ -299,7 +236,7 @@
     visibility 0.25s ease;
 }
 
-/* INVISIBLE HOVER BRIDGE */
+/* invisible hover bridge */
 
 .locations-dropdown::before {
   content: '';
@@ -307,9 +244,7 @@
   position: absolute;
 
   left: 0;
-
   right: 0;
-
   top: -14px;
 
   height: 14px;
@@ -328,7 +263,9 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* LOCATION LINKS */
+/* =========================
+   LOCATION LINKS
+========================= */
 
 .locations-dropdown a {
   position: relative;
@@ -337,26 +274,19 @@
 
   align-items: center;
 
-  padding: 14px 16px;
+  padding: 13px 16px;
 
   color: #b8b0aa !important;
 
   text-decoration: none;
 
-  .locations-dropdown a {
-    font-family: 'Cinzel', serif !important;
+  font-family: 'Cinzel', serif !important;
 
-    font-size: 0.78rem !important;
-
-    font-weight: 500;
-
-    letter-spacing: 1.5px !important;
-  }
   font-size: 0.76rem !important;
 
-  font-weight: 400;
+  font-weight: 500;
 
-  letter-spacing: 1.6px !important;
+  letter-spacing: 1.4px !important;
 
   text-transform: uppercase;
 
@@ -374,13 +304,10 @@
   border-bottom: 0;
 }
 
-/* SMALL ACCENT LINE */
-
 .locations-dropdown a::before {
   content: '';
 
   width: 0;
-
   height: 1px;
 
   margin-right: 0;
@@ -392,13 +319,9 @@
     margin-right 0.3s ease;
 }
 
-/* REMOVE NORMAL NAV UNDERLINE */
-
 .locations-dropdown a::after {
   display: none !important;
 }
-
-/* HOVER */
 
 .locations-dropdown a:hover {
   color: #f1ece8 !important;
@@ -414,61 +337,122 @@
   margin-right: 9px;
 }
 
-/* INVISIBLE BRIDGE BETWEEN LOCATIONS AND DROPDOWN */
-.locations-dropdown::before {
-  content: '';
+/* =========================
+   BOOKINGS CTA
+========================= */
 
-  position: absolute;
+.nav-links li.nav-london-booking a {
+  display: inline-block;
 
-  left: 0;
-  right: 0;
+  padding: 9px 15px;
 
-  top: -12px;
+  border: 1px solid rgba(159, 122, 102, 0.55);
 
-  height: 12px;
+  color: #e4d6ce;
 
-  background: transparent;
-}
-.locations-nav-item:hover .locations-dropdown {
-  opacity: 1;
+  font-size: 0.8rem;
 
-  visibility: visible;
-
-  pointer-events: auto;
-
-  transform: translateX(-50%) translateY(0);
-}
-
-.locations-dropdown a {
-  display: block;
-
-  padding: 12px 18px;
-
-  color: #b8b0aa !important;
-
-  font-family: 'Inter', sans-serif !important;
-
-  font-size: 0.75rem !important;
-
-  letter-spacing: 1.5px !important;
-
-  text-transform: uppercase;
-
-  white-space: nowrap;
+  letter-spacing: 0.09rem;
 
   transition:
+    background 0.3s ease,
     color 0.3s ease,
-    background 0.3s ease;
+    border-color 0.3s ease;
 }
 
-.locations-dropdown a::after {
-  display: none !important;
+.nav-links li.nav-london-booking a:hover {
+  background: #f1ece8;
+
+  color: #0a0a0a;
+
+  border-color: #f1ece8;
 }
 
-.locations-dropdown a:hover {
-  color: #fff !important;
+.nav-links li.nav-london-booking a::after {
+  display: none;
+}
 
-  background: rgba(159, 122, 102, 0.08);
+/* =========================
+   HAMBURGER
+========================= */
+
+.mobile-hamburger {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #f1ece8;
+
+  cursor: pointer;
+
+  position: relative;
+
+  z-index: 1002;
+}
+
+/* =========================
+   MOBILE / TABLET MENU
+========================= */
+
+.mobile-menu {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  max-height: 0;
+
+  padding: 0 1.5rem;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.15rem;
+
+  background: rgba(10, 10, 10, 0.98);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  transition:
+    max-height 0.4s ease,
+    padding 0.3s ease;
+}
+
+.mobile-menu.open {
+  max-height: calc(100dvh - 4.5rem);
+
+  padding: 2rem 1.5rem;
+
+  overflow-y: auto;
+}
+
+.mobile-menu > a {
+  color: #f1ece8;
+
+  text-decoration: none;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.95rem;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.mobile-menu > a.active {
+  color: #9f7a66;
 }
 
 /* =========================
@@ -482,6 +466,12 @@
 .mobile-locations-trigger {
   width: 100%;
 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
   padding: 0;
 
   border: 0;
@@ -492,15 +482,13 @@
 
   font-family: 'Cinzel', serif;
 
+  font-size: 0.95rem;
+
+  letter-spacing: 1px;
+
   text-transform: uppercase;
 
   text-align: left;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
 
   cursor: pointer;
 }
@@ -537,7 +525,7 @@
 }
 
 .mobile-locations-submenu.open {
-  max-height: 220px;
+  max-height: 250px;
 
   margin-top: 16px;
 
@@ -547,6 +535,8 @@
 .mobile-locations-submenu a {
   color: #aaa19c;
 
+  text-decoration: none;
+
   font-family: 'Inter', sans-serif;
 
   font-size: 0.78rem;
@@ -554,70 +544,17 @@
   letter-spacing: 1.3px;
 
   text-transform: uppercase;
+
+  transition: color 0.3s ease;
 }
-/* MOBILE */
 
-@media (max-width: 768px) {
-  .navbar-container {
-    padding: 0.2rem 0.8rem;
-  }
-
-  .navbar-links {
-    display: none;
-  }
-
-  .mobile-hamburger {
-    display: block;
-  }
-
-  .navbar-logo img {
-    height: 4.5rem;
-  }
-
-  /* ONLY WHEN MOBILE MENU OPENS */
-
-  .navbar-container.menu-open {
-    background: rgba(0, 0, 0, 0.92);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
-  }
+.mobile-locations-submenu a:hover {
+  color: #f1ece8;
 }
+
 /* =========================
-   LONDON BOOKINGS
+   MOBILE BOOKINGS BUTTON
 ========================= */
-
-.nav-links li.nav-london-booking a {
-  padding: 9px 15px;
-
-  border: 1px solid rgba(159, 122, 102, 0.55);
-
-  color: #e4d6ce;
-
-  font-size: 0.8rem;
-
-  letter-spacing: 0.09rem;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.nav-links li.nav-london-booking a:hover {
-  background: #f1ece8;
-
-  color: #0a0a0a;
-
-  border-color: #f1ece8;
-}
-
-.nav-links li.nav-london-booking a::after {
-  display: none;
-}
-
-/* MOBILE LONDON BUTTON */
 
 .mobile-london-booking {
   margin-top: 5px;
@@ -630,5 +567,142 @@
 
   color: #e4d6ce !important;
 
-  font-size: 0.85rem;
+  font-size: 0.85rem !important;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.mobile-london-booking:hover {
+  background: #f1ece8;
+
+  color: #0a0a0a !important;
+}
+
+/* =========================
+   SOCIALS
+========================= */
+
+.mobile-socials {
+  margin-top: 1rem;
+
+  padding-top: 1.5rem;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobile-socials a {
+  color: #b8b0aa;
+
+  transition: color 0.3s ease;
+}
+
+.mobile-socials a:hover {
+  color: #f1ece8;
+}
+
+/* =========================================================
+   TABLET + SMALL LAPTOP
+   iPad / iPad Pro / intermediate screens
+========================================================= */
+
+@media (max-width: 1180px) {
+  .navbar-container {
+    padding: 0.25rem clamp(1rem, 3vw, 2rem);
+  }
+
+  /* Hide desktop navigation completely */
+
+  .navbar-links {
+    display: none;
+  }
+
+  /* Enable hamburger */
+
+  .mobile-hamburger {
+    display: flex;
+  }
+
+  /* Keep logo controlled */
+
+  .navbar-logo img {
+    height: 5rem;
+  }
+
+  .navbar-container.scrolled .navbar-logo img {
+    height: 4.5rem;
+  }
+
+  /* Give navbar a background whenever menu opens */
+
+  .navbar-container.menu-open {
+    background: rgba(0, 0, 0, 0.96);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .navbar-container {
+    height: 4.5rem;
+
+    padding: 0.2rem 0.8rem;
+  }
+
+  .navbar-logo img {
+    height: 4.5rem;
+  }
+
+  .navbar-container.scrolled .navbar-logo img {
+    height: 4.2rem;
+  }
+
+  .mobile-menu.open {
+    padding: 1.6rem 1.25rem;
+  }
+
+  .mobile-menu {
+    gap: 1rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.15rem 0.65rem;
+  }
+
+  .navbar-logo img {
+    height: 4rem;
+  }
+
+  .navbar-container.scrolled .navbar-logo img {
+    height: 3.8rem;
+  }
+
+  .mobile-hamburger {
+    padding: 6px;
+  }
+
+  .mobile-menu > a,
+  .mobile-locations-trigger {
+    font-size: 0.88rem;
+  }
 }

@@ -1,106 +1,410 @@
+/* =========================
+   FIRST SECTION
+========================= */
+
 .first-section-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(19rem, 0.8fr)
+    minmax(0, 1fr);
+
+  align-items: stretch;
 
   background: #0a0a0a;
-  overflow-x: hidden;
-}
 
-.first-image-wrapper {
-  width: 40%;
   overflow: hidden;
 }
 
-.first-side-image {
+/* =========================
+   IMAGES
+========================= */
+
+.first-image-wrapper {
+  position: relative;
+
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  transition: transform 1.59s ease-out;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #0a0a0a;
+}
+
+.first-side-image {
   display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 32rem;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition: transform 1.59s ease-out;
+
   will-change: transform;
 }
 
+/* =========================
+   MIDDLE CONTENT
+========================= */
+
 .first-middle-content {
-  width: 32%;
+  width: 100%;
+
+  min-width: 0;
+
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
   text-align: center;
-  color: #111;
+
+  color: #f1ece8;
 }
+
+/* =========================
+   SMALL TITLE
+========================= */
 
 .first-small-title {
-  font-size: 1rem; /* 14px */
+  display: block;
+
+  margin-bottom: 1rem;
+
+  color: #9f7a66;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: clamp(0.72rem, 0.9vw, 1rem);
+
   font-weight: 600;
-  letter-spacing: 0.125rem; /* 2px */
+
+  letter-spacing: 0.125rem;
+
+  line-height: 1.5;
+
   text-transform: uppercase;
-  color: #751c1c;
-  margin-bottom: 0.9375rem; /* 15px */
 }
+
+/* =========================
+   MAIN TITLE
+========================= */
 
 .first-main-title {
-  font-size: 1.55rem; /* 28px */
-  font-weight: 900;
-  margin-bottom: 2.875rem; /* 30px */
+  max-width: 32rem;
+
+  margin: 0 0 clamp(2rem, 3vw, 2.875rem);
+
   color: #b8b0aa;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+
+  font-weight: 600;
+
+  line-height: 1.6;
+
+  overflow-wrap: break-word;
 }
 
+/* =========================
+   BUTTON
+========================= */
+
 .first-shop-button {
-  background-color: #070707;
-  color: white;
-  font-weight: 700;
-  font-size: 1rem; /* 16px */
-  padding: 0.875rem 3.125rem; /* 14px 50px */
-  border: 0.1px solid #751c1c;
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0.875rem 2.6rem;
+
+  border: 1px solid rgba(117, 28, 28, 0.75);
+
+  background: #070707;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.1rem;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .first-shop-button:hover {
-  background-color: #161616;
+  background: #161616;
+
+  border-color: rgba(159, 122, 102, 0.75);
+
+  transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+/* =========================================================
+   TABLET / IPAD PRO
+   901px - 1180px
+========================================================= */
+
+@media (max-width: 1180px) and (min-width: 901px) {
   .first-section-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-    gap: 2rem;
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(19rem, 1fr)
+      minmax(0, 0.8fr);
   }
 
   .first-image-wrapper {
-    width: 90%;
+    min-height: 28rem;
+  }
+
+  .first-side-image {
+    min-height: 28rem;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transform: scale(1) !important;
+  }
+
+  .first-middle-content {
+    padding: 3.5rem clamp(1.4rem, 3vw, 2.5rem);
+  }
+
+  .first-small-title {
+    font-size: 0.72rem;
+  }
+
+  .first-main-title {
+    max-width: 27rem;
+
+    font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+
+    line-height: 1.55;
+
+    margin-bottom: 2rem;
+  }
+
+  .first-shop-button {
+    padding: 0.8rem 2rem;
+
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   TABLET / IPAD MINI
+   641px - 900px
+========================================================= */
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .first-section-container {
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      'left right'
+      'content content';
+
+    align-items: start;
+  }
+
+  .first-image-wrapper:first-child {
+    grid-area: left;
+  }
+
+  .first-image-wrapper:last-child {
+    grid-area: right;
+  }
+
+  /*
+    Πολύ σημαντικό:
+    δεν επιβάλλουμε ύψος στις εικόνες.
+    Έτσι εμφανίζονται στη φυσική τους αναλογία
+    χωρίς crop / artificial zoom.
+  */
+
+  .first-image-wrapper {
+    width: 100%;
+
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .first-side-image {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    transform: scale(1) !important;
+
+    transition: none;
+  }
+
+  .first-middle-content {
+    grid-area: content;
+
+    padding: 3.5rem 8%;
+  }
+
+  .first-small-title {
+    font-size: 0.72rem;
+  }
+
+  .first-main-title {
+    max-width: 36rem;
+
+    font-size: clamp(1.2rem, 2.7vw, 1.4rem);
+
+    line-height: 1.6;
+
+    margin-bottom: 2rem;
+  }
+
+  .first-shop-button {
+    padding: 0.8rem 2rem;
+
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   <= 640px
+========================================================= */
+
+@media (max-width: 640px) {
+  .first-section-container {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 0;
+  }
+
+  .first-image-wrapper {
+    width: 100%;
+
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  /*
+    Και στο mobile κρατάμε τη φυσική αναλογία.
+    Όχι fixed height -> όχι υπερβολικό zoom.
+  */
+
+  .first-side-image {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    transform: scale(1) !important;
+
+    transition: none;
   }
 
   .first-middle-content {
     width: 100%;
-    padding: 0 1rem;
-  }
 
-  .first-main-title {
-    font-size: 1.25rem; /* 20px */
+    padding: 3.5rem 1.5rem;
   }
 
   .first-small-title {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.7rem;
+
+    letter-spacing: 0.1rem;
+  }
+
+  .first-main-title {
+    max-width: 32rem;
+
+    font-size: clamp(1.15rem, 4vw, 1.35rem);
+
+    line-height: 1.6;
+
+    margin-bottom: 2rem;
   }
 
   .first-shop-button {
-    font-size: 0.875rem; /* 14px */
-    padding: 0.75rem 2rem;
+    padding: 0.8rem 1.8rem;
+
+    font-size: 0.78rem;
   }
 }
 
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
 @media (max-width: 480px) {
-  .first-section-container {
-    gap: 1.5rem;
+  .first-middle-content {
+    padding: 3rem 1.2rem;
+  }
+
+  .first-small-title {
+    font-size: 0.66rem;
   }
 
   .first-main-title {
     font-size: 1.1rem;
-    line-height: 1.4;
+
+    line-height: 1.6;
   }
 
   .first-shop-button {
     width: 100%;
-    padding: 0.875rem 0;
+
+    max-width: 18rem;
+
+    padding: 0.85rem 1rem;
   }
 }
