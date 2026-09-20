@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 import { FaInstagram, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
+import { FaXTwitter } from 'react-icons/fa6';
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -51,6 +53,7 @@ const Footer = () => {
 
             <div className="footer-contact-note">
               <FaPhoneAlt />
+
               <span>Phone calls by appointment only</span>
             </div>
           </div>
@@ -68,6 +71,15 @@ const Footer = () => {
               aria-label="Instagram"
             >
               <FaInstagram />
+            </a>
+
+            <a
+              href="https://x.com/TabithaThorne"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="X"
+            >
+              <FaXTwitter />
             </a>
           </div>
         </div>

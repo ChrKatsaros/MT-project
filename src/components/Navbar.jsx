@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { FaBars, FaInstagram, FaChevronDown } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 import './navbar.css';
 import logo from '../assets/logo.png';
@@ -130,7 +131,7 @@ function Navbar() {
 
             <div className="locations-dropdown">
               {/* LONDON */}
-              <a href="/#/" onClick={goToBookings}>
+              <a href="/" onClick={goToBookings}>
                 London
               </a>
 
@@ -150,7 +151,7 @@ function Navbar() {
           ========================= */}
 
           <li className="nav-london-booking">
-            <a href="/#/" onClick={goToBookings}>
+            <a href="/" onClick={goToBookings}>
               Bookings
             </a>
           </li>
@@ -249,7 +250,7 @@ function Navbar() {
             }`}
           >
             {/* LONDON */}
-            <a href="/#/" onClick={goToBookings}>
+            <a href="/" onClick={goToBookings}>
               London
             </a>
 
@@ -274,7 +275,7 @@ function Navbar() {
             MOBILE BOOKINGS
         ========================= */}
 
-        <a href="/#/" className="mobile-london-booking" onClick={goToBookings}>
+        <a href="/" className="mobile-london-booking" onClick={goToBookings}>
           Bookings
         </a>
 
@@ -290,6 +291,15 @@ function Navbar() {
             aria-label="Instagram"
           >
             <FaInstagram size={22} />
+          </a>
+
+          <a
+            href="https://x.com/TabithaThorne"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="X"
+          >
+            <FaXTwitter size={20} />
           </a>
         </div>
       </div>

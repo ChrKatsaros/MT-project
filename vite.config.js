@@ -5,8 +5,18 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
 
-  // Important: this project now has multiple real HTML pages
-  appType: 'mpa',
+  /*
+   * SPA mode gives React Router a fallback to index.html
+   * for clean URLs such as:
+   *
+   * /about
+   * /experiences
+   * /application
+   *
+   * Real static location pages remain separate HTML
+   * build entries below.
+   */
+  appType: 'spa',
 
   build: {
     rollupOptions: {

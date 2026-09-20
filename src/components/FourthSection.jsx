@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { FaInstagram, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 
+import { FaXTwitter } from 'react-icons/fa6';
+
 const HOUSE_OF_WORSHIP_URL =
   'https://houseofworshiplondon.com/mistress/new-mistress-vanta/';
 
@@ -64,6 +66,21 @@ const FourthSection = () => {
             rel="noreferrer"
           >
             @misstabithathorne
+          </a>
+        </div>
+
+        {/* X */}
+        <div className="info-block">
+          <span className="info-label">
+            <FaXTwitter className="info-icon" />X
+          </span>
+
+          <a
+            href="https://x.com/TabithaThorne"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @TabithaThorne
           </a>
         </div>
       </div>

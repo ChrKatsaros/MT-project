@@ -36,7 +36,7 @@
 .header-content {
   position: absolute;
 
-  top: 45%;
+  top: 56%;
   left: clamp(2rem, 3.5vw, 4rem);
 
   transform: translateY(-50%);
@@ -176,11 +176,13 @@
 
   .header-img {
     object-fit: cover;
+
     object-position: 58% center;
   }
 
   .header-content {
     top: auto;
+
     bottom: 7rem;
 
     left: 6%;
@@ -192,6 +194,7 @@
 
   .small-title {
     font-size: 0.8rem;
+
     letter-spacing: 0.1rem;
   }
 
@@ -205,26 +208,30 @@
 
   .shop-button {
     font-size: 0.9rem;
+
     padding: 0.85rem 2rem;
   }
 }
 
 /* =========================================================
    TABLET / IPAD - LANDSCAPE
+   Only touch / tablet-style devices
 ========================================================= */
 
-@media (min-width: 769px) and (max-width: 1400px) and (orientation: landscape) {
+@media (min-width: 769px) and (max-width: 1400px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
   .header-container {
     height: 40rem;
   }
 
   .header-img {
     object-fit: cover;
+
     object-position: center center;
   }
 
   .header-content {
     top: 50%;
+
     left: 4.5%;
 
     transform: translateY(-50%);
@@ -246,9 +253,11 @@
 
   .shop-button {
     font-size: 0.88rem;
+
     padding: 0.8rem 1.9rem;
   }
 }
+
 /* =========================================================
    MOBILE
 ========================================================= */
@@ -264,6 +273,7 @@
 
   .header-content {
     top: auto;
+
     bottom: 3.5rem;
 
     left: 5%;

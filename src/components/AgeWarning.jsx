@@ -2,24 +2,36 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ageWarning.css';
 
+const AGE_VERIFIED_KEY = 'tabitha-age-verified';
+
 function AgeWarning() {
-  const [showWarning, setShowWarning] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
   const navigate = useNavigate();
 
+  const [showWarning, setShowWarning] = useState(() => {
+    return sessionStorage.getItem(AGE_VERIFIED_KEY) !== 'true';
+  });
+
+  const [fadeOut, setFadeOut] = useState(false);
+
   const handleEnter = () => {
+    sessionStorage.setItem(AGE_VERIFIED_KEY, 'true');
+
     setFadeOut(true);
 
     setTimeout(() => {
       setShowWarning(false);
-    }, 500); // διάρκεια fade
+    }, 500);
   };
 
   const handleLeave = () => {
+    sessionStorage.removeItem(AGE_VERIFIED_KEY);
+
     navigate('/underage');
   };
 
-  if (!showWarning) return null;
+  if (!showWarning) {
+    return null;
+  }
 
   return (
     <div className={`age-warning-overlay ${fadeOut ? 'fade-out' : ''}`}>

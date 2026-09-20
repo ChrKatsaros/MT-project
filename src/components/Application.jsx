@@ -25,58 +25,35 @@ function Application() {
   /* =========================================
      LOCATION LOGIC
 
-     Location pages send users to:
+     The selected location is passed through
+     the Application URL as a query parameter:
 
-     /#/application?location=Bournemouth
-     /#/application?location=Southampton
-     /#/application?location=Portsmouth
+     /application?location=Bournemouth
+     /application?location=Southampton
+     /application?location=Portsmouth
 
-     Because the website uses HashRouter, we check BOTH:
-     1. React Router's location.search
-     2. window.location.hash
+     React Router exposes the query string
+     through location.search. This remains
+     compatible with the future clean-URL
+     migration.
   ========================================= */
 
   useEffect(() => {
-    const detectBookingLocation = () => {
-      let requestedLocation = null;
+    const params = new URLSearchParams(routerLocation.search);
 
-      /* React Router search */
-      if (routerLocation.search) {
-        const routerParams = new URLSearchParams(routerLocation.search);
+    const requestedLocation = params.get('location');
 
-        requestedLocation = routerParams.get('location');
-      }
+    const normalizedLocation = requestedLocation?.trim().toLowerCase();
 
-      /* HashRouter fallback */
-      if (!requestedLocation && window.location.hash.includes('?')) {
-        const hashQuery = window.location.hash.split('?')[1];
+    if (normalizedLocation && BOOKING_LOCATIONS[normalizedLocation]) {
+      setPreferredLocation(BOOKING_LOCATIONS[normalizedLocation]);
 
-        const hashParams = new URLSearchParams(hashQuery);
-
-        requestedLocation = hashParams.get('location');
-      }
-
-      const normalizedLocation = requestedLocation?.trim().toLowerCase();
-
-      /* Lock location when arriving from a location page */
-      if (normalizedLocation && BOOKING_LOCATIONS[normalizedLocation]) {
-        setPreferredLocation(BOOKING_LOCATIONS[normalizedLocation]);
-
-        setLocationLocked(true);
-      } else {
-        setPreferredLocation('');
-        setLocationLocked(false);
-      }
-    };
-
-    detectBookingLocation();
-
-    window.addEventListener('hashchange', detectBookingLocation);
-
-    return () => {
-      window.removeEventListener('hashchange', detectBookingLocation);
-    };
-  }, [routerLocation.pathname, routerLocation.search]);
+      setLocationLocked(true);
+    } else {
+      setPreferredLocation('');
+      setLocationLocked(false);
+    }
+  }, [routerLocation.search]);
 
   /* =========================================
      CONTACT ICON
@@ -114,7 +91,7 @@ function Application() {
         <input
           type="hidden"
           name="_next"
-          value="https://www.tabithathorne.co.uk/#/application"
+          value="https://www.tabithathorne.co.uk/application"
         />
 
         {/* =========================
@@ -374,12 +351,30 @@ function Application() {
             </div>
           )}
 
-          <input
-            name="availability"
-            type="text"
-            placeholder="Preferred date(s) / availability *"
-            required
-          />
+          <div className="booking-date-fields">
+            <div className="booking-date-field">
+              <label htmlFor="preferred-date">
+                Preferred date <span>*</span>
+              </label>
+
+              <input
+                id="preferred-date"
+                name="preferred_date"
+                type="date"
+                required
+              />
+            </div>
+
+            <div className="booking-date-field">
+              <label htmlFor="alternative-date">Alternative date</label>
+
+              <input
+                id="alternative-date"
+                name="alternative_date"
+                type="date"
+              />
+            </div>
+          </div>
 
           <input
             name="session_style"

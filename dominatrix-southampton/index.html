@@ -80,7 +80,7 @@
 
     <div class="navbar-container" id="static-navbar">
       <div class="navbar-logo">
-        <a href="/#/" class="logo">
+        <a href="/" class="logo">
           <img
             src="/src/assets/logo.png"
             alt="Mistress Tabitha Thorne"
@@ -93,27 +93,27 @@
       <nav class="navbar-links" aria-label="Main navigation">
         <ul class="nav-links">
           <li>
-            <a href="/#/about"> About </a>
+            <a href="/about"> About </a>
           </li>
 
           <li>
-            <a href="/#/experiences"> Experiences </a>
+            <a href="/experiences"> Experiences </a>
           </li>
 
           <li>
-            <a href="/#/protocol"> Protocol </a>
+            <a href="/protocol"> Protocol </a>
           </li>
 
           <li>
-            <a href="/#/gallery"> Gallery </a>
+            <a href="/gallery"> Gallery </a>
           </li>
 
           <li>
-            <a href="/#/guides"> Guides </a>
+            <a href="/guides"> Guides </a>
           </li>
 
           <li>
-            <a href="/#/application?location=Southampton"> Application </a>
+            <a href="/application?location=Southampton"> Application </a>
           </li>
 
           <!-- LOCATIONS -->
@@ -170,17 +170,17 @@
 
       <!-- MOBILE MENU -->
       <div class="mobile-menu" id="static-mobile-menu">
-        <a href="/#/about"> About </a>
+        <a href="/about"> About </a>
 
-        <a href="/#/experiences"> Experiences </a>
+        <a href="/experiences"> Experiences </a>
 
-        <a href="/#/protocol"> Protocol </a>
+        <a href="/protocol"> Protocol </a>
 
-        <a href="/#/gallery"> Gallery </a>
+        <a href="/gallery"> Gallery </a>
 
-        <a href="/#/guides"> Guides </a>
+        <a href="/guides"> Guides </a>
 
-        <a href="/#/application?location=Southampton"> Application </a>
+        <a href="/application?location=Southampton"> Application </a>
 
         <!-- MOBILE LOCATIONS -->
         <div class="mobile-locations">
@@ -271,7 +271,7 @@
           </p>
 
           <a
-            href="/#/application?location=Southampton"
+            href="/application?location=Southampton"
             class="location-primary-button"
           >
             Enquire About Southampton
@@ -438,7 +438,7 @@
           </p>
 
           <a
-            href="/#/application?location=Southampton"
+            href="/application?location=Southampton"
             class="location-primary-button"
           >
             Enquire About Southampton
@@ -560,7 +560,7 @@
           </p>
 
           <a
-            href="/#/application?location=Southampton"
+            href="/application?location=Southampton"
             class="fourth-button primary"
           >
             Apply to Book
@@ -594,35 +594,32 @@
 
     <footer class="footer">
       <div class="footer-content">
-        <!-- LOGO -->
         <div class="footer-logo">
           <img src="/src/assets/logo.png" alt="Tabitha Thorne Logo" />
         </div>
 
-        <!-- NAVIGATION -->
         <div class="footer-section">
           <h4>Navigation</h4>
 
           <ul>
             <li>
-              <a href="/#/about"> About </a>
+              <a href="/about"> About </a>
             </li>
 
             <li>
-              <a href="/#/experiences"> Experiences </a>
+              <a href="/experiences"> Experiences </a>
             </li>
 
             <li>
-              <a href="/#/gallery"> Gallery </a>
+              <a href="/gallery"> Gallery </a>
             </li>
 
             <li>
-              <a href="/#/application?location=Southampton"> Application </a>
+              <a href="/application?location=Southampton"> Application </a>
             </li>
           </ul>
         </div>
 
-        <!-- CONTACT -->
         <div class="footer-section">
           <h4>Contact</h4>
 
@@ -635,7 +632,6 @@
           </div>
         </div>
 
-        <!-- SOCIALS -->
         <div class="footer-section">
           <h4>Socials</h4>
 
@@ -654,8 +650,7 @@
 
       <div class="footer-bottom">
         <p>
-          ©
-          <span id="current-year"></span>
+          © <span id="current-year"></span>
           Tabitha Thorne. All rights reserved.
         </p>
       </div>
@@ -696,23 +691,17 @@
 
       handleNavbarScroll();
 
-      /* MOBILE MENU */
-
       hamburger.addEventListener('click', function () {
         mobileMenu.classList.toggle('open');
 
         navbar.classList.toggle('menu-open');
       });
 
-      /* MOBILE LOCATIONS */
-
       locationsTrigger.addEventListener('click', function () {
         locationsSubmenu.classList.toggle('open');
 
         locationChevron.classList.toggle('rotate');
       });
-
-      /* CLOSE MOBILE MENU WHEN BOOKING LINK IS CLICKED */
 
       const mobileBookingLinks = document.querySelectorAll(
         '.mobile-booking-scroll-link'
@@ -729,8 +718,6 @@
           locationChevron.classList.remove('rotate');
         });
       });
-
-      /* CURRENT YEAR */
 
       document.getElementById('current-year').textContent =
         new Date().getFullYear();
