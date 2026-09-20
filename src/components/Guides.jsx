@@ -114,9 +114,9 @@ function Guides() {
 
         <div className="guides-hero-content">
           <h1>
-            The Tabitha
+            The <span>T</span>abitha
             <br />
-            Thorne Guides
+            <span>T</span>horne Guides
           </h1>
 
           <p className="guides-tagline">

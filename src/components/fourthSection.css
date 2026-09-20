@@ -2,6 +2,7 @@
   background: #0a0a0a;
   padding: 5rem 2rem;
   text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +10,7 @@
 }
 
 /* SUBTITLE */
+
 .fourth-subtitle {
   color: #9f7a66;
   text-transform: uppercase;
@@ -19,6 +21,7 @@
 }
 
 /* TITLE */
+
 .fourth-title {
   font-family: 'Cinzel', serif;
   font-size: 3rem;
@@ -33,6 +36,7 @@
 }
 
 /* TEXT */
+
 .fourth-text {
   color: #b8b0aa;
   font-size: 0.95rem;
@@ -43,12 +47,13 @@
 }
 
 /* INFO */
+
 .fourth-info {
   display: flex;
   gap: 4rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .info-block {
@@ -64,6 +69,10 @@
   text-transform: uppercase;
 }
 
+.info-icon {
+  margin-right: 7px;
+}
+
 .info-block a {
   color: #f1ece8;
   text-decoration: none;
@@ -72,19 +81,131 @@
   transition: 0.3s ease;
 }
 
-.info-block a:hover {
+.info-block a[href]:hover {
   color: #b89582;
 }
 
 /* =========================
-   WISHLIST BLOCK (NEW)
+   BOOKING OPTIONS
+========================= */
+
+.booking-options {
+  width: 100%;
+  max-width: 850px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 22px;
+
+  margin-bottom: 4rem;
+}
+
+.booking-option {
+  padding: 32px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.booking-option.london {
+  border-color: rgba(159, 122, 102, 0.28);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(159, 122, 102, 0.06),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+.booking-eyebrow {
+  color: #9f7a66;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+.booking-description {
+  color: #aaa29d;
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+
+  margin-bottom: 27px;
+}
+
+/* BASE BUTTON */
+
+.fourth-button {
+  display: inline-block;
+
+  border: 1px solid rgba(241, 236, 232, 0.2);
+
+  padding: 14px 34px;
+
+  color: #f1ece8;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  font-size: 0.75rem;
+
+  transition: 0.3s ease;
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* LONDON BUTTON */
+
+.fourth-button.london-booking {
+  border-color: rgba(159, 122, 102, 0.65);
+
+  background: rgba(159, 122, 102, 0.08);
+}
+
+.fourth-button.london-booking:hover {
+  background: #f1ece8;
+
+  color: #0a0a0a;
+
+  border-color: #f1ece8;
+
+  transform: translateY(-2px);
+}
+
+/* PRIMARY */
+
+.fourth-button.primary:hover {
+  background: #f1ece8;
+
+  color: #0a0a0a;
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   WISHLIST
 ========================= */
 
 .wishlist-block {
   max-width: 520px;
+
   margin-bottom: 3rem;
+
   padding: 20px;
+
   border: 1px solid rgba(122, 31, 47, 0.2);
+
   background: linear-gradient(
     to bottom,
     rgba(122, 31, 47, 0.06),
@@ -94,53 +215,48 @@
 
 .wishlist-eyebrow {
   color: #9f7a66;
+
   font-size: 0.7rem;
+
   letter-spacing: 3px;
+
   text-transform: uppercase;
+
   margin-bottom: 10px;
 }
 
 .wishlist-message {
   color: #b8b0aa;
+
   font-size: 0.9rem;
+
   line-height: 1.8;
+
   margin-bottom: 20px;
 }
 
 /* WISHLIST BUTTON */
+
 .fourth-button.wishlist {
   background: linear-gradient(135deg, #7a1f2f, #3a0f14);
+
   border: 1px solid rgba(122, 31, 47, 0.8);
+
   color: #fff;
+
   box-shadow: 0 0 25px rgba(122, 31, 47, 0.25);
 }
 
 .fourth-button.wishlist:hover {
   background: linear-gradient(135deg, #8a2334, #4a1219);
+
   box-shadow: 0 0 35px rgba(122, 31, 47, 0.4);
+
   transform: translateY(-2px);
 }
 
-/* BASE BUTTON */
-.fourth-button {
-  border: 1px solid rgba(241, 236, 232, 0.2);
-  padding: 14px 34px;
-  color: #f1ece8;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.75rem;
-  transition: 0.3s ease;
-  font-family: 'Inter', sans-serif;
-}
-
-/* PRIMARY */
-.fourth-button.primary:hover {
-  background: #f1ece8;
-  color: #0a0a0a;
-}
-
 /* MOBILE */
+
 @media (max-width: 768px) {
   .fourth-section {
     padding: 4rem 1.5rem;
@@ -156,6 +272,16 @@
 
   .fourth-info {
     gap: 2rem;
+  }
+
+  .booking-options {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .booking-option {
+    padding: 27px 20px;
   }
 
   .wishlist-block {

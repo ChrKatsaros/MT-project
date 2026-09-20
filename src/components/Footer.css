@@ -227,3 +227,19 @@
     font-size: 0.68rem;
   }
 }
+.footer-contact-note {
+  display: flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  color: #b8b0aa;
+
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-contact-note {
+    justify-content: center;
+  }
+}

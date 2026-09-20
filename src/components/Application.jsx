@@ -1,11 +1,103 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './application.css';
 
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { FaTelegramPlane } from 'react-icons/fa';
 
+const LONDON_BOOKING_URL =
+  'https://houseofworshiplondon.com/mistress/new-mistress-vanta/';
+
+const BOOKING_LOCATIONS = {
+  bournemouth: 'Bournemouth',
+  southampton: 'Southampton',
+  portsmouth: 'Portsmouth',
+  flexible: 'Flexible / Other',
+};
+
 function Application() {
+  const routerLocation = useLocation();
+
   const [contactMethod, setContactMethod] = useState('');
+  const [preferredLocation, setPreferredLocation] = useState('');
+  const [locationLocked, setLocationLocked] = useState(false);
+
+  /*
+    LOCATION LOGIC
+
+    Location pages send users to:
+
+    /#/application?location=Bournemouth
+    /#/application?location=Southampton
+    /#/application?location=Portsmouth
+
+    Because the website uses HashRouter, we check BOTH:
+    1. React Router's location.search
+    2. window.location.hash
+
+    This makes the location detection reliable.
+  */
+  useEffect(() => {
+    const detectBookingLocation = () => {
+      let requestedLocation = null;
+
+      /*
+        FIRST TRY:
+        React Router search
+      */
+      if (routerLocation.search) {
+        const routerParams = new URLSearchParams(routerLocation.search);
+
+        requestedLocation = routerParams.get('location');
+      }
+
+      /*
+        FALLBACK:
+        Read query directly from the hash.
+
+        Example:
+        #/application?location=Portsmouth
+      */
+      if (!requestedLocation && window.location.hash.includes('?')) {
+        const hashQuery = window.location.hash.split('?')[1];
+
+        const hashParams = new URLSearchParams(hashQuery);
+
+        requestedLocation = hashParams.get('location');
+      }
+
+      const normalizedLocation = requestedLocation?.trim().toLowerCase();
+
+      /*
+        If the visitor arrived from
+        Bournemouth / Southampton / Portsmouth
+        page, lock the location.
+      */
+      if (normalizedLocation && BOOKING_LOCATIONS[normalizedLocation]) {
+        setPreferredLocation(BOOKING_LOCATIONS[normalizedLocation]);
+
+        setLocationLocked(true);
+      } else {
+        /*
+          Direct visit to Application:
+          show normal dropdown.
+        */
+        setPreferredLocation('');
+        setLocationLocked(false);
+      }
+    };
+
+    detectBookingLocation();
+
+    /*
+      Extra protection for HashRouter navigation.
+    */
+    window.addEventListener('hashchange', detectBookingLocation);
+
+    return () => {
+      window.removeEventListener('hashchange', detectBookingLocation);
+    };
+  }, [routerLocation.pathname, routerLocation.search]);
 
   const renderIcon = () => {
     switch (contactMethod) {
@@ -26,7 +118,10 @@ function Application() {
   return (
     <div className="application-page">
       <form action="https://formspree.io/f/xvzljpqn" method="POST">
-        {/* FORM SETTINGS */}
+        {/* =========================
+            FORM SETTINGS
+        ========================= */}
+
         <input
           type="hidden"
           name="_subject"
@@ -36,10 +131,13 @@ function Application() {
         <input
           type="hidden"
           name="_next"
-          value="https://tabithathorne.co.uk/application"
+          value="https://www.tabithathorne.co.uk/#/application"
         />
 
-        {/* HERO */}
+        {/* =========================
+            HERO
+        ========================= */}
+
         <section className="app-hero">
           <h1>
             <span>A</span>pplication
@@ -51,12 +149,48 @@ function Application() {
 
           <p className="intro">
             Applications are reviewed privately and selectively. Compatibility,
-            communication style, emotional intelligence, and mutual
-            understanding matter.
+            communication style, emotional intelligence and mutual understanding
+            matter.
           </p>
         </section>
 
-        {/* BASIC INFO */}
+        {/* =========================
+            LONDON BOOKINGS
+        ========================= */}
+
+        <section className="london-booking-panel">
+          <p className="london-booking-eyebrow">London Appointments</p>
+
+          <h2>Booking in London?</h2>
+
+          <p>
+            London appointments are handled through the dedicated London booking
+            page.
+          </p>
+
+          <a
+            href={LONDON_BOOKING_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="london-booking-button"
+          >
+            London Bookings
+          </a>
+
+          <div className="booking-divider">
+            <span>Other Locations</span>
+          </div>
+
+          <p className="other-locations-text">
+            For Bournemouth, Southampton, Portsmouth, flexible-location requests
+            and other enquiries, please continue with the application below.
+          </p>
+        </section>
+
+        {/* =========================
+            BASIC INFORMATION
+        ========================= */}
+
         <section className="app-section">
           <h2>Basic Information</h2>
 
@@ -65,7 +199,13 @@ function Application() {
           </div>
 
           <div className="form-grid">
-            <input name="name" type="text" placeholder="Name *" required />
+            <input
+              name="name"
+              type="text"
+              placeholder="Name *"
+              required
+              autoComplete="name"
+            />
 
             <input
               name="age"
@@ -78,8 +218,9 @@ function Application() {
             <input
               name="location"
               type="text"
-              placeholder="Location *"
+              placeholder="Your city / area *"
               required
+              autoComplete="address-level2"
             />
 
             {/* CONTACT METHOD */}
@@ -105,7 +246,7 @@ function Application() {
               )}
             </div>
 
-            {/* DYNAMIC CONTACT FIELD */}
+            {/* EMAIL */}
 
             {contactMethod === 'email' && (
               <input
@@ -118,17 +259,21 @@ function Application() {
               />
             )}
 
+            {/* PHONE */}
+
             {contactMethod === 'phone' && (
               <input
                 name="phone"
                 type="tel"
-                placeholder="Phone number *"
+                placeholder="Your phone number *"
                 required
                 autoComplete="tel"
-                inputMode="numeric"
+                inputMode="tel"
                 pattern="^\+?[0-9\s]{7,15}$"
               />
             )}
+
+            {/* TELEGRAM */}
 
             {contactMethod === 'telegram' && (
               <input
@@ -139,16 +284,21 @@ function Application() {
               />
             )}
 
-            {/* OPTIONAL NOTES */}
-
             <textarea
               name="contact_notes"
               placeholder="Any preferences or notes regarding contact? (optional)"
             />
           </div>
+
+          <p className="phone-appointment-note">
+            Phone calls are by appointment only.
+          </p>
         </section>
 
-        {/* INTENTIONS */}
+        {/* =========================
+            PERSONALITY
+        ========================= */}
+
         <section className="app-section dark">
           <h2>Personality & Intentions</h2>
 
@@ -174,7 +324,10 @@ function Application() {
           />
         </section>
 
-        {/* EXPERIENCE */}
+        {/* =========================
+            EXPERIENCE
+        ========================= */}
+
         <section className="app-section">
           <h2>Experience</h2>
 
@@ -195,14 +348,59 @@ function Application() {
           />
         </section>
 
-        {/* PRACTICAL */}
+        {/* =========================
+            PRACTICAL
+        ========================= */}
+
         <section className="app-section dark">
           <h2>Practical</h2>
+
+          {/* =========================
+              BOOKING LOCATION
+          ========================= */}
+
+          {locationLocked ? (
+            <div className="selected-booking-location">
+              <span>Booking location</span>
+
+              <strong>{preferredLocation}</strong>
+
+              {/*
+                Formspree receives the
+                preselected location here.
+              */}
+
+              <input
+                type="hidden"
+                name="preferred_booking_location"
+                value={preferredLocation}
+              />
+            </div>
+          ) : (
+            <div className="booking-location-wrapper">
+              <select
+                name="preferred_booking_location"
+                required
+                value={preferredLocation}
+                onChange={(e) => setPreferredLocation(e.target.value)}
+              >
+                <option value="">Preferred booking location *</option>
+
+                <option value="Bournemouth">Bournemouth</option>
+
+                <option value="Southampton">Southampton</option>
+
+                <option value="Portsmouth">Portsmouth</option>
+
+                <option value="Flexible / Other">Flexible / Other</option>
+              </select>
+            </div>
+          )}
 
           <input
             name="availability"
             type="text"
-            placeholder="Availability *"
+            placeholder="Preferred date(s) / availability *"
             required
           />
 
@@ -218,28 +416,45 @@ function Application() {
           />
         </section>
 
-        {/* LOCATION INFO */}
-        <section className="app-section">
+        {/* =========================
+            BOOKING INFORMATION
+        ========================= */}
+
+        <section className="app-section booking-information">
           <h2>Private Applications & Bookings</h2>
 
           <p>
-            Private bookings and tailored experiences are submitted through this
-            application.
+            This application is used for Bournemouth, Southampton, Portsmouth,
+            flexible-location requests and other private enquiries.
           </p>
 
           <p>
-            Sessions are available at carefully selected venues across London,
-            as well as Bournemouth, Southampton, and Portsmouth.
+            Appointments are arranged in advance and remain subject to
+            suitability, availability and the relevant booking requirements.
           </p>
 
           <p>
-            Same-day appointments may occasionally be available, subject to
-            availability.
+            New private bookings may require identity verification and a deposit
+            before confirmation.
           </p>
 
-          <p className="accent">Phone: 07462 938600</p>
+          <p className="appointment-only">
+            Phone calls are available by appointment only.
+          </p>
+
+          <div className="inline-london-booking">
+            <span>Looking for London?</span>
+
+            <a href={LONDON_BOOKING_URL} target="_blank" rel="noreferrer">
+              London Bookings
+            </a>
+          </div>
         </section>
-        {/* FINAL */}
+
+        {/* =========================
+            FINAL
+        ========================= */}
+
         <section className="app-final">
           <h2>Final Question</h2>
 

@@ -1,0 +1,617 @@
+/* =========================================
+   LOCATION PAGES
+   Navbar / FourthSection / Footer use
+   the exact CSS of the main website.
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background: #050505;
+
+  color: #fff;
+
+  font-family: 'Inter', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+}
+
+.location-page {
+  width: 100%;
+
+  overflow-x: hidden;
+
+  background: #050505;
+
+  color: #fff;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.location-hero {
+  height: 100vh;
+
+  min-height: 700px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 100px 20px 40px;
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  background-position: center 40%;
+}
+
+/* HERO IMAGES */
+
+.bournemouth-hero {
+  background-image: url('/location-assets/bournemouth-hero.webp');
+}
+
+.portsmouth-hero {
+  background-image: url('/location-assets/portsmouth-hero.webp');
+
+  background-position: center 42%;
+}
+
+.southampton-hero {
+  background-image: url('/location-assets/southampton-hero.webp');
+}
+
+/* HERO OVERLAY */
+
+.location-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.89)
+  );
+}
+
+/* HERO CONTENT */
+
+.location-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 800px;
+
+  padding: 20px;
+}
+
+.location-eyebrow {
+  margin-bottom: 10px;
+
+  color: #aaa;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.location-hero h1 {
+  margin: 0;
+
+  color: #fff;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 3.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  line-height: 1.15;
+}
+
+.location-hero h1 span {
+  display: block;
+
+  color: #fff;
+}
+
+.location-hero-subtitle {
+  max-width: 700px;
+
+  margin: 22px auto 0;
+
+  color: #c9c9c9;
+
+  line-height: 1.8;
+
+  font-size: 1rem;
+}
+
+/* =========================================
+   PRIMARY CTA
+========================================= */
+
+.location-primary-button {
+  display: inline-block;
+
+  margin-top: 25px;
+
+  padding: 14px 32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  transition: 0.4s ease;
+}
+
+.location-primary-button:hover {
+  background: #fff;
+
+  color: #000;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.location-section {
+  position: relative;
+
+  padding: 120px 10%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.location-section.dark-section {
+  max-width: none;
+
+  padding-left: max(10%, calc((100vw - 900px) / 2));
+
+  padding-right: max(10%, calc((100vw - 900px) / 2));
+
+  background: #070707;
+}
+
+/* EYEBROW */
+
+.section-kicker {
+  color: #9f7a66;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 14px;
+}
+
+/* HEADINGS */
+
+.location-section h2,
+.location-booking-section h2,
+.related-locations h2 {
+  position: relative;
+
+  margin-top: 0;
+
+  margin-bottom: 40px;
+
+  color: #e8e8e8;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 2.2rem;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+
+  line-height: 1.3;
+}
+
+.location-section h2::after,
+.location-booking-section h2::after,
+.related-locations h2::after {
+  content: '';
+
+  display: block;
+
+  width: 110px;
+
+  height: 1px;
+
+  margin-top: 12px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(107, 30, 46, 0.9),
+    rgba(107, 30, 46, 0.2)
+  );
+}
+
+/* CENTERED INTRO */
+
+.location-intro {
+  text-align: center;
+}
+
+.location-intro h2::after,
+.location-booking-section h2::after,
+.related-locations h2::after {
+  margin-left: auto;
+
+  margin-right: auto;
+}
+
+/* TEXT */
+
+.location-copy {
+  max-width: 800px;
+
+  margin: 0 auto;
+}
+
+.location-copy p,
+.location-section-content p,
+.location-booking-section p {
+  color: #bdbdbd;
+
+  line-height: 1.95;
+
+  margin-bottom: 18px;
+
+  font-size: 1rem;
+}
+
+/* =========================================
+   IMAGE BREAK
+========================================= */
+
+.location-image-break {
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: 80px auto;
+
+  padding: 0 10%;
+
+  box-sizing: border-box;
+}
+
+.location-image-break img {
+  width: 100%;
+
+  height: 650px;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter: brightness(0.85) contrast(1.05);
+
+  transition: 0.5s ease;
+}
+
+.location-image-break img:hover {
+  transform: scale(1.01);
+}
+
+/* =========================================
+   NUMBERED SECTIONS
+========================================= */
+
+.location-split-section {
+  display: grid;
+
+  grid-template-columns: 90px 1fr;
+
+  gap: 40px;
+
+  align-items: start;
+}
+
+.location-section-number {
+  color: rgba(159, 122, 102, 0.25);
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 3rem;
+
+  line-height: 1;
+}
+
+.location-section-content {
+  max-width: 720px;
+}
+
+/* =========================================
+   BOOKING SECTION
+========================================= */
+
+.location-booking-section {
+  position: relative;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 120px 10%;
+
+  text-align: center;
+
+  background: #050505;
+}
+
+.location-booking-section p {
+  max-width: 720px;
+
+  margin-left: auto;
+
+  margin-right: auto;
+}
+
+/* =========================================
+   RELATED LOCATIONS
+========================================= */
+
+.related-locations {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 120px 10%;
+
+  text-align: center;
+}
+
+.related-location-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-top: 50px;
+}
+
+.related-location {
+  min-height: 160px;
+
+  padding: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(255, 255, 255, 0.02);
+
+  color: #fff;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  transition: 0.4s ease;
+}
+
+.related-location:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(107, 30, 46, 0.7);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(107, 30, 46, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.related-location span {
+  margin-bottom: 10px;
+
+  color: #e8e8e8;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.1rem;
+
+  letter-spacing: 1px;
+}
+
+.related-location small {
+  color: #9f7a66;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   SMALL STATIC-SITE FIXES
+========================================= */
+
+/*
+  React-icons are SVG components in the
+  normal site. Static pages use inline SVGs.
+*/
+
+.mobile-hamburger svg,
+.mobile-locations-trigger svg,
+.info-icon,
+.footer-contact svg,
+.footer-contact-note svg,
+.footer-social-icons svg {
+  flex-shrink: 0;
+}
+
+/*
+  Keep static Navbar button clean.
+*/
+
+.mobile-hamburger {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+}
+
+/*
+  Highlight Locations while on a city page.
+*/
+
+.locations-nav-item.active .locations-nav-trigger {
+  color: #9f7a66;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .location-split-section {
+    grid-template-columns: 70px 1fr;
+
+    gap: 28px;
+  }
+
+  .related-location-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .location-hero {
+    height: 100dvh;
+
+    min-height: 100dvh;
+
+    padding: 110px 20px 40px;
+
+    background-position: center center;
+  }
+
+  .location-hero h1 {
+    font-size: 2.4rem;
+
+    letter-spacing: 3px;
+  }
+
+  .location-hero-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .location-section {
+    padding: 80px 6%;
+  }
+
+  .location-section.dark-section {
+    padding: 80px 6%;
+  }
+
+  .location-section h2,
+  .location-booking-section h2,
+  .related-locations h2 {
+    font-size: 2rem;
+  }
+
+  .location-split-section {
+    display: block;
+  }
+
+  .location-section-number {
+    margin-bottom: 25px;
+
+    font-size: 2.5rem;
+  }
+
+  .location-image-break {
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 0;
+
+    margin: 60px auto;
+
+    overflow: hidden;
+  }
+
+  .location-image-break img {
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+  }
+
+  .location-booking-section {
+    padding: 90px 6%;
+  }
+
+  .related-locations {
+    padding: 90px 6%;
+  }
+
+  .related-location-grid {
+    gap: 18px;
+
+    margin-top: 40px;
+  }
+}

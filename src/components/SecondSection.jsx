@@ -18,6 +18,13 @@ function SecondSection() {
         <h3>Controlled Atmosphere</h3>
         <h3>Feminine Authority</h3>
         <h3>Power Exchange</h3>
+
+        {/* NEW EXPERIENCES */}
+        <h3 className="featured-experience-title">
+          Subliminal Surrender Trance Breath
+        </h3>
+
+        <h3 className="featured-experience-title">Dinner With Your Mistress</h3>
       </div>
 
       {/* CTA */}

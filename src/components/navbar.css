@@ -72,7 +72,7 @@
 
   display: flex;
 
-  gap: 2rem;
+  gap: 1.3rem;
 
   margin: 0;
 
@@ -166,7 +166,7 @@
 }
 
 .mobile-menu.open {
-  max-height: 500px;
+  max-height: 900px;
 
   padding: 2rem 1.5rem;
 }
@@ -204,7 +204,357 @@
 .mobile-socials a {
   color: #b8b0aa;
 }
+/* =========================
+   LOCATIONS DROPDOWN
+========================= */
 
+/* =========================
+   LOCATIONS DROPDOWN
+========================= */
+
+.locations-nav-item {
+  position: relative;
+}
+
+.locations-nav-trigger {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #f1ece8;
+
+  font-family: 'Cinzel', serif;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08rem;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  transition: color 0.3s ease;
+}
+
+.locations-nav-trigger svg {
+  font-size: 0.65rem;
+
+  transition: transform 0.3s ease;
+}
+
+.locations-nav-item:hover .locations-nav-trigger {
+  color: #9f7a66;
+}
+
+.locations-nav-item:hover .locations-nav-trigger svg {
+  transform: rotate(180deg);
+}
+
+/* DROPDOWN CONTAINER */
+
+.locations-dropdown {
+  position: absolute;
+
+  top: calc(100% + 12px);
+
+  left: 50%;
+
+  transform: translateX(-50%) translateY(8px);
+
+  min-width: 225px;
+
+  padding: 8px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(20, 17, 16, 0.99),
+    rgba(8, 8, 8, 0.99)
+  );
+
+  border: 1px solid rgba(159, 122, 102, 0.18);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(14px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 1005;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+/* INVISIBLE HOVER BRIDGE */
+
+.locations-dropdown::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  top: -14px;
+
+  height: 14px;
+
+  background: transparent;
+}
+
+.locations-nav-item:hover .locations-dropdown,
+.locations-nav-item:focus-within .locations-dropdown {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+/* LOCATION LINKS */
+
+.locations-dropdown a {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 14px 16px;
+
+  color: #b8b0aa !important;
+
+  text-decoration: none;
+
+  .locations-dropdown a {
+    font-family: 'Cinzel', serif !important;
+
+    font-size: 0.78rem !important;
+
+    font-weight: 500;
+
+    letter-spacing: 1.5px !important;
+  }
+  font-size: 0.76rem !important;
+
+  font-weight: 400;
+
+  letter-spacing: 1.6px !important;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.locations-dropdown a:last-child {
+  border-bottom: 0;
+}
+
+/* SMALL ACCENT LINE */
+
+.locations-dropdown a::before {
+  content: '';
+
+  width: 0;
+
+  height: 1px;
+
+  margin-right: 0;
+
+  background: #9f7a66;
+
+  transition:
+    width 0.3s ease,
+    margin-right 0.3s ease;
+}
+
+/* REMOVE NORMAL NAV UNDERLINE */
+
+.locations-dropdown a::after {
+  display: none !important;
+}
+
+/* HOVER */
+
+.locations-dropdown a:hover {
+  color: #f1ece8 !important;
+
+  background: rgba(159, 122, 102, 0.08);
+
+  padding-left: 19px;
+}
+
+.locations-dropdown a:hover::before {
+  width: 16px;
+
+  margin-right: 9px;
+}
+
+/* INVISIBLE BRIDGE BETWEEN LOCATIONS AND DROPDOWN */
+.locations-dropdown::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: -12px;
+
+  height: 12px;
+
+  background: transparent;
+}
+.locations-nav-item:hover .locations-dropdown {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.locations-dropdown a {
+  display: block;
+
+  padding: 12px 18px;
+
+  color: #b8b0aa !important;
+
+  font-family: 'Inter', sans-serif !important;
+
+  font-size: 0.75rem !important;
+
+  letter-spacing: 1.5px !important;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.locations-dropdown a::after {
+  display: none !important;
+}
+
+.locations-dropdown a:hover {
+  color: #fff !important;
+
+  background: rgba(159, 122, 102, 0.08);
+}
+
+/* =========================
+   MOBILE LOCATIONS
+========================= */
+
+.mobile-locations {
+  width: 100%;
+}
+
+.mobile-locations-trigger {
+  width: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #f1ece8;
+
+  font-family: 'Cinzel', serif;
+
+  text-transform: uppercase;
+
+  text-align: left;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+
+.mobile-locations-trigger svg {
+  font-size: 0.75rem;
+
+  transition: transform 0.3s ease;
+}
+
+.mobile-locations-trigger svg.rotate {
+  transform: rotate(180deg);
+}
+
+.mobile-locations-submenu {
+  max-height: 0;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  padding-left: 18px;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.35s ease,
+    margin-top 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.mobile-locations-submenu.open {
+  max-height: 220px;
+
+  margin-top: 16px;
+
+  opacity: 1;
+}
+
+.mobile-locations-submenu a {
+  color: #aaa19c;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 1.3px;
+
+  text-transform: uppercase;
+}
 /* MOBILE */
 
 @media (max-width: 768px) {
@@ -233,4 +583,52 @@
 
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
   }
+}
+/* =========================
+   LONDON BOOKINGS
+========================= */
+
+.nav-links li.nav-london-booking a {
+  padding: 9px 15px;
+
+  border: 1px solid rgba(159, 122, 102, 0.55);
+
+  color: #e4d6ce;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.09rem;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.nav-links li.nav-london-booking a:hover {
+  background: #f1ece8;
+
+  color: #0a0a0a;
+
+  border-color: #f1ece8;
+}
+
+.nav-links li.nav-london-booking a::after {
+  display: none;
+}
+
+/* MOBILE LONDON BUTTON */
+
+.mobile-london-booking {
+  margin-top: 5px;
+
+  padding: 12px 18px;
+
+  text-align: center;
+
+  border: 1px solid rgba(159, 122, 102, 0.55);
+
+  color: #e4d6ce !important;
+
+  font-size: 0.85rem;
 }

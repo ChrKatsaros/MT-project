@@ -1,15 +1,11 @@
 import React from 'react';
 import './Footer.css';
+
 import logo from '../assets/logo.png';
 
 import { Link } from 'react-router-dom';
 
-import {
-  FaInstagram,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-} from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -48,17 +44,15 @@ const Footer = () => {
           <h4>Contact</h4>
 
           <div className="footer-contact">
-            {/* PHONE */}
-            <a href="tel:07462938600">
-              <FaPhoneAlt />
-              07462 938600
-            </a>
-
-            {/* EMAIL */}
             <a href="mailto:MissTabithaThorne@proton.me">
               <FaEnvelope />
               Private Enquiries
             </a>
+
+            <div className="footer-contact-note">
+              <FaPhoneAlt />
+              <span>Phone calls by appointment only</span>
+            </div>
           </div>
         </div>
 
@@ -71,6 +65,7 @@ const Footer = () => {
               href="https://instagram.com/misstabithathorne"
               target="_blank"
               rel="noreferrer"
+              aria-label="Instagram"
             >
               <FaInstagram />
             </a>

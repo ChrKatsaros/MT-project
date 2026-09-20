@@ -2,8 +2,8 @@ import React from 'react';
 import './experiences.css';
 
 import gallery2 from '../assets/gallery15.webp';
-
 import gallery3 from '../assets/gallery11.webp';
+
 function Experiences() {
   return (
     <div className="experiences-page">
@@ -145,7 +145,86 @@ function Experiences() {
           <li>Strap-on dynamics</li>
           <li>Sensory ritual & behavioural conditioning</li>
           <li>Sensual tantric & body-to-body massage</li>
+
+          {/* NEW EXPERIENCES */}
+          <li className="exp-list-feature">
+            Subliminal Surrender Trance Breath
+          </li>
+
+          <li className="exp-list-feature">Dinner With Your Mistress</li>
         </ul>
+      </section>
+
+      {/* NEW FEATURED EXPERIENCES */}
+      <section className="exp-featured-experiences">
+        <div className="exp-featured-heading">
+          <p className="exp-featured-eyebrow">Signature Experiences</p>
+
+          <h2>Explore Something Deeper</h2>
+
+          <p>
+            Two distinctive experiences created to extend the world of Mistress
+            Tabitha beyond conventional domination.
+          </p>
+        </div>
+
+        <div className="exp-featured-grid">
+          {/* SUBLIMINAL SURRENDER */}
+          <article className="exp-featured-card">
+            <span className="exp-feature-number">01</span>
+
+            <div className="exp-featured-card-content">
+              <p className="exp-feature-label">Breath · Hypnosis · Surrender</p>
+
+              <h3>Subliminal Surrender Trance Breath</h3>
+
+              <div className="exp-feature-line" />
+
+              <p>
+                Go beyond traditional domination with an immersive fusion of
+                conscious connected breathwork, hypnotic suggestion and
+                acupressure.
+              </p>
+
+              <p>
+                Designed to quieten the conscious mind and deepen surrender,
+                this experience can intensify sensation, psychological control
+                and erotic exploration.
+              </p>
+
+              <p className="exp-feature-note">
+                Available as a private experience with Mistress Tabitha.
+              </p>
+            </div>
+          </article>
+
+          {/* DINNER WITH YOUR MISTRESS */}
+          <article className="exp-featured-card burgundy-feature">
+            <span className="exp-feature-number">02</span>
+
+            <div className="exp-featured-card-content">
+              <p className="exp-feature-label">
+                Elegance · Intimacy · Companionship
+              </p>
+
+              <h3>Dinner With Your Mistress</h3>
+
+              <div className="exp-feature-line" />
+
+              <p>
+                Step beyond the dungeon and enjoy the pleasure of your
+                Mistress’s company over dinner.
+              </p>
+
+              <p>An elegant, intimate experience with Mistress Tabitha.</p>
+
+              <p className="exp-feature-note">
+                Enjoy as a standalone encounter or combine your evening with a
+                private domination session before or afterwards.
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
 
       {/* CONTROLLED REGRESSION */}
