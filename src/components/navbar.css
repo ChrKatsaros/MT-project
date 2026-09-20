@@ -236,7 +236,7 @@
     visibility 0.25s ease;
 }
 
-/* invisible hover bridge */
+/* Invisible hover bridge */
 
 .locations-dropdown::before {
   content: '';
@@ -422,7 +422,7 @@
 
   background: rgba(10, 10, 10, 0.98);
 
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
 
   transition:
     max-height 0.4s ease,
@@ -618,19 +618,19 @@
     padding: 0.25rem clamp(1rem, 3vw, 2rem);
   }
 
-  /* Hide desktop navigation completely */
+  /* Hide desktop navigation */
 
   .navbar-links {
     display: none;
   }
 
-  /* Enable hamburger */
+  /* Show hamburger */
 
   .mobile-hamburger {
     display: flex;
   }
 
-  /* Keep logo controlled */
+  /* Logo */
 
   .navbar-logo img {
     height: 5rem;
@@ -640,7 +640,7 @@
     height: 4.5rem;
   }
 
-  /* Give navbar a background whenever menu opens */
+  /* Navbar background when menu opens */
 
   .navbar-container.menu-open {
     background: rgba(0, 0, 0, 0.96);

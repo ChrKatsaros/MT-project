@@ -145,13 +145,8 @@ function Experiences() {
           <li>Strap-on dynamics</li>
           <li>Sensory ritual & behavioural conditioning</li>
           <li>Sensual tantric & body-to-body massage</li>
-
-          {/* NEW EXPERIENCES */}
-          <li className="exp-list-feature">
-            Subliminal Surrender Trance Breath
-          </li>
-
-          <li className="exp-list-feature">Dinner With Your Mistress</li>
+          <li>Subliminal surrender trance breath</li>
+          <li>Dinner with your Mistress</li>
         </ul>
       </section>
 
