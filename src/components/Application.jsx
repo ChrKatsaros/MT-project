@@ -5,7 +5,7 @@ import './application.css';
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { FaTelegramPlane } from 'react-icons/fa';
 
-const LONDON_BOOKING_URL =
+const HOUSE_OF_WORSHIP_URL =
   'https://houseofworshiplondon.com/mistress/new-mistress-vanta/';
 
 const BOOKING_LOCATIONS = {
@@ -22,42 +22,32 @@ function Application() {
   const [preferredLocation, setPreferredLocation] = useState('');
   const [locationLocked, setLocationLocked] = useState(false);
 
-  /*
-    LOCATION LOGIC
+  /* =========================================
+     LOCATION LOGIC
 
-    Location pages send users to:
+     Location pages send users to:
 
-    /#/application?location=Bournemouth
-    /#/application?location=Southampton
-    /#/application?location=Portsmouth
+     /#/application?location=Bournemouth
+     /#/application?location=Southampton
+     /#/application?location=Portsmouth
 
-    Because the website uses HashRouter, we check BOTH:
-    1. React Router's location.search
-    2. window.location.hash
+     Because the website uses HashRouter, we check BOTH:
+     1. React Router's location.search
+     2. window.location.hash
+  ========================================= */
 
-    This makes the location detection reliable.
-  */
   useEffect(() => {
     const detectBookingLocation = () => {
       let requestedLocation = null;
 
-      /*
-        FIRST TRY:
-        React Router search
-      */
+      /* React Router search */
       if (routerLocation.search) {
         const routerParams = new URLSearchParams(routerLocation.search);
 
         requestedLocation = routerParams.get('location');
       }
 
-      /*
-        FALLBACK:
-        Read query directly from the hash.
-
-        Example:
-        #/application?location=Portsmouth
-      */
+      /* HashRouter fallback */
       if (!requestedLocation && window.location.hash.includes('?')) {
         const hashQuery = window.location.hash.split('?')[1];
 
@@ -68,20 +58,12 @@ function Application() {
 
       const normalizedLocation = requestedLocation?.trim().toLowerCase();
 
-      /*
-        If the visitor arrived from
-        Bournemouth / Southampton / Portsmouth
-        page, lock the location.
-      */
+      /* Lock location when arriving from a location page */
       if (normalizedLocation && BOOKING_LOCATIONS[normalizedLocation]) {
         setPreferredLocation(BOOKING_LOCATIONS[normalizedLocation]);
 
         setLocationLocked(true);
       } else {
-        /*
-          Direct visit to Application:
-          show normal dropdown.
-        */
         setPreferredLocation('');
         setLocationLocked(false);
       }
@@ -89,15 +71,16 @@ function Application() {
 
     detectBookingLocation();
 
-    /*
-      Extra protection for HashRouter navigation.
-    */
     window.addEventListener('hashchange', detectBookingLocation);
 
     return () => {
       window.removeEventListener('hashchange', detectBookingLocation);
     };
   }, [routerLocation.pathname, routerLocation.search]);
+
+  /* =========================================
+     CONTACT ICON
+  ========================================= */
 
   const renderIcon = () => {
     switch (contactMethod) {
@@ -155,35 +138,36 @@ function Application() {
         </section>
 
         {/* =========================
-            LONDON BOOKINGS
+            HOUSE OF WORSHIP
         ========================= */}
 
         <section className="london-booking-panel">
-          <p className="london-booking-eyebrow">London Appointments</p>
+          <p className="london-booking-eyebrow">West Kensington · London</p>
 
-          <h2>Booking in London?</h2>
+          <h2>Booking at House of Worship?</h2>
 
           <p>
-            London appointments are handled through the dedicated London booking
-            page.
+            Appointments at House of Worship in West Kensington are arranged
+            directly through the venue&apos;s dedicated booking page.
           </p>
 
           <a
-            href={LONDON_BOOKING_URL}
+            href={HOUSE_OF_WORSHIP_URL}
             target="_blank"
             rel="noreferrer"
             className="london-booking-button"
           >
-            London Bookings
+            Book at House of Worship
           </a>
 
           <div className="booking-divider">
-            <span>Other Locations</span>
+            <span>Other Locations & Visiting Dates</span>
           </div>
 
           <p className="other-locations-text">
-            For Bournemouth, Southampton, Portsmouth, flexible-location requests
-            and other enquiries, please continue with the application below.
+            For Bournemouth, Southampton, Portsmouth, other locations,
+            flexible-location requests or selected visiting dates, please
+            continue with the private application below.
           </p>
         </section>
 
@@ -355,20 +339,13 @@ function Application() {
         <section className="app-section dark">
           <h2>Practical</h2>
 
-          {/* =========================
-              BOOKING LOCATION
-          ========================= */}
+          {/* BOOKING LOCATION */}
 
           {locationLocked ? (
             <div className="selected-booking-location">
-              <span>Booking location</span>
+              <span>Preferred location</span>
 
               <strong>{preferredLocation}</strong>
-
-              {/*
-                Formspree receives the
-                preselected location here.
-              */}
 
               <input
                 type="hidden"
@@ -384,7 +361,7 @@ function Application() {
                 value={preferredLocation}
                 onChange={(e) => setPreferredLocation(e.target.value)}
               >
-                <option value="">Preferred booking location *</option>
+                <option value="">Preferred location / visiting date *</option>
 
                 <option value="Bournemouth">Bournemouth</option>
 
@@ -425,7 +402,8 @@ function Application() {
 
           <p>
             This application is used for Bournemouth, Southampton, Portsmouth,
-            flexible-location requests and other private enquiries.
+            other locations, flexible-location requests and selected visiting
+            dates.
           </p>
 
           <p>
@@ -443,10 +421,10 @@ function Application() {
           </p>
 
           <div className="inline-london-booking">
-            <span>Looking for London?</span>
+            <span>Looking for House of Worship?</span>
 
-            <a href={LONDON_BOOKING_URL} target="_blank" rel="noreferrer">
-              London Bookings
+            <a href={HOUSE_OF_WORSHIP_URL} target="_blank" rel="noreferrer">
+              Book at House of Worship
             </a>
           </div>
         </section>

@@ -64,7 +64,9 @@
 
     <!-- SAME CSS AS MAIN WEBSITE -->
     <link rel="stylesheet" href="/src/components/navbar.css" />
+
     <link rel="stylesheet" href="/src/components/fourthSection.css" />
+
     <link rel="stylesheet" href="/src/components/Footer.css" />
 
     <!-- LOCATION CONTENT -->
@@ -77,6 +79,7 @@
     ========================================== -->
 
     <div class="navbar-container" id="static-navbar">
+      <!-- LOGO -->
       <div class="navbar-logo">
         <a href="/#/" class="logo">
           <img
@@ -91,23 +94,23 @@
       <nav class="navbar-links" aria-label="Main navigation">
         <ul class="nav-links">
           <li>
-            <a href="/#/about">About</a>
+            <a href="/#/about"> About </a>
           </li>
 
           <li>
-            <a href="/#/experiences">Experiences</a>
+            <a href="/#/experiences"> Experiences </a>
           </li>
 
           <li>
-            <a href="/#/protocol">Protocol</a>
+            <a href="/#/protocol"> Protocol </a>
           </li>
 
           <li>
-            <a href="/#/gallery">Gallery</a>
+            <a href="/#/gallery"> Gallery </a>
           </li>
 
           <li>
-            <a href="/#/guides">Guides</a>
+            <a href="/#/guides"> Guides </a>
           </li>
 
           <li>
@@ -131,13 +134,7 @@
             </button>
 
             <div class="locations-dropdown">
-              <a
-                href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                London
-              </a>
+              <a href="#booking-options"> London </a>
 
               <a href="/dominatrix-bournemouth/"> Bournemouth </a>
 
@@ -147,15 +144,9 @@
             </div>
           </li>
 
-          <!-- LONDON CTA -->
+          <!-- BOOKINGS CTA -->
           <li class="nav-london-booking">
-            <a
-              href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              London Bookings
-            </a>
+            <a href="#booking-options"> Bookings </a>
           </li>
         </ul>
       </nav>
@@ -214,11 +205,7 @@
           </button>
 
           <div class="mobile-locations-submenu" id="static-locations-submenu">
-            <a
-              href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="#booking-options" class="mobile-booking-scroll-link">
               London
             </a>
 
@@ -230,15 +217,15 @@
           </div>
         </div>
 
+        <!-- MOBILE BOOKINGS -->
         <a
-          href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
-          target="_blank"
-          rel="noreferrer"
-          class="mobile-london-booking"
+          href="#booking-options"
+          class="mobile-london-booking mobile-booking-scroll-link"
         >
-          London Bookings
+          Bookings
         </a>
 
+        <!-- SOCIALS -->
         <div class="mobile-socials">
           <a
             href="https://instagram.com/misstabithathorne"
@@ -465,26 +452,21 @@
 
           <div class="related-location-grid">
             <a href="/dominatrix-southampton/" class="related-location">
-              <span>Southampton</span>
+              <span> Southampton </span>
 
               <small> View appointments → </small>
             </a>
 
             <a href="/dominatrix-portsmouth/" class="related-location">
-              <span>Portsmouth</span>
+              <span> Portsmouth </span>
 
               <small> View appointments → </small>
             </a>
 
-            <a
-              href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
-              target="_blank"
-              rel="noreferrer"
-              class="related-location"
-            >
-              <span>London</span>
+            <a href="#booking-options" class="related-location">
+              <span> London </span>
 
-              <small> London bookings → </small>
+              <small> View booking options → </small>
             </a>
           </div>
         </section>
@@ -495,7 +477,7 @@
          FOURTH SECTION
     ========================================== -->
 
-    <section class="fourth-section">
+    <section class="fourth-section" id="booking-options">
       <p class="fourth-subtitle">Private Access</p>
 
       <h2 class="fourth-title">Enter <span>Her World</span></h2>
@@ -503,24 +485,30 @@
       <p class="fourth-text">
         Private appointments and immersive experiences are available by prior
         arrangement.
+
         <br />
         <br />
-        London bookings are handled separately through the dedicated London
-        booking page. For Bournemouth, Southampton, Portsmouth and all other
-        enquiries, please use the private application form.
+
+        Choose the booking option that best suits your preferred venue or
+        location. Selected venues use their own booking system, while other
+        locations and visiting dates can be requested through the private
+        application form.
       </p>
 
+      <!-- GENERAL INFO -->
       <div class="fourth-info">
         <div class="info-block">
           <span class="info-label"> Available In </span>
 
-          <span> London · Bournemouth · Southampton · Portsmouth </span>
+          <span class="info-value">
+            London · Bournemouth · Southampton · Portsmouth
+          </span>
         </div>
 
         <div class="info-block">
           <span class="info-label"> Phone Calls </span>
 
-          <span> By appointment only </span>
+          <span class="info-value"> By appointment only </span>
         </div>
 
         <div class="info-block">
@@ -536,48 +524,62 @@
         </div>
       </div>
 
-      <!-- BOOKING OPTIONS -->
+      <!-- =========================================
+           BOOKING OPTIONS
+      ========================================== -->
+
       <div class="booking-options">
-        <div class="booking-option london">
-          <p class="booking-eyebrow">London</p>
+        <!-- HOUSE OF WORSHIP -->
+        <div class="booking-option venue-featured">
+          <p class="booking-eyebrow">West Kensington · London</p>
+
+          <h3 class="booking-title">House of Worship</h3>
 
           <p class="booking-description">
-            For appointments in London, use the dedicated London booking page.
+            For appointments at House of Worship in West Kensington, bookings
+            are arranged directly through the venue's dedicated booking page.
           </p>
 
           <a
             href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
             target="_blank"
             rel="noreferrer"
-            class="fourth-button london-booking"
+            class="fourth-button venue-booking"
           >
-            London Bookings
+            Book at House of Worship
           </a>
         </div>
 
-        <div class="booking-option regional">
-          <p class="booking-eyebrow">Other Locations</p>
+        <!-- OTHER LOCATIONS -->
+        <div class="booking-option">
+          <p class="booking-eyebrow">Flexible Booking</p>
+
+          <h3 class="booking-title">Other Locations & Visiting Dates</h3>
 
           <p class="booking-description">
-            For Bournemouth, Southampton, Portsmouth and other enquiries, submit
-            a private application.
+            For Bournemouth, Southampton, Portsmouth, other locations or
+            selected visiting dates, submit a private booking application.
           </p>
 
           <a
             href="/#/application?location=Bournemouth"
             class="fourth-button primary"
           >
-            Submit Application
+            Apply to Book
           </a>
         </div>
       </div>
 
-      <!-- WISHLIST -->
+      <!-- =========================================
+           WISHLIST
+      ========================================== -->
+
       <div class="wishlist-block">
         <p class="wishlist-eyebrow">Private Selection</p>
 
         <p class="wishlist-message">
           A curated collection of personal preferences, gifts, and indulgences.
+          For those who wish to contribute or explore what inspires her world.
         </p>
 
         <a
@@ -597,10 +599,12 @@
 
     <footer class="footer">
       <div class="footer-content">
+        <!-- LOGO -->
         <div class="footer-logo">
           <img src="/src/assets/logo.png" alt="Tabitha Thorne Logo" />
         </div>
 
+        <!-- NAVIGATION -->
         <div class="footer-section">
           <h4>Navigation</h4>
 
@@ -623,6 +627,7 @@
           </ul>
         </div>
 
+        <!-- CONTACT -->
         <div class="footer-section">
           <h4>Contact</h4>
 
@@ -635,6 +640,7 @@
           </div>
         </div>
 
+        <!-- SOCIALS -->
         <div class="footer-section">
           <h4>Socials</h4>
 
@@ -653,7 +659,8 @@
 
       <div class="footer-bottom">
         <p>
-          © <span id="current-year"></span>
+          ©
+          <span id="current-year"></span>
           Tabitha Thorne. All rights reserved.
         </p>
       </div>
@@ -694,17 +701,41 @@
 
       handleNavbarScroll();
 
+      /* MOBILE MENU */
+
       hamburger.addEventListener('click', function () {
         mobileMenu.classList.toggle('open');
 
         navbar.classList.toggle('menu-open');
       });
 
+      /* MOBILE LOCATIONS */
+
       locationsTrigger.addEventListener('click', function () {
         locationsSubmenu.classList.toggle('open');
 
         locationChevron.classList.toggle('rotate');
       });
+
+      /* CLOSE MOBILE MENU WHEN BOOKING LINK IS CLICKED */
+
+      const mobileBookingLinks = document.querySelectorAll(
+        '.mobile-booking-scroll-link'
+      );
+
+      mobileBookingLinks.forEach((link) => {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.remove('open');
+
+          navbar.classList.remove('menu-open');
+
+          locationsSubmenu.classList.remove('open');
+
+          locationChevron.classList.remove('rotate');
+        });
+      });
+
+      /* CURRENT YEAR */
 
       document.getElementById('current-year').textContent =
         new Date().getFullYear();

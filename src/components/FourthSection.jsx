@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { FaInstagram, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 
+const HOUSE_OF_WORSHIP_URL =
+  'https://houseofworshiplondon.com/mistress/new-mistress-vanta/';
+
 const FourthSection = () => {
   return (
     <section className="fourth-section">
@@ -18,30 +21,34 @@ const FourthSection = () => {
         arrangement.
         <br />
         <br />
-        London bookings are handled separately through the dedicated London
-        booking page. For Bournemouth, Southampton, Portsmouth and all other
-        enquiries, please use the private application form.
+        Choose the booking option that best suits your preferred venue or
+        location. Selected venues use their own booking system, while other
+        locations and visiting dates can be requested through the private
+        application form.
       </p>
 
+      {/* GENERAL INFO */}
       <div className="fourth-info">
-        {/* LOCATION */}
+        {/* LOCATIONS */}
         <div className="info-block">
           <span className="info-label">
             <FaMapMarkerAlt className="info-icon" />
             Available In
           </span>
 
-          <a>London · Bournemouth · Southampton · Portsmouth</a>
+          <span className="info-value">
+            London · Bournemouth · Southampton · Portsmouth
+          </span>
         </div>
 
-        {/* PHONE CALLS */}
+        {/* PHONE */}
         <div className="info-block">
           <span className="info-label">
             <FaPhoneAlt className="info-icon" />
             Phone Calls
           </span>
 
-          <a>By appointment only</a>
+          <span className="info-value">By appointment only</span>
         </div>
 
         {/* INSTAGRAM */}
@@ -61,40 +68,54 @@ const FourthSection = () => {
         </div>
       </div>
 
-      {/* BOOKING OPTIONS */}
+      {/* =========================
+          BOOKING OPTIONS
+      ========================= */}
+
       <div className="booking-options">
-        <div className="booking-option london">
-          <p className="booking-eyebrow">London</p>
+        {/* HOUSE OF WORSHIP */}
+        <div className="booking-option venue-featured">
+          <p className="booking-eyebrow">West Kensington · London</p>
+
+          <h3 className="booking-title">House of Worship</h3>
 
           <p className="booking-description">
-            For appointments in London, use the dedicated London booking page.
+            For appointments at House of Worship in West Kensington, bookings
+            are arranged directly through the venue&apos;s dedicated booking
+            page.
           </p>
 
           <a
-            href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
+            href={HOUSE_OF_WORSHIP_URL}
             target="_blank"
             rel="noreferrer"
-            className="fourth-button london-booking"
+            className="fourth-button venue-booking"
           >
-            London Bookings
+            Book at House of Worship
           </a>
         </div>
 
-        <div className="booking-option regional">
-          <p className="booking-eyebrow">Other Locations</p>
+        {/* OTHER LOCATIONS */}
+        <div className="booking-option">
+          <p className="booking-eyebrow">Flexible Booking</p>
+
+          <h3 className="booking-title">Other Locations & Visiting Dates</h3>
 
           <p className="booking-description">
-            For Bournemouth, Southampton, Portsmouth and other enquiries, submit
-            a private application.
+            For Bournemouth, Southampton, Portsmouth, other locations or
+            selected visiting dates, submit a private booking application.
           </p>
 
           <Link to="/application" className="fourth-button primary">
-            Submit Application
+            Apply to Book
           </Link>
         </div>
       </div>
 
-      {/* WISHLIST BLOCK */}
+      {/* =========================
+          WISHLIST
+      ========================= */}
+
       <div className="wishlist-block">
         <p className="wishlist-eyebrow">Private Selection</p>
 
