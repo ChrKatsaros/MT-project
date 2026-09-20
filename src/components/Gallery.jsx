@@ -1,7 +1,9 @@
 import React from 'react';
 import './gallery.css';
 import { Link } from 'react-router-dom';
+
 import ScrollTopButton from './ScrollTopButton';
+
 import gallery2 from '../assets/gallery2.webp';
 import gallery3 from '../assets/gallery3.webp';
 import gallery4 from '../assets/gallery4.webp';
@@ -40,12 +42,10 @@ const images = [
   gallery12,
   gallery13,
   gallery14,
-
   gallery18,
   gallery19,
   gallery20,
   gallery21,
-
   gallery23,
   gallery24,
   gallery25,
@@ -54,49 +54,123 @@ const images = [
 
 function Gallery() {
   return (
-    <div className="gallery-page">
-      {/* HERO */}
+    <>
+      {/* =========================
+          SEO METADATA
+      ========================= */}
 
-      <section className="gallery-hero">
-        <div className="gallery-overlay"></div>
+      <title>Private Gallery | Mistress Tabitha Thorne</title>
 
-        <div className="gallery-hero-content">
-          <h1>
-            <span>P</span>rivate <span>V</span>isions
-          </h1>
+      <meta
+        name="description"
+        content="Explore the private gallery of Mistress Tabitha Thorne, featuring a curated visual collection shaped by elegance, control, atmosphere and refined feminine authority."
+      />
 
-          <p>A curated glimpse into elegance, control, intimacy, and desire.</p>
-        </div>
-      </section>
+      <meta name="robots" content="index, follow" />
 
-      {/* GALLERY GRID */}
+      <link rel="canonical" href="https://www.tabithathorne.co.uk/gallery" />
 
-      <section className="gallery-grid-section">
-        <div className="gallery-grid">
-          {images.map((image, index) => (
-            <div className="gallery-card" key={index}>
-              <img
-                src={image}
-                alt={`Mistress Tabitha Thorne gallery image ${index + 1}`}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
+      {/* OPEN GRAPH */}
 
-        {/* CTA */}
+      <meta
+        property="og:title"
+        content="Private Gallery | Mistress Tabitha Thorne"
+      />
 
-        <div className="gallery-bottom-cta">
-          <h2>Want Access to More?</h2>
+      <meta
+        property="og:description"
+        content="A curated visual glimpse into the world of Mistress Tabitha Thorne, defined by elegance, atmosphere, control and feminine authority."
+      />
 
-          <Link to="/application" className="gallery-cta">
-            Request Private Entry
-          </Link>
-        </div>
-      </section>
+      <meta
+        property="og:url"
+        content="https://www.tabithathorne.co.uk/gallery"
+      />
 
-      <ScrollTopButton />
-    </div>
+      <meta property="og:type" content="website" />
+
+      <meta property="og:site_name" content="Mistress Tabitha Thorne" />
+
+      <meta property="og:locale" content="en_GB" />
+
+      <meta
+        property="og:image"
+        content="https://www.tabithathorne.co.uk/preview.jpg"
+      />
+
+      {/* TWITTER / X */}
+
+      <meta name="twitter:card" content="summary_large_image" />
+
+      <meta
+        name="twitter:title"
+        content="Private Gallery | Mistress Tabitha Thorne"
+      />
+
+      <meta
+        name="twitter:description"
+        content="Explore a curated visual collection from the world of Mistress Tabitha Thorne."
+      />
+
+      <meta
+        name="twitter:image"
+        content="https://www.tabithathorne.co.uk/preview.jpg"
+      />
+
+      <meta name="twitter:creator" content="@TabithaThorne" />
+
+      {/* =========================
+          PAGE
+      ========================= */}
+
+      <div className="gallery-page">
+        {/* HERO */}
+
+        <section className="gallery-hero">
+          <div className="gallery-overlay"></div>
+
+          <div className="gallery-hero-content">
+            <h1>
+              <span>P</span>rivate <span>V</span>isions
+            </h1>
+
+            <p>
+              A curated glimpse into elegance, control, intimacy, and desire.
+            </p>
+          </div>
+        </section>
+
+        {/* GALLERY GRID */}
+
+        <section className="gallery-grid-section">
+          <div className="gallery-grid">
+            {images.map((image, index) => (
+              <div className="gallery-card" key={index}>
+                <img
+                  src={image}
+                  alt={`Mistress Tabitha Thorne private gallery image ${
+                    index + 1
+                  }`}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+
+          <div className="gallery-bottom-cta">
+            <h2>Want Access to More?</h2>
+
+            <Link to="/application" className="gallery-cta">
+              Request Private Entry
+            </Link>
+          </div>
+        </section>
+
+        <ScrollTopButton />
+      </div>
+    </>
   );
 }
 

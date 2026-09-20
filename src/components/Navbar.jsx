@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { FaBars, FaInstagram, FaChevronDown } from 'react-icons/fa';
+
 import { FaXTwitter } from 'react-icons/fa6';
 
 import './navbar.css';
@@ -131,9 +132,7 @@ function Navbar() {
 
             <div className="locations-dropdown">
               {/* LONDON */}
-              <a href="/" onClick={goToBookings}>
-                London
-              </a>
+              <a href="/dominatrix-london/">London</a>
 
               {/* BOURNEMOUTH */}
               <a href="/dominatrix-bournemouth/">Bournemouth</a>
@@ -177,6 +176,7 @@ function Navbar() {
 
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         {/* ABOUT */}
+
         <Link
           to="/about"
           onClick={closeMenu}
@@ -186,6 +186,7 @@ function Navbar() {
         </Link>
 
         {/* EXPERIENCES */}
+
         <Link
           to="/experiences"
           onClick={closeMenu}
@@ -195,6 +196,7 @@ function Navbar() {
         </Link>
 
         {/* PROTOCOL */}
+
         <Link
           to="/protocol"
           onClick={closeMenu}
@@ -204,6 +206,7 @@ function Navbar() {
         </Link>
 
         {/* GALLERY */}
+
         <Link
           to="/gallery"
           onClick={closeMenu}
@@ -213,6 +216,7 @@ function Navbar() {
         </Link>
 
         {/* GUIDES */}
+
         <Link
           to="/guides"
           onClick={closeMenu}
@@ -222,6 +226,7 @@ function Navbar() {
         </Link>
 
         {/* APPLICATION */}
+
         <Link
           to="/application"
           onClick={closeMenu}
@@ -250,21 +255,25 @@ function Navbar() {
             }`}
           >
             {/* LONDON */}
-            <a href="/" onClick={goToBookings}>
+
+            <a href="/dominatrix-london/" onClick={closeMenu}>
               London
             </a>
 
             {/* BOURNEMOUTH */}
+
             <a href="/dominatrix-bournemouth/" onClick={closeMenu}>
               Bournemouth
             </a>
 
             {/* SOUTHAMPTON */}
+
             <a href="/dominatrix-southampton/" onClick={closeMenu}>
               Southampton
             </a>
 
             {/* PORTSMOUTH */}
+
             <a href="/dominatrix-portsmouth/" onClick={closeMenu}>
               Portsmouth
             </a>

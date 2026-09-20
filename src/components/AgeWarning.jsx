@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ageWarning.css';
 
@@ -7,11 +7,20 @@ const AGE_VERIFIED_KEY = 'tabitha-age-verified';
 function AgeWarning() {
   const navigate = useNavigate();
 
-  const [showWarning, setShowWarning] = useState(() => {
-    return sessionStorage.getItem(AGE_VERIFIED_KEY) !== 'true';
-  });
-
+  /*
+   * Start hidden so the prerendered HTML and the
+   * browser's first render are identical.
+   */
+  const [showWarning, setShowWarning] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    const isVerified = sessionStorage.getItem(AGE_VERIFIED_KEY) === 'true';
+
+    if (!isVerified) {
+      setShowWarning(true);
+    }
+  }, []);
 
   const handleEnter = () => {
     sessionStorage.setItem(AGE_VERIFIED_KEY, 'true');
@@ -20,6 +29,7 @@ function AgeWarning() {
 
     setTimeout(() => {
       setShowWarning(false);
+      setFadeOut(false);
     }, 500);
   };
 

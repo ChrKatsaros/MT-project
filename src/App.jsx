@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+
 import { AnimatePresence } from 'framer-motion';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -20,18 +21,31 @@ import Application from './components/Application';
 import AgeWarning from './components/AgeWarning';
 import Underage from './components/Underage';
 
-function AppContent() {
+/* =========================================
+   SHARED APPLICATION CONTENT
+
+   This contains the actual routes and layout.
+
+   It is intentionally kept separate from
+   BrowserRouter so the same route tree can
+   later be rendered with StaticRouter during
+   the prerender build.
+========================================= */
+
+export function AppContent() {
   const location = useLocation();
+
+  const isUnderagePage = location.pathname === '/underage';
 
   return (
     <>
       <ScrollToTop />
 
       {/* AGE WARNING */}
-      {location.pathname !== '/underage' && <AgeWarning />}
+      {!isUnderagePage && <AgeWarning />}
 
       {/* NAVBAR */}
-      {location.pathname !== '/underage' && <Navbar />}
+      {!isUnderagePage && <Navbar />}
 
       {/* PAGE TRANSITIONS */}
       <AnimatePresence mode="wait">
@@ -111,13 +125,17 @@ function AppContent() {
       </AnimatePresence>
 
       {/* FOOTER CTA */}
-      {location.pathname !== '/underage' && <FourthSection />}
+      {!isUnderagePage && <FourthSection />}
 
       {/* FOOTER */}
-      {location.pathname !== '/underage' && <Footer />}
+      {!isUnderagePage && <Footer />}
     </>
   );
 }
+
+/* =========================================
+   BROWSER APPLICATION
+========================================= */
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+
 import './index.css';
 import App from './App.jsx';
 
@@ -25,8 +26,28 @@ if (legacyHash.startsWith('#/')) {
   window.history.replaceState(null, '', cleanPath);
 }
 
-createRoot(document.getElementById('root')).render(
+/* =========================================
+   APP
+========================================= */
+
+const rootElement = document.getElementById('root');
+
+const app = (
   <StrictMode>
     <App />
   </StrictMode>
 );
+
+/*
+ * If the HTML was prerendered during the build,
+ * React hydrates the existing markup.
+ *
+ * During normal Vite development, #root is empty,
+ * so React creates the application normally.
+ */
+
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, app);
+} else {
+  createRoot(rootElement).render(app);
+}
