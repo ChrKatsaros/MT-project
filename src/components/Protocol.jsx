@@ -95,7 +95,7 @@ function Protocol() {
             </h1>
 
             <p className="protocol-hero-quote">
-              “Power is rarely taken. More often, it is quietly surrendered.”
+              “Discipline begins with how you choose to arrive.”
             </p>
           </div>
         </section>
