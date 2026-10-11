@@ -19,9 +19,10 @@
   align-items: center;
   justify-content: center;
 
-  background-size: cover;
+  background-size: 112% auto;
   background-repeat: no-repeat;
-  background-position: center 35%;
+  background-position: center 38%;
+  background-color: #050505;
 
   overflow: hidden;
 }
@@ -31,8 +32,13 @@
   inset: 0;
 
   background:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(5, 5, 5, 0.96)),
-    radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.55));
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.22),
+      rgba(0, 0, 0, 0.42) 55%,
+      rgba(5, 5, 5, 0.9)
+    ),
+    radial-gradient(circle at center, transparent 28%, rgba(0, 0, 0, 0.42));
 }
 
 .protocol-hero-content {
@@ -44,7 +50,7 @@
 
   text-align: center;
 
-  transform: translateY(55px);
+  transform: translateY(35px);
 }
 
 .protocol-eyebrow {
@@ -53,6 +59,7 @@
   color: #8f7770;
 
   font-size: 0.72rem;
+
   letter-spacing: 4px;
 
   text-transform: uppercase;
@@ -64,6 +71,7 @@
   font-family: 'Cinzel', serif;
 
   font-size: clamp(3rem, 5.5vw, 4.7rem);
+
   font-weight: 500;
 
   line-height: 1.08;
@@ -91,55 +99,6 @@
   line-height: 1.8;
 
   letter-spacing: 1px;
-}
-
-/* =========================
-   SCROLL LINE
-========================= */
-
-.protocol-scroll-line {
-  margin-top: 65px;
-}
-
-.protocol-scroll-line span {
-  position: relative;
-
-  display: block;
-
-  width: 1px;
-  height: 70px;
-
-  margin: auto;
-
-  background: rgba(255, 255, 255, 0.1);
-
-  overflow: hidden;
-}
-
-.protocol-scroll-line span::before {
-  content: '';
-
-  position: absolute;
-
-  top: -30px;
-  left: 0;
-
-  width: 100%;
-  height: 30px;
-
-  background: #7a1f2f;
-
-  animation: protocolScroll 2.2s infinite;
-}
-
-@keyframes protocolScroll {
-  from {
-    top: -30px;
-  }
-
-  to {
-    top: 100%;
-  }
 }
 
 /* =========================================================
@@ -252,7 +211,7 @@
 ========================= */
 
 .protocol-number {
-  color: rgba(255, 255, 255, 0.035);
+  color: rgba(143, 119, 112, 0.22);
 
   font-family: 'Cinzel', serif;
 
@@ -263,6 +222,8 @@
   letter-spacing: -5px;
 
   user-select: none;
+
+  text-shadow: 0 0 40px rgba(122, 31, 47, 0.08);
 }
 
 /* =========================
@@ -451,6 +412,7 @@
 
 .protocol-closing-line {
   width: 100px;
+
   height: 1px;
 
   margin: 28px 0;
@@ -521,9 +483,7 @@
 ========================================================= */
 
 @media (max-width: 768px) {
-  /* =========================
-     HERO
-  ========================= */
+  /* HERO */
 
   .protocol-hero {
     height: 90vh;
@@ -533,14 +493,13 @@
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background-size: cover;
 
     background-repeat: no-repeat;
 
-    background-position: center 35%;
+    background-position: center 42%;
 
     overflow: hidden;
   }
@@ -554,7 +513,7 @@
 
     text-align: center;
 
-    transform: translateY(55px);
+    transform: translateY(35px);
   }
 
   .protocol-eyebrow {
@@ -581,17 +540,7 @@
     line-height: 1.7;
   }
 
-  .protocol-scroll-line {
-    margin-top: 35px;
-  }
-
-  .protocol-scroll-line span {
-    height: 48px;
-  }
-
-  /* =========================
-     INTRO
-  ========================= */
+  /* INTRO */
 
   .protocol-intro {
     width: auto;
@@ -609,9 +558,7 @@
     line-height: 1.85;
   }
 
-  /* =========================
-     EDITORIAL SECTIONS
-  ========================= */
+  /* EDITORIAL SECTIONS */
 
   .protocol-editorial-section,
   .protocol-editorial-section.reverse {
@@ -638,6 +585,8 @@
     font-size: 5.5rem;
 
     letter-spacing: -3px;
+
+    color: rgba(143, 119, 112, 0.24);
   }
 
   .protocol-editorial-content {
@@ -664,9 +613,7 @@
     line-height: 1.7;
   }
 
-  /* =========================
-     STANDARDS
-  ========================= */
+  /* STANDARDS */
 
   .protocol-standards {
     padding: 90px 22px 100px;
@@ -696,9 +643,7 @@
     font-size: 0.75rem;
   }
 
-  /* =========================
-     CLOSING
-  ========================= */
+  /* CLOSING */
 
   .protocol-closing {
     min-height: 380px;

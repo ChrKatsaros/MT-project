@@ -97,10 +97,6 @@ function Protocol() {
             <p className="protocol-hero-quote">
               “Power is rarely taken. More often, it is quietly surrendered.”
             </p>
-
-            <div className="protocol-scroll-line">
-              <span />
-            </div>
           </div>
         </section>
 

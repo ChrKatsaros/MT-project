@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import gallery27 from '../assets/gallery27.webp';
 import gallery28 from '../assets/gallery28.webp';
@@ -34,7 +34,7 @@ const portraits = [
   },
 ];
 
-const AUTO_PLAY_DELAY = 6000;
+const AUTO_PLAY_DELAY = 5200;
 
 function PortraitLookbook() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -104,69 +104,11 @@ function PortraitLookbook() {
     }
   };
 
-  /* =========================
-     PREMIUM TRANSITIONS
-  ========================= */
-
-  const spreadVariants = {
-    enter: (dir) => ({
-      opacity: 0,
-      x: dir > 0 ? 18 : -18,
-      scale: 0.995,
-    }),
-
-    center: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-    },
-
-    exit: (dir) => ({
-      opacity: 0,
-      x: dir > 0 ? -14 : 14,
-      scale: 1.003,
-    }),
-  };
-
-  const imageVariants = {
-    enter: {
-      scale: 1.025,
-      opacity: 0.75,
-    },
-
-    center: {
-      scale: 1,
-      opacity: 1,
-    },
-
-    exit: {
-      scale: 1.01,
-      opacity: 0.82,
-    },
-  };
-
-  const copyVariants = {
-    enter: (dir) => ({
-      opacity: 0,
-      y: 12,
-      x: dir > 0 ? 8 : -8,
-    }),
-
-    center: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-    },
-
-    exit: {
-      opacity: 0,
-      y: -6,
-    },
-  };
-
   return (
     <section className="portrait-lookbook">
-      {/* HEADING */}
+      {/* =========================
+          HEADING
+      ========================= */}
 
       <div className="portrait-lookbook-heading">
         <p className="portrait-lookbook-kicker">Private Portraits</p>
@@ -176,7 +118,9 @@ function PortraitLookbook() {
         <div className="portrait-lookbook-line" />
       </div>
 
-      {/* LOOKBOOK */}
+      {/* =========================
+          LOOKBOOK
+      ========================= */}
 
       <div className="portrait-lookbook-frame">
         <div className="portrait-lookbook-counter">
@@ -187,80 +131,110 @@ function PortraitLookbook() {
           <span>{String(portraits.length).padStart(2, '0')}</span>
         </div>
 
-        <div className="portrait-lookbook-stage">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.article
-              key={currentIndex}
-              className="portrait-lookbook-spread"
-              custom={direction}
-              variants={spreadVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                duration: 0.9,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              drag="x"
-              dragConstraints={{
-                left: 0,
-                right: 0,
-              }}
-              dragElastic={0.08}
-              onDragEnd={handleDragEnd}
-            >
-              {/* IMAGE */}
+        {/* =========================
+            STAGE
+        ========================= */}
 
-              <div className="portrait-lookbook-image-wrap">
-                <motion.img
-                  src={current.image}
-                  alt={`Portrait of Mistress Tabitha Thorne ${current.number}`}
-                  className="portrait-lookbook-image"
-                  style={{
-                    objectPosition: current.position,
+        <div className="portrait-lookbook-stage">
+          {portraits.map((portrait, index) => {
+            const isActive = index === currentIndex;
+
+            return (
+              <motion.article
+                key={portrait.number}
+                className="portrait-lookbook-spread"
+                initial={false}
+                animate={{
+                  opacity: isActive ? 1 : 0,
+                  scale: isActive ? 1 : 0.995,
+                  x: isActive ? 0 : direction > 0 ? -10 : 10,
+                }}
+                transition={{
+                  opacity: {
+                    duration: 0.85,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                  scale: {
+                    duration: 0.95,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                  x: {
+                    duration: 0.95,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                }}
+                style={{
+                  pointerEvents: isActive ? 'auto' : 'none',
+                  zIndex: isActive ? 2 : 1,
+                }}
+                aria-hidden={!isActive}
+                drag={isActive ? 'x' : false}
+                dragConstraints={{
+                  left: 0,
+                  right: 0,
+                }}
+                dragElastic={0.08}
+                onDragEnd={handleDragEnd}
+              >
+                {/* =========================
+                    IMAGE
+                ========================= */}
+
+                <div className="portrait-lookbook-image-wrap">
+                  <motion.img
+                    src={portrait.image}
+                    alt={`Portrait of Mistress Tabitha Thorne ${portrait.number}`}
+                    className="portrait-lookbook-image"
+                    style={{
+                      objectPosition: portrait.position,
+                    }}
+                    animate={{
+                      scale: isActive ? 1 : 1.018,
+                    }}
+                    transition={{
+                      duration: 1.15,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    draggable="false"
+                  />
+                </div>
+
+                {/* =========================
+                    COPY
+                ========================= */}
+
+                <motion.div
+                  className="portrait-lookbook-copy"
+                  animate={{
+                    opacity: isActive ? 1 : 0,
+                    y: isActive ? 0 : 8,
                   }}
-                  variants={imageVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
                   transition={{
-                    duration: 1.25,
+                    duration: 0.7,
+                    delay: isActive ? 0.08 : 0,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  draggable="false"
-                />
-              </div>
+                >
+                  <p className="portrait-lookbook-eyebrow">
+                    {portrait.eyebrow}
+                  </p>
 
-              {/* COPY */}
+                  <h3>{portrait.title}</h3>
 
-              <motion.div
-                className="portrait-lookbook-copy"
-                custom={direction}
-                variants={copyVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  duration: 0.75,
-                  delay: 0.12,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <p className="portrait-lookbook-eyebrow">{current.eyebrow}</p>
+                  <p className="portrait-lookbook-text">{portrait.text}</p>
 
-                <h3>{current.title}</h3>
-
-                <p className="portrait-lookbook-text">{current.text}</p>
-
-                <p className="portrait-lookbook-swipe">
-                  Swipe or use the arrows
-                </p>
-              </motion.div>
-            </motion.article>
-          </AnimatePresence>
+                  <p className="portrait-lookbook-swipe">
+                    Swipe or use the arrows
+                  </p>
+                </motion.div>
+              </motion.article>
+            );
+          })}
         </div>
 
-        {/* NAVIGATION */}
+        {/* =========================
+            NAVIGATION
+        ========================= */}
 
         <div className="portrait-lookbook-navigation">
           <button
