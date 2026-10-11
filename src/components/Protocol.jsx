@@ -75,78 +75,201 @@ function Protocol() {
       ========================= */}
 
       <div className="protocol-page">
-        {/* HERO */}
+        {/* =========================
+            HERO
+        ========================= */}
 
-        <section className="protocol-hero">
-          <h1>
-            <span>P</span>rotocol & <span>E</span>xpectations
-          </h1>
-
-          <p className="quote">
-            “Power is rarely taken. More often, it is quietly surrendered.”
-          </p>
-        </section>
-
-        {/* CONTENT */}
-
-        <section className="chapter">
-          <h2>Protocol</h2>
-
-          <h3>Expectations</h3>
-
-          <p>
-            Discretion is not optional. Communication must remain precise,
-            respectful, and controlled. Emotional clarity and personal
-            discipline are the baseline.
-          </p>
-
-          <p>
-            Reliability, hygiene, punctuality, and awareness are not preferences
-            — they are prerequisites.
-          </p>
-
-          <h3>Presence</h3>
-
-          <p>
-            You do not arrive casually. You arrive composed, prepared, and aware
-            of the space you enter.
-          </p>
-
-          <p className="accent">
-            Energy is never announced. It is always already felt.
-          </p>
-
-          <h3>Conduct</h3>
-
-          <p>
-            Entitlement has no place here. Neither does chaos, urgency, or
-            performative behaviour.
-          </p>
-
-          <p>
-            Every interaction is defined by structure, restraint, and
-            intentional pacing.
-          </p>
-
-          <p className="accent">
-            Quality of presence outweighs frequency of contact.
-          </p>
-        </section>
-
-        {/* DIVIDER */}
-
-        <div
-          className="divider-image"
+        <section
+          className="protocol-hero"
           style={{
             backgroundImage: `url(${gallery17})`,
           }}
         >
-          <div className="divider-overlay" />
+          <div className="protocol-hero-overlay" />
 
-          <div className="divider-quote">
-            <p>“Discipline begins long before the door opens.”</p>
+          <div className="protocol-hero-content">
+            <p className="protocol-eyebrow">Private Standards</p>
+
+            <h1>
+              <span>P</span>rotocol &amp; <span>E</span>xpectations
+            </h1>
+
+            <p className="protocol-hero-quote">
+              “Power is rarely taken. More often, it is quietly surrendered.”
+            </p>
+
+            <div className="protocol-scroll-line">
+              <span />
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* =========================
+            INTRO
+        ========================= */}
+
+        <section className="protocol-intro">
+          <p className="protocol-section-eyebrow">The Standard</p>
+
+          <h2>Before The Door Opens</h2>
+
+          <p className="protocol-intro-copy">
+            A private appointment begins long before the moment we meet.
+            Conduct, communication, preparation and self-awareness shape the
+            experience from the first enquiry.
+          </p>
+
+          <p className="protocol-intro-copy">
+            The standard is simple: arrive with respect, clarity and intention.
+          </p>
+        </section>
+
+        {/* =========================
+            EXPECTATIONS
+        ========================= */}
+
+        <section className="protocol-editorial-section">
+          <div className="protocol-number">01</div>
+
+          <div className="protocol-editorial-content">
+            <p className="protocol-section-eyebrow">Expectations</p>
+
+            <h2>Precision Before Presence</h2>
+
+            <p>
+              Discretion is not optional. Communication must remain precise,
+              respectful, and controlled. Emotional clarity and personal
+              discipline are the baseline.
+            </p>
+
+            <p>
+              Reliability, hygiene, punctuality, and awareness are not
+              preferences — they are prerequisites.
+            </p>
+
+            <p className="protocol-accent">
+              The standard is established before you arrive.
+            </p>
+          </div>
+        </section>
+
+        {/* =========================
+            PRESENCE
+        ========================= */}
+
+        <section className="protocol-editorial-section reverse">
+          <div className="protocol-number">02</div>
+
+          <div className="protocol-editorial-content">
+            <p className="protocol-section-eyebrow">Presence</p>
+
+            <h2>Arrive Composed</h2>
+
+            <p>
+              You do not arrive casually. You arrive composed, prepared, and
+              aware of the space you enter.
+            </p>
+
+            <p>
+              Presence is not created through performance. It is reflected in
+              awareness, restraint and how you carry yourself.
+            </p>
+
+            <p className="protocol-accent">
+              Energy is never announced. It is always already felt.
+            </p>
+          </div>
+        </section>
+
+        {/* =========================
+            CONDUCT
+        ========================= */}
+
+        <section className="protocol-editorial-section">
+          <div className="protocol-number">03</div>
+
+          <div className="protocol-editorial-content">
+            <p className="protocol-section-eyebrow">Conduct</p>
+
+            <h2>Restraint Over Entitlement</h2>
+
+            <p>
+              Entitlement has no place here. Neither does chaos, urgency, or
+              performative behaviour.
+            </p>
+
+            <p>
+              Every interaction is defined by structure, restraint, and
+              intentional pacing.
+            </p>
+
+            <p className="protocol-accent">
+              Quality of presence outweighs frequency of contact.
+            </p>
+          </div>
+        </section>
+
+        {/* =========================
+            NON-NEGOTIABLES
+        ========================= */}
+
+        <section className="protocol-standards">
+          <div className="protocol-standards-heading">
+            <p className="protocol-section-eyebrow">Non-Negotiables</p>
+
+            <h2>The Foundation</h2>
+          </div>
+
+          <div className="protocol-standards-grid">
+            <div className="protocol-standard-item">
+              <span className="protocol-standard-number">01</span>
+
+              <h3>Discretion</h3>
+
+              <p>Non-negotiable.</p>
+            </div>
+
+            <div className="protocol-standard-item">
+              <span className="protocol-standard-number">02</span>
+
+              <h3>Hygiene</h3>
+
+              <p>Expected.</p>
+            </div>
+
+            <div className="protocol-standard-item">
+              <span className="protocol-standard-number">03</span>
+
+              <h3>Punctuality</h3>
+
+              <p>Essential.</p>
+            </div>
+
+            <div className="protocol-standard-item">
+              <span className="protocol-standard-number">04</span>
+
+              <h3>Respect</h3>
+
+              <p>Always.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================
+            CLOSING
+        ========================= */}
+
+        <section className="protocol-closing">
+          <div className="protocol-closing-line" />
+
+          <p>
+            “Discipline begins
+            <br />
+            long before the door opens.”
+          </p>
+
+          <div className="protocol-closing-line" />
+        </section>
       </div>
     </>
   );

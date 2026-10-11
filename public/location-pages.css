@@ -64,7 +64,9 @@ body {
   background-position: center 40%;
 }
 
-/* HERO IMAGES */
+/* =========================================
+   HERO IMAGES
+========================================= */
 
 .bournemouth-hero {
   background-image: url('/location-assets/bournemouth-hero.webp');
@@ -72,15 +74,22 @@ body {
 
 .portsmouth-hero {
   background-image: url('/location-assets/portsmouth-hero.webp');
-
-  background-position: center 42%;
 }
 
 .southampton-hero {
   background-image: url('/location-assets/southampton-hero.webp');
 }
 
-/* HERO OVERLAY */
+/*
+  London background-image can remain wherever
+  it is currently defined in the London page.
+  The london-hero class below is used for
+  positioning on desktop.
+*/
+
+/* =========================================
+   HERO OVERLAY
+========================================= */
 
 .location-hero-overlay {
   position: absolute;
@@ -94,7 +103,9 @@ body {
   );
 }
 
-/* HERO CONTENT */
+/* =========================================
+   HERO CONTENT
+========================================= */
 
 .location-hero-content {
   position: relative;
@@ -214,7 +225,9 @@ body {
   background: #070707;
 }
 
-/* EYEBROW */
+/* =========================================
+   EYEBROW
+========================================= */
 
 .section-kicker {
   color: #9f7a66;
@@ -228,7 +241,9 @@ body {
   margin-bottom: 14px;
 }
 
-/* HEADINGS */
+/* =========================================
+   HEADINGS
+========================================= */
 
 .location-section h2,
 .location-booking-section h2,
@@ -272,7 +287,9 @@ body {
   );
 }
 
-/* CENTERED INTRO */
+/* =========================================
+   CENTERED INTRO
+========================================= */
 
 .location-intro {
   text-align: center;
@@ -286,7 +303,9 @@ body {
   margin-right: auto;
 }
 
-/* TEXT */
+/* =========================================
+   TEXT
+========================================= */
 
 .location-copy {
   max-width: 800px;
@@ -544,7 +563,7 @@ body {
 
     padding: 110px 20px 40px;
 
-    background-position: center center;
+    background-position: center center !important;
   }
 
   .location-hero h1 {
@@ -613,5 +632,90 @@ body {
     gap: 18px;
 
     margin-top: 40px;
+  }
+}
+
+/* =========================================================
+   DESKTOP HERO POSITIONING
+   Keep Bournemouth unchanged.
+========================================================= */
+
+@media (min-width: 769px) {
+  /*
+    Lower percentage = image moves visually lower
+    inside the hero and reveals more of its upper area.
+  */
+
+  .london-hero {
+    background-position: center 25% !important;
+  }
+
+  .portsmouth-hero {
+    background-position: center 25% !important;
+  }
+
+  .southampton-hero {
+    background-position: center 29% !important;
+  }
+}
+/* =========================================================
+   STATIC LOCATION PAGE SOCIAL ICONS
+========================================================= */
+
+.static-social-icons {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+}
+
+.static-social-icons a {
+  width: 22px;
+  height: 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.static-social-icons svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  fill: currentColor;
+
+  flex-shrink: 0;
+}
+
+.static-social-icons a:hover {
+  color: #9f7a66;
+
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .static-social-icons {
+    gap: 22px;
+  }
+
+  .static-social-icons a {
+    width: 23px;
+    height: 23px;
   }
 }

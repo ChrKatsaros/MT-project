@@ -79,7 +79,10 @@ function Experiences() {
       ========================= */}
 
       <div className="experiences-page">
-        {/* HERO */}
+        {/* =========================
+            HERO
+        ========================= */}
+
         <section
           className="exp-hero"
           style={{
@@ -89,92 +92,139 @@ function Experiences() {
           <div className="exp-hero-overlay" />
 
           <div className="exp-hero-content">
+            <p className="exp-hero-eyebrow">Private Experiences</p>
+
             <h1>
               <span>E</span>xperiences
             </h1>
 
-            <p className="quote">
+            <p className="exp-hero-quote">
               “Power is rarely taken. More often, it is quietly surrendered.”
             </p>
+
+            <div className="exp-scroll-line">
+              <span />
+            </div>
           </div>
         </section>
 
-        {/* INTRO */}
-        <section className="exp-section">
-          <p className="intro">
+        {/* =========================
+            INTRO
+        ========================= */}
+
+        <section className="exp-intro">
+          <p className="exp-section-eyebrow">The Experience</p>
+
+          <h2>Designed Around Atmosphere</h2>
+
+          <p>
             Each experience is designed as a psychological atmosphere rather
             than a service. Nothing is transactional. Everything is intentional.
           </p>
         </section>
 
-        {/* CATEGORIES */}
-        <section className="exp-grid">
-          <div className="exp-card">
-            <h3>Psychological Domination</h3>
+        {/* =========================
+            EXPERIENCE PILLARS
+        ========================= */}
+
+        <section className="exp-pillars">
+          <div className="exp-pillars-heading">
+            <p className="exp-section-eyebrow">Foundations</p>
+
+            <h2>The Dynamics</h2>
 
             <p>
-              Control, anticipation, obedience, denial, ritual, correction,
-              behavioural guidance and emotional tension within structured
-              authority.
+              Every encounter is shaped by a different balance of psychology,
+              ritual, control and surrender.
             </p>
           </div>
 
-          <div className="exp-card">
-            <h3>Ritual & Obedience</h3>
+          <div className="exp-grid">
+            <article className="exp-card exp-card-featured">
+              <span className="exp-card-number">01</span>
 
-            <p>
-              Structure, posture, language, etiquette, eye contact, patience and
-              disciplined submission forming the foundation of interaction.
-            </p>
-          </div>
+              <h3>Psychological Domination</h3>
 
-          <div className="exp-card">
-            <h3>Luxury Submission</h3>
+              <p>
+                Control, anticipation, obedience, denial, ritual, correction,
+                behavioural guidance and emotional tension within structured
+                authority.
+              </p>
+            </article>
 
-            <p>
-              Elevated environments where surrender becomes refined, curated,
-              and guided through controlled atmosphere and presence.
-            </p>
-          </div>
+            <article className="exp-card">
+              <span className="exp-card-number">02</span>
 
-          <div className="exp-card">
-            <h3>Controlled Atmosphere</h3>
+              <h3>Ritual &amp; Obedience</h3>
 
-            <p>
-              Carefully designed settings where pacing, silence, and presence
-              shape emotional and psychological immersion.
-            </p>
-          </div>
+              <p>
+                Structure, posture, language, etiquette, eye contact, patience
+                and disciplined submission forming the foundation of
+                interaction.
+              </p>
+            </article>
 
-          <div className="exp-card">
-            <h3>Feminine Authority</h3>
+            <article className="exp-card">
+              <span className="exp-card-number">03</span>
 
-            <p>
-              Composed dominance expressed through observation, restraint,
-              emotional intelligence and structured control.
-            </p>
-          </div>
+              <h3>Luxury Submission</h3>
 
-          <div className="exp-card">
-            <h3>Power Exchange</h3>
+              <p>
+                Elevated environments where surrender becomes refined, curated,
+                and guided through controlled atmosphere and presence.
+              </p>
+            </article>
 
-            <p>
-              Hierarchical dynamics where control is gradually surrendered
-              through trust, structure and guided anticipation.
-            </p>
-          </div>
+            <article className="exp-card">
+              <span className="exp-card-number">04</span>
 
-          <div className="exp-card subtle">
-            <h3>Discreet Regression Dynamics</h3>
+              <h3>Controlled Atmosphere</h3>
 
-            <p>
-              Selectively curated psychological dynamics approached with
-              discretion, care, and emotional intelligence.
-            </p>
+              <p>
+                Carefully designed settings where pacing, silence, and presence
+                shape emotional and psychological immersion.
+              </p>
+            </article>
+
+            <article className="exp-card">
+              <span className="exp-card-number">05</span>
+
+              <h3>Feminine Authority</h3>
+
+              <p>
+                Composed dominance expressed through observation, restraint,
+                emotional intelligence and structured control.
+              </p>
+            </article>
+
+            <article className="exp-card">
+              <span className="exp-card-number">06</span>
+
+              <h3>Power Exchange</h3>
+
+              <p>
+                Hierarchical dynamics where control is gradually surrendered
+                through trust, structure and guided anticipation.
+              </p>
+            </article>
+
+            <article className="exp-card exp-card-subtle">
+              <span className="exp-card-number">07</span>
+
+              <h3>Discreet Regression Dynamics</h3>
+
+              <p>
+                Selectively curated psychological dynamics approached with
+                discretion, care, and emotional intelligence.
+              </p>
+            </article>
           </div>
         </section>
 
-        {/* EXPERIENCE PHILOSOPHY */}
+        {/* =========================
+            PHILOSOPHY
+        ========================= */}
+
         <section
           className="exp-image-section"
           style={{
@@ -184,7 +234,11 @@ function Experiences() {
           <div className="exp-image-overlay" />
 
           <div className="exp-image-content">
+            <p className="exp-section-eyebrow">Philosophy</p>
+
             <h2>Experience Philosophy</h2>
+
+            <div className="exp-image-line" />
 
             <p>
               Anticipation, control, authority, ritual, restraint and tension
@@ -196,33 +250,91 @@ function Experiences() {
               immersion — never as entitlement.
             </p>
 
-            <p>
+            <p className="exp-image-accent">
               Everything is paced. Nothing is rushed. Submission is cultivated,
               not demanded.
             </p>
           </div>
         </section>
 
-        {/* METHODS */}
-        <section className="exp-section">
-          <h2>My Interests & Specialities</h2>
+        {/* =========================
+            INTERESTS
+        ========================= */}
+
+        <section className="exp-interests">
+          <div className="exp-interests-heading">
+            <p className="exp-section-eyebrow">Interests &amp; Specialities</p>
+
+            <h2>Areas of Exploration</h2>
+
+            <p>
+              Experiences are curated around compatibility, atmosphere and
+              mutually understood boundaries.
+            </p>
+          </div>
 
           <ul className="exp-list">
-            <li>Body-based devotion & service</li>
-            <li>Foot & footwear worship</li>
-            <li>Feminisation & transformation dynamics</li>
-            <li>Bondage & restraint</li>
-            <li>Tease & denial scenarios</li>
-            <li>Structured impact play</li>
-            <li>Strap-on dynamics</li>
-            <li>Sensory ritual & behavioural conditioning</li>
-            <li>Sensual tantric & body-to-body massage</li>
-            <li>Subliminal surrender trance breath</li>
-            <li>Dinner with your Mistress</li>
+            <li>
+              <span>01</span>
+              Body-based devotion &amp; service
+            </li>
+
+            <li>
+              <span>02</span>
+              Foot &amp; footwear worship
+            </li>
+
+            <li>
+              <span>03</span>
+              Feminisation &amp; transformation dynamics
+            </li>
+
+            <li>
+              <span>04</span>
+              Bondage &amp; restraint
+            </li>
+
+            <li>
+              <span>05</span>
+              Tease &amp; denial scenarios
+            </li>
+
+            <li>
+              <span>06</span>
+              Structured impact play
+            </li>
+
+            <li>
+              <span>07</span>
+              Strap-on dynamics
+            </li>
+
+            <li>
+              <span>08</span>
+              Sensory ritual &amp; behavioural conditioning
+            </li>
+
+            <li>
+              <span>09</span>
+              Sensual tantric &amp; body-to-body massage
+            </li>
+
+            <li className="exp-list-feature">
+              <span>10</span>
+              Subliminal surrender trance breath
+            </li>
+
+            <li className="exp-list-feature">
+              <span>11</span>
+              Dinner with your Mistress
+            </li>
           </ul>
         </section>
 
-        {/* FEATURED EXPERIENCES */}
+        {/* =========================
+            FEATURED EXPERIENCES
+        ========================= */}
+
         <section className="exp-featured-experiences">
           <div className="exp-featured-heading">
             <p className="exp-featured-eyebrow">Signature Experiences</p>
@@ -237,6 +349,7 @@ function Experiences() {
 
           <div className="exp-featured-grid">
             {/* SUBLIMINAL SURRENDER */}
+
             <article className="exp-featured-card">
               <span className="exp-feature-number">01</span>
 
@@ -267,7 +380,8 @@ function Experiences() {
               </div>
             </article>
 
-            {/* DINNER WITH YOUR MISTRESS */}
+            {/* DINNER */}
+
             <article className="exp-featured-card burgundy-feature">
               <span className="exp-feature-number">02</span>
 
@@ -282,7 +396,7 @@ function Experiences() {
 
                 <p>
                   Step beyond the dungeon and enjoy the pleasure of your
-                  Mistress’s company over dinner.
+                  Mistress&apos;s company over dinner.
                 </p>
 
                 <p>An elegant, intimate experience with Mistress Tabitha.</p>
@@ -296,25 +410,41 @@ function Experiences() {
           </div>
         </section>
 
-        {/* CONTROLLED REGRESSION */}
-        <section className="exp-section dark">
-          <h2>Controlled Regression</h2>
+        {/* =========================
+            CONTROLLED REGRESSION
+        ========================= */}
 
-          <p>
-            Private ABDL-oriented dynamics approached discreetly and
-            respectfully, grounded in trust, structure, ritual and emotional
-            awareness.
-          </p>
+        <section className="exp-regression">
+          <span className="exp-regression-number">03</span>
 
-          <p>
-            These experiences are selective, carefully negotiated and maintained
-            within a framework of privacy and maturity.
-          </p>
+          <div className="exp-regression-content">
+            <p className="exp-section-eyebrow">Selective Experience</p>
+
+            <h2>Controlled Regression</h2>
+
+            <p>
+              Private ABDL-oriented dynamics approached discreetly and
+              respectfully, grounded in trust, structure, ritual and emotional
+              awareness.
+            </p>
+
+            <p>
+              These experiences are selective, carefully negotiated and
+              maintained within a framework of privacy and maturity.
+            </p>
+          </div>
         </section>
 
-        {/* CLOSING */}
+        {/* =========================
+            CLOSING
+        ========================= */}
+
         <section className="exp-close">
+          <div className="exp-close-line" />
+
           <p className="closing-quote">“Obedience is learned slowly.”</p>
+
+          <div className="exp-close-line" />
         </section>
       </div>
     </>

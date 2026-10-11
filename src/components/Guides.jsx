@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import './guides.css';
 import { Link } from 'react-router-dom';
+
 import GuideNavigator from './GuideNavigator';
-import gallery23 from '../assets/gallery23.webp';
+
+import gallery14 from '../assets/gallery14.webp';
 import gallery26 from '../assets/gallery26.webp';
 
 function Guides() {
@@ -31,6 +33,7 @@ function Guides() {
       }, 1200);
     }, 500);
   };
+
   const contents = [
     {
       id: 'chapter-01',
@@ -104,10 +107,11 @@ function Guides() {
       {/* =========================
           HERO
       ========================= */}
+
       <section
         className="guides-hero"
         style={{
-          backgroundImage: `url(${gallery23})`,
+          backgroundImage: `url(${gallery26})`,
         }}
       >
         <div className="guides-overlay"></div>
@@ -134,9 +138,11 @@ function Guides() {
           </div>
         </div>
       </section>
+
       {/* =========================
           INTRO
       ========================= */}
+
       <section className="guides-intro">
         <div className="guides-intro-image">
           <img src={gallery26} alt="The Tabitha Thorne Guides" />
@@ -165,9 +171,11 @@ function Guides() {
           </p>
         </div>
       </section>
+
       {/* =========================
           CONTENTS
       ========================= */}
+
       <section className="checklist-section">
         <p className="section-eyebrow">CONTENTS</p>
 
@@ -189,9 +197,11 @@ function Guides() {
           ))}
         </div>
       </section>
+
       {/* =========================
           CHAPTER 01
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-01'] = el)}
         id="chapter-01"
@@ -235,10 +245,12 @@ function Guides() {
           Once boundaries are understood, the focus becomes the shared dynamic.
           Every experience is approached with awareness and attention.
         </p>
-      </section>{' '}
+      </section>
+
       {/* =========================
           CHAPTER 02
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-02'] = el)}
         id="chapter-02"
@@ -287,9 +299,11 @@ function Guides() {
           rules before arriving.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 03
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-03'] = el)}
         id="chapter-03"
@@ -333,9 +347,11 @@ function Guides() {
           boundaries, time and arrangements should also always be respected.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 04
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-04'] = el)}
         id="chapter-04"
@@ -378,9 +394,11 @@ function Guides() {
           communication, imagination and mutual respect.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 05
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-05'] = el)}
         id="chapter-05"
@@ -418,9 +436,11 @@ function Guides() {
           compassion. Care can strengthen trust rather than reduce control.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 06
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-06'] = el)}
         id="chapter-06"
@@ -456,10 +476,12 @@ function Guides() {
           Discretion, reliability, hygiene and respect are fundamental parts of
           professionalism.
         </p>
-      </section>{' '}
+      </section>
+
       {/* =========================
           CHAPTER 07
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-07'] = el)}
         id="chapter-07"
@@ -493,9 +515,11 @@ function Guides() {
           <li>Attention to discretion and hygiene</li>
         </ul>
       </section>
+
       {/* =========================
           CHAPTER 08
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-08'] = el)}
         id="chapter-08"
@@ -524,9 +548,11 @@ function Guides() {
           adapting naturally within agreed boundaries.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 09
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-09'] = el)}
         id="chapter-09"
@@ -552,9 +578,11 @@ function Guides() {
 
         <p>More time allows the dynamic to develop naturally.</p>
       </section>
+
       {/* =========================
           CHAPTER 10
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-10'] = el)}
         id="chapter-10"
@@ -580,9 +608,11 @@ function Guides() {
           should respect the individual.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 11
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-11'] = el)}
         id="chapter-11"
@@ -602,9 +632,11 @@ function Guides() {
           create powerful dynamics built on trust.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 12
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-12'] = el)}
         id="chapter-12"
@@ -624,9 +656,11 @@ function Guides() {
           around communication.
         </p>
       </section>
+
       {/* =========================
           CHAPTER 13
       ========================= */}
+
       <section
         ref={(el) => (chaptersRef.current['chapter-13'] = el)}
         id="chapter-13"
@@ -664,9 +698,11 @@ function Guides() {
           whether we are compatible.
         </p>
       </section>
+
       {/* =========================
           FINAL CTA
       ========================= */}
+
       <section className="guides-cta">
         <p className="section-eyebrow">NEXT STEP</p>
 
@@ -681,6 +717,7 @@ function Guides() {
           Submit Application
         </Link>
       </section>
+
       <GuideNavigator
         onOpenContents={() => {
           const chapters = document.querySelector('.checklist-section');

@@ -1,294 +1,644 @@
 .experiences-page {
   background: #050505;
+
   color: #eaeaea;
+
   font-family: 'Inter', sans-serif;
-  padding-bottom: 120px;
+
+  overflow: hidden;
 }
 
-/* =========================================
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .exp-hero {
+  position: relative;
+
+  width: 100%;
   height: 100vh;
 
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
   align-items: center;
 
-  position: relative;
+  padding: 0 20px;
+
+  box-sizing: border-box;
 
   background-position: center 63%;
   background-size: cover;
   background-repeat: no-repeat;
 
   text-align: center;
-  padding: 0 20px;
+
+  overflow: hidden;
 }
 
 .exp-hero-overlay {
   position: absolute;
+
   inset: 0;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.38),
-    rgba(0, 0, 0, 0.82)
-  );
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(5, 5, 5, 0.94)),
+    radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.46));
 }
 
 .exp-hero-content {
   position: relative;
+
   z-index: 2;
+
+  width: min(850px, 92%);
+
+  transform: translateY(45px);
+}
+
+.exp-hero-eyebrow {
+  margin: 0 0 16px;
+
+  color: #8f7770;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
 }
 
 .exp-hero h1 {
+  margin: 0;
+
+  color: #f0ebe8;
+
   font-family: 'Cinzel', serif;
-  font-size: 3.5rem;
-  letter-spacing: 3px;
+
+  font-size: clamp(3.2rem, 6vw, 5rem);
+
+  font-weight: 500;
+
+  letter-spacing: 4px;
 }
 
-.quote {
-  margin-top: 15px;
-  color: #bdbdbd;
-  font-style: italic;
+.exp-hero h1 span {
+  color: #e0d2cc;
+}
+
+.exp-hero-quote {
   max-width: 700px;
+
+  margin: 25px auto 0;
+
+  color: #bdb5b0;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 1rem;
+
+  font-style: italic;
+
   line-height: 1.8;
 }
 
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
+/* =========================
+   SCROLL LINE
+========================= */
 
-.exp-section {
-  padding: 80px 10%;
-  max-width: 900px;
+.exp-scroll-line {
+  margin-top: 55px;
+}
+
+.exp-scroll-line span {
+  position: relative;
+
+  display: block;
+
+  width: 1px;
+  height: 65px;
+
   margin: auto;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  overflow: hidden;
 }
 
-.exp-section.dark {
-  background: #070707;
+.exp-scroll-line span::before {
+  content: '';
+
+  position: absolute;
+
+  top: -30px;
+  left: 0;
+
+  width: 100%;
+  height: 30px;
+
+  background: #7a1f2f;
+
+  animation: expScroll 2.2s infinite;
 }
 
-.exp-section h2 {
-  font-family: 'Cinzel', serif;
-  margin-bottom: 25px;
-  letter-spacing: 2px;
-  color: #eaeaea;
+@keyframes expScroll {
+  from {
+    top: -30px;
+  }
+
+  to {
+    top: 100%;
+  }
 }
 
-.exp-section p {
-  color: #bdbdbd;
-  line-height: 1.9;
-  margin-bottom: 15px;
+/* =========================================================
+   GLOBAL EYEBROW
+========================================================= */
+
+.exp-section-eyebrow {
+  margin: 0 0 14px;
+
+  color: #8f7468;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 3.5px;
+
+  text-transform: uppercase;
 }
 
-.intro {
-  color: #bdbdbd;
+/* =========================================================
+   INTRO
+========================================================= */
+
+.exp-intro {
+  width: min(800px, 88%);
+
+  margin: 0 auto;
+
+  padding: 125px 0 110px;
+
   text-align: center;
-  line-height: 1.9;
 }
 
-/* =========================================
+.exp-intro h2 {
+  margin: 0;
+
+  color: #eee8e4;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+.exp-intro h2::after {
+  content: '';
+
+  display: block;
+
+  width: 85px;
+  height: 1px;
+
+  margin: 22px auto 32px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(122, 31, 47, 0.9),
+    transparent
+  );
+}
+
+.exp-intro > p:last-child {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  color: #aaa19c;
+
+  font-size: 1rem;
+
+  line-height: 2;
+}
+
+/* =========================================================
+   PILLARS
+========================================================= */
+
+.exp-pillars {
+  width: min(1180px, 88%);
+
+  margin: 0 auto;
+
+  padding: 80px 0 140px;
+}
+
+.exp-pillars-heading {
+  max-width: 680px;
+
+  margin-bottom: 55px;
+}
+
+.exp-pillars-heading h2 {
+  margin: 0 0 18px;
+
+  color: #eee8e4;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+.exp-pillars-heading > p:last-child {
+  max-width: 570px;
+
+  color: #928a86;
+
+  line-height: 1.85;
+}
+
+/* =========================================================
    GRID
-========================================= */
+========================================================= */
 
 .exp-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
 
-  padding: 60px 10%;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 22px;
 }
 
 .exp-card {
-  background: rgba(255, 255, 255, 0.02);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  padding: 25px;
-
-  transition: 0.4s ease;
-
   position: relative;
+
+  min-height: 210px;
+
+  padding: 36px 36px 34px;
+
   overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  background:
+    linear-gradient(135deg, rgba(122, 31, 47, 0.025), transparent 55%), #080808;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background-color 0.4s ease;
 }
 
 .exp-card::before {
   content: '';
 
   position: absolute;
+
   inset: 0;
 
   background: radial-gradient(
     circle at top left,
-    rgba(107, 30, 46, 0.15),
-    transparent 60%
+    rgba(122, 31, 47, 0.12),
+    transparent 55%
   );
 
   opacity: 0;
 
-  transition: 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(159, 122, 102, 0.33);
 }
 
 .exp-card:hover::before {
   opacity: 1;
 }
 
-.exp-card:hover {
-  transform: translateY(-4px);
+.exp-card-number {
+  position: relative;
 
-  border-color: rgba(107, 30, 46, 0.4);
+  z-index: 2;
+
+  display: block;
+
+  margin-bottom: 24px;
+
+  color: #655b57;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.64rem;
+
+  letter-spacing: 3px;
 }
 
 .exp-card h3 {
   position: relative;
+
   z-index: 2;
+
+  margin: 0 0 15px;
+
+  color: #ebe5e1;
 
   font-family: 'Cinzel', serif;
 
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+
+  font-weight: 500;
 
   letter-spacing: 1px;
 }
 
 .exp-card p {
   position: relative;
+
   z-index: 2;
 
-  color: #cfcfcf;
+  margin: 0;
 
-  line-height: 1.7;
+  color: #a9a19d;
+
+  font-size: 0.92rem;
+
+  line-height: 1.8;
 }
 
-.exp-card.subtle {
-  border: 1px solid rgba(107, 30, 46, 0.3);
+.exp-card-featured {
+  border-color: rgba(159, 122, 102, 0.25);
 
-  background: linear-gradient(
-    to bottom,
-    rgba(107, 30, 46, 0.08),
-    rgba(255, 255, 255, 0.02)
-  );
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(159, 122, 102, 0.09),
+      transparent 60%
+    ),
+    #080808;
 }
 
-/* =========================================
-   CINEMATIC IMAGE SECTION
-========================================= */
+.exp-card-subtle {
+  border-color: rgba(107, 30, 46, 0.35);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(107, 30, 46, 0.11),
+      transparent 55%
+    ),
+    #080808;
+}
+
+/* =========================================================
+   CINEMATIC PHILOSOPHY
+========================================================= */
 
 .exp-image-section {
   position: relative;
 
-  height: 85vh;
+  min-height: 100vh;
+
+  margin: 30px 0 130px;
 
   display: flex;
-  align-items: center;
+
+  align-items: flex-end;
   justify-content: center;
 
-  margin: 80px 0;
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  background-position: 30% center;
 
   overflow: hidden;
-
-  background-position: 30%;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .exp-image-overlay {
   position: absolute;
+
   inset: 0;
 
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.57),
-    rgba(0, 0, 0, 0.9)
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.26) 48%,
+    rgba(5, 5, 5, 0.82) 100%
   );
 }
 
 .exp-image-content {
   position: relative;
+
   z-index: 2;
 
-  max-width: 800px;
+  width: min(880px, 88%);
+
+  padding: 0 0 70px;
 
   text-align: center;
 
-  padding: 0 20px;
+  background: transparent;
+
+  border: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .exp-image-content h2 {
+  margin: 0;
+
+  color: #f0ebe8;
+
   font-family: 'Cinzel', serif;
+
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+
+  font-weight: 500;
 
   letter-spacing: 2px;
 
-  margin-bottom: 25px;
+  text-shadow: 0 3px 25px rgba(0, 0, 0, 0.8);
+}
 
-  color: #eaeaea;
+.exp-image-line {
+  width: 75px;
+
+  height: 1px;
+
+  margin: 20px auto 28px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(159, 122, 102, 0.95),
+    transparent
+  );
 }
 
 .exp-image-content p {
-  color: #cfcfcf;
+  max-width: 680px;
+
+  margin: 0 auto 16px;
+
+  color: #d1cbc7;
 
   line-height: 1.9;
 
-  margin-bottom: 15px;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
 }
 
-.exp-image-content p:first-of-type::first-letter {
-  color: #6b1e2e;
+.exp-image-content .exp-image-accent {
+  margin-top: 28px;
 
-  font-size: 1.2em;
+  color: #eee5e0;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.93rem;
+
+  font-style: italic;
+
+  letter-spacing: 0.6px;
+}
+/* =========================================================
+   INTERESTS
+========================================================= */
+
+.exp-interests {
+  width: min(1050px, 88%);
+
+  margin: 0 auto;
+
+  padding: 40px 0 130px;
+
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 90px;
+
+  align-items: start;
 }
 
-/* =========================================
-   INTERESTS LIST
-========================================= */
+.exp-interests-heading {
+  position: sticky;
+
+  top: 120px;
+}
+
+.exp-interests-heading h2 {
+  margin: 0 0 20px;
+
+  color: #eee8e4;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(2rem, 3.4vw, 3rem);
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+}
+
+.exp-interests-heading > p:last-child {
+  color: #918985;
+
+  line-height: 1.85;
+}
 
 .exp-list {
   list-style: none;
 
-  padding-left: 0;
+  margin: 0;
 
-  margin-top: 20px;
+  padding: 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
 }
 
 .exp-list li {
-  padding: 12px 0;
+  position: relative;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 63px;
 
-  color: #cfcfcf;
+  padding: 18px 12px;
 
-  transition: 0.3s ease;
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+
+  color: #b8b0ac;
+
+  font-size: 0.94rem;
+
+  line-height: 1.6;
+
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.exp-list li span {
+  min-width: 24px;
+
+  color: #655b57;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.62rem;
+
+  letter-spacing: 2px;
 }
 
 .exp-list li:hover {
-  color: #fff;
-  padding-left: 5px;
-}
+  padding-left: 18px;
 
-/* NEW SIGNATURE ITEMS */
+  color: #fff;
+
+  background: rgba(122, 31, 47, 0.025);
+}
 
 .exp-list-feature {
+  color: #e0d3cd !important;
+
   font-family: 'Cinzel', serif;
 
-  color: #e6d8d2 !important;
-
-  letter-spacing: 0.7px;
-
-  border-bottom-color: rgba(107, 30, 46, 0.35) !important;
+  border-bottom-color: rgba(122, 31, 47, 0.3) !important;
 }
 
-/* =========================================
+/* =========================================================
    FEATURED EXPERIENCES
-========================================= */
+========================================================= */
 
 .exp-featured-experiences {
-  max-width: 1100px;
+  width: min(1100px, 88%);
 
-  margin: 40px auto 140px;
+  margin: 0 auto;
 
-  padding: 80px 7%;
+  padding: 90px 0 150px;
 }
 
 .exp-featured-heading {
@@ -302,7 +652,7 @@
 
   color: #8f7468;
 
-  font-size: 0.78rem;
+  font-size: 0.72rem;
 
   letter-spacing: 4px;
 
@@ -310,23 +660,25 @@
 }
 
 .exp-featured-heading h2 {
+  margin: 0 0 22px;
+
+  color: #eee8e4;
+
   font-family: 'Cinzel', serif;
 
-  font-size: 2.6rem;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
 
   font-weight: 500;
 
   letter-spacing: 2px;
-
-  margin-bottom: 22px;
 }
 
 .exp-featured-heading > p:last-child {
-  color: #a9a9a9;
-
-  line-height: 1.8;
-
   max-width: 620px;
+
+  color: #9b938f;
+
+  line-height: 1.85;
 }
 
 .exp-featured-grid {
@@ -340,19 +692,22 @@
 .exp-featured-card {
   position: relative;
 
-  min-height: 480px;
+  min-height: 500px;
 
   padding: 55px 45px;
 
   display: flex;
+
   align-items: flex-end;
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
 
   background:
     radial-gradient(
       circle at top right,
-      rgba(159, 122, 102, 0.07),
+      rgba(159, 122, 102, 0.075),
       transparent 45%
     ),
     #080808;
@@ -362,13 +717,14 @@
   transition:
     transform 0.5s ease,
     border-color 0.5s ease,
-    background 0.5s ease;
+    box-shadow 0.5s ease;
 }
 
 .exp-featured-card::before {
   content: '';
 
   position: absolute;
+
   inset: 18px;
 
   border: 1px solid rgba(255, 255, 255, 0.035);
@@ -380,6 +736,8 @@
   transform: translateY(-5px);
 
   border-color: rgba(159, 122, 102, 0.38);
+
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.25);
 }
 
 .exp-feature-number {
@@ -388,46 +746,47 @@
   top: 28px;
   right: 32px;
 
+  color: rgba(255, 255, 255, 0.28);
+
   font-family: 'Cinzel', serif;
 
   font-size: 0.75rem;
 
   letter-spacing: 3px;
-
-  color: rgba(255, 255, 255, 0.28);
 }
 
 .exp-featured-card-content {
   position: relative;
+
   z-index: 2;
 }
 
 .exp-feature-label {
-  color: #8f7468;
+  margin-bottom: 18px;
 
-  text-transform: uppercase;
+  color: #8f7468 !important;
+
+  font-size: 0.68rem;
 
   letter-spacing: 3px;
 
-  font-size: 0.72rem;
-
-  margin-bottom: 18px;
+  text-transform: uppercase;
 }
 
 .exp-featured-card h3 {
+  margin: 0 0 22px;
+
+  color: #f0ece9;
+
   font-family: 'Cinzel', serif;
 
   font-size: 1.75rem;
 
-  line-height: 1.4;
-
   font-weight: 500;
 
+  line-height: 1.4;
+
   letter-spacing: 1px;
-
-  margin-bottom: 22px;
-
-  color: #f0f0f0;
 }
 
 .exp-feature-line {
@@ -435,70 +794,174 @@
 
   height: 1px;
 
+  margin-bottom: 27px;
+
   background: linear-gradient(
     to right,
     rgba(159, 122, 102, 0.9),
     rgba(159, 122, 102, 0)
   );
-
-  margin-bottom: 27px;
 }
 
 .exp-featured-card p {
-  color: #bebebe;
+  margin-bottom: 17px;
+
+  color: #aaa29e;
 
   line-height: 1.85;
-
-  margin-bottom: 17px;
 }
 
 .exp-featured-card .exp-feature-note {
-  color: #ddd;
-
   margin-top: 25px;
+
+  color: #d6cbc5;
 
   font-style: italic;
 }
-
-/* SECOND FEATURE */
 
 .burgundy-feature {
   background:
     radial-gradient(
       circle at top right,
-      rgba(107, 30, 46, 0.14),
+      rgba(107, 30, 46, 0.15),
       transparent 50%
     ),
     linear-gradient(145deg, #080808, #0c0809);
 }
 
-/* =========================================
+/* =========================================================
+   CONTROLLED REGRESSION
+========================================================= */
+
+.exp-regression {
+  width: min(1050px, 88%);
+
+  margin: 0 auto 120px;
+
+  padding: 100px 0;
+
+  display: grid;
+
+  grid-template-columns: 0.6fr 1.4fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exp-regression-number {
+  color: rgba(255, 255, 255, 0.035);
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(7rem, 12vw, 10rem);
+
+  line-height: 1;
+}
+
+.exp-regression-content {
+  max-width: 620px;
+}
+
+.exp-regression-content h2 {
+  margin: 0 0 28px;
+
+  color: #eee8e4;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(2.1rem, 3.5vw, 3.1rem);
+
+  font-weight: 500;
+
+  letter-spacing: 1.5px;
+}
+
+.exp-regression-content p {
+  margin-bottom: 18px;
+
+  color: #aaa19d;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
    CLOSING
-========================================= */
+========================================================= */
 
 .exp-close {
+  min-height: 360px;
+
+  padding: 80px 20px 110px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
 
-  padding: 100px 20px;
+  background: radial-gradient(
+    circle at center,
+    rgba(122, 31, 47, 0.055),
+    transparent 45%
+  );
+}
+
+.exp-close-line {
+  width: 90px;
+
+  height: 1px;
+
+  margin: 25px 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(122, 31, 47, 0.85),
+    transparent
+  );
 }
 
 .closing-quote {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #eee8e4;
+
   font-family: 'Cinzel', serif;
 
-  font-size: 1.3rem;
+  font-size: clamp(1.7rem, 3.4vw, 2.8rem);
 
-  color: #e6e6e6;
+  line-height: 1.5;
 
-  max-width: 600px;
-
-  margin: auto;
-
-  line-height: 1.8;
+  letter-spacing: 1.2px;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .exp-interests {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .exp-interests-heading {
+    position: static;
+
+    max-width: 650px;
+  }
+}
 
 @media (max-width: 900px) {
   .exp-featured-grid {
@@ -506,43 +969,143 @@
   }
 }
 
-@media (max-width: 768px) {
-  .exp-hero {
-    height: 100dvh;
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    min-height: 100dvh;
+@media (max-width: 768px) {
+  /* HERO */
+
+  .exp-hero {
+    height: 90vh;
+
+    padding: 0 20px;
 
     background-size: cover;
 
     background-position: center center;
+  }
 
-    padding: 0 20px;
+  .exp-hero-content {
+    width: 92%;
+
+    transform: translateY(45px);
+  }
+
+  .exp-hero-eyebrow {
+    font-size: 0.61rem;
+
+    letter-spacing: 3px;
   }
 
   .exp-hero h1 {
-    font-size: 2.4rem;
+    font-size: 2.55rem;
+  }
+
+  .exp-hero-quote {
+    font-size: 0.86rem;
+  }
+
+  .exp-scroll-line {
+    margin-top: 38px;
+  }
+
+  .exp-scroll-line span {
+    height: 48px;
+  }
+
+  /* INTRO */
+
+  .exp-intro {
+    width: auto;
+
+    padding: 90px 22px 85px;
+  }
+
+  .exp-intro h2 {
+    font-size: 2.25rem;
+  }
+
+  /* PILLARS */
+
+  .exp-pillars {
+    width: auto;
+
+    padding: 45px 20px 95px;
+  }
+
+  .exp-pillars-heading {
+    margin-bottom: 38px;
+  }
+
+  .exp-pillars-heading h2 {
+    font-size: 2.2rem;
   }
 
   .exp-grid {
     grid-template-columns: 1fr;
 
-    padding: 50px 6%;
+    gap: 16px;
   }
 
-  .exp-section {
-    padding: 70px 6%;
+  .exp-card {
+    min-height: 0;
+
+    padding: 30px 25px;
   }
+
+  /* PHILOSOPHY */
 
   .exp-image-section {
-    height: 75vh;
+    min-height: 68vh;
 
-    margin: 60px 0;
+    margin: 20px 0 90px;
+
+    background-position: center center;
   }
 
-  .exp-featured-experiences {
-    padding: 60px 20px;
+  .exp-image-content {
+    width: calc(100% - 36px);
 
-    margin-bottom: 80px;
+    padding: 42px 24px;
+  }
+
+  .exp-image-content h2 {
+    font-size: 2rem;
+  }
+
+  /* INTERESTS */
+
+  .exp-interests {
+    width: auto;
+
+    margin: 0 20px;
+
+    padding-bottom: 90px;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .exp-interests-heading h2 {
+    font-size: 2.15rem;
+  }
+
+  .exp-list li {
+    padding: 17px 5px;
+
+    gap: 16px;
+
+    font-size: 0.9rem;
+  }
+
+  /* FEATURED */
+
+  .exp-featured-experiences {
+    width: auto;
+
+    padding: 75px 20px 100px;
   }
 
   .exp-featured-heading {
@@ -550,16 +1113,92 @@
   }
 
   .exp-featured-heading h2 {
-    font-size: 2rem;
+    font-size: 2.15rem;
   }
 
   .exp-featured-card {
     min-height: auto;
 
-    padding: 55px 28px 38px;
+    padding: 58px 28px 38px;
   }
 
   .exp-featured-card h3 {
     font-size: 1.45rem;
+  }
+
+  /* REGRESSION */
+
+  .exp-regression {
+    width: auto;
+
+    margin: 0 20px 80px;
+
+    padding: 75px 0;
+
+    grid-template-columns: 1fr;
+
+    gap: 5px;
+  }
+
+  .exp-regression-number {
+    font-size: 5rem;
+  }
+
+  .exp-regression-content h2 {
+    font-size: 2.05rem;
+  }
+
+  /* CLOSING */
+
+  .exp-close {
+    min-height: 300px;
+
+    padding: 70px 20px 90px;
+  }
+
+  .closing-quote {
+    font-size: 1.8rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .exp-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .exp-intro {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .exp-pillars {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .exp-image-content {
+    width: calc(100% - 28px);
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .exp-interests {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .exp-featured-experiences {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .exp-regression {
+    margin-left: 18px;
+    margin-right: 18px;
   }
 }

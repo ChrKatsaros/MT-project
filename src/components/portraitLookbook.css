@@ -1,0 +1,717 @@
+/* =========================================================
+   PORTRAIT LOOKBOOK
+========================================================= */
+
+.portrait-lookbook {
+  width: 100%;
+
+  padding: 85px 6% 105px;
+
+  background:
+    radial-gradient(circle at 50% 30%, rgba(91, 28, 40, 0.07), transparent 38%),
+    #050505;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.portrait-lookbook-heading {
+  width: min(980px, 100%);
+
+  margin: 0 auto 38px;
+
+  text-align: center;
+}
+
+.portrait-lookbook-kicker {
+  margin: 0 0 10px;
+
+  color: #8f7770;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 3.2px;
+
+  text-transform: uppercase;
+}
+
+.portrait-lookbook-heading h2 {
+  margin: 0;
+
+  color: #eee8e4;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(2.2rem, 3.3vw, 3.3rem);
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+.portrait-lookbook-line {
+  width: 80px;
+
+  height: 1px;
+
+  margin: 18px auto 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(107, 30, 46, 0.9),
+    transparent
+  );
+}
+
+/* =========================
+   MAIN FRAME
+========================= */
+
+.portrait-lookbook-frame {
+  position: relative;
+
+  width: min(940px, 100%);
+
+  margin: 0 auto;
+}
+
+/* =========================
+   COUNTER
+========================= */
+
+.portrait-lookbook-counter {
+  margin-bottom: 14px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  color: #817873;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 2px;
+}
+
+.portrait-lookbook-counter span:first-child {
+  color: #d9cec8;
+}
+
+.portrait-lookbook-counter-divider {
+  opacity: 0.4;
+}
+
+/* =========================
+   STAGE
+========================= */
+
+.portrait-lookbook-stage {
+  position: relative;
+
+  min-height: 525px;
+
+  perspective: 1300px;
+}
+
+/* =========================
+   SPREAD
+========================= */
+
+.portrait-lookbook-spread {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 525px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.88fr;
+
+  background: #090909;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+
+  overflow: hidden;
+
+  cursor: grab;
+
+  transform-style: preserve-3d;
+
+  will-change: transform, opacity;
+}
+
+.portrait-lookbook-spread:active {
+  cursor: grabbing;
+}
+
+/* =========================
+   MAGAZINE FOLD
+========================= */
+
+.portrait-lookbook-spread::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 53.2%;
+
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.07),
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.portrait-lookbook-image-wrap {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #050505;
+}
+
+.portrait-lookbook-image-wrap::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(to right, transparent 72%, rgba(5, 5, 5, 0.14));
+
+  pointer-events: none;
+}
+
+.portrait-lookbook-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 525px;
+
+  object-fit: cover;
+
+  filter: brightness(0.88) contrast(1.04) saturate(0.94);
+
+  user-select: none;
+
+  will-change: transform, opacity;
+}
+
+/* =========================
+   COPY
+========================= */
+
+.portrait-lookbook-copy {
+  padding: clamp(38px, 5vw, 65px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(135deg, rgba(107, 30, 46, 0.035), transparent 60%), #090909;
+}
+
+.portrait-lookbook-eyebrow {
+  margin: 0 0 16px;
+
+  color: #8f7770;
+
+  font-size: 0.64rem;
+
+  letter-spacing: 2.7px;
+
+  text-transform: uppercase;
+}
+
+.portrait-lookbook-copy h3 {
+  max-width: 390px;
+
+  margin: 0 0 24px;
+
+  color: #eee8e4;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(1.75rem, 2.5vw, 2.55rem);
+
+  font-weight: 500;
+
+  line-height: 1.18;
+
+  letter-spacing: 1px;
+}
+
+.portrait-lookbook-text {
+  max-width: 390px;
+
+  margin: 0;
+
+  color: #aaa19c;
+
+  font-size: 0.88rem;
+
+  line-height: 1.85;
+}
+
+.portrait-lookbook-swipe {
+  margin: 38px 0 0;
+
+  color: #605a57;
+
+  font-size: 0.59rem;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.portrait-lookbook-navigation {
+  margin-top: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 28px;
+}
+
+.portrait-lookbook-arrow {
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: #cfc6c1;
+
+  font-size: 1.05rem;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.portrait-lookbook-arrow:hover {
+  border-color: rgba(107, 30, 46, 0.7);
+
+  background: rgba(107, 30, 46, 0.08);
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.portrait-lookbook-dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.portrait-lookbook-dot {
+  width: 19px;
+  height: 2px;
+
+  padding: 0;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  border: 0;
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.portrait-lookbook-dot.active {
+  width: 36px;
+
+  background: #6b1e2e;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .portrait-lookbook {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .portrait-lookbook-frame {
+    width: min(860px, 100%);
+  }
+
+  .portrait-lookbook-stage,
+  .portrait-lookbook-spread {
+    min-height: 490px;
+  }
+
+  .portrait-lookbook-image {
+    min-height: 490px;
+  }
+
+  .portrait-lookbook-copy {
+    padding: 38px;
+  }
+
+  .portrait-lookbook-copy h3 {
+    font-size: 2rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .portrait-lookbook {
+    padding: 65px 18px 80px;
+  }
+
+  .portrait-lookbook-heading {
+    margin-bottom: 28px;
+  }
+
+  .portrait-lookbook-heading h2 {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .portrait-lookbook-counter {
+    margin-right: 2px;
+  }
+
+  .portrait-lookbook-stage {
+    min-height: auto;
+
+    perspective: none;
+  }
+
+  .portrait-lookbook-spread {
+    min-height: 0;
+
+    grid-template-columns: 1fr;
+
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .portrait-lookbook-spread::after {
+    display: none;
+  }
+
+  /* IMAGE */
+
+  .portrait-lookbook-image-wrap {
+    height: min(105vw, 500px);
+  }
+
+  .portrait-lookbook-image {
+    height: 100%;
+
+    min-height: 0;
+  }
+
+  .portrait-lookbook-image-wrap::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 80%,
+      rgba(9, 9, 9, 0.18)
+    );
+  }
+
+  /* COPY */
+
+  .portrait-lookbook-copy {
+    padding: 28px 24px 32px;
+  }
+
+  .portrait-lookbook-eyebrow {
+    margin-bottom: 12px;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 2.2px;
+  }
+
+  .portrait-lookbook-copy h3 {
+    margin-bottom: 17px;
+
+    font-size: 1.8rem;
+  }
+
+  .portrait-lookbook-text {
+    font-size: 0.83rem;
+
+    line-height: 1.75;
+  }
+
+  .portrait-lookbook-swipe {
+    margin-top: 26px;
+
+    font-size: 0.56rem;
+  }
+
+  /* NAVIGATION */
+
+  .portrait-lookbook-navigation {
+    margin-top: 20px;
+
+    gap: 20px;
+  }
+
+  .portrait-lookbook-arrow {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .portrait-lookbook {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .portrait-lookbook-image-wrap {
+    height: 112vw;
+
+    max-height: 480px;
+  }
+
+  .portrait-lookbook-copy {
+    padding-left: 21px;
+    padding-right: 21px;
+  }
+
+  .portrait-lookbook-copy h3 {
+    font-size: 1.65rem;
+  }
+
+  .portrait-lookbook-navigation {
+    gap: 15px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-lookbook-arrow,
+  .portrait-lookbook-dot {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   BALANCED PREMIUM DESKTOP LOOKBOOK
+========================================================= */
+
+@media (min-width: 1101px) {
+  .portrait-lookbook {
+    padding: 72px 6% 88px;
+  }
+
+  /* HEADING */
+
+  .portrait-lookbook-heading {
+    width: min(940px, 100%);
+    margin-bottom: 32px;
+  }
+
+  .portrait-lookbook-heading h2 {
+    font-size: clamp(2.25rem, 3vw, 3.1rem);
+  }
+
+  .portrait-lookbook-kicker {
+    font-size: 0.63rem;
+    letter-spacing: 3.1px;
+  }
+
+  .portrait-lookbook-line {
+    width: 78px;
+    margin-top: 17px;
+  }
+
+  /* MAIN BOOK */
+
+  .portrait-lookbook-frame {
+    width: min(940px, 100%);
+  }
+
+  .portrait-lookbook-counter {
+    margin-bottom: 12px;
+    font-size: 0.66rem;
+  }
+
+  .portrait-lookbook-stage {
+    min-height: 520px;
+  }
+
+  .portrait-lookbook-spread {
+    min-height: 0;
+    height: 520px;
+
+    grid-template-columns: 0.96fr 1.04fr;
+
+    box-shadow: 0 26px 68px rgba(0, 0, 0, 0.35);
+
+    will-change: transform, opacity;
+  }
+
+  /* MAGAZINE FOLD */
+
+  .portrait-lookbook-spread::after {
+    left: 48%;
+  }
+
+  /* IMAGE PAGE */
+
+  .portrait-lookbook-image-wrap {
+    height: 520px;
+
+    padding: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    background: #070707;
+  }
+
+  .portrait-lookbook-image-wrap::after {
+    background: linear-gradient(to right, transparent 83%, rgba(5, 5, 5, 0.1));
+  }
+
+  .portrait-lookbook-image {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    object-fit: contain;
+
+    filter: brightness(0.9) contrast(1.035) saturate(0.94);
+
+    will-change: transform, opacity;
+  }
+
+  /* TEXT PAGE */
+
+  .portrait-lookbook-copy {
+    padding: 42px 52px;
+  }
+
+  .portrait-lookbook-eyebrow {
+    margin-bottom: 15px;
+
+    font-size: 0.61rem;
+    letter-spacing: 2.6px;
+  }
+
+  .portrait-lookbook-copy h3 {
+    margin-bottom: 22px;
+
+    font-size: clamp(1.8rem, 2.25vw, 2.35rem);
+
+    line-height: 1.16;
+  }
+
+  .portrait-lookbook-text {
+    max-width: 370px;
+
+    font-size: 0.87rem;
+
+    line-height: 1.8;
+  }
+
+  .portrait-lookbook-swipe {
+    margin-top: 32px;
+
+    font-size: 0.56rem;
+  }
+
+  /* CONTROLS */
+
+  .portrait-lookbook-navigation {
+    margin-top: 21px;
+
+    gap: 26px;
+  }
+
+  .portrait-lookbook-arrow {
+    width: 41px;
+    height: 41px;
+
+    font-size: 1rem;
+  }
+
+  .portrait-lookbook-dot {
+    width: 18px;
+  }
+
+  .portrait-lookbook-dot.active {
+    width: 35px;
+  }
+}

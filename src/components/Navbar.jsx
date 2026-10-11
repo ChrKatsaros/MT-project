@@ -1,8 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import { FaBars, FaInstagram, FaChevronDown } from 'react-icons/fa';
-
+import { FaInstagram, FaChevronDown } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 import './navbar.css';
@@ -91,31 +90,37 @@ function Navbar() {
       <nav className="navbar-links">
         <ul className="nav-links">
           {/* ABOUT */}
+
           <li className={isActive('/about') ? 'active' : ''}>
             <Link to="/about">About</Link>
           </li>
 
           {/* EXPERIENCES */}
+
           <li className={isActive('/experiences') ? 'active' : ''}>
             <Link to="/experiences">Experiences</Link>
           </li>
 
           {/* PROTOCOL */}
+
           <li className={isActive('/protocol') ? 'active' : ''}>
             <Link to="/protocol">Protocol</Link>
           </li>
 
           {/* GALLERY */}
+
           <li className={isActive('/gallery') ? 'active' : ''}>
             <Link to="/gallery">Gallery</Link>
           </li>
 
           {/* GUIDES */}
+
           <li className={isActive('/guides') ? 'active' : ''}>
             <Link to="/guides">Guides</Link>
           </li>
 
           {/* APPLICATION */}
+
           <li className={isActive('/application') ? 'active' : ''}>
             <Link to="/application">Application</Link>
           </li>
@@ -131,16 +136,12 @@ function Navbar() {
             </button>
 
             <div className="locations-dropdown">
-              {/* LONDON */}
               <a href="/dominatrix-london/">London</a>
 
-              {/* BOURNEMOUTH */}
               <a href="/dominatrix-bournemouth/">Bournemouth</a>
 
-              {/* SOUTHAMPTON */}
               <a href="/dominatrix-southampton/">Southampton</a>
 
-              {/* PORTSMOUTH */}
               <a href="/dominatrix-portsmouth/">Portsmouth</a>
             </div>
           </li>
@@ -161,14 +162,17 @@ function Navbar() {
           MOBILE HAMBURGER
       ========================= */}
 
-      <div
-        className="mobile-hamburger"
+      <button
+        className="mobile-hamburger react-hamburger"
+        type="button"
         onClick={toggleMenu}
-        role="button"
-        aria-label="Open menu"
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={menuOpen}
       >
-        <FaBars size={28} />
-      </div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       {/* =========================
           MOBILE MENU
@@ -254,25 +258,17 @@ function Navbar() {
               locationsOpen ? 'open' : ''
             }`}
           >
-            {/* LONDON */}
-
             <a href="/dominatrix-london/" onClick={closeMenu}>
               London
             </a>
-
-            {/* BOURNEMOUTH */}
 
             <a href="/dominatrix-bournemouth/" onClick={closeMenu}>
               Bournemouth
             </a>
 
-            {/* SOUTHAMPTON */}
-
             <a href="/dominatrix-southampton/" onClick={closeMenu}>
               Southampton
             </a>
-
-            {/* PORTSMOUTH */}
 
             <a href="/dominatrix-portsmouth/" onClick={closeMenu}>
               Portsmouth

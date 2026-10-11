@@ -372,21 +372,28 @@
   display: none;
 }
 
-/* =========================
-   HAMBURGER
-========================= */
+/* =========================================================
+   PREMIUM ANIMATED HAMBURGER
+   REACT + STATIC LOCATION PAGES
+========================================================= */
 
 .mobile-hamburger {
   display: none;
 
-  align-items: center;
-  justify-content: center;
+  width: 36px;
+  height: 36px;
 
-  padding: 8px;
+  padding: 0;
 
   border: 0;
 
   background: transparent;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
 
   color: #f1ece8;
 
@@ -394,7 +401,62 @@
 
   position: relative;
 
-  z-index: 1002;
+  z-index: 10001;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition: transform 0.25s ease;
+}
+
+/* HAMBURGER LINES */
+
+.mobile-hamburger span {
+  display: block;
+
+  width: 24px;
+  height: 2px;
+
+  background: #fff;
+
+  border-radius: 10px;
+
+  transform-origin: center;
+
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease,
+    width 0.32s ease,
+    background-color 0.3s ease;
+}
+
+/* Middle line slightly shorter */
+
+.mobile-hamburger span:nth-child(2) {
+  width: 19px;
+}
+
+/* =========================
+   OPEN → X
+========================= */
+
+.navbar-container.menu-open .mobile-hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-container.menu-open .mobile-hamburger span:nth-child(2) {
+  width: 0;
+
+  opacity: 0;
+}
+
+.navbar-container.menu-open .mobile-hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* PRESS INTERACTION */
+
+.mobile-hamburger:active {
+  transform: scale(0.94);
 }
 
 /* =========================
@@ -592,6 +654,7 @@
   display: flex;
 
   justify-content: center;
+  align-items: center;
 
   gap: 1.5rem;
 
@@ -599,13 +662,32 @@
 }
 
 .mobile-socials a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
   color: #b8b0aa;
 
-  transition: color 0.3s ease;
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-socials svg {
+  display: block;
+
+  flex-shrink: 0;
+
+  fill: currentColor;
 }
 
 .mobile-socials a:hover {
   color: #f1ece8;
+
+  transform: translateY(-2px);
 }
 
 /* =========================================================
@@ -695,10 +777,6 @@
 
   .navbar-container.scrolled .navbar-logo img {
     height: 3.8rem;
-  }
-
-  .mobile-hamburger {
-    padding: 6px;
   }
 
   .mobile-menu > a,

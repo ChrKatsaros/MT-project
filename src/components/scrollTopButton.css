@@ -2,33 +2,40 @@
   display: none;
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 768px) {
   .scroll-top {
-    display: flex;
-
     position: fixed;
 
     right: 20px;
-
     bottom: 25px;
 
-    width: 45px;
+    width: 44px;
+    height: 44px;
 
-    height: 45px;
-
-    justify-content: center;
+    display: flex;
 
     align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
 
     border-radius: 50%;
 
-    border: 1px solid #3d3d3d;
+    background: rgba(8, 8, 8, 0.88);
 
-    background: rgba(0, 0, 0, 0.85);
+    color: rgba(255, 255, 255, 0.92);
 
-    color: white;
+    font-family: 'Inter', sans-serif;
 
-    font-size: 22px;
+    font-size: 19px;
+
+    line-height: 1;
 
     cursor: pointer;
 
@@ -38,9 +45,21 @@
 
     visibility: hidden;
 
-    transform: translateY(20px);
+    transform: translateY(14px) scale(0.96);
 
-    transition: all 0.35s ease;
+    pointer-events: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+      opacity 0.35s ease,
+      visibility 0.35s ease,
+      transform 0.35s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
   }
 
   .scroll-top.active {
@@ -48,10 +67,39 @@
 
     visibility: visible;
 
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+
+    pointer-events: auto;
+  }
+
+  .scroll-top span {
+    display: block;
+
+    transform: translateY(-1px);
+
+    transition: transform 0.25s ease;
   }
 
   .scroll-top:active {
-    transform: scale(0.9);
+    transform: translateY(0) scale(0.94);
+
+    background: rgba(18, 18, 18, 0.95);
+
+    border-color: rgba(107, 30, 46, 0.6);
+  }
+
+  .scroll-top:active span {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top,
+  .scroll-top span {
+    transition: none;
   }
 }

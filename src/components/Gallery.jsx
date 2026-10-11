@@ -23,10 +23,42 @@ import gallery19 from '../assets/gallery19.webp';
 import gallery20 from '../assets/gallery20.webp';
 import gallery21 from '../assets/gallery21.webp';
 
-import gallery23 from '../assets/gallery23.webp';
 import gallery24 from '../assets/gallery24.webp';
-import gallery25 from '../assets/gallery25.webp';
 import gallery26 from '../assets/gallery26.webp';
+
+/* NEW FACE PORTRAITS */
+
+import gallery27 from '../assets/gallery27.webp';
+import gallery28 from '../assets/gallery28.webp';
+import gallery29 from '../assets/gallery29.webp';
+
+/* =========================
+   FEATURED PORTRAITS
+========================= */
+
+const featuredPortraits = [
+  {
+    image: gallery28,
+    alt: 'Portrait of Mistress Tabitha Thorne',
+    className: 'featured-portrait-left',
+  },
+  {
+    image: gallery29,
+    alt: 'Close portrait of Mistress Tabitha Thorne',
+    className: 'featured-portrait-main',
+  },
+  {
+    image: gallery27,
+    alt: 'Mistress Tabitha Thorne portrait',
+    className: 'featured-portrait-right',
+  },
+];
+
+/* =========================
+   MAIN GALLERY
+
+   gallery23 + gallery25 removed
+========================= */
 
 const images = [
   gallery2,
@@ -46,9 +78,7 @@ const images = [
   gallery19,
   gallery20,
   gallery21,
-  gallery23,
   gallery24,
-  gallery25,
   gallery26,
 ];
 
@@ -124,10 +154,12 @@ function Gallery() {
       ========================= */}
 
       <div className="gallery-page">
-        {/* HERO */}
+        {/* =========================
+            HERO
+        ========================= */}
 
         <section className="gallery-hero">
-          <div className="gallery-overlay"></div>
+          <div className="gallery-overlay" />
 
           <div className="gallery-hero-content">
             <h1>
@@ -140,12 +172,43 @@ function Gallery() {
           </div>
         </section>
 
-        {/* GALLERY GRID */}
+        {/* =========================
+            FEATURED PORTRAITS
+        ========================= */}
+
+        <section className="gallery-featured">
+          <div className="gallery-featured-heading">
+            <p className="gallery-featured-eyebrow">Behind The Presence</p>
+
+            <h2>Private Portraits</h2>
+
+            <div className="gallery-featured-line" />
+          </div>
+
+          <div className="gallery-featured-grid">
+            {featuredPortraits.map((portrait) => (
+              <div
+                className={`gallery-featured-card ${portrait.className}`}
+                key={portrait.image}
+              >
+                <img src={portrait.image} alt={portrait.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* =========================
+            MAIN GALLERY
+        ========================= */}
 
         <section className="gallery-grid-section">
+          <div className="gallery-grid-heading">
+            <p>Selected Visions</p>
+          </div>
+
           <div className="gallery-grid">
             {images.map((image, index) => (
-              <div className="gallery-card" key={index}>
+              <div className="gallery-card" key={image}>
                 <img
                   src={image}
                   alt={`Mistress Tabitha Thorne private gallery image ${
@@ -157,7 +220,9 @@ function Gallery() {
             ))}
           </div>
 
-          {/* CTA */}
+          {/* =========================
+              CTA
+          ========================= */}
 
           <div className="gallery-bottom-cta">
             <h2>Want Access to More?</h2>

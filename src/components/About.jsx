@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import backgroundAbout from '../assets/backgroundAbout.webp';
 
+import PortraitLookbook from './PortraitLookbook';
+
 function About() {
   return (
     <>
@@ -73,7 +75,9 @@ function About() {
       ========================= */}
 
       <div className="about-page">
-        {/* HERO */}
+        {/* =========================
+            HERO
+        ========================= */}
 
         <section
           className="about-hero"
@@ -101,7 +105,9 @@ function About() {
           </div>
         </section>
 
-        {/* OVERVIEW */}
+        {/* =========================
+            OVERVIEW
+        ========================= */}
 
         <section className="about-section">
           <h2>Overview</h2>
@@ -140,7 +146,15 @@ function About() {
           </div>
         </section>
 
-        {/* INTENTIONS */}
+        {/* =========================
+            PORTRAIT LOOKBOOK
+        ========================= */}
+
+        <PortraitLookbook />
+
+        {/* =========================
+            INTENTIONS
+        ========================= */}
 
         <section className="about-section dark">
           <h2>Intentions</h2>
@@ -162,7 +176,9 @@ function About() {
           </ul>
         </section>
 
-        {/* METHOD */}
+        {/* =========================
+            METHOD
+        ========================= */}
 
         <section className="about-section">
           <h2>Method</h2>
@@ -195,16 +211,9 @@ function About() {
           </div>
         </section>
 
-        {/* IMAGE BREAK */}
-
-        <div className="about-image-block large">
-          <img
-            src={backgroundAbout}
-            alt="Mistress Tabitha Thorne in an elegant private setting"
-          />
-        </div>
-
-        {/* ARCHETYPES */}
+        {/* =========================
+            ARCHETYPES
+        ========================= */}
 
         <section className="about-section dark">
           <h2>Archetypes</h2>
@@ -241,7 +250,9 @@ function About() {
           </div>
         </section>
 
-        {/* PRESENCE */}
+        {/* =========================
+            PRESENCE
+        ========================= */}
 
         <section className="about-presence">
           <h2>Presence</h2>
@@ -285,7 +296,9 @@ function About() {
           </div>
         </section>
 
-        {/* SIGNATURE */}
+        {/* =========================
+            SIGNATURE
+        ========================= */}
 
         <section className="signature">
           <p>

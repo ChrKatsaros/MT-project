@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -109,6 +110,10 @@
 
     <link rel="stylesheet" href="/location-pages.css" />
 
+    <!-- =========================
+         LONDON HERO IMAGE
+    ========================== -->
+
     <style>
       .london-hero {
         background-image:
@@ -116,7 +121,13 @@
           url('/location-assets/london-hero.webp');
 
         background-size: cover;
-        background-position: center;
+        background-position: center 15%;
+      }
+
+      @media (max-width: 768px) {
+        .london-hero {
+          background-position: center center;
+        }
       }
     </style>
   </head>
@@ -205,23 +216,18 @@
 
       <!-- MOBILE HAMBURGER -->
 
+      <!-- MOBILE HAMBURGER -->
+
       <button
         class="mobile-hamburger"
         id="static-hamburger"
         type="button"
         aria-label="Open menu"
       >
-        <svg
-          viewBox="0 0 24 24"
-          width="28"
-          height="28"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
-        </svg>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-
       <!-- MOBILE MENU -->
 
       <div class="mobile-menu" id="static-mobile-menu">
@@ -282,22 +288,48 @@
         <!-- SOCIALS -->
 
         <div class="mobile-socials">
+          <!-- INSTAGRAM -->
+
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            IG
+            <svg
+              viewBox="0 0 24 24"
+              width="21"
+              height="21"
+              fill="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+              />
+            </svg>
           </a>
+
+          <!-- X -->
 
           <a
             href="https://x.com/TabithaThorne"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="X"
           >
-            X
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
+              />
+            </svg>
           </a>
         </div>
       </div>
@@ -320,7 +352,8 @@
 
           <h1>
             Private Appointments
-            <span>London</span>
+
+            <span> London </span>
           </h1>
 
           <p class="location-hero-subtitle">
@@ -331,7 +364,7 @@
           <a
             href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             class="location-primary-button"
           >
             Book In London
@@ -392,7 +425,7 @@
           <div class="location-section-content">
             <p class="section-kicker">The Dynamic</p>
 
-            <h2>Psychological Authority & Presence</h2>
+            <h2>Psychological Authority &amp; Presence</h2>
 
             <p>
               My approach to domination is rooted in observation, emotional
@@ -441,7 +474,7 @@
             <a
               href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               class="location-primary-button"
             >
               Book At House Of Worship
@@ -456,7 +489,7 @@
         <section class="location-section">
           <p class="section-kicker">First Appointments</p>
 
-          <h2>New & Experienced Clients</h2>
+          <h2>New &amp; Experienced Clients</h2>
 
           <div class="location-copy">
             <p>
@@ -529,7 +562,7 @@
           <a
             href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             class="location-primary-button"
           >
             Book In London
@@ -613,7 +646,7 @@
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             @misstabithathorne
           </a>
@@ -625,7 +658,7 @@
           <a
             href="https://x.com/TabithaThorne"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             @TabithaThorne
           </a>
@@ -650,7 +683,7 @@
           <a
             href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             class="fourth-button venue-booking"
           >
             Book At House Of Worship
@@ -662,7 +695,7 @@
         <div class="booking-option">
           <p class="booking-eyebrow">Flexible Booking</p>
 
-          <h3 class="booking-title">Other Locations & Visiting Dates</h3>
+          <h3 class="booking-title">Other Locations &amp; Visiting Dates</h3>
 
           <p class="booking-description">
             For Bournemouth, Southampton, Portsmouth, other locations or
@@ -688,7 +721,7 @@
         <a
           href="https://throne.com/tabithathorne"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           class="fourth-button wishlist"
         >
           Enter Her Wishlist
@@ -752,22 +785,48 @@
           <h4>Socials</h4>
 
           <div class="footer-social-icons">
+            <!-- INSTAGRAM -->
+
             <a
               href="https://instagram.com/misstabithathorne"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
-              IG
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+                />
+              </svg>
             </a>
+
+            <!-- X -->
 
             <a
               href="https://x.com/TabithaThorne"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="X"
             >
-              X
+              <svg
+                viewBox="0 0 24 24"
+                width="19"
+                height="19"
+                fill="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
+                />
+              </svg>
             </a>
           </div>
         </div>
@@ -822,8 +881,16 @@
         mobileMenu.classList.toggle('open');
 
         navbar.classList.toggle('menu-open');
-      });
 
+        const isOpen = navbar.classList.contains('menu-open');
+
+        hamburger.setAttribute(
+          'aria-label',
+          isOpen ? 'Close menu' : 'Open menu'
+        );
+
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
       /* MOBILE LOCATIONS */
 
       locationsTrigger.addEventListener('click', function () {

@@ -44,7 +44,7 @@ html {
 
   background-size: cover;
 
-  background-position: center;
+  background-position: center 20%;
 
   display: flex;
 
@@ -91,8 +91,9 @@ html {
   max-width: 950px;
 
   text-align: center;
-}
 
+  transform: translateY(80px);
+}
 /* small labels */
 
 .guides-eyebrow,

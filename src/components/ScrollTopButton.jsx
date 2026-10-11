@@ -1,64 +1,102 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './scrollTopButton.css';
 
 function ScrollTopButton() {
   const [showButton, setShowButton] = useState(false);
 
+  const animationFrameRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
+      setShowButton(window.scrollY > 300);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, []);
 
   const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
     const startPosition = window.scrollY;
 
-    const duration = 2600; // 2.6 seconds
+    if (startPosition <= 0) {
+      return;
+    }
 
-    let startTime = null;
+    /*
+      Adaptive duration:
+      short page  -> ~500ms
+      long page   -> max 900ms
+    */
 
-    const animation = (currentTime) => {
-      if (startTime === null) {
-        startTime = currentTime;
-      }
+    const duration = Math.min(900, Math.max(500, startPosition * 0.14));
 
-      const timeElapsed = currentTime - startTime;
+    const startTime = performance.now();
 
-      const progress = Math.min(timeElapsed / duration, 1);
+    /*
+      Premium ease-out:
+      starts decisively,
+      finishes smoothly.
+    */
 
-      // ease in/out
-      const ease =
-        progress < 0.5
-          ? 2 * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+    const easeOutQuint = (progress) => {
+      return 1 - Math.pow(1 - progress, 5);
+    };
 
-      window.scrollTo(0, startPosition * (1 - ease));
+    const animateScroll = (currentTime) => {
+      const elapsed = currentTime - startTime;
 
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
+      const progress = Math.min(elapsed / duration, 1);
+
+      const easedProgress = easeOutQuint(progress);
+
+      const newPosition = startPosition * (1 - easedProgress);
+
+      window.scrollTo(0, newPosition);
+
+      if (progress < 1) {
+        animationFrameRef.current = requestAnimationFrame(animateScroll);
+      } else {
+        window.scrollTo(0, 0);
+
+        animationFrameRef.current = null;
       }
     };
 
-    requestAnimationFrame(animation);
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+
+    animationFrameRef.current = requestAnimationFrame(animateScroll);
   };
 
   return (
     <button
+      type="button"
       className={`scroll-top ${showButton ? 'active' : ''}`}
       onClick={scrollToTop}
       aria-label="Scroll to top"
     >
-      ↑
+      <span aria-hidden="true">↑</span>
     </button>
   );
 }

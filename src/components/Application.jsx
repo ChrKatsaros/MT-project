@@ -159,6 +159,8 @@ function Application() {
           ========================= */}
 
           <section className="app-hero">
+            <p className="app-hero-eyebrow">Private Application</p>
+
             <h1>
               <span>A</span>pplication
             </h1>
@@ -172,6 +174,8 @@ function Application() {
               Compatibility, communication style, emotional intelligence and
               mutual understanding matter.
             </p>
+
+            <div className="app-hero-line" />
           </section>
 
           {/* =========================
@@ -198,7 +202,7 @@ function Application() {
             </a>
 
             <div className="booking-divider">
-              <span>Other Locations & Visiting Dates</span>
+              <span>Other Locations &amp; Visiting Dates</span>
             </div>
 
             <p className="other-locations-text">
@@ -209,11 +213,19 @@ function Application() {
           </section>
 
           {/* =========================
-              BASIC INFORMATION
+              01 BASIC INFORMATION
           ========================= */}
 
           <section className="app-section">
-            <h2>Basic Information</h2>
+            <div className="app-section-heading">
+              <span className="app-section-number">01</span>
+
+              <div>
+                <p className="app-section-eyebrow">Introduction</p>
+
+                <h2>Basic Information</h2>
+              </div>
+            </div>
 
             <div className="required-note">
               <span>*</span> Required fields
@@ -267,8 +279,6 @@ function Application() {
                 )}
               </div>
 
-              {/* EMAIL */}
-
               {contactMethod === 'email' && (
                 <input
                   name="email"
@@ -279,8 +289,6 @@ function Application() {
                   pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 />
               )}
-
-              {/* PHONE */}
 
               {contactMethod === 'phone' && (
                 <input
@@ -294,8 +302,6 @@ function Application() {
                 />
               )}
 
-              {/* TELEGRAM */}
-
               {contactMethod === 'telegram' && (
                 <input
                   name="telegram"
@@ -307,6 +313,7 @@ function Application() {
 
               <textarea
                 name="contact_notes"
+                className="app-textarea-medium"
                 placeholder="Any preferences or notes regarding contact? (optional)"
               />
             </div>
@@ -317,64 +324,95 @@ function Application() {
           </section>
 
           {/* =========================
-              PERSONALITY
+              02 PERSONALITY
           ========================= */}
 
           <section className="app-section dark">
-            <h2>Personality & Intentions</h2>
+            <div className="app-section-heading">
+              <span className="app-section-number">02</span>
+
+              <div>
+                <p className="app-section-eyebrow">Compatibility</p>
+
+                <h2>Personality &amp; Intentions</h2>
+              </div>
+            </div>
 
             <textarea
               name="draws_you_here"
+              className="app-textarea-large"
               placeholder="What draws you here? *"
               required
             />
 
             <textarea
               name="emotional_dynamic"
+              className="app-textarea-large"
               placeholder="What emotional dynamic interests you most?"
             />
 
             <textarea
               name="control_role"
+              className="app-textarea-large"
               placeholder="What role does control or surrender play in your fantasies?"
             />
 
             <textarea
               name="atmosphere"
+              className="app-textarea-large"
               placeholder="Describe the atmosphere you are seeking."
             />
           </section>
 
           {/* =========================
-              EXPERIENCE
+              03 EXPERIENCE
           ========================= */}
 
           <section className="app-section">
-            <h2>Experience</h2>
+            <div className="app-section-heading">
+              <span className="app-section-number">03</span>
+
+              <div>
+                <p className="app-section-eyebrow">Your Experience</p>
+
+                <h2>Experience</h2>
+              </div>
+            </div>
 
             <textarea
               name="previous_experience"
+              className="app-textarea-large"
               placeholder="Previous experience with BDSM or Femdom?"
             />
 
             <textarea
               name="limits"
+              className="app-textarea-large"
               placeholder="Boundaries or limits? *"
               required
             />
 
             <textarea
               name="interests"
+              className="app-textarea-large"
               placeholder="Interests you would like explored?"
             />
           </section>
 
           {/* =========================
-              PRACTICAL
+              04 PRACTICAL
           ========================= */}
 
           <section className="app-section dark">
-            <h2>Practical</h2>
+            <div className="app-section-heading">
+              <span className="app-section-number">04</span>
+
+              <div>
+                <p className="app-section-eyebrow">Arrangement</p>
+
+                <h2>Practical</h2>
+              </div>
+            </div>
 
             {/* BOOKING LOCATION */}
 
@@ -446,6 +484,7 @@ function Application() {
 
             <textarea
               name="archetypes"
+              className="app-textarea-large"
               placeholder="Which dominant archetypes are you drawn to?"
             />
           </section>
@@ -455,7 +494,9 @@ function Application() {
           ========================= */}
 
           <section className="app-section booking-information">
-            <h2>Private Applications & Bookings</h2>
+            <p className="app-section-eyebrow">Before Submission</p>
+
+            <h2>Private Applications &amp; Bookings</h2>
 
             <p>
               This application is used for Bournemouth, Southampton, Portsmouth,
@@ -491,7 +532,13 @@ function Application() {
           ========================= */}
 
           <section className="app-final">
+            <p className="app-final-eyebrow">Final Reflection</p>
+
             <h2>Final Question</h2>
+
+            <p className="app-final-intro">
+              Take a moment before submitting your application.
+            </p>
 
             <textarea
               name="final_question"
