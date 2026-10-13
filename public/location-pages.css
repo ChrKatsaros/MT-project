@@ -1,7 +1,5 @@
 /* =========================================
    LOCATION PAGES
-   Navbar / FourthSection / Footer use
-   the exact CSS of the main website.
 ========================================= */
 
 * {
@@ -14,25 +12,17 @@ html {
 
 body {
   margin: 0;
-
   background: #050505;
-
   color: #fff;
-
   font-family: 'Inter', sans-serif;
-
   -webkit-font-smoothing: antialiased;
-
   text-rendering: optimizeLegibility;
 }
 
 .location-page {
   width: 100%;
-
   overflow-x: hidden;
-
   background: #050505;
-
   color: #fff;
 }
 
@@ -42,31 +32,19 @@ body {
 
 .location-hero {
   height: 100vh;
-
   min-height: 700px;
-
   position: relative;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
   padding: 100px 20px 40px;
-
   background-size: cover;
-
   background-repeat: no-repeat;
-
   background-position: center 40%;
 }
 
-/* =========================================
-   HERO IMAGES
-========================================= */
+/* HERO IMAGES */
 
 .bournemouth-hero {
   background-image: url('/location-assets/bournemouth-hero.webp');
@@ -80,22 +58,13 @@ body {
   background-image: url('/location-assets/southampton-hero.webp');
 }
 
-/*
-  London background-image can remain wherever
-  it is currently defined in the London page.
-  The london-hero class below is used for
-  positioning on desktop.
-*/
+/* London image is defined in the London HTML */
 
-/* =========================================
-   HERO OVERLAY
-========================================= */
+/* HERO OVERLAY */
 
 .location-hero-overlay {
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.35),
@@ -103,101 +72,68 @@ body {
   );
 }
 
-/* =========================================
-   HERO CONTENT
-========================================= */
+/* HERO CONTENT */
 
 .location-hero-content {
   position: relative;
-
   z-index: 2;
-
   width: 100%;
-
   max-width: 800px;
-
   padding: 20px;
 }
 
 .location-eyebrow {
   margin-bottom: 10px;
-
   color: #aaa;
-
   font-size: 0.8rem;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
 }
 
 .location-hero h1 {
   margin: 0;
-
   color: #fff;
-
   font-family: 'Cinzel', serif;
-
   font-size: 3.5rem;
-
   font-weight: 600;
-
   letter-spacing: 4px;
-
   line-height: 1.15;
 }
 
 .location-hero h1 span {
   display: block;
-
   color: #fff;
 }
 
 .location-hero-subtitle {
   max-width: 700px;
-
   margin: 22px auto 0;
-
   color: #c9c9c9;
-
   line-height: 1.8;
-
   font-size: 1rem;
 }
 
 /* =========================================
-   PRIMARY CTA
+   PRIMARY BUTTON
 ========================================= */
 
 .location-primary-button {
   display: inline-block;
-
   margin-top: 25px;
-
   padding: 14px 32px;
-
   border: 1px solid rgba(255, 255, 255, 0.6);
-
   color: #fff;
-
   text-decoration: none;
-
   font-family: 'Cinzel', serif;
-
   font-size: 0.8rem;
-
   letter-spacing: 2px;
-
   text-transform: uppercase;
-
   transition: 0.4s ease;
 }
 
 .location-primary-button:hover {
   background: #fff;
-
   color: #000;
-
   transform: translateY(-2px);
 }
 
@@ -207,63 +143,41 @@ body {
 
 .location-section {
   position: relative;
-
   padding: 120px 10%;
-
   max-width: 900px;
-
   margin: 0 auto;
 }
 
 .location-section.dark-section {
   max-width: none;
-
   padding-left: max(10%, calc((100vw - 900px) / 2));
-
   padding-right: max(10%, calc((100vw - 900px) / 2));
-
   background: #070707;
 }
 
-/* =========================================
-   EYEBROW
-========================================= */
+/* EYEBROW */
 
 .section-kicker {
   color: #9f7a66;
-
   font-size: 0.72rem;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
-
   margin-bottom: 14px;
 }
 
-/* =========================================
-   HEADINGS
-========================================= */
+/* HEADINGS */
 
 .location-section h2,
 .location-booking-section h2,
 .related-locations h2 {
   position: relative;
-
   margin-top: 0;
-
   margin-bottom: 40px;
-
   color: #e8e8e8;
-
   font-family: 'Cinzel', serif;
-
   font-size: 2.2rem;
-
   font-weight: 500;
-
   letter-spacing: 2px;
-
   line-height: 1.3;
 }
 
@@ -271,15 +185,10 @@ body {
 .location-booking-section h2::after,
 .related-locations h2::after {
   content: '';
-
   display: block;
-
   width: 110px;
-
   height: 1px;
-
   margin-top: 12px;
-
   background: linear-gradient(
     90deg,
     rgba(107, 30, 46, 0.9),
@@ -287,9 +196,7 @@ body {
   );
 }
 
-/* =========================================
-   CENTERED INTRO
-========================================= */
+/* CENTERED INTRO */
 
 .location-intro {
   text-align: center;
@@ -299,17 +206,13 @@ body {
 .location-booking-section h2::after,
 .related-locations h2::after {
   margin-left: auto;
-
   margin-right: auto;
 }
 
-/* =========================================
-   TEXT
-========================================= */
+/* TEXT */
 
 .location-copy {
   max-width: 800px;
-
   margin: 0 auto;
 }
 
@@ -317,11 +220,8 @@ body {
 .location-section-content p,
 .location-booking-section p {
   color: #bdbdbd;
-
   line-height: 1.95;
-
   margin-bottom: 18px;
-
   font-size: 1rem;
 }
 
@@ -331,27 +231,18 @@ body {
 
 .location-image-break {
   width: 100%;
-
   max-width: 1000px;
-
   margin: 80px auto;
-
   padding: 0 10%;
-
   box-sizing: border-box;
 }
 
 .location-image-break img {
   width: 100%;
-
   height: 650px;
-
   display: block;
-
   object-fit: cover;
-
   filter: brightness(0.85) contrast(1.05);
-
   transition: 0.5s ease;
 }
 
@@ -365,21 +256,15 @@ body {
 
 .location-split-section {
   display: grid;
-
   grid-template-columns: 90px 1fr;
-
   gap: 40px;
-
   align-items: start;
 }
 
 .location-section-number {
   color: rgba(159, 122, 102, 0.25);
-
   font-family: 'Cinzel', serif;
-
   font-size: 3rem;
-
   line-height: 1;
 }
 
@@ -393,23 +278,16 @@ body {
 
 .location-booking-section {
   position: relative;
-
   max-width: 900px;
-
   margin: 0 auto;
-
   padding: 120px 10%;
-
   text-align: center;
-
   background: #050505;
 }
 
 .location-booking-section p {
   max-width: 720px;
-
   margin-left: auto;
-
   margin-right: auto;
 }
 
@@ -419,55 +297,36 @@ body {
 
 .related-locations {
   max-width: 1000px;
-
   margin: 0 auto;
-
   padding: 120px 10%;
-
   text-align: center;
 }
 
 .related-location-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 25px;
-
   margin-top: 50px;
 }
 
 .related-location {
   min-height: 160px;
-
   padding: 25px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
   border: 1px solid rgba(255, 255, 255, 0.1);
-
   background: rgba(255, 255, 255, 0.02);
-
   color: #fff;
-
   text-align: center;
-
   text-decoration: none;
-
   transition: 0.4s ease;
 }
 
 .related-location:hover {
   transform: translateY(-3px);
-
   border-color: rgba(107, 30, 46, 0.7);
-
   background: linear-gradient(
     to bottom,
     rgba(107, 30, 46, 0.08),
@@ -477,34 +336,22 @@ body {
 
 .related-location span {
   margin-bottom: 10px;
-
   color: #e8e8e8;
-
   font-family: 'Cinzel', serif;
-
   font-size: 1.1rem;
-
   letter-spacing: 1px;
 }
 
 .related-location small {
   color: #9f7a66;
-
   font-size: 0.68rem;
-
   letter-spacing: 1.5px;
-
   text-transform: uppercase;
 }
 
 /* =========================================
-   SMALL STATIC-SITE FIXES
+   SMALL STATIC SITE FIXES
 ========================================= */
-
-/*
-  React-icons are SVG components in the
-  normal site. Static pages use inline SVGs.
-*/
 
 .mobile-hamburger svg,
 .mobile-locations-trigger svg,
@@ -515,21 +362,13 @@ body {
   flex-shrink: 0;
 }
 
-/*
-  Keep static Navbar button clean.
-*/
-
 .mobile-hamburger {
   padding: 0;
-
   border: 0;
-
   background: transparent;
 }
 
-/*
-  Highlight Locations while on a city page.
-*/
+/* Highlight Locations on city pages */
 
 .locations-nav-item.active .locations-nav-trigger {
   color: #9f7a66;
@@ -542,7 +381,6 @@ body {
 @media (max-width: 900px) {
   .location-split-section {
     grid-template-columns: 70px 1fr;
-
     gap: 28px;
   }
 
@@ -558,17 +396,13 @@ body {
 @media (max-width: 768px) {
   .location-hero {
     height: 100dvh;
-
     min-height: 100dvh;
-
     padding: 110px 20px 40px;
-
     background-position: center center !important;
   }
 
   .location-hero h1 {
     font-size: 2.4rem;
-
     letter-spacing: 3px;
   }
 
@@ -596,27 +430,20 @@ body {
 
   .location-section-number {
     margin-bottom: 25px;
-
     font-size: 2.5rem;
   }
 
   .location-image-break {
     width: 100%;
-
     max-width: 100%;
-
     padding: 0;
-
     margin: 60px auto;
-
     overflow: hidden;
   }
 
   .location-image-break img {
     width: 100%;
-
     height: 300px;
-
     object-fit: cover;
   }
 
@@ -630,22 +457,15 @@ body {
 
   .related-location-grid {
     gap: 18px;
-
     margin-top: 40px;
   }
 }
 
-/* =========================================================
+/* =========================================
    DESKTOP HERO POSITIONING
-   Keep Bournemouth unchanged.
-========================================================= */
+========================================= */
 
 @media (min-width: 769px) {
-  /*
-    Lower percentage = image moves visually lower
-    inside the hero and reveals more of its upper area.
-  */
-
   .london-hero {
     background-position: center 25% !important;
   }
@@ -658,33 +478,26 @@ body {
     background-position: center 29% !important;
   }
 }
-/* =========================================================
-   STATIC LOCATION PAGE SOCIAL ICONS
-========================================================= */
+
+/* =========================================
+   STATIC LOCATION SOCIAL ICONS
+========================================= */
 
 .static-social-icons {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 18px;
 }
 
 .static-social-icons a {
   width: 22px;
   height: 22px;
-
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   color: rgba(255, 255, 255, 0.82);
-
   text-decoration: none;
-
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -692,22 +505,16 @@ body {
 
 .static-social-icons svg {
   display: block;
-
   width: 100%;
   height: 100%;
-
   fill: currentColor;
-
   flex-shrink: 0;
 }
 
 .static-social-icons a:hover {
   color: #9f7a66;
-
   transform: translateY(-2px);
 }
-
-/* MOBILE */
 
 @media (max-width: 768px) {
   .static-social-icons {
@@ -718,4 +525,156 @@ body {
     width: 23px;
     height: 23px;
   }
+}
+
+/* =========================================
+   LONDON APPOINTMENT DESK
+========================================= */
+
+.london-inline-link,
+.london-booking-phone a {
+  color: #e7d2c5;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.london-inline-link:hover,
+.london-booking-phone a:hover {
+  color: #fff;
+}
+
+.london-contact-note {
+  color: #9f7a66 !important;
+  font-size: 0.86rem !important;
+}
+
+.london-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.london-contact-actions .location-primary-button {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.london-contact-actions-centered {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.london-booking-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.london-booking-phone a {
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+}
+
+.london-booking-phone span {
+  color: #9f7a66;
+  font-size: 0.82rem;
+}
+
+/* =========================================
+   LONDON BOOKING CARD
+========================================= */
+
+.london-booking-card-phone {
+  color: #f1ece8;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.london-booking-card-phone:hover {
+  color: #c7a58b;
+}
+
+.london-booking-card-note {
+  color: #9f7a66;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.london-booking-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.london-booking-card-actions .fourth-button {
+  padding: 13px 16px;
+  text-align: center;
+}
+
+/* =========================================
+   LONDON STATIC FOOTER
+========================================= */
+
+.london-static .footer-contact {
+  align-items: flex-start;
+}
+
+.london-static .footer-contact .footer-contact-note {
+  margin: 0;
+  padding-left: 0;
+  color: #968b85;
+  font-size: 0.76rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.london-static .footer-contact .footer-whatsapp-link {
+  color: #25d366;
+}
+
+/* =========================================
+   LONDON MOBILE ADJUSTMENTS
+========================================= */
+
+@media (max-width: 768px) {
+  .london-contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .london-contact-actions .location-primary-button {
+    width: 100%;
+  }
+
+  .london-booking-card-actions {
+    flex-direction: column;
+  }
+
+  .london-booking-card-actions .fourth-button {
+    max-width: none;
+  }
+
+  .london-static .footer-contact {
+    align-items: center;
+  }
+
+  .london-static .footer-contact .footer-contact-note {
+    text-align: center;
+  }
+}
+
+/* =========================================
+   LONDON BOOKING SCROLL POSITION
+========================================= */
+
+#london-bookings {
+  scroll-margin-top: 90px;
 }

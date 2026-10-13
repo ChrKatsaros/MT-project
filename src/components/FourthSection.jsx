@@ -2,12 +2,19 @@ import React from 'react';
 import './fourthSection.css';
 import { Link } from 'react-router-dom';
 
-import { FaInstagram, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaEnvelope,
+} from 'react-icons/fa';
 
 import { FaXTwitter } from 'react-icons/fa6';
 
-const HOUSE_OF_WORSHIP_URL =
-  'https://houseofworshiplondon.com/mistress/new-mistress-vanta/';
+const LONDON_PHONE = '07462 938600';
+const LONDON_PHONE_LINK = '+447462938600';
+const LONDON_EMAIL = 'londonappointmentdesk@proton.me';
 
 const FourthSection = () => {
   return (
@@ -23,15 +30,14 @@ const FourthSection = () => {
         arrangement.
         <br />
         <br />
-        Choose the booking option that best suits your preferred venue or
-        location. Selected venues use their own booking system, while other
-        locations and visiting dates can be requested through the private
-        application form.
+        For London appointments, please make contact directly via WhatsApp, text
+        or email. For other locations and visiting dates, submit a private
+        booking application.
       </p>
 
-      {/* GENERAL INFO */}
+      {/* GENERAL INFORMATION */}
+
       <div className="fourth-info">
-        {/* LOCATIONS */}
         <div className="info-block">
           <span className="info-label">
             <FaMapMarkerAlt className="info-icon" />
@@ -43,17 +49,19 @@ const FourthSection = () => {
           </span>
         </div>
 
-        {/* PHONE */}
         <div className="info-block">
           <span className="info-label">
             <FaPhoneAlt className="info-icon" />
-            Phone Calls
+            Phone & WhatsApp
           </span>
 
-          <span className="info-value">By appointment only</span>
+          <a href={`tel:${LONDON_PHONE_LINK}`}>{LONDON_PHONE}</a>
+
+          <span className="fourth-info-note">
+            Calls by appointment only · Text or WhatsApp
+          </span>
         </div>
 
-        {/* INSTAGRAM */}
         <div className="info-block">
           <span className="info-label">
             <FaInstagram className="info-icon" />
@@ -63,13 +71,12 @@ const FourthSection = () => {
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             @misstabithathorne
           </a>
         </div>
 
-        {/* X */}
         <div className="info-block">
           <span className="info-label">
             <FaXTwitter className="info-icon" />X
@@ -78,45 +85,81 @@ const FourthSection = () => {
           <a
             href="https://x.com/TabithaThorne"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             @TabithaThorne
           </a>
         </div>
       </div>
 
-      {/* =========================
-          BOOKING OPTIONS
-      ========================= */}
+      {/* BOOKING OPTIONS */}
 
       <div className="booking-options">
-        {/* HOUSE OF WORSHIP */}
-        <div className="booking-option venue-featured">
-          <p className="booking-eyebrow">West Kensington · London</p>
+        {/* LONDON BOOKINGS */}
 
-          <h3 className="booking-title">House of Worship</h3>
+        <div className="booking-option london-featured">
+          <p className="booking-eyebrow">Private Appointments · London</p>
+
+          <h3 className="booking-title">London Bookings</h3>
 
           <p className="booking-description">
-            For appointments at House of Worship in West Kensington, bookings
-            are arranged directly through the venue&apos;s dedicated booking
-            page.
+            For private appointments in London, please contact the London
+            appointment desk directly via WhatsApp, text message or email.
           </p>
 
-          <a
-            href={HOUSE_OF_WORSHIP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="fourth-button venue-booking"
-          >
-            Book at House of Worship
-          </a>
+          <div className="london-contact-details">
+            <a
+              href={`tel:${LONDON_PHONE_LINK}`}
+              className="london-contact-detail"
+            >
+              <FaPhoneAlt />
+              <span>{LONDON_PHONE}</span>
+            </a>
+
+            <a
+              href={`mailto:${LONDON_EMAIL}`}
+              className="london-contact-detail london-email"
+            >
+              <FaEnvelope />
+              <span>{LONDON_EMAIL}</span>
+            </a>
+          </div>
+
+          <p className="london-contact-note">
+            Phone calls by appointment only.
+            <br />
+            Text or WhatsApp enquiries welcome.
+          </p>
+
+          <div className="london-booking-actions">
+            <a
+              href={`https://wa.me/${LONDON_PHONE_LINK.replace('+', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fourth-button london-whatsapp"
+            >
+              <FaWhatsapp className="booking-button-icon" />
+              WhatsApp
+            </a>
+
+            <a
+              href={`mailto:${LONDON_EMAIL}`}
+              className="fourth-button london-email-button"
+            >
+              <FaEnvelope className="booking-button-icon" />
+              Email
+            </a>
+          </div>
         </div>
 
         {/* OTHER LOCATIONS */}
+
         <div className="booking-option">
           <p className="booking-eyebrow">Flexible Booking</p>
 
-          <h3 className="booking-title">Other Locations & Visiting Dates</h3>
+          <h3 className="booking-title">
+            Other Locations &amp; Visiting Dates
+          </h3>
 
           <p className="booking-description">
             For Bournemouth, Southampton, Portsmouth, other locations or
@@ -129,9 +172,7 @@ const FourthSection = () => {
         </div>
       </div>
 
-      {/* =========================
-          WISHLIST
-      ========================= */}
+      {/* WISHLIST */}
 
       <div className="wishlist-block">
         <p className="wishlist-eyebrow">Private Selection</p>
@@ -144,7 +185,7 @@ const FourthSection = () => {
         <a
           href="https://throne.com/tabithathorne"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="fourth-button wishlist"
         >
           Enter Her Wishlist

@@ -1,3 +1,7 @@
+/* =========================================
+   FOURTH SECTION
+========================================= */
+
 .fourth-section {
   background: #0a0a0a;
   padding: 5rem 2rem;
@@ -9,9 +13,7 @@
   justify-content: center;
 }
 
-/* =========================
-   SUBTITLE
-========================= */
+/* SUBTITLE */
 
 .fourth-subtitle {
   color: #9f7a66;
@@ -22,9 +24,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* =========================
-   TITLE
-========================= */
+/* TITLE */
 
 .fourth-title {
   font-family: 'Cinzel', serif;
@@ -39,9 +39,7 @@
   color: #7a4d4d;
 }
 
-/* =========================
-   INTRO TEXT
-========================= */
+/* INTRO */
 
 .fourth-text {
   color: #b8b0aa;
@@ -52,13 +50,13 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* =========================
+/* =========================================
    GENERAL INFO
-========================= */
+========================================= */
 
 .fourth-info {
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 4rem;
@@ -92,23 +90,30 @@
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .info-block a:hover {
   color: #b89582;
 }
 
-/* =========================
-   BOOKING OPTIONS
-========================= */
+.fourth-info-note {
+  color: #99908b;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   BOOKING GRID
+========================================= */
 
 .booking-options {
   width: 100%;
   max-width: 900px;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
 
   gap: 24px;
   margin-bottom: 4rem;
@@ -123,6 +128,7 @@
   flex-direction: column;
   align-items: center;
 
+  min-width: 0;
   padding: 38px 30px;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -142,11 +148,11 @@
   border-color: rgba(159, 122, 102, 0.22);
 }
 
-/* =========================
-   FEATURED VENUE
-========================= */
+/* =========================================
+   FEATURED LONDON CARD
+========================================= */
 
-.booking-option.venue-featured {
+.booking-option.london-featured {
   border-color: rgba(159, 122, 102, 0.35);
 
   background: linear-gradient(
@@ -156,11 +162,10 @@
   );
 }
 
-.booking-option.venue-featured::before {
+.booking-option.london-featured::before {
   content: '';
 
   position: absolute;
-
   top: 0;
   left: 18%;
 
@@ -175,84 +180,132 @@
   );
 }
 
-/* =========================
-   BOOKING EYEBROW
-========================= */
+/* =========================================
+   BOOKING TEXT
+========================================= */
 
 .booking-eyebrow {
   color: #9f7a66;
-
   font-size: 0.68rem;
-
   letter-spacing: 2.7px;
-
   text-transform: uppercase;
-
   margin: 0 0 13px;
-
   font-family: 'Inter', sans-serif;
 }
 
-/* =========================
-   BOOKING TITLE
-========================= */
-
 .booking-title {
   color: #f1ece8;
-
   font-family: 'Cinzel', serif;
-
   font-size: 1.35rem;
-
   font-weight: 500;
-
   letter-spacing: 1px;
-
   line-height: 1.4;
-
   margin: 0 0 18px;
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
-
 .booking-description {
   color: #aaa29d;
-
   font-size: 0.88rem;
-
   line-height: 1.8;
-
   max-width: 340px;
-
   margin: 0 auto 28px;
-
   flex-grow: 1;
 }
 
-/* =========================
+/* =========================================
+   LONDON CONTACT DETAILS
+========================================= */
+
+.london-contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.london-contact-detail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  max-width: 100%;
+
+  color: #e8ddd6;
+  text-decoration: none;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.3px;
+
+  transition: color 0.3s ease;
+}
+
+.london-contact-detail svg {
+  flex-shrink: 0;
+  color: #9f7a66;
+  font-size: 0.85rem;
+}
+
+.london-contact-detail:hover {
+  color: #c5a28f;
+}
+
+.london-email {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.london-contact-note {
+  color: #958b85;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  margin: 0 0 26px;
+}
+
+/* =========================================
+   LONDON BOOKING BUTTONS
+========================================= */
+
+.london-booking-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.booking-button-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* =========================================
    BASE BUTTON
-========================= */
+========================================= */
 
 .fourth-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
 
   border: 1px solid rgba(241, 236, 232, 0.2);
 
-  padding: 14px 28px;
+  padding: 14px 20px;
 
   color: #f1ece8;
-
   text-decoration: none;
-
   text-transform: uppercase;
 
-  letter-spacing: 2.2px;
-
+  letter-spacing: 1.7px;
   font-size: 0.7rem;
-
   line-height: 1.4;
+
+  text-align: center;
 
   transition:
     background 0.3s ease,
@@ -264,53 +317,57 @@
   font-family: 'Cinzel', serif;
 }
 
-/* =========================
-   VENUE BOOKING BUTTON
-========================= */
+/* WHATSAPP */
 
-.fourth-button.venue-booking {
-  border-color: rgba(159, 122, 102, 0.7);
-
-  background: rgba(159, 122, 102, 0.08);
-
-  color: #f1ece8;
+.fourth-button.london-whatsapp {
+  border-color: rgba(159, 122, 102, 0.55);
+  background: rgba(159, 122, 102, 0.07);
 }
 
-.fourth-button.venue-booking:hover {
+.london-whatsapp .booking-button-icon {
+  color: #25d366;
+}
+
+.fourth-button.london-whatsapp:hover {
   background: #f1ece8;
-
   color: #0a0a0a;
-
   border-color: #f1ece8;
-
   transform: translateY(-2px);
-
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
 }
 
-/* =========================
-   APPLICATION BUTTON
-========================= */
+/* EMAIL */
+
+.fourth-button.london-email-button {
+  border-color: rgba(241, 236, 232, 0.25);
+}
+
+.fourth-button.london-email-button:hover {
+  background: #f1ece8;
+  color: #0a0a0a;
+  border-color: #f1ece8;
+  transform: translateY(-2px);
+}
+
+/* APPLICATION */
+
+.fourth-button.primary {
+  margin-top: auto;
+}
 
 .fourth-button.primary:hover {
   background: #f1ece8;
-
   color: #0a0a0a;
-
   border-color: #f1ece8;
-
   transform: translateY(-2px);
 }
 
-/* =========================
+/* =========================================
    WISHLIST
-========================= */
+========================================= */
 
 .wishlist-block {
   max-width: 520px;
-
   margin-bottom: 3rem;
-
   padding: 22px;
 
   border: 1px solid rgba(122, 31, 47, 0.2);
@@ -324,35 +381,24 @@
 
 .wishlist-eyebrow {
   color: #9f7a66;
-
   font-size: 0.7rem;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
-
   margin-bottom: 10px;
 }
 
 .wishlist-message {
   color: #b8b0aa;
-
   font-size: 0.9rem;
-
   line-height: 1.8;
-
   margin-bottom: 20px;
 }
 
-/* =========================
-   WISHLIST BUTTON
-========================= */
+/* WISHLIST BUTTON */
 
 .fourth-button.wishlist {
   background: linear-gradient(135deg, #7a1f2f, #3a0f14);
-
   border: 1px solid rgba(122, 31, 47, 0.8);
-
   color: #fff;
 
   box-shadow: 0 0 25px rgba(122, 31, 47, 0.25);
@@ -366,9 +412,23 @@
   transform: translateY(-2px);
 }
 
-/* =========================
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fourth-info {
+    gap: 2rem;
+  }
+
+  .booking-option {
+    padding: 32px 22px;
+  }
+}
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media (max-width: 768px) {
   .fourth-section {
@@ -391,9 +451,7 @@
 
   .booking-options {
     grid-template-columns: 1fr;
-
     gap: 16px;
-
     max-width: 520px;
   }
 
@@ -410,18 +468,58 @@
   }
 
   .fourth-button {
-    width: 100%;
-
     max-width: 320px;
+    padding: 14px 18px;
+  }
 
-    padding: 14px 20px;
+  .london-booking-actions {
+    max-width: 340px;
+  }
+
+  .london-booking-actions .fourth-button {
+    width: 100%;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    padding: 14px 10px;
+  }
+
+  .london-contact-detail {
+    font-size: 0.85rem;
+  }
+
+  .london-email {
+    font-size: 0.75rem;
   }
 
   .wishlist-block {
     width: 100%;
-
     max-width: 520px;
-
     padding: 18px;
+  }
+
+  .fourth-button.wishlist,
+  .fourth-button.primary {
+    width: 100%;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .london-booking-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .london-booking-actions .fourth-button {
+    max-width: none;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-option,
+  .fourth-button {
+    transition: none;
   }
 }

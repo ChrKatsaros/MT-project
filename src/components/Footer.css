@@ -1,68 +1,70 @@
+/* =========================================
+   FOOTER
+========================================= */
+
 .footer {
   background-color: #100c0b;
-
   color: #f1ece8;
-
   padding: 2rem 1rem 1.5rem;
-
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-
   font-family: 'Inter', sans-serif;
 }
 
 /* CONTAINER */
+
 .footer-content {
   max-width: 1250px;
-
   margin: 0 auto;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   flex-wrap: wrap;
 
   gap: 4rem;
 }
 
-/* LOGO */
+/* =========================================
+   LOGO
+========================================= */
+
 .footer-logo {
   flex: 1 1 180px;
 }
 
 .footer-logo img {
   width: 170px;
-
+  max-width: 100%;
+  height: auto;
   margin-bottom: 1.2rem;
-
   opacity: 0.92;
 }
 
-/* SECTIONS */
+/* =========================================
+   SECTIONS
+========================================= */
+
 .footer-section {
   flex: 1 1 180px;
+  min-width: 0;
 }
 
 .footer-section h4 {
   font-family: 'Cinzel', serif;
-
   font-size: 1rem;
-
   letter-spacing: 2px;
-
   text-transform: uppercase;
-
   margin-bottom: 1.4rem;
-
   color: #c7a58b;
-
   font-weight: 500;
 }
 
-/* NAV LINKS */
+/* =========================================
+   NAVIGATION
+========================================= */
+
 .footer-section ul {
   list-style: none;
-
   padding: 0;
   margin: 0;
 }
@@ -71,56 +73,92 @@
   margin-bottom: 0.9rem;
 }
 
-/* ✅ LINKS FIX */
 .footer-section li a {
   font-size: 0.9rem;
-
   color: #b8b0aa;
-
   text-decoration: none;
-
-  transition: 0.3s ease;
-
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
   display: inline-block;
 }
 
 .footer-section li a:hover {
   color: #f1ece8;
-
   transform: translateX(2px);
 }
 
-/* CONTACT */
+/* =========================================
+   CONTACT
+========================================= */
+
 .footer-contact {
   display: flex;
   flex-direction: column;
-
+  align-items: flex-start;
   gap: 1rem;
 }
 
 .footer-contact a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-
   gap: 0.7rem;
 
+  max-width: 100%;
+
   color: #b8b0aa;
-
   text-decoration: none;
-
   font-size: 0.9rem;
+  line-height: 1.5;
 
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a svg {
+  flex-shrink: 0;
+  color: #c7a58b;
+  font-size: 0.95rem;
 }
 
 .footer-contact a:hover {
   color: #f1ece8;
 }
 
-/* SOCIALS */
+/* PHONE */
+
+.footer-phone-link {
+  letter-spacing: 0.3px;
+}
+
+/* WHATSAPP */
+
+.footer-contact .footer-whatsapp-link svg {
+  color: #25d366;
+  font-size: 1.1rem;
+}
+
+.footer-contact .footer-whatsapp-link:hover {
+  color: #25d366;
+}
+
+/* PHONE CALLS NOTE */
+
+.footer-contact-note {
+  margin: 0;
+  padding-left: 1.65rem;
+
+  color: #968b85;
+  font-size: 0.76rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
 .footer-social-icons {
   display: flex;
-
   gap: 1rem;
 }
 
@@ -133,47 +171,55 @@
   justify-content: center;
 
   border: 1px solid rgba(255, 255, 255, 0.12);
-
   border-radius: 50%;
 
   color: #f1ece8;
-
   text-decoration: none;
-
   font-size: 1rem;
 
-  transition: 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .footer-social-icons a:hover {
   background: #f1ece8;
-
   color: #0a0a0a;
-
   transform: translateY(-2px);
 }
 
-/* BOTTOM */
+/* =========================================
+   BOTTOM
+========================================= */
+
 .footer-bottom {
   text-align: center;
-
   margin-top: 2rem;
 
   font-size: 0.72rem;
-
   letter-spacing: 1px;
-
   color: rgba(241, 236, 232, 0.45);
 }
 
-/* TABLET */
+.footer-bottom p {
+  margin: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
 @media (max-width: 900px) {
   .footer-content {
     gap: 3rem;
   }
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 768px) {
   .footer {
     padding: 2rem 1rem 1rem;
@@ -181,11 +227,8 @@
 
   .footer-content {
     flex-direction: column;
-
     align-items: center;
-
     text-align: center;
-
     gap: 1.5rem;
   }
 
@@ -193,16 +236,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 0 1 auto;
   }
 
   .footer-logo img {
     width: 130px;
-
     margin-bottom: 0.8rem;
   }
 
   .footer-section {
     width: 100%;
+    flex: 0 1 auto;
   }
 
   .footer-section h4 {
@@ -213,8 +257,19 @@
     margin-bottom: 0.6rem;
   }
 
+  .footer-contact {
+    align-items: center;
+    gap: 0.85rem;
+  }
+
   .footer-contact a {
     justify-content: center;
+  }
+
+  .footer-contact-note {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0.75rem;
   }
 
   .footer-social-icons {
@@ -223,23 +278,18 @@
 
   .footer-bottom {
     margin-top: 1.5rem;
-
     font-size: 0.68rem;
   }
 }
-.footer-contact-note {
-  display: flex;
-  align-items: center;
 
-  gap: 0.7rem;
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
-  color: #b8b0aa;
-
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .footer-contact-note {
-    justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+  .footer-section li a,
+  .footer-contact a,
+  .footer-social-icons a {
+    transition: none;
   }
 }

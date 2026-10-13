@@ -1,124 +1,185 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta name="theme-color" content="#0a0a0a" />
 
-    <!-- =========================
-         SEO
-    ========================== -->
-
+    <!-- SEO -->
     <title>Dominatrix Bournemouth | Mistress Tabitha Thorne</title>
-
     <meta
       name="description"
       content="Professional domination in Bournemouth with Mistress Tabitha Thorne. Private appointments by arrangement for new and experienced submissives."
     />
-
     <meta name="robots" content="index, follow" />
-
     <link
       rel="canonical"
       href="https://www.tabithathorne.co.uk/dominatrix-bournemouth/"
     />
 
-    <!-- =========================
-         OPEN GRAPH
-    ========================== -->
-
+    <!-- OPEN GRAPH -->
     <meta
       property="og:title"
       content="Dominatrix Bournemouth | Mistress Tabitha Thorne"
     />
-
     <meta
       property="og:description"
       content="Private professional domination appointments in Bournemouth with Mistress Tabitha Thorne."
     />
-
     <meta
       property="og:url"
       content="https://www.tabithathorne.co.uk/dominatrix-bournemouth/"
     />
-
     <meta property="og:type" content="website" />
-
     <meta property="og:site_name" content="Mistress Tabitha Thorne" />
-
     <meta property="og:locale" content="en_GB" />
-
     <meta
       property="og:image"
       content="https://www.tabithathorne.co.uk/location-assets/bournemouth-hero.webp"
     />
 
-    <!-- =========================
-         TWITTER / X
-    ========================== -->
-
+    <!-- TWITTER / X -->
     <meta name="twitter:card" content="summary_large_image" />
-
     <meta
       name="twitter:title"
       content="Dominatrix Bournemouth | Mistress Tabitha Thorne"
     />
-
     <meta
       name="twitter:description"
       content="Private professional domination appointments in Bournemouth with Mistress Tabitha Thorne."
     />
-
     <meta
       name="twitter:image"
       content="https://www.tabithathorne.co.uk/location-assets/bournemouth-hero.webp"
     />
-
     <meta name="twitter:creator" content="@TabithaThorne" />
 
     <!-- FAVICON -->
-
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
     <link rel="apple-touch-icon" href="/favicon.ico" />
 
-    <!-- =========================
-         FONTS
-    ========================== -->
-
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
-    <!-- =========================
-         SHARED WEBSITE CSS
-    ========================== -->
-
+    <!-- SHARED WEBSITE CSS -->
     <link rel="stylesheet" href="/src/components/navbar.css" />
-
     <link rel="stylesheet" href="/src/components/fourthSection.css" />
-
     <link rel="stylesheet" href="/src/components/Footer.css" />
-
     <link rel="stylesheet" href="/location-pages.css" />
+
+    <!-- SELF-CONTAINED LOADING TRANSITION -->
+    <style>
+      .tt-page-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition:
+          opacity 0.55s ease-in-out,
+          visibility 0s linear 0s;
+      }
+
+      .tt-page-loader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.55s ease-in-out,
+          visibility 0s linear 0.55s;
+      }
+
+      .tt-loader-logo {
+        display: block;
+        width: min(260px, 65vw);
+        height: auto;
+        object-fit: contain;
+        filter: brightness(0);
+      }
+
+      .tt-loader-spinner {
+        width: 27px;
+        height: 27px;
+        margin-top: 32px;
+        border: 2px solid rgba(112, 37, 55, 0.14);
+        border-top-color: #702537;
+        border-radius: 50%;
+        box-sizing: border-box;
+        animation: tt-spinner 1.1s linear infinite;
+      }
+
+      @keyframes tt-spinner {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .tt-loader-logo {
+          width: min(220px, 65vw);
+        }
+
+        .tt-loader-spinner {
+          width: 25px;
+          height: 25px;
+          margin-top: 28px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .tt-loader-spinner {
+          animation: none;
+        }
+
+        .tt-page-loader,
+        .tt-page-loader.is-hidden {
+          transition-duration: 0.01ms;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- =========================================
-         NAVBAR
-    ========================================== -->
+    <!-- PAGE LOADER -->
+    <div
+      id="tt-page-loader"
+      class="tt-page-loader"
+      role="status"
+      aria-label="Preparing page"
+    >
+      <img
+        src="/src/assets/logo.png"
+        alt="Tabitha Thorne"
+        class="tt-loader-logo"
+      />
+      <div class="tt-loader-spinner" aria-hidden="true"></div>
+    </div>
 
+    <!-- EMERGENCY FALLBACK -->
+    <script>
+      setTimeout(function () {
+        const overlay = document.getElementById('tt-page-loader');
+
+        if (overlay) {
+          overlay.classList.add('is-hidden');
+          overlay.style.pointerEvents = 'none';
+        }
+      }, 6500);
+    </script>
+
+    <!-- NAVBAR -->
     <div class="navbar-container" id="static-navbar">
-      <!-- LOGO -->
-
       <div class="navbar-logo">
         <a href="/" class="logo">
           <img
@@ -129,40 +190,22 @@
         </a>
       </div>
 
-      <!-- DESKTOP NAV -->
-
+      <!-- DESKTOP NAVIGATION -->
       <nav class="navbar-links" aria-label="Main navigation">
         <ul class="nav-links">
+          <li><a href="/about">About</a></li>
+          <li><a href="/experiences">Experiences</a></li>
+          <li><a href="/protocol">Protocol</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/guides">Guides</a></li>
           <li>
-            <a href="/about">About</a>
-          </li>
-
-          <li>
-            <a href="/experiences">Experiences</a>
-          </li>
-
-          <li>
-            <a href="/protocol">Protocol</a>
-          </li>
-
-          <li>
-            <a href="/gallery">Gallery</a>
-          </li>
-
-          <li>
-            <a href="/guides">Guides</a>
-          </li>
-
-          <li>
-            <a href="/application?location=Bournemouth">Application</a>
+            <a href="/application?location=Bournemouth"> Application </a>
           </li>
 
           <!-- LOCATIONS -->
-
           <li class="locations-nav-item active">
             <button class="locations-nav-trigger" type="button">
               Locations
-
               <svg
                 viewBox="0 0 24 24"
                 width="12"
@@ -176,16 +219,11 @@
 
             <div class="locations-dropdown">
               <a href="/dominatrix-london/">London</a>
-
               <a href="/dominatrix-bournemouth/">Bournemouth</a>
-
               <a href="/dominatrix-southampton/">Southampton</a>
-
               <a href="/dominatrix-portsmouth/">Portsmouth</a>
             </div>
           </li>
-
-          <!-- BOOKINGS -->
 
           <li class="nav-london-booking">
             <a href="#booking-options">Bookings</a>
@@ -194,9 +232,6 @@
       </nav>
 
       <!-- MOBILE HAMBURGER -->
-
-      <!-- MOBILE HAMBURGER -->
-
       <button
         class="mobile-hamburger"
         id="static-hamburger"
@@ -209,22 +244,15 @@
       </button>
 
       <!-- MOBILE MENU -->
-
       <div class="mobile-menu" id="static-mobile-menu">
         <a href="/about">About</a>
-
         <a href="/experiences">Experiences</a>
-
         <a href="/protocol">Protocol</a>
-
         <a href="/gallery">Gallery</a>
-
         <a href="/guides">Guides</a>
-
         <a href="/application?location=Bournemouth">Application</a>
 
         <!-- MOBILE LOCATIONS -->
-
         <div class="mobile-locations">
           <button
             type="button"
@@ -232,7 +260,6 @@
             id="static-locations-trigger"
           >
             Locations
-
             <svg
               id="static-location-chevron"
               viewBox="0 0 24 24"
@@ -247,16 +274,11 @@
 
           <div class="mobile-locations-submenu" id="static-locations-submenu">
             <a href="/dominatrix-london/">London</a>
-
             <a href="/dominatrix-bournemouth/">Bournemouth</a>
-
             <a href="/dominatrix-southampton/">Southampton</a>
-
             <a href="/dominatrix-portsmouth/">Portsmouth</a>
           </div>
         </div>
-
-        <!-- MOBILE BOOKINGS -->
 
         <a
           href="#booking-options"
@@ -265,11 +287,8 @@
           Bookings
         </a>
 
-        <!-- SOCIALS -->
-
+        <!-- MOBILE SOCIALS -->
         <div class="mobile-socials">
-          <!-- INSTAGRAM -->
-
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
@@ -282,15 +301,12 @@
               height="21"
               fill="currentColor"
               aria-hidden="true"
-              focusable="false"
             >
               <path
-                d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+                d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
               />
             </svg>
           </a>
-
-          <!-- X -->
 
           <a
             href="https://x.com/TabithaThorne"
@@ -304,7 +320,6 @@
               height="20"
               fill="currentColor"
               aria-hidden="true"
-              focusable="false"
             >
               <path
                 d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
@@ -315,13 +330,9 @@
       </div>
     </div>
 
-    <!-- =========================================
-         BOURNEMOUTH PAGE
-    ========================================== -->
-
+    <!-- BOURNEMOUTH PAGE -->
     <div class="location-page">
       <!-- HERO -->
-
       <section class="location-hero bournemouth-hero">
         <div class="location-hero-overlay"></div>
 
@@ -349,10 +360,8 @@
 
       <main>
         <!-- INTRO -->
-
         <section class="location-section location-intro">
           <p class="section-kicker">Private Appointments</p>
-
           <h2>A Personal Approach To Domination</h2>
 
           <div class="location-copy">
@@ -376,7 +385,6 @@
         </section>
 
         <!-- IMAGE -->
-
         <section class="location-image-break">
           <img
             src="/location-assets/bournemouth-hero.webp"
@@ -386,13 +394,11 @@
         </section>
 
         <!-- PERSONAL APPROACH -->
-
         <section class="location-section location-split-section">
           <div class="location-section-number">01</div>
 
           <div class="location-section-content">
             <p class="section-kicker">Understanding The Dynamic</p>
-
             <h2>A Personal Approach</h2>
 
             <p>
@@ -414,13 +420,11 @@
         </section>
 
         <!-- FIRST APPOINTMENT -->
-
         <section class="location-section dark-section location-split-section">
           <div class="location-section-number">02</div>
 
           <div class="location-section-content">
             <p class="section-kicker">New Clients</p>
-
             <h2>Your First Appointment</h2>
 
             <p>
@@ -441,10 +445,8 @@
         </section>
 
         <!-- AREA -->
-
         <section class="location-section location-intro">
           <p class="section-kicker">South Coast</p>
-
           <h2>Bournemouth &amp; The Surrounding Area</h2>
 
           <div class="location-copy">
@@ -467,10 +469,8 @@
         </section>
 
         <!-- RETURNING CLIENTS -->
-
         <section class="location-section dark-section">
           <p class="section-kicker">Continuity</p>
-
           <h2>Returning Clients</h2>
 
           <div class="location-copy">
@@ -488,10 +488,8 @@
         </section>
 
         <!-- CTA -->
-
         <section class="location-booking-section">
           <p class="section-kicker">Private Enquiries</p>
-
           <h2>Request A Bournemouth Appointment</h2>
 
           <p>
@@ -518,28 +516,23 @@
         </section>
 
         <!-- RELATED LOCATIONS -->
-
         <section class="related-locations">
           <p class="section-kicker">Other Locations</p>
-
           <h2>Explore Appointments Elsewhere</h2>
 
           <div class="related-location-grid">
             <a href="/dominatrix-southampton/" class="related-location">
               <span>Southampton</span>
-
               <small>View appointments →</small>
             </a>
 
             <a href="/dominatrix-portsmouth/" class="related-location">
               <span>Portsmouth</span>
-
               <small>View appointments →</small>
             </a>
 
             <a href="/dominatrix-london/" class="related-location">
               <span>London</span>
-
               <small>View appointments →</small>
             </a>
           </div>
@@ -547,34 +540,24 @@
       </main>
     </div>
 
-    <!-- =========================================
-         FOURTH SECTION
-    ========================================== -->
-
+    <!-- FOURTH SECTION -->
     <section class="fourth-section" id="booking-options">
       <p class="fourth-subtitle">Private Access</p>
-
       <h2 class="fourth-title">Enter <span>Her World</span></h2>
 
       <p class="fourth-text">
         Private appointments and immersive experiences are available by prior
         arrangement.
-
-        <br />
-        <br />
-
-        Choose the booking option that best suits your preferred venue or
-        location. Selected venues use their own booking system, while other
-        locations and visiting dates can be requested through the private
-        application form.
+        <br /><br />
+        For London appointments, contact the private appointment desk directly.
+        For Bournemouth, Southampton, Portsmouth and visiting dates, submit a
+        private booking application.
       </p>
 
       <!-- GENERAL INFO -->
-
       <div class="fourth-info">
         <div class="info-block">
           <span class="info-label">Available In</span>
-
           <span class="info-value">
             London · Bournemouth · Southampton · Portsmouth
           </span>
@@ -582,13 +565,11 @@
 
         <div class="info-block">
           <span class="info-label">Phone Calls</span>
-
           <span class="info-value">By appointment only</span>
         </div>
 
         <div class="info-block">
           <span class="info-label">Instagram</span>
-
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
@@ -600,7 +581,6 @@
 
         <div class="info-block">
           <span class="info-label">X</span>
-
           <a
             href="https://x.com/TabithaThorne"
             target="_blank"
@@ -612,35 +592,47 @@
       </div>
 
       <!-- BOOKING OPTIONS -->
-
       <div class="booking-options">
-        <!-- HOUSE OF WORSHIP -->
-
+        <!-- LONDON APPOINTMENTS -->
         <div class="booking-option venue-featured">
-          <p class="booking-eyebrow">West Kensington · London</p>
-
-          <h3 class="booking-title">House of Worship</h3>
+          <p class="booking-eyebrow">Private Bookings · London</p>
+          <h3 class="booking-title">London Appointments</h3>
 
           <p class="booking-description">
-            For appointments at House of Worship in West Kensington, bookings
-            are arranged directly through the venue's dedicated booking page.
+            Arrange a private London appointment through the London appointment
+            desk by text, WhatsApp or email.
           </p>
 
-          <a
-            href="https://houseofworshiplondon.com/mistress/new-mistress-vanta/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="fourth-button venue-booking"
-          >
-            Book at House of Worship
+          <a href="tel:+447462938600" class="london-booking-card-phone">
+            07462 938600
           </a>
+
+          <p class="london-booking-card-note">
+            Phone calls by appointment only · Text or WhatsApp
+          </p>
+
+          <div class="london-booking-card-actions">
+            <a
+              href="https://wa.me/447462938600"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fourth-button venue-booking"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href="mailto:londonappointmentdesk@proton.me"
+              class="fourth-button venue-booking"
+            >
+              Email London Desk
+            </a>
+          </div>
         </div>
 
         <!-- OTHER LOCATIONS -->
-
         <div class="booking-option">
           <p class="booking-eyebrow">Flexible Booking</p>
-
           <h3 class="booking-title">Other Locations &amp; Visiting Dates</h3>
 
           <p class="booking-description">
@@ -658,7 +650,6 @@
       </div>
 
       <!-- WISHLIST -->
-
       <div class="wishlist-block">
         <p class="wishlist-eyebrow">Private Selection</p>
 
@@ -678,44 +669,28 @@
       </div>
     </section>
 
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
-        <!-- LOGO -->
-
         <div class="footer-logo">
           <img src="/src/assets/logo.png" alt="Tabitha Thorne Logo" />
         </div>
 
         <!-- NAVIGATION -->
-
         <div class="footer-section">
           <h4>Navigation</h4>
 
           <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/experiences">Experiences</a></li>
+            <li><a href="/gallery">Gallery</a></li>
             <li>
-              <a href="/about">About</a>
-            </li>
-
-            <li>
-              <a href="/experiences">Experiences</a>
-            </li>
-
-            <li>
-              <a href="/gallery">Gallery</a>
-            </li>
-
-            <li>
-              <a href="/application?location=Bournemouth">Application</a>
+              <a href="/application?location=Bournemouth"> Application </a>
             </li>
           </ul>
         </div>
 
         <!-- CONTACT -->
-
         <div class="footer-section">
           <h4>Contact</h4>
 
@@ -729,13 +704,10 @@
         </div>
 
         <!-- SOCIALS -->
-
         <div class="footer-section">
           <h4>Socials</h4>
 
           <div class="footer-social-icons">
-            <!-- INSTAGRAM -->
-
             <a
               href="https://instagram.com/misstabithathorne"
               target="_blank"
@@ -748,15 +720,12 @@
                 height="20"
                 fill="currentColor"
                 aria-hidden="true"
-                focusable="false"
               >
                 <path
-                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
                 />
               </svg>
             </a>
-
-            <!-- X -->
 
             <a
               href="https://x.com/TabithaThorne"
@@ -770,7 +739,6 @@
                 height="19"
                 fill="currentColor"
                 aria-hidden="true"
-                focusable="false"
               >
                 <path
                   d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
@@ -789,25 +757,17 @@
       </div>
     </footer>
 
-    <!-- =========================================
-         STATIC NAV JS
-    ========================================== -->
-
+    <!-- NAVBAR JAVASCRIPT -->
     <script>
       const navbar = document.getElementById('static-navbar');
-
       const hamburger = document.getElementById('static-hamburger');
-
       const mobileMenu = document.getElementById('static-mobile-menu');
-
       const locationsTrigger = document.getElementById(
         'static-locations-trigger'
       );
-
       const locationsSubmenu = document.getElementById(
         'static-locations-submenu'
       );
-
       const locationChevron = document.getElementById(
         'static-location-chevron'
       );
@@ -821,14 +781,10 @@
       }
 
       window.addEventListener('scroll', handleNavbarScroll);
-
       handleNavbarScroll();
-
-      /* MOBILE MENU */
 
       hamburger.addEventListener('click', function () {
         mobileMenu.classList.toggle('open');
-
         navbar.classList.toggle('menu-open');
 
         const isOpen = navbar.classList.contains('menu-open');
@@ -837,40 +793,231 @@
           'aria-label',
           isOpen ? 'Close menu' : 'Open menu'
         );
-
         hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
 
-      /* MOBILE LOCATIONS */
-
       locationsTrigger.addEventListener('click', function () {
         locationsSubmenu.classList.toggle('open');
-
         locationChevron.classList.toggle('rotate');
       });
 
-      /* CLOSE MOBILE MENU AFTER BOOKING SCROLL */
-
-      const mobileBookingLinks = document.querySelectorAll(
-        '.mobile-booking-scroll-link'
-      );
-
-      mobileBookingLinks.forEach((link) => {
-        link.addEventListener('click', function () {
-          mobileMenu.classList.remove('open');
-
-          navbar.classList.remove('menu-open');
-
-          locationsSubmenu.classList.remove('open');
-
-          locationChevron.classList.remove('rotate');
+      document
+        .querySelectorAll('.mobile-booking-scroll-link')
+        .forEach((link) => {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.remove('open');
+            navbar.classList.remove('menu-open');
+            locationsSubmenu.classList.remove('open');
+            locationChevron.classList.remove('rotate');
+          });
         });
-      });
-
-      /* CURRENT YEAR */
 
       document.getElementById('current-year').textContent =
         new Date().getFullYear();
+    </script>
+
+    <!-- LOCATION TRANSITION JAVASCRIPT -->
+    <script>
+      (function () {
+        'use strict';
+
+        const MIN_DISPLAY_MS = 1100;
+        const MAX_WAIT_MS = 4500;
+
+        const loader = document.getElementById('tt-page-loader');
+
+        if (!loader) return;
+
+        const start = performance.now();
+
+        let leaving = false;
+        let ready = false;
+
+        function hide() {
+          if (ready || leaving) return;
+
+          ready = true;
+          loader.classList.add('is-hidden');
+          loader.setAttribute('aria-hidden', 'true');
+        }
+
+        // Independent safety timeout
+        setTimeout(hide, 5500);
+
+        function preload(url) {
+          return new Promise((resolve) => {
+            if (!url) {
+              resolve();
+              return;
+            }
+
+            const image = new Image();
+            let done = false;
+
+            const finish = () => {
+              if (done) return;
+              done = true;
+              resolve();
+            };
+
+            image.onload = finish;
+            image.onerror = finish;
+            image.src = url;
+
+            if (image.complete) finish();
+          });
+        }
+
+        function criticalImages() {
+          const urls = new Set();
+          const hero = document.querySelector('.location-hero');
+
+          if (hero) {
+            const background = getComputedStyle(hero).backgroundImage;
+
+            const match = background.match(/url\(\s*["']?([^"')]+)["']?\s*\)/);
+
+            if (match) {
+              try {
+                urls.add(new URL(match[1], document.baseURI).href);
+              } catch (error) {
+                // Ignore invalid URLs
+              }
+            }
+          }
+
+          document.querySelectorAll('img').forEach((img) => {
+            if (loader.contains(img)) return;
+
+            const rect = img.getBoundingClientRect();
+
+            const nearViewport =
+              rect.top < window.innerHeight + 150 && rect.bottom > -150;
+
+            if (!nearViewport) return;
+
+            const url = img.currentSrc || img.src;
+
+            if (url) urls.add(url);
+          });
+
+          return [...urls];
+        }
+
+        async function prepare() {
+          try {
+            await new Promise((resolve) => {
+              requestAnimationFrame(resolve);
+            });
+
+            const images = criticalImages().map(preload);
+
+            const fonts = document.fonts
+              ? document.fonts.ready
+              : Promise.resolve();
+
+            await Promise.race([
+              Promise.allSettled([...images, fonts]),
+              new Promise((resolve) => {
+                setTimeout(resolve, MAX_WAIT_MS);
+              }),
+            ]);
+          } catch (error) {
+            console.warn('Location transition:', error);
+          } finally {
+            const elapsed = performance.now() - start;
+
+            const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+
+            if (remaining > 0) {
+              await new Promise((resolve) => {
+                setTimeout(resolve, remaining);
+              });
+            }
+
+            hide();
+          }
+        }
+
+        // Transition before leaving this location page
+        document.addEventListener('click', (event) => {
+          if (
+            event.defaultPrevented ||
+            leaving ||
+            !ready ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.altKey ||
+            event.shiftKey
+          ) {
+            return;
+          }
+
+          const link = event.target.closest('a[href]');
+
+          if (!link) return;
+
+          if (
+            link.hasAttribute('download') ||
+            (link.target && link.target !== '_self')
+          ) {
+            return;
+          }
+
+          let target;
+
+          try {
+            target = new URL(link.href, location.href);
+          } catch (error) {
+            return;
+          }
+
+          if (
+            target.origin !== location.origin ||
+            !['http:', 'https:'].includes(target.protocol)
+          ) {
+            return;
+          }
+
+          // Keep same-page scrolling working
+          if (
+            target.pathname === location.pathname &&
+            target.search === location.search
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          leaving = true;
+
+          loader.removeAttribute('aria-hidden');
+          loader.classList.remove('is-hidden');
+
+          setTimeout(() => {
+            location.assign(target.href);
+          }, 450);
+        });
+
+        // Browser back/forward cache
+        window.addEventListener('pageshow', (event) => {
+          if (event.persisted) {
+            leaving = false;
+            ready = true;
+
+            loader.classList.add('is-hidden');
+            loader.setAttribute('aria-hidden', 'true');
+          }
+        });
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', prepare, {
+            once: true,
+          });
+        } else {
+          prepare();
+        }
+      })();
     </script>
   </body>
 </html>

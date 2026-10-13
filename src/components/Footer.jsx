@@ -2,12 +2,19 @@ import React from 'react';
 import './Footer.css';
 
 import logo from '../assets/logo.png';
-
 import { Link } from 'react-router-dom';
 
-import { FaInstagram, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaWhatsapp,
+} from 'react-icons/fa';
 
 import { FaXTwitter } from 'react-icons/fa6';
+
+const LONDON_PHONE = '07462 938600';
+const LONDON_EMAIL = 'londonappointmentdesk@proton.me';
 
 const Footer = () => {
   return (
@@ -47,15 +54,35 @@ const Footer = () => {
 
           <div className="footer-contact">
             <a href="mailto:MissTabithaThorne@proton.me">
-              <FaEnvelope />
-              Private Enquiries
+              <FaEnvelope aria-hidden="true" />
+              <span>Private Enquiries</span>
             </a>
 
-            <div className="footer-contact-note">
-              <FaPhoneAlt />
+            <a href={`mailto:${LONDON_EMAIL}`}>
+              <FaEnvelope aria-hidden="true" />
+              <span>London Appointments</span>
+            </a>
 
-              <span>Phone calls by appointment only</span>
-            </div>
+            <a href="tel:+447462938600" className="footer-phone-link">
+              <FaPhoneAlt aria-hidden="true" />
+              <span>{LONDON_PHONE}</span>
+            </a>
+
+            <a
+              href="https://wa.me/447462938600"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-whatsapp-link"
+            >
+              <FaWhatsapp aria-hidden="true" />
+              <span>WhatsApp</span>
+            </a>
+
+            <p className="footer-contact-note">
+              Phone calls by appointment only.
+              <br />
+              Text or WhatsApp.
+            </p>
           </div>
         </div>
 
@@ -67,7 +94,7 @@ const Footer = () => {
             <a
               href="https://instagram.com/misstabithathorne"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
               <FaInstagram />
@@ -76,7 +103,7 @@ const Footer = () => {
             <a
               href="https://x.com/TabithaThorne"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="X"
             >
               <FaXTwitter />

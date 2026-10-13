@@ -3,10 +3,11 @@ import { useLocation } from 'react-router-dom';
 import './application.css';
 
 import { FiMail, FiPhone } from 'react-icons/fi';
-import { FaTelegramPlane } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 
-const HOUSE_OF_WORSHIP_URL =
-  'https://houseofworshiplondon.com/mistress/new-mistress-vanta/';
+const LONDON_PHONE = '07462 938600';
+const LONDON_WHATSAPP = 'https://wa.me/447462938600';
+const LONDON_EMAIL = 'londonappointmentdesk@proton.me';
 
 const BOOKING_LOCATIONS = {
   bournemouth: 'Bournemouth',
@@ -22,20 +23,15 @@ function Application() {
   const [preferredLocation, setPreferredLocation] = useState('');
   const [locationLocked, setLocationLocked] = useState(false);
 
-  /* =========================================
-     LOCATION LOGIC
-  ========================================= */
+  /* LOCATION LOGIC */
 
   useEffect(() => {
     const params = new URLSearchParams(routerLocation.search);
-
     const requestedLocation = params.get('location');
-
     const normalizedLocation = requestedLocation?.trim().toLowerCase();
 
     if (normalizedLocation && BOOKING_LOCATIONS[normalizedLocation]) {
       setPreferredLocation(BOOKING_LOCATIONS[normalizedLocation]);
-
       setLocationLocked(true);
     } else {
       setPreferredLocation('');
@@ -43,21 +39,16 @@ function Application() {
     }
   }, [routerLocation.search]);
 
-  /* =========================================
-     CONTACT ICON
-  ========================================= */
+  /* CONTACT ICON */
 
   const renderIcon = () => {
     switch (contactMethod) {
       case 'email':
         return <FiMail />;
-
       case 'phone':
         return <FiPhone />;
-
-      case 'telegram':
-        return <FaTelegramPlane />;
-
+      case 'whatsapp':
+        return <FaWhatsapp className="whatsapp-contact-icon" />;
       default:
         return null;
     }
@@ -65,9 +56,7 @@ function Application() {
 
   return (
     <>
-      {/* =========================
-          SEO METADATA
-      ========================= */}
+      {/* SEO METADATA */}
 
       <title>Private Booking Application | Mistress Tabitha Thorne</title>
 
@@ -82,8 +71,6 @@ function Application() {
         rel="canonical"
         href="https://www.tabithathorne.co.uk/application"
       />
-
-      {/* OPEN GRAPH */}
 
       <meta
         property="og:title"
@@ -101,17 +88,13 @@ function Application() {
       />
 
       <meta property="og:type" content="website" />
-
       <meta property="og:site_name" content="Mistress Tabitha Thorne" />
-
       <meta property="og:locale" content="en_GB" />
 
       <meta
         property="og:image"
         content="https://www.tabithathorne.co.uk/preview.jpg"
       />
-
-      {/* TWITTER / X */}
 
       <meta name="twitter:card" content="summary_large_image" />
 
@@ -132,15 +115,11 @@ function Application() {
 
       <meta name="twitter:creator" content="@TabithaThorne" />
 
-      {/* =========================
-          PAGE
-      ========================= */}
+      {/* PAGE */}
 
       <div className="application-page">
         <form action="https://formspree.io/f/xvzljpqn" method="POST">
-          {/* =========================
-              FORM SETTINGS
-          ========================= */}
+          {/* FORM SETTINGS */}
 
           <input
             type="hidden"
@@ -154,9 +133,7 @@ function Application() {
             value="https://www.tabithathorne.co.uk/application"
           />
 
-          {/* =========================
-              HERO
-          ========================= */}
+          {/* HERO */}
 
           <section className="app-hero">
             <p className="app-hero-eyebrow">Private Application</p>
@@ -178,28 +155,49 @@ function Application() {
             <div className="app-hero-line" />
           </section>
 
-          {/* =========================
-              HOUSE OF WORSHIP
-          ========================= */}
+          {/* LONDON BOOKINGS */}
 
           <section className="london-booking-panel">
-            <p className="london-booking-eyebrow">West Kensington · London</p>
-
-            <h2>Booking at House of Worship?</h2>
-
-            <p>
-              Appointments at House of Worship in West Kensington are arranged
-              directly through the venue&apos;s dedicated booking page.
+            <p className="london-booking-eyebrow">
+              Private Appointments · London
             </p>
 
-            <a
-              href={HOUSE_OF_WORSHIP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="london-booking-button"
-            >
-              Book at House of Worship
-            </a>
+            <h2>London Appointments</h2>
+
+            <p>
+              For private London appointments, contact the London appointment
+              desk directly via WhatsApp, text message or email.
+            </p>
+
+            <div className="london-booking-contact">
+              <a href="tel:+447462938600">{LONDON_PHONE}</a>
+
+              <a href={`mailto:${LONDON_EMAIL}`}>{LONDON_EMAIL}</a>
+            </div>
+
+            <p className="london-booking-note">
+              Phone calls by appointment only · Text or WhatsApp
+            </p>
+
+            <div className="london-booking-actions">
+              <a
+                href={LONDON_WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="london-booking-button"
+              >
+                <FaWhatsapp aria-hidden="true" />
+                WhatsApp
+              </a>
+
+              <a
+                href={`mailto:${LONDON_EMAIL}`}
+                className="london-booking-button"
+              >
+                <FiMail aria-hidden="true" />
+                Email
+              </a>
+            </div>
 
             <div className="booking-divider">
               <span>Other Locations &amp; Visiting Dates</span>
@@ -212,9 +210,7 @@ function Application() {
             </p>
           </section>
 
-          {/* =========================
-              01 BASIC INFORMATION
-          ========================= */}
+          {/* 01 BASIC INFORMATION */}
 
           <section className="app-section">
             <div className="app-section-heading">
@@ -222,7 +218,6 @@ function Application() {
 
               <div>
                 <p className="app-section-eyebrow">Introduction</p>
-
                 <h2>Basic Information</h2>
               </div>
             </div>
@@ -266,12 +261,9 @@ function Application() {
                   onChange={(e) => setContactMethod(e.target.value)}
                 >
                   <option value="">Contact method *</option>
-
                   <option value="email">Email</option>
-
                   <option value="phone">Phone</option>
-
-                  <option value="telegram">Telegram</option>
+                  <option value="whatsapp">WhatsApp</option>
                 </select>
 
                 {contactMethod && (
@@ -302,12 +294,15 @@ function Application() {
                 />
               )}
 
-              {contactMethod === 'telegram' && (
+              {contactMethod === 'whatsapp' && (
                 <input
-                  name="telegram"
-                  type="text"
-                  placeholder="Telegram username *"
+                  name="whatsapp"
+                  type="tel"
+                  placeholder="Your WhatsApp number (with country code) *"
                   required
+                  autoComplete="tel"
+                  inputMode="tel"
+                  pattern="^\+?[0-9\s-]{7,20}$"
                 />
               )}
 
@@ -319,13 +314,11 @@ function Application() {
             </div>
 
             <p className="phone-appointment-note">
-              Phone calls are by appointment only.
+              Phone calls are by appointment only. Text or WhatsApp is welcome.
             </p>
           </section>
 
-          {/* =========================
-              02 PERSONALITY
-          ========================= */}
+          {/* 02 PERSONALITY */}
 
           <section className="app-section dark">
             <div className="app-section-heading">
@@ -333,7 +326,6 @@ function Application() {
 
               <div>
                 <p className="app-section-eyebrow">Compatibility</p>
-
                 <h2>Personality &amp; Intentions</h2>
               </div>
             </div>
@@ -364,9 +356,7 @@ function Application() {
             />
           </section>
 
-          {/* =========================
-              03 EXPERIENCE
-          ========================= */}
+          {/* 03 EXPERIENCE */}
 
           <section className="app-section">
             <div className="app-section-heading">
@@ -374,7 +364,6 @@ function Application() {
 
               <div>
                 <p className="app-section-eyebrow">Your Experience</p>
-
                 <h2>Experience</h2>
               </div>
             </div>
@@ -399,9 +388,7 @@ function Application() {
             />
           </section>
 
-          {/* =========================
-              04 PRACTICAL
-          ========================= */}
+          {/* 04 PRACTICAL */}
 
           <section className="app-section dark">
             <div className="app-section-heading">
@@ -409,7 +396,6 @@ function Application() {
 
               <div>
                 <p className="app-section-eyebrow">Arrangement</p>
-
                 <h2>Practical</h2>
               </div>
             </div>
@@ -419,7 +405,6 @@ function Application() {
             {locationLocked ? (
               <div className="selected-booking-location">
                 <span>Preferred location</span>
-
                 <strong>{preferredLocation}</strong>
 
                 <input
@@ -437,13 +422,9 @@ function Application() {
                   onChange={(e) => setPreferredLocation(e.target.value)}
                 >
                   <option value="">Preferred location / visiting date *</option>
-
                   <option value="Bournemouth">Bournemouth</option>
-
                   <option value="Southampton">Southampton</option>
-
                   <option value="Portsmouth">Portsmouth</option>
-
                   <option value="Flexible / Other">Flexible / Other</option>
                 </select>
               </div>
@@ -489,9 +470,7 @@ function Application() {
             />
           </section>
 
-          {/* =========================
-              BOOKING INFORMATION
-          ========================= */}
+          {/* BOOKING INFORMATION */}
 
           <section className="app-section booking-information">
             <p className="app-section-eyebrow">Before Submission</p>
@@ -515,21 +494,24 @@ function Application() {
             </p>
 
             <p className="appointment-only">
-              Phone calls are available by appointment only.
+              Phone calls are available by appointment only. Text or WhatsApp
+              enquiries are welcome.
             </p>
 
             <div className="inline-london-booking">
-              <span>Looking for House of Worship?</span>
+              <span>Looking for a London appointment?</span>
 
-              <a href={HOUSE_OF_WORSHIP_URL} target="_blank" rel="noreferrer">
-                Book at House of Worship
+              <a
+                href={LONDON_WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact via WhatsApp
               </a>
             </div>
           </section>
 
-          {/* =========================
-              FINAL
-          ========================= */}
+          {/* FINAL */}
 
           <section className="app-final">
             <p className="app-final-eyebrow">Final Reflection</p>

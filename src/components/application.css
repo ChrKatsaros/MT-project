@@ -1,8 +1,6 @@
 .application-page {
   background: #050505;
-
   color: #fff;
-
   font-family: 'Inter', sans-serif;
 }
 
@@ -12,45 +10,29 @@
 
 .app-hero {
   position: relative;
-
   max-width: 900px;
-
   margin: 0 auto;
-
   padding: 135px 10% 110px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   text-align: center;
 }
 
 .app-hero-eyebrow {
   margin: 0 0 16px;
-
   color: #8f7770;
-
   font-size: 0.68rem;
-
   letter-spacing: 4px;
-
   text-transform: uppercase;
 }
 
 .app-hero h1 {
   margin: 0;
-
   color: #eee8e4;
-
   font-family: 'Cinzel', serif;
-
   font-size: 3.5rem;
-
   font-weight: 500;
-
   letter-spacing: 4px;
 }
 
@@ -60,33 +42,23 @@
 
 .quote {
   width: 100%;
-
   margin-top: 20px;
-
   color: #bdbdbd;
-
   font-style: italic;
-
   text-align: center;
 }
 
 .intro {
   max-width: 700px;
-
   margin-top: 30px;
-
   color: #a9a19d;
-
   line-height: 1.9;
 }
 
 .app-hero-line {
   width: 80px;
-
   height: 1px;
-
   margin-top: 40px;
-
   background: linear-gradient(
     90deg,
     transparent,
@@ -101,15 +73,10 @@
 
 .london-booking-panel {
   max-width: 760px;
-
   margin: 0 auto 55px;
-
   padding: 55px 45px;
-
   text-align: center;
-
   border: 1px solid rgba(159, 122, 102, 0.28);
-
   background:
     linear-gradient(
       145deg,
@@ -117,68 +84,48 @@
       rgba(255, 255, 255, 0.012)
     ),
     #070707;
-
   box-shadow: 0 25px 65px rgba(0, 0, 0, 0.22);
 }
 
 .london-booking-eyebrow {
   margin-bottom: 14px;
-
   color: #9f7a66;
-
   font-size: 0.72rem;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
 }
 
 .london-booking-panel h2 {
   margin-bottom: 18px;
-
   color: #f0ebe8;
-
   font-family: 'Cinzel', serif;
-
   font-size: 2rem;
-
   font-weight: 500;
-
   letter-spacing: 1.5px;
 }
 
 .london-booking-panel > p:not(.london-booking-eyebrow) {
   max-width: 590px;
-
   margin-left: auto;
   margin-right: auto;
-
   color: #bdb5b0;
-
   line-height: 1.8;
 }
 
 .london-booking-button {
-  display: inline-block;
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin-top: 25px;
-
   padding: 14px 32px;
-
   border: 1px solid rgba(159, 122, 102, 0.7);
-
   color: #f1ece8;
-
   text-decoration: none;
-
   text-transform: uppercase;
-
   font-family: 'Inter', sans-serif;
-
   font-size: 0.75rem;
-
   letter-spacing: 2.5px;
-
   transition:
     background-color 0.35s ease,
     border-color 0.35s ease,
@@ -188,40 +135,27 @@
 
 .london-booking-button:hover {
   background: #f1ece8;
-
   color: #090909;
-
   border-color: #f1ece8;
-
   transform: translateY(-2px);
 }
 
 .booking-divider {
   margin: 42px 0 22px;
-
   display: flex;
-
   align-items: center;
-
   gap: 18px;
-
   color: #756d69;
-
   font-size: 0.67rem;
-
   letter-spacing: 2.5px;
-
   text-transform: uppercase;
 }
 
 .booking-divider::before,
 .booking-divider::after {
   content: '';
-
   flex: 1;
-
   height: 1px;
-
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -235,11 +169,8 @@
 
 .app-section {
   position: relative;
-
   max-width: 900px;
-
   margin: 0 auto;
-
   padding: 110px 10%;
 }
 
@@ -248,75 +179,49 @@
     linear-gradient(135deg, rgba(122, 31, 47, 0.018), transparent 55%), #070707;
 }
 
-/* =========================
-   SECTION HEADING
-========================= */
+/* SECTION HEADING */
 
 .app-section-heading {
   margin-bottom: 42px;
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 24px;
 }
 
 .app-section-number {
   min-width: 42px;
-
   padding-top: 5px;
-
   color: rgba(159, 122, 102, 0.7);
-
   font-family: 'Cinzel', serif;
-
   font-size: 0.72rem;
-
   letter-spacing: 2px;
 }
 
 .app-section-eyebrow {
   margin: 0 0 8px !important;
-
   color: #796965 !important;
-
   font-size: 0.65rem !important;
-
   line-height: 1.2 !important;
-
   letter-spacing: 3px;
-
   text-transform: uppercase;
 }
 
 .app-section h2 {
   position: relative;
-
   margin: 0;
-
   color: #e8e3e0;
-
   font-family: 'Cinzel', serif;
-
   font-size: 2.15rem;
-
   font-weight: 500;
-
   letter-spacing: 2px;
 }
 
 .app-section h2::after {
   content: '';
-
   display: block;
-
   width: 75px;
-
   height: 1px;
-
   margin-top: 14px;
-
   background: linear-gradient(
     90deg,
     rgba(122, 31, 47, 0.9),
@@ -326,7 +231,6 @@
 
 .app-section p {
   color: #c9c9c9;
-
   line-height: 1.9;
 }
 
@@ -336,9 +240,7 @@
 
 .form-grid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 20px;
 }
 
@@ -350,15 +252,10 @@
 .application-page textarea,
 .application-page select {
   width: 100%;
-
   padding: 15px 16px;
-
   margin-bottom: 15px;
-
   box-sizing: border-box;
-
   color: #f3f0ee;
-
   background:
     linear-gradient(
       135deg,
@@ -366,21 +263,14 @@
       rgba(255, 255, 255, 0.018)
     ),
     #080808;
-
   border: 1px solid rgba(255, 255, 255, 0.11);
-
   border-radius: 0;
-
   outline: none;
-
   font-family: inherit;
-
   font-size: 1rem;
-
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease,
@@ -388,9 +278,7 @@
     transform 0.3s ease;
 }
 
-/* =========================
-   HOVER
-========================= */
+/* HOVER */
 
 .application-page input:hover,
 .application-page textarea:hover,
@@ -398,15 +286,12 @@
   border-color: rgba(255, 255, 255, 0.19);
 }
 
-/* =========================
-   FOCUS
-========================= */
+/* FOCUS */
 
 .application-page input:focus,
 .application-page textarea:focus,
 .application-page select:focus {
   border-color: rgba(122, 31, 47, 0.72);
-
   background:
     linear-gradient(
       135deg,
@@ -414,36 +299,26 @@
       rgba(255, 255, 255, 0.02)
     ),
     #090909;
-
   box-shadow:
     0 0 0 1px rgba(122, 31, 47, 0.08),
     0 8px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================
-   PLACEHOLDERS
-========================= */
+/* PLACEHOLDERS */
 
 .application-page input::placeholder,
 .application-page textarea::placeholder {
   color: rgba(255, 255, 255, 0.48);
-
   font-size: 0.95rem;
-
   letter-spacing: 0.25px;
 }
 
-/* =========================
-   TEXTAREAS
-========================= */
+/* TEXTAREAS */
 
 .application-page textarea {
   display: block;
-
   min-height: 105px;
-
   resize: vertical;
-
   line-height: 1.7;
 }
 
@@ -461,7 +336,6 @@
 
 .contact-method-wrapper {
   position: relative;
-
   width: 100%;
 }
 
@@ -471,29 +345,29 @@
 
 .contact-icons {
   position: absolute;
-
   right: 42px;
   top: 46%;
-
   transform: translateY(-50%);
-
   display: flex;
-
   align-items: center;
-
   pointer-events: none;
 }
 
 .contact-icons svg {
   color: rgba(159, 122, 102, 0.75);
-
   font-size: 0.9rem;
-
   transition: 0.3s ease;
 }
 
 .contact-method-wrapper:hover .contact-icons svg {
   color: #d8c7bd;
+}
+
+/* WHATSAPP ICON */
+
+.contact-icons .whatsapp-contact-icon,
+.contact-method-wrapper:hover .contact-icons .whatsapp-contact-icon {
+  color: #25d366;
 }
 
 /* =========================================================
@@ -502,9 +376,7 @@
 
 .application-page select {
   color: rgba(255, 255, 255, 0.76);
-
   cursor: pointer;
-
   background-image:
     linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.45) 50%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.45) 50%, transparent 50%),
@@ -513,23 +385,19 @@
       rgba(122, 31, 47, 0.035),
       rgba(255, 255, 255, 0.018)
     );
-
   background-position:
     calc(100% - 18px) calc(50% - 3px),
     calc(100% - 12px) calc(50% - 3px),
     0 0;
-
   background-size:
     6px 6px,
     6px 6px,
     100% 100%;
-
   background-repeat: no-repeat;
 }
 
 .application-page select option {
   background: #0d0d0d;
-
   color: #fff;
 }
 
@@ -539,17 +407,13 @@
 
 .required-note {
   margin-bottom: 25px;
-
   color: #8f8782;
-
   font-size: 0.82rem;
-
   letter-spacing: 0.7px;
 }
 
 .required-note span {
   color: #8f3044;
-
   font-weight: 600;
 }
 
@@ -559,11 +423,8 @@
 
 .phone-appointment-note {
   margin-top: 4px;
-
   color: #7e7672 !important;
-
   font-size: 0.8rem;
-
   font-style: italic;
 }
 
@@ -573,29 +434,19 @@
 
 .booking-location-wrapper {
   width: 100%;
-
   margin-bottom: 5px;
 }
 
 .selected-booking-location {
   width: 100%;
-
   margin-bottom: 22px;
-
   padding: 18px 20px;
-
   box-sizing: border-box;
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   gap: 20px;
-
   border: 1px solid rgba(159, 122, 102, 0.32);
-
   background:
     linear-gradient(
       135deg,
@@ -607,21 +458,15 @@
 
 .selected-booking-location span {
   color: #8f8782;
-
   font-size: 0.72rem;
-
   letter-spacing: 2px;
-
   text-transform: uppercase;
 }
 
 .selected-booking-location strong {
   color: #f1ece8;
-
   font-family: 'Cinzel', serif;
-
   font-weight: 500;
-
   letter-spacing: 1px;
 }
 
@@ -631,64 +476,45 @@
 
 .booking-date-fields {
   width: 100%;
-
   margin-top: 8px;
   margin-bottom: 12px;
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 20px;
 }
 
 .booking-date-field {
   width: 100%;
-
   display: flex;
-
   flex-direction: column;
-
   text-align: left;
 }
 
 .booking-date-field label {
   margin-bottom: 10px;
-
   color: #958b86;
-
   font-family: 'Inter', sans-serif;
-
   font-size: 0.69rem;
-
   letter-spacing: 1.8px;
-
   text-transform: uppercase;
 }
 
 .booking-date-field label span {
   color: #8f3044;
-
   font-weight: 600;
 }
 
 .booking-date-field input[type='date'] {
   min-height: 52px;
-
   color: rgba(255, 255, 255, 0.86);
-
   color-scheme: dark;
-
   cursor: pointer;
 }
 
 .booking-date-field input[type='date']::-webkit-calendar-picker-indicator {
   cursor: pointer;
-
   opacity: 0.58;
-
   filter: invert(1);
-
   transition: opacity 0.3s ease;
 }
 
@@ -711,47 +537,32 @@
 
 .appointment-only {
   margin-top: 28px;
-
   color: #9f7a66 !important;
-
   font-size: 0.88rem;
-
   letter-spacing: 0.5px;
 }
 
 .inline-london-booking {
   margin-top: 38px;
-
   padding-top: 27px;
-
   border-top: 1px solid rgba(255, 255, 255, 0.075);
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   gap: 20px;
 }
 
 .inline-london-booking span {
   color: #918985;
-
   font-size: 0.88rem;
 }
 
 .inline-london-booking a {
   color: #d8c7bd;
-
   text-decoration: none;
-
   font-family: 'Cinzel', serif;
-
   font-size: 0.8rem;
-
   letter-spacing: 1.5px;
-
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -759,7 +570,6 @@
 
 .inline-london-booking a:hover {
   color: #fff;
-
   transform: translateX(3px);
 }
 
@@ -769,15 +579,10 @@
 
 .app-final {
   position: relative;
-
   max-width: 900px;
-
   margin: 0 auto;
-
   padding: 130px 10% 145px;
-
   text-align: center;
-
   background: radial-gradient(
     circle at center,
     rgba(122, 31, 47, 0.06),
@@ -787,41 +592,27 @@
 
 .app-final-eyebrow {
   margin: 0 0 12px;
-
   color: #8f7770;
-
   font-size: 0.67rem;
-
   letter-spacing: 3.5px;
-
   text-transform: uppercase;
 }
 
 .app-final h2 {
   margin: 0;
-
   color: #eee8e4;
-
   font-family: 'Cinzel', serif;
-
   font-size: 2.35rem;
-
   font-weight: 500;
-
   letter-spacing: 2px;
 }
 
 .app-final h2::after {
   content: '';
-
   display: block;
-
   width: 75px;
-
   height: 1px;
-
   margin: 18px auto 25px;
-
   background: linear-gradient(
     90deg,
     transparent,
@@ -832,21 +623,15 @@
 
 .app-final-intro {
   margin: 0 auto 30px;
-
   color: #817a76;
-
   font-size: 0.88rem;
-
   letter-spacing: 0.3px;
 }
 
 .application-page .final-input {
   height: 160px;
-
   min-height: 160px;
-
   max-width: 760px;
-
   margin-left: auto;
   margin-right: auto;
 }
@@ -857,27 +642,16 @@
 
 .submit-btn {
   position: relative;
-
   margin-top: 32px;
-
   padding: 15px 36px;
-
   background: linear-gradient(135deg, rgba(122, 31, 47, 0.08), transparent);
-
   border: 1px solid rgba(159, 122, 102, 0.55);
-
   color: #f2ece8;
-
   font-family: 'Cinzel', serif;
-
   font-size: 0.82rem;
-
   letter-spacing: 2.5px;
-
   text-transform: uppercase;
-
   cursor: pointer;
-
   transition:
     background-color 0.4s ease,
     color 0.4s ease,
@@ -888,14 +662,65 @@
 
 .submit-btn:hover {
   background: #f0ebe8;
-
   color: #090909;
-
   border-color: #f0ebe8;
-
   transform: translateY(-3px);
-
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   UPDATED LONDON CONTACT & WHATSAPP
+========================================================= */
+
+.london-booking-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 24px auto 12px;
+}
+
+.london-booking-contact a {
+  max-width: 100%;
+  color: #e9ddd5;
+  font-size: 0.9rem;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.london-booking-contact a:hover {
+  color: #c5a28f;
+}
+
+.london-booking-panel .london-booking-note {
+  color: #a79b94;
+  font-size: 0.8rem;
+  margin: 15px auto 0;
+}
+
+.london-booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.london-booking-actions .london-booking-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.london-booking-actions .london-booking-button svg {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.london-booking-actions .london-booking-button:first-child svg {
+  color: #25d366;
 }
 
 /* =========================================================
@@ -914,8 +739,6 @@
 ========================================================= */
 
 @media (max-width: 768px) {
-  /* HERO */
-
   .app-hero {
     padding: 110px 22px 80px;
   }
@@ -926,25 +749,18 @@
 
   .app-hero-eyebrow {
     font-size: 0.62rem;
-
     letter-spacing: 3px;
   }
 
   .intro {
     font-size: 0.92rem;
-
     line-height: 1.8;
   }
 
-  /* LONDON PANEL */
-
   .london-booking-panel {
     width: calc(100% - 40px);
-
     margin-bottom: 25px;
-
     padding: 38px 22px;
-
     box-sizing: border-box;
   }
 
@@ -952,45 +768,34 @@
     font-size: 1.65rem;
   }
 
-  /* SECTIONS */
-
   .app-section {
     padding: 80px 22px;
   }
 
   .app-section-heading {
     margin-bottom: 35px;
-
     gap: 16px;
   }
 
   .app-section-number {
     min-width: 32px;
-
     font-size: 0.65rem;
   }
 
   .app-section h2 {
     font-size: 1.95rem;
-
     line-height: 1.25;
   }
 
-  /* GRID */
-
   .form-grid {
     grid-template-columns: 1fr;
-
     gap: 0;
   }
-
-  /* INPUTS */
 
   .application-page input,
   .application-page textarea,
   .application-page select {
     padding: 16px;
-
     font-size: 1rem;
   }
 
@@ -1007,11 +812,8 @@
     min-height: 145px;
   }
 
-  /* CONTACT */
-
   .contact-method-wrapper select {
     padding-right: 62px;
-
     font-size: 0.9rem;
   }
 
@@ -1023,21 +825,14 @@
     font-size: 0.85rem;
   }
 
-  /* LOCATION */
-
   .selected-booking-location {
     align-items: flex-start;
-
     flex-direction: column;
-
     gap: 7px;
   }
 
-  /* DATES */
-
   .booking-date-fields {
     grid-template-columns: 1fr;
-
     gap: 5px;
   }
 
@@ -1045,15 +840,10 @@
     margin-bottom: 8px;
   }
 
-  /* INLINE BOOKING */
-
   .inline-london-booking {
     flex-direction: column;
-
     align-items: flex-start;
   }
-
-  /* FINAL */
 
   .app-final {
     padding: 95px 22px 110px;
@@ -1065,15 +855,12 @@
 
   .application-page .final-input {
     height: 150px;
-
     min-height: 150px;
   }
 
   .submit-btn {
     width: 100%;
-
     max-width: 360px;
-
     padding: 16px 25px;
   }
 }
@@ -1103,9 +890,21 @@
 
   .london-booking-panel {
     width: calc(100% - 32px);
-
     padding-left: 18px;
     padding-right: 18px;
+  }
+
+  .london-booking-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .london-booking-actions .london-booking-button {
+    margin-top: 10px;
+  }
+
+  .london-booking-contact a {
+    font-size: 0.82rem;
   }
 
   .app-final {
