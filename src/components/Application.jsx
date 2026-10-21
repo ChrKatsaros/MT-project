@@ -529,6 +529,27 @@ function Application() {
               required
             />
 
+            {/* SESSION RATES REMINDER */}
+
+            <div className="app-rates-reminder">
+              <span className="app-rates-reminder-label">Session Rates</span>
+
+              <p>
+                Please familiarise yourself with my session rates before
+                submitting your application.
+              </p>
+
+              <a
+                href="/rates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="app-rates-reminder-link"
+              >
+                View Session Rates
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
             <button type="submit" className="submit-btn">
               Submit Application
             </button>

@@ -1,314 +1,389 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { FaInstagram, FaChevronDown } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
-import './navbar.css';
 import logo from '../assets/logo.png';
+
+import './navbar.css';
+
+/* ==========================================
+   MAIN NAVIGATION LINKS
+========================================== */
+
+const mainLinks = [
+  { label: 'About', path: '/about' },
+  { label: 'Experiences', path: '/experiences' },
+  { label: 'Protocol', path: '/protocol' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Guides', path: '/guides' },
+  { label: 'Application', path: '/application' },
+];
+
+/* ==========================================
+   STANDALONE LOCATION PAGES
+
+   IMPORTANT:
+   These are separate HTML pages.
+   They must use normal <a href> links,
+   NOT React Router <Link>.
+========================================== */
+
+const locationLinks = [
+  {
+    label: 'London',
+    path: '/dominatrix-london/',
+  },
+  {
+    label: 'Bournemouth',
+    path: '/dominatrix-bournemouth/',
+  },
+  {
+    label: 'Southampton',
+    path: '/dominatrix-southampton/',
+  },
+  {
+    label: 'Portsmouth',
+    path: '/dominatrix-portsmouth/',
+  },
+];
+
+/* ==========================================
+   NAVBAR COMPONENT
+========================================== */
 
 function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
 
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+
+  /* ========================================
+     SCROLL DETECTION
+  ======================================== */
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
+  /* ========================================
+     CLOSE MENU ON ROUTE CHANGE
+  ======================================== */
+
+  useEffect(() => {
+    setMenuOpen(false);
+    setLocationsOpen(false);
+  }, [location.pathname]);
+
+  /* ========================================
+     SCROLL LOCK — NO LAYOUT SHIFT
+
+     We lock the root document instead
+     of changing body width or padding.
+
+     scrollbar-gutter: stable in CSS
+     reserves the scrollbar space.
+
+     Result:
+     Opening the menu does not resize
+     the page or the hero image.
+  ======================================== */
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const html = document.documentElement;
+
+    const previousOverflow = html.style.overflow;
+
+    html.style.overflow = 'hidden';
+
+    return () => {
+      html.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
+  /* ========================================
+     ESCAPE KEY
+  ======================================== */
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        setLocationsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [menuOpen]);
+
+  /* ========================================
+     MENU HELPERS
+  ======================================== */
 
   const closeMenu = () => {
     setMenuOpen(false);
     setLocationsOpen(false);
   };
 
-  const toggleLocations = () => {
-    setLocationsOpen((prev) => !prev);
+  const toggleMenu = () => {
+    if (menuOpen) {
+      closeMenu();
+    } else {
+      setMenuOpen(true);
+    }
   };
 
-  const isActive = (path) => {
-    return location.pathname === path;
+  /* ========================================
+     BOOKINGS BUTTON
+  ======================================== */
+
+  const handleBookings = () => {
+    closeMenu();
+
+    if (location.pathname !== '/') {
+      navigate('/#booking-options');
+      return;
+    }
+
+    const bookingSection = document.querySelector('.booking-options');
+
+    if (bookingSection) {
+      bookingSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    } else {
+      navigate('/#booking-options');
+    }
   };
 
-  /* =========================================
-     SCROLL TO BOOKING OPTIONS
-  ========================================= */
-
-  const goToBookings = (event) => {
-    event.preventDefault();
-
-    setMenuOpen(false);
-    setLocationsOpen(false);
-
-    window.setTimeout(() => {
-      const bookingSection = document.querySelector('.booking-options');
-
-      if (bookingSection) {
-        bookingSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-      }
-    }, 100);
-  };
+  /* ========================================
+     RENDER
+  ======================================== */
 
   return (
-    <div
-      className={`
-        navbar-container
-        ${scrolled ? 'scrolled' : ''}
-        ${menuOpen ? 'menu-open' : ''}
-      `}
-    >
-      {/* =========================
-          LOGO
-      ========================= */}
+    <>
+      {/* ====================================
+          NAVBAR HEADER
+      ==================================== */}
 
-      <div className="navbar-logo">
-        <Link to="/" className="logo" onClick={closeMenu}>
-          <img src={logo} alt="Mistress Tabitha Thorne" draggable="false" />
-        </Link>
-      </div>
-
-      {/* =========================
-          DESKTOP NAV
-      ========================= */}
-
-      <nav className="navbar-links">
-        <ul className="nav-links">
-          {/* ABOUT */}
-
-          <li className={isActive('/about') ? 'active' : ''}>
-            <Link to="/about">About</Link>
-          </li>
-
-          {/* EXPERIENCES */}
-
-          <li className={isActive('/experiences') ? 'active' : ''}>
-            <Link to="/experiences">Experiences</Link>
-          </li>
-
-          {/* PROTOCOL */}
-
-          <li className={isActive('/protocol') ? 'active' : ''}>
-            <Link to="/protocol">Protocol</Link>
-          </li>
-
-          {/* GALLERY */}
-
-          <li className={isActive('/gallery') ? 'active' : ''}>
-            <Link to="/gallery">Gallery</Link>
-          </li>
-
-          {/* GUIDES */}
-
-          <li className={isActive('/guides') ? 'active' : ''}>
-            <Link to="/guides">Guides</Link>
-          </li>
-
-          {/* APPLICATION */}
-
-          <li className={isActive('/application') ? 'active' : ''}>
-            <Link to="/application">Application</Link>
-          </li>
-
-          {/* =========================
-              LOCATIONS
-          ========================= */}
-
-          <li className="locations-nav-item">
-            <button className="locations-nav-trigger" type="button">
-              Locations
-              <FaChevronDown />
-            </button>
-
-            <div className="locations-dropdown">
-              <a href="/dominatrix-london/">London</a>
-
-              <a href="/dominatrix-bournemouth/">Bournemouth</a>
-
-              <a href="/dominatrix-southampton/">Southampton</a>
-
-              <a href="/dominatrix-portsmouth/">Portsmouth</a>
-            </div>
-          </li>
-
-          {/* =========================
-              BOOKINGS CTA
-          ========================= */}
-
-          <li className="nav-london-booking">
-            <a href="/" onClick={goToBookings}>
-              Bookings
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      {/* =========================
-          MOBILE HAMBURGER
-      ========================= */}
-
-      <button
-        className="mobile-hamburger react-hamburger"
-        type="button"
-        onClick={toggleMenu}
-        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-        aria-expanded={menuOpen}
+      <header
+        className={[
+          'tt-nav',
+          scrolled ? 'tt-nav--scrolled' : '',
+          menuOpen ? 'tt-nav--menu-open' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
       >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      {/* =========================
-          MOBILE MENU
-      ========================= */}
-
-      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        {/* ABOUT */}
+        {/* LOGO */}
 
         <Link
-          to="/about"
+          to="/"
+          className="tt-nav__brand"
+          aria-label="Mistress Tabitha Thorne - Home"
           onClick={closeMenu}
-          className={isActive('/about') ? 'active' : ''}
         >
-          About
+          <img
+            src={logo}
+            alt="Mistress Tabitha Thorne"
+            className="tt-nav__logo"
+          />
         </Link>
 
-        {/* EXPERIENCES */}
+        {/* HAMBURGER */}
 
-        <Link
-          to="/experiences"
-          onClick={closeMenu}
-          className={isActive('/experiences') ? 'active' : ''}
+        <button
+          type="button"
+          className={['tt-nav__toggle', menuOpen ? 'tt-nav__toggle--open' : '']
+            .filter(Boolean)
+            .join(' ')}
+          onClick={toggleMenu}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="tt-navigation-panel"
         >
-          Experiences
-        </Link>
+          <span />
+          <span />
+          <span />
+        </button>
+      </header>
 
-        {/* PROTOCOL */}
+      {/* ====================================
+          BACKDROP
 
-        <Link
-          to="/protocol"
-          onClick={closeMenu}
-          className={isActive('/protocol') ? 'active' : ''}
-        >
-          Protocol
-        </Link>
+          Desktop: transparent
+          Mobile: subtle dark overlay
+      ==================================== */}
 
-        {/* GALLERY */}
+      <div
+        className={[
+          'tt-nav__overlay',
+          menuOpen ? 'tt-nav__overlay--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
 
-        <Link
-          to="/gallery"
-          onClick={closeMenu}
-          className={isActive('/gallery') ? 'active' : ''}
-        >
-          Gallery
-        </Link>
+      {/* ====================================
+          SLIDING SIDEBAR
+      ==================================== */}
 
-        {/* GUIDES */}
+      <nav
+        id="tt-navigation-panel"
+        className={['tt-nav__panel', menuOpen ? 'tt-nav__panel--open' : '']
+          .filter(Boolean)
+          .join(' ')}
+        aria-label="Main navigation"
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
+      >
+        <div className="tt-nav__panel-inner">
+          {/* MAIN LINKS */}
 
-        <Link
-          to="/guides"
-          onClick={closeMenu}
-          className={isActive('/guides') ? 'active' : ''}
-        >
-          Guides
-        </Link>
+          <div className="tt-nav__links">
+            {mainLinks.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={[
+                  'tt-nav__link',
+                  location.pathname === item.path ? 'tt-nav__link--active' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            ))}
 
-        {/* APPLICATION */}
+            {/* ============================
+                LOCATIONS DROPDOWN
+            ============================ */}
 
-        <Link
-          to="/application"
-          onClick={closeMenu}
-          className={isActive('/application') ? 'active' : ''}
-        >
-          Application
-        </Link>
+            <div className="tt-nav__locations">
+              <button
+                type="button"
+                className={[
+                  'tt-nav__link',
+                  'tt-nav__locations-toggle',
+                  locationsOpen ? 'tt-nav__locations-toggle--open' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+                onClick={() => {
+                  setLocationsOpen((prev) => !prev);
+                }}
+                aria-expanded={locationsOpen}
+                aria-controls="tt-locations-list"
+              >
+                <span>Locations</span>
 
-        {/* =========================
-            MOBILE LOCATIONS
-        ========================= */}
+                <FaChevronDown
+                  className="tt-nav__locations-chevron"
+                  aria-hidden="true"
+                />
+              </button>
 
-        <div className="mobile-locations">
-          <button
-            type="button"
-            className="mobile-locations-trigger"
-            onClick={toggleLocations}
-          >
-            Locations
-            <FaChevronDown className={locationsOpen ? 'rotate' : ''} />
-          </button>
+              <div
+                id="tt-locations-list"
+                className={[
+                  'tt-nav__locations-list',
+                  locationsOpen ? 'tt-nav__locations-list--open' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+                aria-hidden={!locationsOpen}
+                inert={!locationsOpen}
+              >
+                {locationLinks.map((item) => (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    className="tt-nav__location-link"
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
 
-          <div
-            className={`mobile-locations-submenu ${
-              locationsOpen ? 'open' : ''
-            }`}
-          >
-            <a href="/dominatrix-london/" onClick={closeMenu}>
-              London
+          {/* =================================
+              VIEW RATES + BOOKINGS
+          ================================= */}
+
+          <div className="tt-nav__actions">
+            <Link
+              to="/rates"
+              className="tt-nav__button tt-nav__button--secondary"
+              onClick={closeMenu}
+            >
+              View Rates
+            </Link>
+
+            <button
+              type="button"
+              className="tt-nav__button tt-nav__button--primary"
+              onClick={handleBookings}
+            >
+              Bookings
+            </button>
+          </div>
+
+          {/* =================================
+              SOCIAL ICONS
+          ================================= */}
+
+          <div className="tt-nav__socials">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
             </a>
 
-            <a href="/dominatrix-bournemouth/" onClick={closeMenu}>
-              Bournemouth
-            </a>
-
-            <a href="/dominatrix-southampton/" onClick={closeMenu}>
-              Southampton
-            </a>
-
-            <a href="/dominatrix-portsmouth/" onClick={closeMenu}>
-              Portsmouth
+            <a
+              href="https://x.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+            >
+              <FaXTwitter />
             </a>
           </div>
         </div>
-
-        {/* =========================
-            MOBILE BOOKINGS
-        ========================= */}
-
-        <a href="/" className="mobile-london-booking" onClick={goToBookings}>
-          Bookings
-        </a>
-
-        {/* =========================
-            SOCIALS
-        ========================= */}
-
-        <div className="mobile-socials">
-          <a
-            href="https://instagram.com/misstabithathorne"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={22} />
-          </a>
-
-          <a
-            href="https://x.com/TabithaThorne"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="X"
-          >
-            <FaXTwitter size={20} />
-          </a>
-        </div>
-      </div>
-    </div>
+      </nav>
+    </>
   );
 }
 

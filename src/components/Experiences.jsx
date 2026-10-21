@@ -7,9 +7,7 @@ import gallery3 from '../assets/gallery11.webp';
 function Experiences() {
   return (
     <>
-      {/* =========================
-          SEO METADATA
-      ========================= */}
+      {/* SEO METADATA */}
 
       <title>BDSM Experiences | Mistress Tabitha Thorne</title>
 
@@ -43,9 +41,7 @@ function Experiences() {
       />
 
       <meta property="og:type" content="website" />
-
       <meta property="og:site_name" content="Mistress Tabitha Thorne" />
-
       <meta property="og:locale" content="en_GB" />
 
       <meta
@@ -74,14 +70,10 @@ function Experiences() {
 
       <meta name="twitter:creator" content="@TabithaThorne" />
 
-      {/* =========================
-          PAGE
-      ========================= */}
+      {/* PAGE */}
 
       <div className="experiences-page">
-        {/* =========================
-            HERO
-        ========================= */}
+        {/* HERO */}
 
         <section
           className="exp-hero"
@@ -108,9 +100,7 @@ function Experiences() {
           </div>
         </section>
 
-        {/* =========================
-            INTRO
-        ========================= */}
+        {/* INTRO */}
 
         <section className="exp-intro">
           <p className="exp-section-eyebrow">The Experience</p>
@@ -123,9 +113,7 @@ function Experiences() {
           </p>
         </section>
 
-        {/* =========================
-            EXPERIENCE PILLARS
-        ========================= */}
+        {/* EXPERIENCE PILLARS */}
 
         <section className="exp-pillars">
           <div className="exp-pillars-heading">
@@ -221,9 +209,7 @@ function Experiences() {
           </div>
         </section>
 
-        {/* =========================
-            PHILOSOPHY
-        ========================= */}
+        {/* SECOND IMAGE — PHILOSOPHY */}
 
         <section
           className="exp-image-section"
@@ -241,25 +227,13 @@ function Experiences() {
             <div className="exp-image-line" />
 
             <p>
-              Anticipation, control, authority, ritual, restraint and tension
-              define the foundation of every encounter.
-            </p>
-
-            <p>
-              Companionship exists only through atmosphere, conversation and
-              immersion — never as entitlement.
-            </p>
-
-            <p className="exp-image-accent">
-              Everything is paced. Nothing is rushed. Submission is cultivated,
-              not demanded.
+              Anticipation, restraint and quiet authority shape every
+              experience. Nothing is rushed.
             </p>
           </div>
         </section>
 
-        {/* =========================
-            INTERESTS
-        ========================= */}
+        {/* INTERESTS */}
 
         <section className="exp-interests">
           <div className="exp-interests-heading">
@@ -331,9 +305,7 @@ function Experiences() {
           </ul>
         </section>
 
-        {/* =========================
-            FEATURED EXPERIENCES
-        ========================= */}
+        {/* FEATURED EXPERIENCES */}
 
         <section className="exp-featured-experiences">
           <div className="exp-featured-heading">
@@ -410,9 +382,7 @@ function Experiences() {
           </div>
         </section>
 
-        {/* =========================
-            CONTROLLED REGRESSION
-        ========================= */}
+        {/* CONTROLLED REGRESSION */}
 
         <section className="exp-regression">
           <span className="exp-regression-number">03</span>
@@ -435,9 +405,7 @@ function Experiences() {
           </div>
         </section>
 
-        {/* =========================
-            CLOSING
-        ========================= */}
+        {/* CLOSING */}
 
         <section className="exp-close">
           <div className="exp-close-line" />

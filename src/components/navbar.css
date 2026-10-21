@@ -1,540 +1,287 @@
-* {
-  box-sizing: border-box;
+/* ==========================================
+   STABLE PAGE WIDTH
+
+   Prevent scrollbar disappearance from
+   changing the width of the website.
+
+   This keeps hero/header images stable
+   when opening and closing the menu.
+========================================== */
+
+html {
+  scrollbar-gutter: stable;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* ==========================================
+   NAVBAR HEADER
+========================================== */
 
-.navbar-container {
+.tt-nav {
+  --tt-nav-bg: #080808;
+  --tt-nav-text: #f1ece8;
+  --tt-nav-accent: #9f7a66;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 76px;
+
+  z-index: 10020;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
-  height: 4.5rem;
+  padding: 0 clamp(24px, 4vw, 70px);
 
-  padding: 0.5rem 2rem;
-
-  position: fixed;
-  top: 0;
-  left: 0;
+  box-sizing: border-box;
 
   background: transparent;
 
-  z-index: 999;
-
   transition:
-    background-color 0.4s ease,
-    box-shadow 0.4s ease,
-    backdrop-filter 0.4s ease;
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.navbar-container.scrolled {
-  background: rgba(0, 0, 0, 0.92);
+/* ==========================================
+   NAVBAR ON SCROLL
+========================================== */
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+.tt-nav--scrolled {
+  background: rgba(8, 8, 8, 0.96);
 
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================
-   LOGO
-========================= */
+/* ==========================================
+   BRAND / LOGO
+========================================== */
 
-.navbar-logo {
-  flex-shrink: 0;
-
+.tt-nav__brand {
   position: relative;
 
-  z-index: 1001;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
 }
 
-.navbar-logo img {
+.tt-nav__logo {
   display: block;
 
-  height: 6rem;
+  width: auto;
+  height: 120px;
 
-  max-width: 100%;
+  max-width: min(55vw, 320px);
 
   object-fit: contain;
 
   transition: height 0.3s ease;
 }
 
-.navbar-container.scrolled .navbar-logo img {
-  height: 4.8rem;
+.tt-nav--scrolled .tt-nav__logo {
+  height: 96px;
 }
 
-/* =========================
-   DESKTOP NAVIGATION
-========================= */
+/* ==========================================
+   HAMBURGER BUTTON
+========================================== */
 
-.navbar-links {
-  flex: 1;
-
-  display: flex;
-
-  justify-content: flex-end;
-
-  min-width: 0;
-}
-
-.nav-links {
-  list-style: none;
-
-  display: flex;
-  align-items: center;
-
-  gap: 1.3rem;
-
-  margin: 0;
-  padding: 0;
-
-  font-family: 'Cinzel', serif;
-}
-
-.nav-links li {
-  flex-shrink: 0;
-}
-
-.nav-links li a {
+.tt-nav__toggle {
   position: relative;
 
-  color: #f1ece8;
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  letter-spacing: 0.08rem;
-
-  font-size: 1rem;
-
-  white-space: nowrap;
-
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #9f7a66;
-}
-
-.nav-links li.active a {
-  color: #9f7a66;
-}
-
-.nav-links li.active a::after {
-  content: '';
-
-  position: absolute;
-
-  left: 0;
-  bottom: -6px;
-
-  width: 100%;
-  height: 1px;
-
-  background: #9f7a66;
-}
-
-/* =========================
-   LOCATIONS DESKTOP
-========================= */
-
-.locations-nav-item {
-  position: relative;
-
-  flex-shrink: 0;
-}
-
-.locations-nav-trigger {
-  display: flex;
-  align-items: center;
-
-  gap: 5px;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color: #f1ece8;
-
-  font-family: 'Cinzel', serif;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.08rem;
-
-  font-size: 1rem;
-
-  cursor: pointer;
-
-  white-space: nowrap;
-
-  transition: color 0.3s ease;
-}
-
-.locations-nav-trigger svg {
-  font-size: 0.65rem;
-
-  transition: transform 0.3s ease;
-}
-
-.locations-nav-item:hover .locations-nav-trigger,
-.locations-nav-item:focus-within .locations-nav-trigger {
-  color: #9f7a66;
-}
-
-.locations-nav-item:hover .locations-nav-trigger svg,
-.locations-nav-item:focus-within .locations-nav-trigger svg {
-  transform: rotate(180deg);
-}
-
-/* =========================
-   LOCATIONS DROPDOWN
-========================= */
-
-.locations-dropdown {
-  position: absolute;
-
-  top: calc(100% + 12px);
-  left: 50%;
-
-  transform: translateX(-50%) translateY(8px);
-
-  min-width: 225px;
-
-  padding: 8px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(20, 17, 16, 0.99),
-    rgba(8, 8, 8, 0.99)
-  );
-
-  border: 1px solid rgba(159, 122, 102, 0.18);
-
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  pointer-events: none;
-
-  z-index: 1005;
-
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0.25s ease;
-}
-
-/* Invisible hover bridge */
-
-.locations-dropdown::before {
-  content: '';
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  top: -14px;
-
-  height: 14px;
-
-  background: transparent;
-}
-
-.locations-nav-item:hover .locations-dropdown,
-.locations-nav-item:focus-within .locations-dropdown {
-  opacity: 1;
-
-  visibility: visible;
-
-  pointer-events: auto;
-
-  transform: translateX(-50%) translateY(0);
-}
-
-/* =========================
-   LOCATION LINKS
-========================= */
-
-.locations-dropdown a {
-  position: relative;
+  z-index: 10025;
 
   display: flex;
-
-  align-items: center;
-
-  padding: 13px 16px;
-
-  color: #b8b0aa !important;
-
-  text-decoration: none;
-
-  font-family: 'Cinzel', serif !important;
-
-  font-size: 0.76rem !important;
-
-  font-weight: 500;
-
-  letter-spacing: 1.4px !important;
-
-  text-transform: uppercase;
-
-  white-space: nowrap;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-
-  transition:
-    color 0.3s ease,
-    background 0.3s ease,
-    padding-left 0.3s ease;
-}
-
-.locations-dropdown a:last-child {
-  border-bottom: 0;
-}
-
-.locations-dropdown a::before {
-  content: '';
-
-  width: 0;
-  height: 1px;
-
-  margin-right: 0;
-
-  background: #9f7a66;
-
-  transition:
-    width 0.3s ease,
-    margin-right 0.3s ease;
-}
-
-.locations-dropdown a::after {
-  display: none !important;
-}
-
-.locations-dropdown a:hover {
-  color: #f1ece8 !important;
-
-  background: rgba(159, 122, 102, 0.08);
-
-  padding-left: 19px;
-}
-
-.locations-dropdown a:hover::before {
-  width: 16px;
-
-  margin-right: 9px;
-}
-
-/* =========================
-   BOOKINGS CTA
-========================= */
-
-.nav-links li.nav-london-booking a {
-  display: inline-block;
-
-  padding: 9px 15px;
-
-  border: 1px solid rgba(159, 122, 102, 0.55);
-
-  color: #e4d6ce;
-
-  font-size: 0.8rem;
-
-  letter-spacing: 0.09rem;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.nav-links li.nav-london-booking a:hover {
-  background: #f1ece8;
-
-  color: #0a0a0a;
-
-  border-color: #f1ece8;
-}
-
-.nav-links li.nav-london-booking a::after {
-  display: none;
-}
-
-/* =========================================================
-   PREMIUM ANIMATED HAMBURGER
-   REACT + STATIC LOCATION PAGES
-========================================================= */
-
-.mobile-hamburger {
-  display: none;
-
-  width: 36px;
-  height: 36px;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  gap: 5px;
+  gap: 7px;
 
-  color: #f1ece8;
+  width: 56px;
+  height: 56px;
+
+  padding: 8px;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
 
   cursor: pointer;
 
-  position: relative;
-
-  z-index: 10001;
-
   -webkit-tap-highlight-color: transparent;
-
-  transition: transform 0.25s ease;
 }
 
-/* HAMBURGER LINES */
-
-.mobile-hamburger span {
+.tt-nav__toggle span {
   display: block;
 
-  width: 24px;
+  width: 34px;
   height: 2px;
 
-  background: #fff;
+  background: #f1ece8;
 
-  border-radius: 10px;
+  border-radius: 2px;
 
   transform-origin: center;
 
   transition:
-    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.22s ease,
-    width 0.32s ease,
+    transform 0.3s ease,
+    opacity 0.25s ease,
     background-color 0.3s ease;
 }
 
-/* Middle line slightly shorter */
-
-.mobile-hamburger span:nth-child(2) {
-  width: 19px;
+.tt-nav__toggle:hover span {
+  background: #c6a28e;
 }
 
-/* =========================
-   OPEN → X
-========================= */
+/* Hamburger to X */
 
-.navbar-container.menu-open .mobile-hamburger span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.tt-nav__toggle--open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
 }
 
-.navbar-container.menu-open .mobile-hamburger span:nth-child(2) {
-  width: 0;
-
+.tt-nav__toggle--open span:nth-child(2) {
   opacity: 0;
 }
 
-.navbar-container.menu-open .mobile-hamburger span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+.tt-nav__toggle--open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
-/* PRESS INTERACTION */
+/* ==========================================
+   BACKDROP
+========================================== */
 
-.mobile-hamburger:active {
-  transform: scale(0.94);
+.tt-nav__overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10010;
+
+  background: transparent;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
 
-/* =========================
-   MOBILE / TABLET MENU
-========================= */
+.tt-nav__overlay--visible {
+  opacity: 1;
+  visibility: visible;
 
-.mobile-menu {
-  position: absolute;
+  pointer-events: auto;
+}
 
-  top: 100%;
-  left: 0;
+/* ==========================================
+   SIDEBAR PANEL
 
-  width: 100%;
+   Only the sidebar animates.
+   The underlying website stays fixed.
+========================================== */
 
-  max-height: 0;
+.tt-nav__panel {
+  position: fixed;
 
-  padding: 0 1.5rem;
+  top: 0;
+  right: 0;
 
-  overflow: hidden;
+  z-index: 10015;
 
+  width: min(100%, 480px);
+
+  height: 100vh;
+  height: 100dvh;
+
+  box-sizing: border-box;
+
+  background: #080808;
+
+  color: #f1ece8;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transform: translate3d(100%, 0, 0);
+
+  pointer-events: none;
+
+  backface-visibility: hidden;
+
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease,
+    visibility 0.42s ease;
+
+  scrollbar-width: thin;
+  scrollbar-color: #55443b #080808;
+}
+
+.tt-nav__panel--open {
+  visibility: visible;
+  opacity: 1;
+
+  transform: translate3d(0, 0, 0);
+
+  pointer-events: auto;
+}
+
+/* ==========================================
+   PANEL INNER CONTENT
+========================================== */
+
+.tt-nav__panel-inner {
   display: flex;
   flex-direction: column;
 
-  gap: 1.15rem;
-
-  background: rgba(10, 10, 10, 0.98);
-
-  border-top: none;
-
-  transition:
-    max-height 0.4s ease,
-    padding 0.3s ease;
-}
-
-.mobile-menu.open {
-  max-height: calc(100dvh - 4.5rem);
-
-  padding: 2rem 1.5rem;
-
-  overflow-y: auto;
-}
-
-.mobile-menu > a {
-  color: #f1ece8;
-
-  text-decoration: none;
-
-  font-family: 'Cinzel', serif;
-
-  font-size: 0.95rem;
-
-  letter-spacing: 1px;
-
-  text-transform: uppercase;
-}
-
-.mobile-menu > a.active {
-  color: #9f7a66;
-}
-
-/* =========================
-   MOBILE LOCATIONS
-========================= */
-
-.mobile-locations {
   width: 100%;
+  min-height: 100%;
+
+  padding: 85px 45px 20px;
+
+  box-sizing: border-box;
 }
 
-.mobile-locations-trigger {
-  width: 100%;
+/* ==========================================
+   MAIN NAVIGATION LINKS
+========================================== */
 
+.tt-nav__links {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
 
-  align-items: center;
+  width: 100%;
+}
 
-  justify-content: space-between;
+.tt-nav__link {
+  display: block;
 
-  padding: 0;
+  width: 100%;
+
+  padding: 7px 0;
+
+  box-sizing: border-box;
 
   border: 0;
 
@@ -543,244 +290,494 @@
   color: #f1ece8;
 
   font-family: 'Cinzel', serif;
+  font-size: 19px;
+  font-weight: 500;
 
-  font-size: 0.95rem;
+  line-height: 2;
+  letter-spacing: 0.06em;
 
-  letter-spacing: 1px;
-
-  text-transform: uppercase;
-
+  text-decoration: none;
   text-align: left;
 
   cursor: pointer;
+
+  transition: color 0.25s ease;
 }
 
-.mobile-locations-trigger svg {
-  font-size: 0.75rem;
+.tt-nav__link:hover,
+.tt-nav__link--active {
+  color: #b99a88;
+}
+
+/* ==========================================
+   LOCATIONS ACCORDION
+========================================== */
+
+.tt-nav__locations {
+  width: 100%;
+}
+
+.tt-nav__locations-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.tt-nav__locations-chevron {
+  flex-shrink: 0;
+
+  font-size: 13px;
 
   transition: transform 0.3s ease;
 }
 
-.mobile-locations-trigger svg.rotate {
+.tt-nav__locations-toggle--open .tt-nav__locations-chevron {
   transform: rotate(180deg);
 }
 
-.mobile-locations-submenu {
+/* Closed dropdown */
+
+.tt-nav__locations-list {
   max-height: 0;
 
+  padding-left: 17px;
+
   overflow: hidden;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 12px;
-
-  padding-left: 18px;
 
   opacity: 0;
 
   transition:
     max-height 0.35s ease,
-    margin-top 0.35s ease,
-    opacity 0.35s ease;
+    opacity 0.25s ease;
 }
 
-.mobile-locations-submenu.open {
-  max-height: 250px;
+/* Open dropdown */
 
-  margin-top: 16px;
+.tt-nav__locations-list--open {
+  max-height: 220px;
 
   opacity: 1;
 }
 
-.mobile-locations-submenu a {
-  color: #aaa19c;
-
-  text-decoration: none;
-
-  font-family: 'Inter', sans-serif;
-
-  font-size: 0.78rem;
-
-  letter-spacing: 1.3px;
-
-  text-transform: uppercase;
-
-  transition: color 0.3s ease;
-}
-
-.mobile-locations-submenu a:hover {
-  color: #f1ece8;
-}
-
-/* =========================
-   MOBILE BOOKINGS BUTTON
-========================= */
-
-.mobile-london-booking {
-  margin-top: 5px;
-
-  padding: 12px 18px;
-
-  text-align: center;
-
-  border: 1px solid rgba(159, 122, 102, 0.55);
-
-  color: #e4d6ce !important;
-
-  font-size: 0.85rem !important;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-
-.mobile-london-booking:hover {
-  background: #f1ece8;
-
-  color: #0a0a0a !important;
-}
-
-/* =========================
-   SOCIALS
-========================= */
-
-.mobile-socials {
-  margin-top: 1rem;
-
-  padding-top: 1.5rem;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.5rem;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.mobile-socials a {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: #b8b0aa;
-
-  text-decoration: none;
-
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.mobile-socials svg {
+.tt-nav__location-link {
   display: block;
 
-  flex-shrink: 0;
+  padding: 6px 0;
 
-  fill: currentColor;
+  color: #bdb4ae;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
 }
 
-.mobile-socials a:hover {
+.tt-nav__location-link:hover {
+  color: #c6a28e;
+
+  padding-left: 5px;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.tt-nav__actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  width: 100%;
+
+  margin-top: 17px;
+}
+
+.tt-nav__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 43px;
+
+  padding: 9px 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #9f7a66;
+  border-radius: 0;
+
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* View Rates */
+
+.tt-nav__button--secondary {
+  background: transparent;
+
   color: #f1ece8;
+}
+
+.tt-nav__button--secondary:hover {
+  background: rgba(159, 122, 102, 0.12);
+
+  border-color: #c6a28e;
+}
+
+/* Bookings */
+
+.tt-nav__button--primary {
+  background: #9f7a66;
+
+  color: #080808;
+}
+
+.tt-nav__button--primary:hover {
+  background: #c6a28e;
+
+  border-color: #c6a28e;
+}
+
+/* ==========================================
+   SOCIAL ICONS
+========================================== */
+
+.tt-nav__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+
+  width: 100%;
+
+  margin-top: 15px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(159, 122, 102, 0.25);
+}
+
+.tt-nav__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  color: #f1ece8;
+
+  font-size: 19px;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.tt-nav__socials a:hover {
+  color: #c6a28e;
 
   transform: translateY(-2px);
 }
 
-/* =========================================================
-   TABLET + SMALL LAPTOP
-   iPad / iPad Pro / intermediate screens
-========================================================= */
+/* ==========================================
+   DESKTOP — LARGE BUT FITS SCREEN
+========================================== */
 
-@media (max-width: 1180px) {
-  .navbar-container {
-    padding: 0.25rem clamp(1rem, 3vw, 2rem);
+@media (min-width: 769px) {
+  .tt-nav__panel {
+    width: 480px;
   }
 
-  /* Hide desktop navigation */
-
-  .navbar-links {
-    display: none;
+  .tt-nav__panel-inner {
+    padding: clamp(64px, 9vh, 85px) 45px 18px;
   }
 
-  /* Show hamburger */
+  .tt-nav__link {
+    font-size: 17px;
 
-  .mobile-hamburger {
-    display: flex;
+    padding: clamp(4px, 0.7vh, 7px) 0;
   }
 
-  /* Logo */
+  .tt-nav__location-link {
+    font-size: 13px;
 
-  .navbar-logo img {
-    height: 5rem;
+    padding: clamp(3px, 0.55vh, 6px) 0;
   }
 
-  .navbar-container.scrolled .navbar-logo img {
-    height: 4.5rem;
+  .tt-nav__actions {
+    margin-top: clamp(10px, 1.8vh, 17px);
   }
 
-  /* Navbar background when menu opens */
-
-  .navbar-container.menu-open {
-    background: rgba(0, 0, 0, 0.96);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  .tt-nav__socials {
+    margin-top: clamp(9px, 1.5vh, 15px);
   }
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ==========================================
+   SHORT DESKTOP SCREENS
+========================================== */
+
+@media (min-width: 769px) and (max-height: 750px) {
+  .tt-nav__panel-inner {
+    padding-top: 65px;
+    padding-bottom: 12px;
+  }
+
+  .tt-nav__link {
+    font-size: 16px;
+    padding: 4px 0;
+  }
+
+  .tt-nav__location-link {
+    font-size: 12px;
+    padding: 3px 0;
+  }
+
+  .tt-nav__actions {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .tt-nav__button {
+    min-height: 39px;
+    padding: 7px 12px;
+  }
+
+  .tt-nav__socials {
+    margin-top: 9px;
+    padding-top: 8px;
+  }
+}
+
+/* ==========================================
+   TABLET / MOBILE
+========================================== */
 
 @media (max-width: 768px) {
-  .navbar-container {
-    height: 4.5rem;
+  .tt-nav {
+    height: 72px;
 
-    padding: 0.2rem 0.8rem;
+    padding: 0 19px;
   }
 
-  .navbar-logo img {
-    height: 4.5rem;
+  .tt-nav__logo {
+    height: 86px;
+
+    max-width: 62vw;
   }
 
-  .navbar-container.scrolled .navbar-logo img {
-    height: 4.2rem;
+  .tt-nav--scrolled .tt-nav__logo {
+    height: 77px;
   }
 
-  .mobile-menu.open {
-    padding: 1.6rem 1.25rem;
+  .tt-nav__toggle {
+    width: 42px;
+    height: 42px;
+
+    gap: 5px;
+
+    padding: 5px;
   }
 
-  .mobile-menu {
-    gap: 1rem;
+  .tt-nav__toggle span {
+    width: 26px;
+    height: 2px;
+  }
+
+  .tt-nav__toggle--open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .tt-nav__toggle--open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .tt-nav__overlay {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .tt-nav__panel {
+    width: min(100%, 400px);
+  }
+
+  .tt-nav__panel-inner {
+    padding: 100px 30px 35px;
+  }
+
+  .tt-nav__link {
+    font-size: 16px;
+
+    padding: 10px 0;
+  }
+
+  .tt-nav__location-link {
+    padding: 9px 0;
+  }
+
+  .tt-nav__actions {
+    margin-top: 28px;
+    gap: 12px;
+  }
+
+  .tt-nav__button {
+    min-height: 48px;
+    padding: 12px 18px;
+  }
+
+  .tt-nav__socials {
+    margin-top: 30px;
+    padding-top: 22px;
   }
 }
 
-/* =========================================================
+/* ==========================================
    SMALL MOBILE
-========================================================= */
+========================================== */
 
 @media (max-width: 480px) {
-  .navbar-container {
-    padding: 0.15rem 0.65rem;
+  .tt-nav {
+    padding: 0 15px;
   }
 
-  .navbar-logo img {
-    height: 4rem;
+  .tt-nav__logo {
+    height: 80px;
   }
 
-  .navbar-container.scrolled .navbar-logo img {
-    height: 3.8rem;
+  .tt-nav--scrolled .tt-nav__logo {
+    height: 74px;
   }
 
-  .mobile-menu > a,
-  .mobile-locations-trigger {
-    font-size: 0.88rem;
+  .tt-nav__panel {
+    width: 100%;
   }
+
+  .tt-nav__panel-inner {
+    padding: 95px 26px 30px;
+  }
+
+  .tt-nav__link {
+    font-size: 15px;
+  }
+
+  .tt-nav__location-link {
+    font-size: 12px;
+  }
+
+  .tt-nav__button {
+    min-height: 46px;
+    font-size: 11px;
+  }
+}
+
+/* ==========================================
+   VERY SHORT SCREENS
+
+   Scroll remains available only when
+   the viewport is too short to fit
+   all menu items safely.
+========================================== */
+
+@media (max-height: 600px) {
+  .tt-nav__panel-inner {
+    padding-top: 70px;
+  }
+
+  .tt-nav__link {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .tt-nav__actions {
+    margin-top: 10px;
+  }
+
+  .tt-nav__socials {
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-nav,
+  .tt-nav__logo,
+  .tt-nav__toggle span,
+  .tt-nav__overlay,
+  .tt-nav__panel,
+  .tt-nav__link,
+  .tt-nav__locations-chevron,
+  .tt-nav__locations-list,
+  .tt-nav__location-link,
+  .tt-nav__button,
+  .tt-nav__socials a {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   FIX: SIDEBAR + VISIBLE CLOSE BUTTON
+========================================== */
+
+/* Header remains above the sidebar,
+   but has no background when menu is open */
+
+.tt-nav--menu-open {
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+/* Sidebar below header, above page */
+
+.tt-nav__panel {
+  z-index: 10015;
+}
+
+/* X stays clickable and visible */
+
+.tt-nav--menu-open .tt-nav__toggle {
+  position: relative;
+  z-index: 10025;
+
+  pointer-events: auto;
+}
+
+/* Logo remains clickable */
+
+.tt-nav--menu-open .tt-nav__brand {
+  pointer-events: auto;
 }

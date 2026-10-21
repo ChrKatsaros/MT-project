@@ -65,41 +65,39 @@
       rel="stylesheet"
     />
 
-    <!-- SHARED WEBSITE CSS -->
+    <!-- SHARED CSS -->
     <link rel="stylesheet" href="/src/components/navbar.css" />
     <link rel="stylesheet" href="/src/components/fourthSection.css" />
     <link rel="stylesheet" href="/src/components/Footer.css" />
     <link rel="stylesheet" href="/location-pages.css" />
 
-    <!-- PRELOAD THE MAIN HERO IMAGE -->
+    <!-- HERO PRELOAD -->
     <link
       rel="preload"
       as="image"
       href="/location-assets/southampton-hero.webp"
     />
 
-    <!-- SELF-CONTAINED PAGE TRANSITION CSS -->
     <style>
+      /* ======================================
+       PAGE LOADER
+    ====================================== */
+
       .tt-page-loader {
         position: fixed;
         inset: 0;
         z-index: 99999;
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
         width: 100%;
         min-height: 100vh;
         min-height: 100dvh;
-
         background: #ffffff;
-
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-
         transition:
           opacity 0.55s ease-in-out,
           visibility 0s linear 0s;
@@ -109,7 +107,6 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-
         transition:
           opacity 0.55s ease-in-out,
           visibility 0s linear 0.55s;
@@ -127,16 +124,18 @@
         width: 27px;
         height: 27px;
         margin-top: 32px;
-
         border: 2px solid rgba(112, 37, 55, 0.14);
         border-top-color: #702537;
         border-radius: 50%;
-
         box-sizing: border-box;
         animation: tt-spinner-rotate 1.1s linear infinite;
       }
 
       @keyframes tt-spinner-rotate {
+        from {
+          transform: rotate(0deg);
+        }
+
         to {
           transform: rotate(360deg);
         }
@@ -164,11 +163,108 @@
           transition-duration: 0.01ms;
         }
       }
+
+      /* ======================================
+       NAVBAR FIXES
+    ====================================== */
+
+      html {
+        scrollbar-gutter: stable;
+      }
+
+      .tt-nav {
+        z-index: 10020;
+      }
+
+      .tt-nav__panel {
+        z-index: 10015;
+      }
+
+      .tt-nav--menu-open {
+        background: transparent !important;
+        box-shadow: none !important;
+        pointer-events: none;
+      }
+
+      .tt-nav--menu-open .tt-nav__toggle,
+      .tt-nav--menu-open .tt-nav__brand {
+        pointer-events: auto;
+      }
+
+      .tt-nav__locations-list:not(.tt-nav__locations-list--open) {
+        pointer-events: none;
+      }
+
+      .tt-nav__locations-list--open {
+        pointer-events: auto;
+      }
+
+      @media (min-width: 769px) {
+        .tt-nav__panel-inner {
+          padding-top: clamp(85px, 10vh, 100px);
+        }
+      }
+
+      /* ======================================
+       SOUTHAMPTON HERO
+       MINIMAL TEXT / VISIBLE IMAGE
+    ====================================== */
+
+      .southampton-hero {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.32)),
+          url('/location-assets/southampton-hero.webp');
+        background-size: cover;
+        background-position: center center;
+      }
+
+      .southampton-hero .location-hero-content {
+        max-width: 680px;
+        padding: 100px 24px 40px;
+        box-sizing: border-box;
+      }
+
+      .southampton-hero .location-hero-content h1 {
+        font-size: clamp(32px, 4vw, 58px);
+        line-height: 1.15;
+        margin: 14px 0 28px;
+      }
+
+      .southampton-hero .location-hero-content h1 span {
+        display: block;
+      }
+
+      .southampton-hero .location-primary-button {
+        margin-top: 0;
+      }
+
+      #booking-options {
+        scroll-margin-top: 90px;
+      }
+
+      @media (max-width: 768px) {
+        .southampton-hero {
+          background-position: center center;
+        }
+
+        .southampton-hero .location-hero-content {
+          max-width: 100%;
+          padding: 95px 20px 35px;
+        }
+
+        .southampton-hero .location-hero-content h1 {
+          font-size: clamp(30px, 8vw, 43px);
+          margin: 12px 0 24px;
+        }
+      }
     </style>
   </head>
 
-  <body>
-    <!-- PAGE LOADING TRANSITION -->
+  <body class="southampton-static">
+    <!-- ======================================
+       PAGE LOADER
+  ====================================== -->
+
     <div
       id="tt-page-loader"
       class="tt-page-loader"
@@ -192,128 +288,145 @@
         if (loader) {
           loader.classList.add('is-hidden');
           loader.style.pointerEvents = 'none';
+          loader.setAttribute('aria-hidden', 'true');
         }
       }, 6500);
     </script>
 
-    <!-- NAVBAR -->
-    <div class="navbar-container" id="static-navbar">
+    <!-- ======================================
+       NAVBAR
+  ====================================== -->
+
+    <header class="tt-nav" id="static-navbar">
       <!-- LOGO -->
-      <div class="navbar-logo">
-        <a href="/" class="logo">
-          <img
-            src="/src/assets/logo.png"
-            alt="Mistress Tabitha Thorne"
-            draggable="false"
-          />
-        </a>
-      </div>
+      <a
+        href="/"
+        class="tt-nav__brand"
+        aria-label="Mistress Tabitha Thorne - Home"
+      >
+        <img
+          src="/src/assets/logo.png"
+          alt="Mistress Tabitha Thorne"
+          class="tt-nav__logo"
+          draggable="false"
+        />
+      </a>
 
-      <!-- DESKTOP NAV -->
-      <nav class="navbar-links" aria-label="Main navigation">
-        <ul class="nav-links">
-          <li><a href="/about">About</a></li>
-          <li><a href="/experiences">Experiences</a></li>
-          <li><a href="/protocol">Protocol</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/guides">Guides</a></li>
-          <li>
-            <a href="/application?location=Southampton"> Application </a>
-          </li>
-
-          <!-- LOCATIONS -->
-          <li class="locations-nav-item active">
-            <button class="locations-nav-trigger" type="button">
-              Locations
-
-              <svg
-                viewBox="0 0 24 24"
-                width="12"
-                height="12"
-                aria-hidden="true"
-                fill="currentColor"
-              >
-                <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
-              </svg>
-            </button>
-
-            <div class="locations-dropdown">
-              <a href="/dominatrix-london/">London</a>
-              <a href="/dominatrix-bournemouth/">Bournemouth</a>
-              <a href="/dominatrix-southampton/">Southampton</a>
-              <a href="/dominatrix-portsmouth/">Portsmouth</a>
-            </div>
-          </li>
-
-          <!-- BOOKINGS -->
-          <li class="nav-london-booking">
-            <a href="#booking-options">Bookings</a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- MOBILE HAMBURGER -->
+      <!-- HAMBURGER -->
       <button
-        class="mobile-hamburger"
+        class="tt-nav__toggle"
         id="static-hamburger"
         type="button"
         aria-label="Open menu"
         aria-expanded="false"
+        aria-controls="static-navigation-panel"
       >
         <span></span>
         <span></span>
         <span></span>
       </button>
+    </header>
 
-      <!-- MOBILE MENU -->
-      <div class="mobile-menu" id="static-mobile-menu">
-        <a href="/about">About</a>
-        <a href="/experiences">Experiences</a>
-        <a href="/protocol">Protocol</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/guides">Guides</a>
+    <!-- MENU BACKDROP -->
+    <div
+      class="tt-nav__overlay"
+      id="static-menu-overlay"
+      aria-hidden="true"
+    ></div>
 
-        <a href="/application?location=Southampton"> Application </a>
+    <!-- SIDEBAR -->
+    <nav
+      class="tt-nav__panel"
+      id="static-navigation-panel"
+      aria-label="Main navigation"
+      aria-hidden="true"
+      inert
+    >
+      <div class="tt-nav__panel-inner">
+        <!-- MAIN LINKS -->
+        <div class="tt-nav__links">
+          <a class="tt-nav__link" href="/about"> About </a>
 
-        <!-- MOBILE LOCATIONS -->
-        <div class="mobile-locations">
-          <button
-            type="button"
-            class="mobile-locations-trigger"
-            id="static-locations-trigger"
-          >
-            Locations
+          <a class="tt-nav__link" href="/experiences"> Experiences </a>
 
-            <svg
-              id="static-location-chevron"
-              viewBox="0 0 24 24"
-              width="12"
-              height="12"
-              fill="currentColor"
-              aria-hidden="true"
+          <a class="tt-nav__link" href="/protocol"> Protocol </a>
+
+          <a class="tt-nav__link" href="/gallery"> Gallery </a>
+
+          <a class="tt-nav__link" href="/guides"> Guides </a>
+
+          <a class="tt-nav__link" href="/application?location=Southampton">
+            Application
+          </a>
+
+          <!-- LOCATIONS -->
+          <div class="tt-nav__locations">
+            <button
+              class="tt-nav__link tt-nav__locations-toggle tt-nav__link--active"
+              id="static-locations-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="static-locations-list"
             >
-              <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
-            </svg>
-          </button>
+              <span>Locations</span>
 
-          <div class="mobile-locations-submenu" id="static-locations-submenu">
-            <a href="/dominatrix-london/">London</a>
-            <a href="/dominatrix-bournemouth/">Bournemouth</a>
-            <a href="/dominatrix-southampton/">Southampton</a>
-            <a href="/dominatrix-portsmouth/">Portsmouth</a>
+              <svg
+                class="tt-nav__locations-chevron"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
+              </svg>
+            </button>
+
+            <div
+              class="tt-nav__locations-list"
+              id="static-locations-list"
+              aria-hidden="true"
+              inert
+            >
+              <a class="tt-nav__location-link" href="/dominatrix-london/">
+                London
+              </a>
+
+              <a class="tt-nav__location-link" href="/dominatrix-bournemouth/">
+                Bournemouth
+              </a>
+
+              <a
+                class="tt-nav__location-link"
+                href="/dominatrix-southampton/"
+                aria-current="page"
+              >
+                Southampton
+              </a>
+
+              <a class="tt-nav__location-link" href="/dominatrix-portsmouth/">
+                Portsmouth
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- MOBILE BOOKINGS -->
-        <a
-          href="#booking-options"
-          class="mobile-london-booking mobile-booking-scroll-link"
-        >
-          Bookings
-        </a>
+        <!-- BUTTONS -->
+        <div class="tt-nav__actions">
+          <a href="/rates" class="tt-nav__button tt-nav__button--secondary">
+            View Rates
+          </a>
+
+          <a
+            href="#booking-options"
+            class="tt-nav__button tt-nav__button--primary"
+          >
+            Bookings
+          </a>
+        </div>
 
         <!-- SOCIALS -->
-        <div class="mobile-socials">
+        <div class="tt-nav__socials">
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
@@ -329,7 +442,7 @@
             >
               <path
                 d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
-              />
+              ></path>
             </svg>
           </a>
 
@@ -348,14 +461,17 @@
             >
               <path
                 d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
-              />
+              ></path>
             </svg>
           </a>
         </div>
       </div>
-    </div>
+    </nav>
 
-    <!-- SOUTHAMPTON PAGE -->
+    <!-- ======================================
+       SOUTHAMPTON PAGE
+  ====================================== -->
+
     <div class="location-page">
       <!-- HERO -->
       <section class="location-hero southampton-hero">
@@ -369,16 +485,11 @@
             <span>Southampton</span>
           </h1>
 
-          <p class="location-hero-subtitle">
-            Available by prior arrangement in Southampton and the surrounding
-            area.
-          </p>
-
           <a
             href="/application?location=Southampton"
             class="location-primary-button"
           >
-            Enquire About Southampton
+            Arrange An Appointment
           </a>
         </div>
       </section>
@@ -574,7 +685,10 @@
       </main>
     </div>
 
-    <!-- FOURTH SECTION -->
+    <!-- ======================================
+       FOURTH SECTION
+  ====================================== -->
+
     <section class="fourth-section" id="booking-options">
       <p class="fourth-subtitle">Private Access</p>
 
@@ -592,7 +706,7 @@
       <!-- GENERAL INFO -->
       <div class="fourth-info">
         <div class="info-block">
-          <span class="info-label">Available In</span>
+          <span class="info-label"> Available In </span>
 
           <span class="info-value">
             London · Bournemouth · Southampton · Portsmouth
@@ -600,12 +714,13 @@
         </div>
 
         <div class="info-block">
-          <span class="info-label">Phone Calls</span>
-          <span class="info-value">By appointment only</span>
+          <span class="info-label"> Phone Calls </span>
+
+          <span class="info-value"> By appointment only </span>
         </div>
 
         <div class="info-block">
-          <span class="info-label">Instagram</span>
+          <span class="info-label"> Instagram </span>
 
           <a
             href="https://instagram.com/misstabithathorne"
@@ -617,7 +732,7 @@
         </div>
 
         <div class="info-block">
-          <span class="info-label">X</span>
+          <span class="info-label"> X </span>
 
           <a
             href="https://x.com/TabithaThorne"
@@ -709,7 +824,10 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ======================================
+       FOOTER
+  ====================================== -->
+
     <footer class="footer">
       <div class="footer-content">
         <!-- LOGO -->
@@ -739,7 +857,7 @@
             <a href="mailto:MissTabithaThorne@proton.me"> Private Enquiries </a>
 
             <div class="footer-contact-note">
-              <span> Phone calls by appointment only </span>
+              <span>Phone calls by appointment only</span>
             </div>
           </div>
         </div>
@@ -763,8 +881,8 @@
                 aria-hidden="true"
               >
                 <path
-                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
-                />
+                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
+                ></path>
               </svg>
             </a>
 
@@ -783,7 +901,7 @@
               >
                 <path
                   d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
-                />
+                ></path>
               </svg>
             </a>
           </div>
@@ -798,74 +916,133 @@
       </div>
     </footer>
 
-    <!-- NAVBAR JAVASCRIPT -->
+    <!-- ======================================
+       NAVBAR JAVASCRIPT
+  ====================================== -->
+
     <script>
-      const navbar = document.getElementById('static-navbar');
-      const hamburger = document.getElementById('static-hamburger');
-      const mobileMenu = document.getElementById('static-mobile-menu');
+      (function () {
+        'use strict';
 
-      const locationsTrigger = document.getElementById(
-        'static-locations-trigger'
-      );
+        const navbar = document.getElementById('static-navbar');
+        const hamburger = document.getElementById('static-hamburger');
+        const panel = document.getElementById('static-navigation-panel');
+        const overlay = document.getElementById('static-menu-overlay');
 
-      const locationsSubmenu = document.getElementById(
-        'static-locations-submenu'
-      );
-
-      const locationChevron = document.getElementById(
-        'static-location-chevron'
-      );
-
-      function handleNavbarScroll() {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      }
-
-      window.addEventListener('scroll', handleNavbarScroll);
-      handleNavbarScroll();
-
-      /* MOBILE MENU */
-      hamburger.addEventListener('click', function () {
-        mobileMenu.classList.toggle('open');
-        navbar.classList.toggle('menu-open');
-
-        const isOpen = navbar.classList.contains('menu-open');
-
-        hamburger.setAttribute(
-          'aria-label',
-          isOpen ? 'Close menu' : 'Open menu'
+        const locationsTrigger = document.getElementById(
+          'static-locations-trigger'
         );
 
-        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
+        const locationsList = document.getElementById('static-locations-list');
 
-      /* MOBILE LOCATIONS */
-      locationsTrigger.addEventListener('click', function () {
-        locationsSubmenu.classList.toggle('open');
-        locationChevron.classList.toggle('rotate');
-      });
+        const root = document.documentElement;
 
-      /* CLOSE MOBILE MENU AFTER BOOKING SCROLL */
-      document
-        .querySelectorAll('.mobile-booking-scroll-link')
-        .forEach((link) => {
+        let menuOpen = false;
+        let locationsOpen = false;
+        let previousOverflow = '';
+
+        function handleNavbarScroll() {
+          navbar.classList.toggle('tt-nav--scrolled', window.scrollY > 50);
+        }
+
+        function setLocationsOpen(open) {
+          locationsOpen = open;
+
+          locationsTrigger.classList.toggle(
+            'tt-nav__locations-toggle--open',
+            open
+          );
+
+          locationsTrigger.setAttribute('aria-expanded', String(open));
+
+          locationsList.classList.toggle('tt-nav__locations-list--open', open);
+
+          locationsList.setAttribute('aria-hidden', String(!open));
+
+          locationsList.inert = !open;
+        }
+
+        function setMenuOpen(open) {
+          if (menuOpen === open) return;
+
+          menuOpen = open;
+
+          navbar.classList.toggle('tt-nav--menu-open', open);
+
+          hamburger.classList.toggle('tt-nav__toggle--open', open);
+
+          panel.classList.toggle('tt-nav__panel--open', open);
+
+          overlay.classList.toggle('tt-nav__overlay--visible', open);
+
+          hamburger.setAttribute(
+            'aria-label',
+            open ? 'Close menu' : 'Open menu'
+          );
+
+          hamburger.setAttribute('aria-expanded', String(open));
+
+          panel.setAttribute('aria-hidden', String(!open));
+
+          panel.inert = !open;
+
+          if (open) {
+            previousOverflow = root.style.overflow;
+            root.style.overflow = 'hidden';
+          } else {
+            root.style.overflow = previousOverflow;
+            setLocationsOpen(false);
+          }
+        }
+
+        hamburger.addEventListener('click', function () {
+          setMenuOpen(!menuOpen);
+        });
+
+        overlay.addEventListener('click', function () {
+          setMenuOpen(false);
+        });
+
+        locationsTrigger.addEventListener('click', function () {
+          setLocationsOpen(!locationsOpen);
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && menuOpen) {
+            setMenuOpen(false);
+            hamburger.focus();
+          }
+        });
+
+        panel.querySelectorAll('a[href]').forEach(function (link) {
           link.addEventListener('click', function () {
-            mobileMenu.classList.remove('open');
-            navbar.classList.remove('menu-open');
-            locationsSubmenu.classList.remove('open');
-            locationChevron.classList.remove('rotate');
+            setMenuOpen(false);
           });
         });
 
-      /* CURRENT YEAR */
-      document.getElementById('current-year').textContent =
-        new Date().getFullYear();
+        window.addEventListener('scroll', handleNavbarScroll, {
+          passive: true,
+        });
+
+        window.addEventListener('pageshow', function () {
+          setMenuOpen(false);
+          handleNavbarScroll();
+        });
+
+        handleNavbarScroll();
+
+        const year = document.getElementById('current-year');
+
+        if (year) {
+          year.textContent = new Date().getFullYear();
+        }
+      })();
     </script>
 
-    <!-- SELF-CONTAINED LOCATION PAGE TRANSITION -->
+    <!-- ======================================
+       LOCATION PAGE TRANSITION
+  ====================================== -->
+
     <script>
       (function () {
         'use strict';
@@ -873,6 +1050,7 @@
         const MIN_DISPLAY_MS = 1100;
         const MAX_WAIT_MS = 4500;
         const SAFETY_MS = 5500;
+        const EXIT_FADE_MS = 450;
 
         const loader = document.getElementById('tt-page-loader');
 
@@ -883,7 +1061,7 @@
         let isReady = false;
         let isLeaving = false;
 
-        /* HIDE LOADER */
+        // HIDE LOADER
         function hideLoader() {
           if (isReady || isLeaving) return;
 
@@ -891,14 +1069,15 @@
 
           loader.classList.add('is-hidden');
           loader.setAttribute('aria-hidden', 'true');
+          loader.style.pointerEvents = 'none';
         }
 
-        /* INDEPENDENT SAFETY TIMEOUT */
+        // SAFETY TIMEOUT
         window.setTimeout(hideLoader, SAFETY_MS);
 
-        /* PRELOAD IMAGE */
+        // PRELOAD IMAGE
         function preloadImage(url) {
-          return new Promise((resolve) => {
+          return new Promise(function (resolve) {
             if (!url) {
               resolve();
               return;
@@ -924,16 +1103,13 @@
           });
         }
 
-        /* COLLECT IMPORTANT IMAGES */
+        // COLLECT CRITICAL IMAGES
         function collectCriticalImages() {
           const urls = new Set();
 
-          // Southampton hero image.
-          // Explicit path avoids CSS parsing problems.
           urls.add('/location-assets/southampton-hero.webp');
 
-          // Images visible near the top of the page.
-          document.querySelectorAll('img').forEach((img) => {
+          document.querySelectorAll('img').forEach(function (img) {
             if (loader.contains(img)) return;
 
             const rect = img.getBoundingClientRect();
@@ -950,14 +1126,13 @@
             }
           });
 
-          return [...urls];
+          return Array.from(urls);
         }
 
-        /* PREPARE PAGE */
+        // PREPARE PAGE
         async function preparePage() {
           try {
-            // Allow CSS and layout to settle.
-            await new Promise((resolve) => {
+            await new Promise(function (resolve) {
               requestAnimationFrame(resolve);
             });
 
@@ -972,7 +1147,7 @@
               fontsReady,
             ]);
 
-            const timeout = new Promise((resolve) => {
+            const timeout = new Promise(function (resolve) {
               window.setTimeout(resolve, MAX_WAIT_MS);
             });
 
@@ -985,7 +1160,7 @@
             const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
 
             if (remaining > 0) {
-              await new Promise((resolve) => {
+              await new Promise(function (resolve) {
                 window.setTimeout(resolve, remaining);
               });
             }
@@ -994,7 +1169,7 @@
           }
         }
 
-        /* TRANSITION BEFORE NAVIGATION */
+        // TRANSITION BEFORE INTERNAL NAVIGATION
         document.addEventListener('click', function (event) {
           if (
             event.defaultPrevented ||
@@ -1024,11 +1199,11 @@
 
           try {
             destination = new URL(link.href, window.location.href);
-          } catch {
+          } catch (error) {
             return;
           }
 
-          // Do not intercept external links.
+          // DO NOT INTERCEPT EXTERNAL LINKS
           if (
             destination.origin !== window.location.origin ||
             !['http:', 'https:'].includes(destination.protocol)
@@ -1036,7 +1211,7 @@
             return;
           }
 
-          // Keep same-page anchor scrolling working.
+          // KEEP SAME-PAGE ANCHOR SCROLLING
           if (
             destination.pathname === window.location.pathname &&
             destination.search === window.location.search
@@ -1049,14 +1224,15 @@
           isLeaving = true;
 
           loader.removeAttribute('aria-hidden');
+          loader.style.pointerEvents = 'auto';
           loader.classList.remove('is-hidden');
 
-          window.setTimeout(() => {
+          window.setTimeout(function () {
             window.location.assign(destination.href);
-          }, 450);
+          }, EXIT_FADE_MS);
         });
 
-        /* BACK / FORWARD CACHE */
+        // BACK / FORWARD CACHE
         window.addEventListener('pageshow', function (event) {
           if (event.persisted) {
             isLeaving = false;
@@ -1064,10 +1240,11 @@
 
             loader.classList.add('is-hidden');
             loader.setAttribute('aria-hidden', 'true');
+            loader.style.pointerEvents = 'none';
           }
         });
 
-        /* START */
+        // START
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', preparePage, {
             once: true,

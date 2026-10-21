@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 
 import ScrollTopButton from './ScrollTopButton';
 
+/* =========================
+   MAIN GALLERY IMAGES
+========================= */
+
+import gallery0 from '../assets/gallery0.webp';
+import gallery00 from '../assets/gallery00.webp';
+
 import gallery2 from '../assets/gallery2.webp';
 import gallery3 from '../assets/gallery3.webp';
 import gallery4 from '../assets/gallery4.webp';
@@ -17,20 +24,23 @@ import gallery11 from '../assets/gallery11.webp';
 import gallery12 from '../assets/gallery12.webp';
 import gallery13 from '../assets/gallery13.webp';
 import gallery14 from '../assets/gallery14.webp';
+import gallery15 from '../assets/gallery15.webp';
 
 import gallery18 from '../assets/gallery18.webp';
 import gallery19 from '../assets/gallery19.webp';
 import gallery20 from '../assets/gallery20.webp';
 import gallery21 from '../assets/gallery21.webp';
-
+import gallery22 from '../assets/gallery22.webp';
+import gallery23 from '../assets/gallery23.webp';
 import gallery24 from '../assets/gallery24.webp';
+
+/* =========================
+   FEATURED FACE PORTRAITS
+========================= */
+
+import gallery25 from '../assets/gallery25.webp';
 import gallery26 from '../assets/gallery26.webp';
-
-/* NEW FACE PORTRAITS */
-
 import gallery27 from '../assets/gallery27.webp';
-import gallery28 from '../assets/gallery28.webp';
-import gallery29 from '../assets/gallery29.webp';
 
 /* =========================
    FEATURED PORTRAITS
@@ -38,12 +48,12 @@ import gallery29 from '../assets/gallery29.webp';
 
 const featuredPortraits = [
   {
-    image: gallery28,
+    image: gallery25,
     alt: 'Portrait of Mistress Tabitha Thorne',
     className: 'featured-portrait-left',
   },
   {
-    image: gallery29,
+    image: gallery26,
     alt: 'Close portrait of Mistress Tabitha Thorne',
     className: 'featured-portrait-main',
   },
@@ -56,11 +66,12 @@ const featuredPortraits = [
 
 /* =========================
    MAIN GALLERY
-
-   gallery23 + gallery25 removed
+   25 IMAGES — NO DUPLICATES
 ========================= */
 
 const images = [
+  gallery0,
+  gallery00,
   gallery2,
   gallery3,
   gallery4,
@@ -74,13 +85,19 @@ const images = [
   gallery12,
   gallery13,
   gallery14,
+  gallery15,
   gallery18,
   gallery19,
   gallery20,
   gallery21,
+  gallery22,
+  gallery23,
   gallery24,
-  gallery26,
 ];
+
+/* =========================
+   GALLERY COMPONENT
+========================= */
 
 function Gallery() {
   return (
@@ -162,9 +179,7 @@ function Gallery() {
           <div className="gallery-overlay" />
 
           <div className="gallery-hero-content">
-            <h1>
-              <span>P</span>rivate <span>V</span>isions
-            </h1>
+            <h1>Private Visions</h1>
 
             <p>
               A curated glimpse into elegance, control, intimacy, and desire.
@@ -211,9 +226,7 @@ function Gallery() {
               <div className="gallery-card" key={image}>
                 <img
                   src={image}
-                  alt={`Mistress Tabitha Thorne private gallery image ${
-                    index + 1
-                  }`}
+                  alt={`Mistress Tabitha Thorne private gallery image ${index + 1}`}
                   loading="lazy"
                 />
               </div>

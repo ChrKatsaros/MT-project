@@ -41,7 +41,7 @@ body {
   padding: 100px 20px 40px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 40%;
+  background-position: center 30%;
 }
 
 /* HERO IMAGES */
@@ -467,14 +467,17 @@ body {
 
 @media (min-width: 769px) {
   .london-hero {
-    background-position: center 25% !important;
+    background-position: center 27% !important;
   }
 
   .portsmouth-hero {
-    background-position: center 25% !important;
+    background-position: center 30% !important;
   }
 
   .southampton-hero {
+    background-position: center 29% !important;
+  }
+  .bournemouth-hero {
     background-position: center 29% !important;
   }
 }
@@ -677,4 +680,40 @@ body {
 
 #london-bookings {
   scroll-margin-top: 90px;
+}
+
+/* ==========================================
+   LOCATION HERO — CLEAN & MINIMAL
+========================================== */
+
+.location-hero .location-hero-content {
+  max-width: 680px;
+  padding: 100px 24px 40px;
+  box-sizing: border-box;
+}
+
+.location-hero .location-hero-content h1 {
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1.15;
+  margin: 14px 0 28px;
+}
+
+.location-hero .location-hero-content h1 span {
+  display: block;
+}
+
+.location-hero .location-hero-content .location-primary-button {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .location-hero .location-hero-content {
+    max-width: 100%;
+    padding: 95px 20px 35px;
+  }
+
+  .location-hero .location-hero-content h1 {
+    font-size: clamp(30px, 8vw, 43px);
+    margin: 12px 0 24px;
+  }
 }

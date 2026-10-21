@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import firstSectionIMG1 from '../assets/firstSectionIMG1.webp';
 import firstSectionIMG2 from '../assets/firstSectionIMG2.webp';
-import '../components/firstSection.css';
-import { Link } from 'react-router-dom';
+
+import './firstSection.css';
 
 function FirstSection() {
   const [zoom, setZoom] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
-      /*
-        Scroll zoom μόνο σε desktop.
-        Σε tablet / mobile οι εικόνες μένουν σταθερές.
-      */
+      // Scroll zoom only on desktop
       if (window.innerWidth <= 1180) {
         setZoom(1);
         return;
       }
 
       const scrollY = window.scrollY;
-
       const zoomValue = 1 + Math.min(scrollY / 2000, 0.1);
 
       setZoom(zoomValue);
@@ -27,7 +25,10 @@ function FirstSection() {
 
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
+
     window.addEventListener('resize', handleScroll);
 
     return () => {
@@ -39,7 +40,7 @@ function FirstSection() {
   return (
     <section className="first-section-container">
       {/* LEFT IMAGE */}
-      <div className="first-image-wrapper">
+      <div className="first-image-wrapper first-image-left">
         <img
           src={firstSectionIMG1}
           alt="Mistress Tabitha Thorne"
@@ -50,7 +51,7 @@ function FirstSection() {
         />
       </div>
 
-      {/* CONTENT */}
+      {/* CENTER CONTENT */}
       <div className="first-middle-content">
         <span className="first-small-title">Exclusive Experiences</span>
 
@@ -65,7 +66,7 @@ function FirstSection() {
       </div>
 
       {/* RIGHT IMAGE */}
-      <div className="first-image-wrapper">
+      <div className="first-image-wrapper first-image-right">
         <img
           src={firstSectionIMG2}
           alt="Mistress Tabitha Thorne"

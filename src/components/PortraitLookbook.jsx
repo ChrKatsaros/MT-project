@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+import gallery25 from '../assets/gallery25.webp';
+import gallery26 from '../assets/gallery26.webp';
 import gallery27 from '../assets/gallery27.webp';
-import gallery28 from '../assets/gallery28.webp';
-import gallery29 from '../assets/gallery29.webp';
 
 import './portraitLookbook.css';
 
+/* =========================
+   PORTRAITS
+========================= */
+
 const portraits = [
   {
-    image: gallery28,
+    image: gallery25,
     number: '01',
     eyebrow: 'The Woman Behind The Presence',
     title: 'Composed Authority',
@@ -17,7 +21,7 @@ const portraits = [
     position: 'center 22%',
   },
   {
-    image: gallery29,
+    image: gallery26,
     number: '02',
     eyebrow: 'Closer',
     title: 'Quiet Intensity',

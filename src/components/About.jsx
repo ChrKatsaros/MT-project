@@ -95,8 +95,7 @@ function About() {
             </h1>
 
             <p className="subtext">
-              Experienced professional Dominatrix available for private BDSM
-              sessions in London, Bournemouth, Southampton and Portsmouth.
+              Refined private experiences across London and the South Coast.
             </p>
 
             <Link to="/application" className="cta">
@@ -260,37 +259,31 @@ function About() {
           <div className="table">
             <div className="row">
               <span>Origin</span>
-
               <span>English-born</span>
             </div>
 
             <div className="row">
               <span>Height</span>
-
               <span>5’8”</span>
             </div>
 
             <div className="row">
               <span>Size</span>
-
               <span>UK 10</span>
             </div>
 
             <div className="row">
               <span>Measurements</span>
-
               <span>32F</span>
             </div>
 
             <div className="row">
               <span>Appearance</span>
-
               <span>Black Hair · Green eyes</span>
             </div>
 
             <div className="row">
               <span>Energy</span>
-
               <span>Composed · Feminine · Controlled</span>
             </div>
           </div>

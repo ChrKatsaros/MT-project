@@ -1,16 +1,19 @@
-/* =========================
-   FIRST SECTION
-========================= */
+/* ==========================================
+   FIRST SECTION — BASE
+========================================== */
 
 .first-section-container {
-  width: 100%;
-
   display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
-    minmax(19rem, 0.8fr)
+    minmax(0, 0.8fr)
     minmax(0, 1fr);
+
+  grid-template-areas: 'left content right';
+
+  width: 100%;
+  max-width: 100%;
 
   align-items: stretch;
 
@@ -19,15 +22,31 @@
   overflow: hidden;
 }
 
-/* =========================
-   IMAGES
-========================= */
+/* Prevent grid children from overflowing */
+
+.first-section-container > * {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   LEFT AND RIGHT IMAGES
+========================================== */
+
+.first-image-left {
+  grid-area: left;
+  grid-column: 1;
+}
+
+.first-image-right {
+  grid-area: right;
+  grid-column: 3;
+}
 
 .first-image-wrapper {
   position: relative;
 
   width: 100%;
-
   min-width: 0;
 
   overflow: hidden;
@@ -44,7 +63,6 @@
   min-height: 32rem;
 
   object-fit: cover;
-
   object-position: center;
 
   transition: transform 1.59s ease-out;
@@ -52,86 +70,100 @@
   will-change: transform;
 }
 
-/* =========================
-   MIDDLE CONTENT
-========================= */
+/* ==========================================
+   CENTER CONTENT — FIXED
+========================================== */
 
-.first-middle-content {
+.first-section-container > .first-middle-content {
+  grid-area: content;
+  grid-column: 2;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
-
   min-width: 0;
+  max-width: 100%;
+
+  margin: 0;
 
   padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
 
-  display: flex;
+  box-sizing: border-box;
 
-  flex-direction: column;
+  background: #0a0a0a;
 
-  align-items: center;
-
-  justify-content: center;
+  color: #f1ece8;
 
   text-align: center;
 
-  color: #f1ece8;
+  transform: none;
 }
 
-/* =========================
+/* ==========================================
    SMALL TITLE
-========================= */
+========================================== */
 
 .first-small-title {
   display: block;
+
+  max-width: 100%;
 
   margin-bottom: 1rem;
 
   color: #9f7a66;
 
   font-family: 'Inter', sans-serif;
-
   font-size: clamp(0.72rem, 0.9vw, 1rem);
-
   font-weight: 600;
 
   letter-spacing: 0.125rem;
-
   line-height: 1.5;
 
+  text-align: center;
   text-transform: uppercase;
 }
 
-/* =========================
+/* ==========================================
    MAIN TITLE
-========================= */
+========================================== */
 
 .first-main-title {
+  width: 100%;
   max-width: 32rem;
+
+  min-width: 0;
 
   margin: 0 0 clamp(2rem, 3vw, 2.875rem);
 
   color: #b8b0aa;
 
   font-family: 'Cinzel', serif;
-
   font-size: clamp(1.25rem, 1.8vw, 1.55rem);
-
   font-weight: 600;
 
   line-height: 1.6;
 
+  text-align: center;
+
   overflow-wrap: break-word;
 }
 
-/* =========================
+/* ==========================================
    BUTTON
-========================= */
+========================================== */
 
 .first-shop-button {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
+
+  max-width: 100%;
 
   padding: 0.875rem 2.6rem;
 
@@ -141,17 +173,15 @@
 
   color: #fff;
 
-  text-decoration: none;
-
-  text-transform: uppercase;
-
   font-family: 'Cinzel', serif;
-
   font-size: 0.85rem;
-
   font-weight: 600;
 
   letter-spacing: 0.1rem;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
 
   cursor: pointer;
 
@@ -169,17 +199,51 @@
   transform: translateY(-2px);
 }
 
-/* =========================================================
+/* ==========================================
    TABLET / IPAD PRO
-   901px - 1180px
-========================================================= */
+   901px — 1180px
+========================================== */
 
-@media (max-width: 1180px) and (min-width: 901px) {
+@media (min-width: 901px) and (max-width: 1180px) {
   .first-section-container {
+    display: grid;
+
     grid-template-columns:
       minmax(0, 0.8fr)
-      minmax(19rem, 1fr)
+      minmax(0, 1fr)
       minmax(0, 0.8fr);
+
+    grid-template-areas: 'left content right';
+  }
+
+  .first-image-left {
+    grid-area: left;
+    grid-column: 1;
+  }
+
+  .first-section-container > .first-middle-content {
+    grid-area: content;
+    grid-column: 2;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 3.5rem clamp(1.4rem, 3vw, 2.5rem);
+
+    box-sizing: border-box;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .first-image-right {
+    grid-area: right;
+    grid-column: 3;
   }
 
   .first-image-wrapper {
@@ -190,14 +254,9 @@
     min-height: 28rem;
 
     object-fit: cover;
-
     object-position: center;
 
     transform: scale(1) !important;
-  }
-
-  .first-middle-content {
-    padding: 3.5rem clamp(1.4rem, 3vw, 2.5rem);
   }
 
   .first-small-title {
@@ -205,30 +264,34 @@
   }
 
   .first-main-title {
-    max-width: 27rem;
+    width: 100%;
+    max-width: 100%;
 
     font-size: clamp(1.15rem, 2.2vw, 1.4rem);
 
     line-height: 1.55;
 
     margin-bottom: 2rem;
+
+    text-align: center;
   }
 
   .first-shop-button {
     padding: 0.8rem 2rem;
-
     font-size: 0.78rem;
   }
 }
 
-/* =========================================================
+/* ==========================================
    TABLET / IPAD MINI
-   641px - 900px
-========================================================= */
+   641px — 900px
+========================================== */
 
 @media (min-width: 641px) and (max-width: 900px) {
   .first-section-container {
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
     grid-template-areas:
       'left right'
@@ -237,24 +300,18 @@
     align-items: start;
   }
 
-  .first-image-wrapper:first-child {
+  .first-image-left {
     grid-area: left;
+    grid-column: 1;
   }
 
-  .first-image-wrapper:last-child {
+  .first-image-right {
     grid-area: right;
+    grid-column: 2;
   }
-
-  /*
-    Πολύ σημαντικό:
-    δεν επιβάλλουμε ύψος στις εικόνες.
-    Έτσι εμφανίζονται στη φυσική τους αναλογία
-    χωρίς crop / artificial zoom.
-  */
 
   .first-image-wrapper {
     width: 100%;
-
     min-height: 0;
 
     overflow: hidden;
@@ -264,13 +321,10 @@
     display: block;
 
     width: 100%;
-
     height: auto;
-
     min-height: 0;
 
     object-fit: contain;
-
     object-position: center;
 
     transform: scale(1) !important;
@@ -278,10 +332,19 @@
     transition: none;
   }
 
-  .first-middle-content {
+  .first-section-container > .first-middle-content {
     grid-area: content;
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: 100%;
 
     padding: 3.5rem 8%;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
   }
 
   .first-small-title {
@@ -305,46 +368,37 @@
   }
 }
 
-/* =========================================================
+/* ==========================================
    MOBILE
-   <= 640px
-========================================================= */
+   UP TO 640px
+========================================== */
 
 @media (max-width: 640px) {
   .first-section-container {
     display: flex;
-
     flex-direction: column;
 
     width: 100%;
+    max-width: 100%;
 
     gap: 0;
   }
 
   .first-image-wrapper {
     width: 100%;
-
     min-height: 0;
 
     overflow: hidden;
   }
 
-  /*
-    Και στο mobile κρατάμε τη φυσική αναλογία.
-    Όχι fixed height -> όχι υπερβολικό zoom.
-  */
-
   .first-side-image {
     display: block;
 
     width: 100%;
-
     height: auto;
-
     min-height: 0;
 
     object-fit: contain;
-
     object-position: center;
 
     transform: scale(1) !important;
@@ -352,15 +406,20 @@
     transition: none;
   }
 
-  .first-middle-content {
+  .first-section-container > .first-middle-content {
     width: 100%;
+    max-width: 100%;
 
     padding: 3.5rem 1.5rem;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
   }
 
   .first-small-title {
     font-size: 0.7rem;
-
     letter-spacing: 0.1rem;
   }
 
@@ -381,12 +440,13 @@
   }
 }
 
-/* =========================================================
+/* ==========================================
    SMALL MOBILE
-========================================================= */
+   UP TO 480px
+========================================== */
 
 @media (max-width: 480px) {
-  .first-middle-content {
+  .first-section-container > .first-middle-content {
     padding: 3rem 1.2rem;
   }
 
@@ -396,15 +456,24 @@
 
   .first-main-title {
     font-size: 1.1rem;
-
     line-height: 1.6;
   }
 
   .first-shop-button {
     width: 100%;
-
     max-width: 18rem;
 
     padding: 0.85rem 1rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .first-side-image,
+  .first-shop-button {
+    transition-duration: 0.01ms !important;
   }
 }

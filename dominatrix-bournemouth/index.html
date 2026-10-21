@@ -66,14 +66,22 @@
       rel="stylesheet"
     />
 
-    <!-- SHARED WEBSITE CSS -->
+    <!-- SHARED CSS -->
     <link rel="stylesheet" href="/src/components/navbar.css" />
     <link rel="stylesheet" href="/src/components/fourthSection.css" />
     <link rel="stylesheet" href="/src/components/Footer.css" />
     <link rel="stylesheet" href="/location-pages.css" />
 
-    <!-- SELF-CONTAINED LOADING TRANSITION -->
+    <!-- HERO PRELOAD -->
+    <link
+      rel="preload"
+      as="image"
+      href="/location-assets/bournemouth-hero.webp"
+    />
+
     <style>
+      /* PAGE LOADER */
+
       .tt-page-loader {
         position: fixed;
         inset: 0;
@@ -147,10 +155,99 @@
           transition-duration: 0.01ms;
         }
       }
+
+      /* NAVBAR FIXES */
+
+      html {
+        scrollbar-gutter: stable;
+      }
+
+      .tt-nav--menu-open {
+        background: transparent !important;
+        box-shadow: none !important;
+        pointer-events: none;
+      }
+
+      .tt-nav--menu-open .tt-nav__toggle,
+      .tt-nav--menu-open .tt-nav__brand {
+        pointer-events: auto;
+      }
+
+      .tt-nav {
+        z-index: 10020;
+      }
+
+      .tt-nav__panel {
+        z-index: 10015;
+      }
+
+      .tt-nav__locations-list:not(.tt-nav__locations-list--open) {
+        pointer-events: none;
+      }
+
+      .tt-nav__locations-list--open {
+        pointer-events: auto;
+      }
+
+      @media (min-width: 769px) {
+        .tt-nav__panel-inner {
+          padding-top: clamp(85px, 10vh, 100px);
+        }
+      }
+
+      /* BOURNEMOUTH HERO */
+
+      .bournemouth-hero {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.32)),
+          url('/location-assets/bournemouth-hero.webp');
+        background-size: cover;
+        background-position: center center;
+      }
+
+      .bournemouth-hero .location-hero-content {
+        max-width: 680px;
+        padding: 100px 24px 40px;
+        box-sizing: border-box;
+      }
+
+      .bournemouth-hero .location-hero-content h1 {
+        font-size: clamp(32px, 4vw, 58px);
+        line-height: 1.15;
+        margin: 14px 0 28px;
+      }
+
+      .bournemouth-hero .location-hero-content h1 span {
+        display: block;
+      }
+
+      .bournemouth-hero .location-primary-button {
+        margin-top: 0;
+      }
+
+      #booking-options {
+        scroll-margin-top: 90px;
+      }
+
+      @media (max-width: 768px) {
+        .bournemouth-hero {
+          background-position: center center;
+        }
+
+        .bournemouth-hero .location-hero-content {
+          max-width: 100%;
+          padding: 95px 20px 35px;
+        }
+
+        .bournemouth-hero .location-hero-content h1 {
+          font-size: clamp(30px, 8vw, 43px);
+          margin: 12px 0 24px;
+        }
+      }
     </style>
   </head>
 
-  <body>
+  <body class="bournemouth-static">
     <!-- PAGE LOADER -->
     <div
       id="tt-page-loader"
@@ -166,129 +263,146 @@
       <div class="tt-loader-spinner" aria-hidden="true"></div>
     </div>
 
-    <!-- EMERGENCY FALLBACK -->
+    <!-- EMERGENCY LOADER FALLBACK -->
     <script>
       setTimeout(function () {
-        const overlay = document.getElementById('tt-page-loader');
+        const loader = document.getElementById('tt-page-loader');
 
-        if (overlay) {
-          overlay.classList.add('is-hidden');
-          overlay.style.pointerEvents = 'none';
+        if (loader) {
+          loader.classList.add('is-hidden');
+          loader.style.pointerEvents = 'none';
+          loader.setAttribute('aria-hidden', 'true');
         }
       }, 6500);
     </script>
 
-    <!-- NAVBAR -->
-    <div class="navbar-container" id="static-navbar">
-      <div class="navbar-logo">
-        <a href="/" class="logo">
-          <img
-            src="/src/assets/logo.png"
-            alt="Mistress Tabitha Thorne"
-            draggable="false"
-          />
-        </a>
-      </div>
+    <!-- ======================================
+       NAVBAR
+  ======================================= -->
 
-      <!-- DESKTOP NAVIGATION -->
-      <nav class="navbar-links" aria-label="Main navigation">
-        <ul class="nav-links">
-          <li><a href="/about">About</a></li>
-          <li><a href="/experiences">Experiences</a></li>
-          <li><a href="/protocol">Protocol</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/guides">Guides</a></li>
-          <li>
-            <a href="/application?location=Bournemouth"> Application </a>
-          </li>
+    <header class="tt-nav" id="static-navbar">
+      <a
+        class="tt-nav__brand"
+        href="/"
+        aria-label="Mistress Tabitha Thorne - Home"
+      >
+        <img
+          class="tt-nav__logo"
+          src="/src/assets/logo.png"
+          alt="Mistress Tabitha Thorne"
+          draggable="false"
+        />
+      </a>
 
-          <!-- LOCATIONS -->
-          <li class="locations-nav-item active">
-            <button class="locations-nav-trigger" type="button">
-              Locations
-              <svg
-                viewBox="0 0 24 24"
-                width="12"
-                height="12"
-                aria-hidden="true"
-                fill="currentColor"
-              >
-                <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
-              </svg>
-            </button>
-
-            <div class="locations-dropdown">
-              <a href="/dominatrix-london/">London</a>
-              <a href="/dominatrix-bournemouth/">Bournemouth</a>
-              <a href="/dominatrix-southampton/">Southampton</a>
-              <a href="/dominatrix-portsmouth/">Portsmouth</a>
-            </div>
-          </li>
-
-          <li class="nav-london-booking">
-            <a href="#booking-options">Bookings</a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- MOBILE HAMBURGER -->
       <button
-        class="mobile-hamburger"
+        class="tt-nav__toggle"
         id="static-hamburger"
         type="button"
         aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="static-navigation-panel"
       >
         <span></span>
         <span></span>
         <span></span>
       </button>
+    </header>
 
-      <!-- MOBILE MENU -->
-      <div class="mobile-menu" id="static-mobile-menu">
-        <a href="/about">About</a>
-        <a href="/experiences">Experiences</a>
-        <a href="/protocol">Protocol</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/guides">Guides</a>
-        <a href="/application?location=Bournemouth">Application</a>
+    <!-- OVERLAY -->
+    <div
+      class="tt-nav__overlay"
+      id="static-menu-overlay"
+      aria-hidden="true"
+    ></div>
 
-        <!-- MOBILE LOCATIONS -->
-        <div class="mobile-locations">
-          <button
-            type="button"
-            class="mobile-locations-trigger"
-            id="static-locations-trigger"
-          >
-            Locations
-            <svg
-              id="static-location-chevron"
-              viewBox="0 0 24 24"
-              width="12"
-              height="12"
-              fill="currentColor"
-              aria-hidden="true"
+    <!-- SIDEBAR -->
+    <nav
+      class="tt-nav__panel"
+      id="static-navigation-panel"
+      aria-label="Main navigation"
+      aria-hidden="true"
+      inert
+    >
+      <div class="tt-nav__panel-inner">
+        <!-- LINKS -->
+        <div class="tt-nav__links">
+          <a class="tt-nav__link" href="/about">About</a>
+          <a class="tt-nav__link" href="/experiences">Experiences</a>
+          <a class="tt-nav__link" href="/protocol">Protocol</a>
+          <a class="tt-nav__link" href="/gallery">Gallery</a>
+          <a class="tt-nav__link" href="/guides">Guides</a>
+          <a class="tt-nav__link" href="/application?location=Bournemouth">
+            Application
+          </a>
+
+          <!-- LOCATIONS -->
+          <div class="tt-nav__locations">
+            <button
+              class="tt-nav__link tt-nav__locations-toggle tt-nav__link--active"
+              id="static-locations-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="static-locations-list"
             >
-              <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
-            </svg>
-          </button>
+              <span>Locations</span>
 
-          <div class="mobile-locations-submenu" id="static-locations-submenu">
-            <a href="/dominatrix-london/">London</a>
-            <a href="/dominatrix-bournemouth/">Bournemouth</a>
-            <a href="/dominatrix-southampton/">Southampton</a>
-            <a href="/dominatrix-portsmouth/">Portsmouth</a>
+              <svg
+                class="tt-nav__locations-chevron"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
+              </svg>
+            </button>
+
+            <div
+              class="tt-nav__locations-list"
+              id="static-locations-list"
+              aria-hidden="true"
+              inert
+            >
+              <a class="tt-nav__location-link" href="/dominatrix-london/">
+                London
+              </a>
+
+              <a
+                class="tt-nav__location-link"
+                href="/dominatrix-bournemouth/"
+                aria-current="page"
+              >
+                Bournemouth
+              </a>
+
+              <a class="tt-nav__location-link" href="/dominatrix-southampton/">
+                Southampton
+              </a>
+
+              <a class="tt-nav__location-link" href="/dominatrix-portsmouth/">
+                Portsmouth
+              </a>
+            </div>
           </div>
         </div>
 
-        <a
-          href="#booking-options"
-          class="mobile-london-booking mobile-booking-scroll-link"
-        >
-          Bookings
-        </a>
+        <!-- BUTTONS -->
+        <div class="tt-nav__actions">
+          <a class="tt-nav__button tt-nav__button--secondary" href="/rates">
+            View Rates
+          </a>
 
-        <!-- MOBILE SOCIALS -->
-        <div class="mobile-socials">
+          <a
+            class="tt-nav__button tt-nav__button--primary"
+            href="#booking-options"
+          >
+            Bookings
+          </a>
+        </div>
+
+        <!-- SOCIALS -->
+        <div class="tt-nav__socials">
           <a
             href="https://instagram.com/misstabithathorne"
             target="_blank"
@@ -304,7 +418,7 @@
             >
               <path
                 d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
-              />
+              ></path>
             </svg>
           </a>
 
@@ -323,14 +437,17 @@
             >
               <path
                 d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
-              />
+              ></path>
             </svg>
           </a>
         </div>
       </div>
-    </div>
+    </nav>
 
-    <!-- BOURNEMOUTH PAGE -->
+    <!-- ======================================
+       BOURNEMOUTH PAGE
+  ======================================= -->
+
     <div class="location-page">
       <!-- HERO -->
       <section class="location-hero bournemouth-hero">
@@ -344,16 +461,11 @@
             <span>Bournemouth</span>
           </h1>
 
-          <p class="location-hero-subtitle">
-            Available by prior arrangement in Bournemouth and the surrounding
-            area.
-          </p>
-
           <a
             href="/application?location=Bournemouth"
             class="location-primary-button"
           >
-            Enquire About Bournemouth
+            Arrange An Appointment
           </a>
         </div>
       </section>
@@ -362,6 +474,7 @@
         <!-- INTRO -->
         <section class="location-section location-intro">
           <p class="section-kicker">Private Appointments</p>
+
           <h2>A Personal Approach To Domination</h2>
 
           <div class="location-copy">
@@ -399,6 +512,7 @@
 
           <div class="location-section-content">
             <p class="section-kicker">Understanding The Dynamic</p>
+
             <h2>A Personal Approach</h2>
 
             <p>
@@ -425,6 +539,7 @@
 
           <div class="location-section-content">
             <p class="section-kicker">New Clients</p>
+
             <h2>Your First Appointment</h2>
 
             <p>
@@ -447,6 +562,7 @@
         <!-- AREA -->
         <section class="location-section location-intro">
           <p class="section-kicker">South Coast</p>
+
           <h2>Bournemouth &amp; The Surrounding Area</h2>
 
           <div class="location-copy">
@@ -471,6 +587,7 @@
         <!-- RETURNING CLIENTS -->
         <section class="location-section dark-section">
           <p class="section-kicker">Continuity</p>
+
           <h2>Returning Clients</h2>
 
           <div class="location-copy">
@@ -490,6 +607,7 @@
         <!-- CTA -->
         <section class="location-booking-section">
           <p class="section-kicker">Private Enquiries</p>
+
           <h2>Request A Bournemouth Appointment</h2>
 
           <p>
@@ -518,6 +636,7 @@
         <!-- RELATED LOCATIONS -->
         <section class="related-locations">
           <p class="section-kicker">Other Locations</p>
+
           <h2>Explore Appointments Elsewhere</h2>
 
           <div class="related-location-grid">
@@ -540,9 +659,13 @@
       </main>
     </div>
 
-    <!-- FOURTH SECTION -->
+    <!-- ======================================
+       FOURTH SECTION
+  ======================================= -->
+
     <section class="fourth-section" id="booking-options">
       <p class="fourth-subtitle">Private Access</p>
+
       <h2 class="fourth-title">Enter <span>Her World</span></h2>
 
       <p class="fourth-text">
@@ -596,6 +719,7 @@
         <!-- LONDON APPOINTMENTS -->
         <div class="booking-option venue-featured">
           <p class="booking-eyebrow">Private Bookings · London</p>
+
           <h3 class="booking-title">London Appointments</h3>
 
           <p class="booking-description">
@@ -633,6 +757,7 @@
         <!-- OTHER LOCATIONS -->
         <div class="booking-option">
           <p class="booking-eyebrow">Flexible Booking</p>
+
           <h3 class="booking-title">Other Locations &amp; Visiting Dates</h3>
 
           <p class="booking-description">
@@ -669,9 +794,13 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ======================================
+       FOOTER
+  ======================================= -->
+
     <footer class="footer">
       <div class="footer-content">
+        <!-- LOGO -->
         <div class="footer-logo">
           <img src="/src/assets/logo.png" alt="Tabitha Thorne Logo" />
         </div>
@@ -722,8 +851,8 @@
                 aria-hidden="true"
               >
                 <path
-                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM17.5 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
-                />
+                  d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6Z"
+                ></path>
               </svg>
             </a>
 
@@ -742,7 +871,7 @@
               >
                 <path
                   d="M18.244 2H21.5l-7.115 8.13L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.716l4.638 6.13L18.244 2Zm-1.143 17.91h1.804L7.235 3.98H5.3L17.101 19.91Z"
-                />
+                ></path>
               </svg>
             </a>
           </div>
@@ -757,66 +886,133 @@
       </div>
     </footer>
 
-    <!-- NAVBAR JAVASCRIPT -->
+    <!-- ======================================
+       NAVBAR JAVASCRIPT
+  ======================================= -->
+
     <script>
-      const navbar = document.getElementById('static-navbar');
-      const hamburger = document.getElementById('static-hamburger');
-      const mobileMenu = document.getElementById('static-mobile-menu');
-      const locationsTrigger = document.getElementById(
-        'static-locations-trigger'
-      );
-      const locationsSubmenu = document.getElementById(
-        'static-locations-submenu'
-      );
-      const locationChevron = document.getElementById(
-        'static-location-chevron'
-      );
+      (function () {
+        'use strict';
 
-      function handleNavbarScroll() {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      }
+        const navbar = document.getElementById('static-navbar');
+        const hamburger = document.getElementById('static-hamburger');
+        const panel = document.getElementById('static-navigation-panel');
+        const overlay = document.getElementById('static-menu-overlay');
 
-      window.addEventListener('scroll', handleNavbarScroll);
-      handleNavbarScroll();
-
-      hamburger.addEventListener('click', function () {
-        mobileMenu.classList.toggle('open');
-        navbar.classList.toggle('menu-open');
-
-        const isOpen = navbar.classList.contains('menu-open');
-
-        hamburger.setAttribute(
-          'aria-label',
-          isOpen ? 'Close menu' : 'Open menu'
+        const locationsTrigger = document.getElementById(
+          'static-locations-trigger'
         );
-        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
 
-      locationsTrigger.addEventListener('click', function () {
-        locationsSubmenu.classList.toggle('open');
-        locationChevron.classList.toggle('rotate');
-      });
+        const locationsList = document.getElementById('static-locations-list');
 
-      document
-        .querySelectorAll('.mobile-booking-scroll-link')
-        .forEach((link) => {
+        const root = document.documentElement;
+
+        let menuOpen = false;
+        let locationsOpen = false;
+        let previousOverflow = '';
+
+        function handleNavbarScroll() {
+          navbar.classList.toggle('tt-nav--scrolled', window.scrollY > 50);
+        }
+
+        function setLocationsOpen(open) {
+          locationsOpen = open;
+
+          locationsTrigger.classList.toggle(
+            'tt-nav__locations-toggle--open',
+            open
+          );
+
+          locationsTrigger.setAttribute('aria-expanded', String(open));
+
+          locationsList.classList.toggle('tt-nav__locations-list--open', open);
+
+          locationsList.setAttribute('aria-hidden', String(!open));
+
+          locationsList.inert = !open;
+        }
+
+        function setMenuOpen(open) {
+          if (menuOpen === open) return;
+
+          menuOpen = open;
+
+          navbar.classList.toggle('tt-nav--menu-open', open);
+
+          hamburger.classList.toggle('tt-nav__toggle--open', open);
+
+          panel.classList.toggle('tt-nav__panel--open', open);
+
+          overlay.classList.toggle('tt-nav__overlay--visible', open);
+
+          hamburger.setAttribute(
+            'aria-label',
+            open ? 'Close menu' : 'Open menu'
+          );
+
+          hamburger.setAttribute('aria-expanded', String(open));
+
+          panel.setAttribute('aria-hidden', String(!open));
+
+          panel.inert = !open;
+
+          if (open) {
+            previousOverflow = root.style.overflow;
+            root.style.overflow = 'hidden';
+          } else {
+            root.style.overflow = previousOverflow;
+            setLocationsOpen(false);
+          }
+        }
+
+        hamburger.addEventListener('click', function () {
+          setMenuOpen(!menuOpen);
+        });
+
+        overlay.addEventListener('click', function () {
+          setMenuOpen(false);
+        });
+
+        locationsTrigger.addEventListener('click', function () {
+          setLocationsOpen(!locationsOpen);
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && menuOpen) {
+            setMenuOpen(false);
+            hamburger.focus();
+          }
+        });
+
+        panel.querySelectorAll('a[href]').forEach(function (link) {
           link.addEventListener('click', function () {
-            mobileMenu.classList.remove('open');
-            navbar.classList.remove('menu-open');
-            locationsSubmenu.classList.remove('open');
-            locationChevron.classList.remove('rotate');
+            setMenuOpen(false);
           });
         });
 
-      document.getElementById('current-year').textContent =
-        new Date().getFullYear();
+        window.addEventListener('scroll', handleNavbarScroll, {
+          passive: true,
+        });
+
+        window.addEventListener('pageshow', function () {
+          setMenuOpen(false);
+          handleNavbarScroll();
+        });
+
+        handleNavbarScroll();
+
+        const year = document.getElementById('current-year');
+
+        if (year) {
+          year.textContent = new Date().getFullYear();
+        }
+      })();
     </script>
 
-    <!-- LOCATION TRANSITION JAVASCRIPT -->
+    <!-- ======================================
+       LOCATION TRANSITION JAVASCRIPT
+  ======================================= -->
+
     <script>
       (function () {
         'use strict';
@@ -839,6 +1035,7 @@
           ready = true;
           loader.classList.add('is-hidden');
           loader.setAttribute('aria-hidden', 'true');
+          loader.style.pointerEvents = 'none';
         }
 
         // Independent safety timeout
@@ -856,6 +1053,7 @@
 
             const finish = () => {
               if (done) return;
+
               done = true;
               resolve();
             };
@@ -870,21 +1068,8 @@
 
         function criticalImages() {
           const urls = new Set();
-          const hero = document.querySelector('.location-hero');
 
-          if (hero) {
-            const background = getComputedStyle(hero).backgroundImage;
-
-            const match = background.match(/url\(\s*["']?([^"')]+)["']?\s*\)/);
-
-            if (match) {
-              try {
-                urls.add(new URL(match[1], document.baseURI).href);
-              } catch (error) {
-                // Ignore invalid URLs
-              }
-            }
-          }
+          urls.add('/location-assets/bournemouth-hero.webp');
 
           document.querySelectorAll('img').forEach((img) => {
             if (loader.contains(img)) return;
@@ -926,7 +1111,6 @@
             console.warn('Location transition:', error);
           } finally {
             const elapsed = performance.now() - start;
-
             const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
 
             if (remaining > 0) {
@@ -992,6 +1176,7 @@
           leaving = true;
 
           loader.removeAttribute('aria-hidden');
+          loader.style.pointerEvents = 'auto';
           loader.classList.remove('is-hidden');
 
           setTimeout(() => {
@@ -1007,6 +1192,7 @@
 
             loader.classList.add('is-hidden');
             loader.setAttribute('aria-hidden', 'true');
+            loader.style.pointerEvents = 'none';
           }
         });
 

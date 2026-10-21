@@ -17,20 +17,10 @@ import Protocol from './components/Protocol';
 import Gallery from './components/Gallery';
 import Guides from './components/Guides';
 import Application from './components/Application';
+import Rates from './components/Rates';
 
 import AgeWarning from './components/AgeWarning';
 import Underage from './components/Underage';
-
-/* =========================================
-   SHARED APPLICATION CONTENT
-
-   This contains the actual routes and layout.
-
-   It is intentionally kept separate from
-   BrowserRouter so the same route tree can
-   later be rendered with StaticRouter during
-   the prerender build.
-========================================= */
 
 export function AppContent() {
   const location = useLocation();
@@ -41,13 +31,10 @@ export function AppContent() {
     <>
       <ScrollToTop />
 
-      {/* AGE WARNING */}
       {!isUnderagePage && <AgeWarning />}
 
-      {/* NAVBAR */}
       {!isUnderagePage && <Navbar />}
 
-      {/* PAGE TRANSITIONS */}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route
@@ -114,6 +101,15 @@ export function AppContent() {
           />
 
           <Route
+            path="/rates"
+            element={
+              <PageTransition>
+                <Rates />
+              </PageTransition>
+            }
+          />
+
+          <Route
             path="/underage"
             element={
               <PageTransition>
@@ -124,18 +120,12 @@ export function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {/* FOOTER CTA */}
       {!isUnderagePage && <FourthSection />}
 
-      {/* FOOTER */}
       {!isUnderagePage && <Footer />}
     </>
   );
 }
-
-/* =========================================
-   BROWSER APPLICATION
-========================================= */
 
 function App() {
   return (

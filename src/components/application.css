@@ -912,3 +912,88 @@
     padding-right: 18px;
   }
 }
+
+/* =========================================================
+   SESSION RATES REMINDER
+========================================================= */
+
+.app-rates-reminder {
+  max-width: 580px;
+  margin: 34px auto 0;
+  padding: 25px 15px 0;
+  border-top: 1px solid rgba(159, 122, 102, 0.2);
+  text-align: center;
+}
+
+.app-rates-reminder-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #9f7a66;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.app-rates-reminder p {
+  max-width: 480px;
+  margin: 0 auto 15px;
+  color: #a9a19d;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.app-rates-reminder-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 5px 0;
+  color: #d8c7bd;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(159, 122, 102, 0.45);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.app-rates-reminder-link:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.app-rates-reminder-link span {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.app-rates-reminder-link:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .app-rates-reminder {
+    margin-top: 28px;
+    padding: 23px 8px 0;
+  }
+
+  .app-rates-reminder p {
+    font-size: 0.82rem;
+    line-height: 1.75;
+  }
+
+  .app-rates-reminder-link {
+    font-size: 0.72rem;
+    letter-spacing: 1.1px;
+  }
+}
