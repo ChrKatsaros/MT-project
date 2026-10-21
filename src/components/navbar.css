@@ -781,3 +781,12 @@ html {
 .tt-nav--menu-open .tt-nav__brand {
   pointer-events: auto;
 }
+
+/* HAMBURGER — ALWAYS WHITE */
+
+.tt-nav__toggle span,
+.tt-nav--scrolled .tt-nav__toggle span,
+.tt-nav--menu-open .tt-nav__toggle span,
+.tt-nav__toggle--open span {
+  background-color: #ffffff !important;
+}
