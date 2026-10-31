@@ -695,3 +695,80 @@
     font-size: 1.8rem;
   }
 }
+
+/* =========================================
+   PROTOCOL HERO — MOBILE ALIGNMENT FIX
+========================================= */
+
+@media (max-width: 768px) {
+  .protocol-page .protocol-hero {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  .protocol-page .protocol-hero-content {
+    width: 100%;
+    max-width: 560px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    box-sizing: border-box;
+    text-align: center;
+
+    transform: translateY(35px);
+  }
+
+  .protocol-page .protocol-eyebrow {
+    width: 100%;
+    text-align: center;
+  }
+
+  .protocol-page .protocol-hero h1 {
+    width: 100%;
+    margin: 0 auto;
+
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: 1px;
+
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .protocol-page .protocol-hero-quote {
+    width: 100%;
+    max-width: 420px;
+
+    margin: 20px auto 0;
+
+    text-align: center;
+    line-height: 1.7;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .protocol-page .protocol-hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .protocol-page .protocol-hero h1 {
+    font-size: clamp(1.65rem, 7.4vw, 2.05rem);
+    letter-spacing: 0.8px;
+  }
+
+  .protocol-page .protocol-hero-quote {
+    font-size: 0.82rem;
+  }
+}
