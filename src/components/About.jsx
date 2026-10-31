@@ -90,9 +90,7 @@ function About() {
           <div className="about-hero-content">
             <p className="eyebrow">About Mistress Tabitha</p>
 
-            <h1>
-              <span>T</span>ABITHA <span>T</span>HORNE
-            </h1>
+            <h1>TABITHA THORNE</h1>
 
             <p className="subtext">
               Refined private experiences across London and the South Coast.
