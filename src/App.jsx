@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-
 import { AnimatePresence } from 'framer-motion';
 
-import ScrollToTop from './components/ScrollToTop';
 import PageTransition from './components/PageTransition';
 
 import Navbar from './components/Navbar';
@@ -24,15 +22,11 @@ import Underage from './components/Underage';
 
 export function AppContent() {
   const location = useLocation();
-
   const isUnderagePage = location.pathname === '/underage';
 
   return (
     <>
-      <ScrollToTop />
-
       {!isUnderagePage && <AgeWarning />}
-
       {!isUnderagePage && <Navbar />}
 
       <AnimatePresence mode="wait">
@@ -121,7 +115,6 @@ export function AppContent() {
       </AnimatePresence>
 
       {!isUnderagePage && <FourthSection />}
-
       {!isUnderagePage && <Footer />}
     </>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import logo from '../assets/logo.png';
 
@@ -133,6 +133,28 @@ function PageTransition({ children }) {
   const pageRef = useRef(null);
   const [isReady, setIsReady] = useState(false);
 
+  /*
+   * Reset scroll after the new page and its loading
+   * overlay have mounted, but before browser paint.
+   *
+   * This prevents the previous page from visibly
+   * jumping to the top during navigation.
+   */
+  useLayoutEffect(() => {
+    const html = document.documentElement;
+
+    const previousScrollBehavior = html.style.scrollBehavior;
+    const previousOverflowAnchor = html.style.overflowAnchor;
+
+    html.style.scrollBehavior = 'auto';
+    html.style.overflowAnchor = 'none';
+
+    window.scrollTo(0, 0);
+
+    html.style.scrollBehavior = previousScrollBehavior;
+    html.style.overflowAnchor = previousOverflowAnchor;
+  }, []);
+
   useEffect(() => {
     let cancelled = false;
     let timeoutId;
@@ -143,13 +165,11 @@ function PageTransition({ children }) {
 
       // Allow the new React page to mount.
       await new Promise((resolve) => requestAnimationFrame(resolve));
-
       await new Promise((resolve) => requestAnimationFrame(resolve));
 
       if (cancelled) return;
 
       const assets = collectPageAssets(pageRef.current);
-
       const fonts = document.fonts?.ready || Promise.resolve();
 
       const allAssets = Promise.allSettled([...assets, fonts]);
@@ -165,7 +185,6 @@ function PageTransition({ children }) {
       if (cancelled) return;
 
       const elapsed = performance.now() - start;
-
       const remaining = Math.max(0, MIN_LOGO_TIME - elapsed);
 
       if (remaining > 0) {

@@ -195,17 +195,6 @@ function Experiences() {
                 through trust, structure and guided anticipation.
               </p>
             </article>
-
-            <article className="exp-card exp-card-subtle">
-              <span className="exp-card-number">07</span>
-
-              <h3>Discreet Regression Dynamics</h3>
-
-              <p>
-                Selectively curated psychological dynamics approached with
-                discretion, care, and emotional intelligence.
-              </p>
-            </article>
           </div>
         </section>
 
@@ -379,29 +368,6 @@ function Experiences() {
                 </p>
               </div>
             </article>
-          </div>
-        </section>
-
-        {/* CONTROLLED REGRESSION */}
-
-        <section className="exp-regression">
-          <span className="exp-regression-number">03</span>
-
-          <div className="exp-regression-content">
-            <p className="exp-section-eyebrow">Selective Experience</p>
-
-            <h2>Controlled Regression</h2>
-
-            <p>
-              Private ABDL-oriented dynamics approached discreetly and
-              respectfully, grounded in trust, structure, ritual and emotional
-              awareness.
-            </p>
-
-            <p>
-              These experiences are selective, carefully negotiated and
-              maintained within a framework of privacy and maturity.
-            </p>
           </div>
         </section>
 
